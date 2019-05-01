@@ -2,70 +2,77 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2B6CFD36
-	for <lists+oprofile-list@lfdr.de>; Tue, 30 Apr 2019 17:51:31 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 37E15103AC
+	for <lists+oprofile-list@lfdr.de>; Wed,  1 May 2019 03:22:17 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1hLV2V-0006Aw-W1; Tue, 30 Apr 2019 15:51:28 +0000
+	id 1hLdws-0004cG-5X; Wed, 01 May 2019 01:22:14 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <wcohen@redhat.com>) id 1hLV2U-0006Ap-JJ
- for oprofile-list@lists.sourceforge.net; Tue, 30 Apr 2019 15:51:26 +0000
+ (envelope-from <wcohen@redhat.com>) id 1hLdwr-0004c5-5h
+ for oprofile-list@lists.sourceforge.net; Wed, 01 May 2019 01:22:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
+ MIME-Version:Date:Message-ID:From:References:To:Subject:Sender:Reply-To:Cc:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=DkR+SLO2oX5GmkDJct71w2+XvCyHiTbec1xRJwo8Gvo=; b=iUSCb5F1aumKyhAWMaSZkXKlYF
- fJBg6UzNmU2QK/lC9pydGcZT3BjbJyX6sXzWYKOlixbubJTjzCWQOQ4NccPC4MEwrwexKtz1Wg5SS
- DchZiLL3c9pQUIXACJ7GoOsDmf4XPShw8akpK1Jk/1V86MFTXWpkhWPgzP4ls7ibwMIw=;
+ bh=bySuKkNEHvtfGBRF8+cXonIRFBthFPsY+BaLKeWoYqU=; b=AihJoPYTyDp5MHSN0BSB2pOzgw
+ Y6ourqJr4WEw9Jieq0LF2Qv2Sjzl2oPql6zB2IpNCoe0CueMLj7h/KeJxwjjQkN0YaqKdE5Y8KUto
+ NKw/HEDhp9A0aovu89XLiJKTLb8J0XtSDNcNb5Tqf/30JhI0cEwCD/opzsMluBIp4W4Y=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ Message-ID:From:References:To:Subject:Sender:Reply-To:Cc:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=DkR+SLO2oX5GmkDJct71w2+XvCyHiTbec1xRJwo8Gvo=; b=eJMcLlSVejtXCRDH/ZeRPr7jk7
- MqPLL05n+LiBvUYn4ToN28x4jvEJqv1nJ5tEcza5xuf6zPN1v5BTZ/9MstzhkfTEF8zDA/g4IEj4f
- 6QJ9QYJ5uehMdOxM3LmMZ1keSqwb+w8xhBxngBkGRXdmHxnOWCcY8piRKoKBybBtImPs=;
+ bh=bySuKkNEHvtfGBRF8+cXonIRFBthFPsY+BaLKeWoYqU=; b=BznTkikt0FmLhOz1S0OMg6/KA9
+ Hk2Ta0vN3xd1G7gwRG/YE+vdb5xONdrBwTIDMqKrkZdMceqeRQe/j5lS+dE4qxkPp9B88hORfL9JM
+ 9J04TNTtFVjSTCAjJsvEO0oZNtm5ufIzo6un0Ud1/9eMb8Kyv6GuR7BRQvzAMRhLrFC4=;
 Received: from mx1.redhat.com ([209.132.183.28])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- id 1hLV2S-001DQ6-M6
- for oprofile-list@lists.sourceforge.net; Tue, 30 Apr 2019 15:51:26 +0000
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
- [10.5.11.22])
+ id 1hLdwp-003JaL-2V
+ for oprofile-list@lists.sourceforge.net; Wed, 01 May 2019 01:22:13 +0000
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+ [10.5.11.11])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 567223084249;
- Tue, 30 Apr 2019 15:51:18 +0000 (UTC)
-Received: from [10.13.129.212] (dhcp129-212.rdu.redhat.com [10.13.129.212])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 0F30510013D9;
- Tue, 30 Apr 2019 15:51:18 +0000 (UTC)
-Subject: Re: oprofile - fix compiler warnings seen with newer gcc
-To: will schmidt <will_schmidt@vnet.ibm.com>, oprofile-list@lists.sf.net
-References: <5d08f0b431f86c54317f7f3677d38d65ddbfb3b7.camel@vnet.ibm.com>
+ by mx1.redhat.com (Postfix) with ESMTPS id 1367E30ADBBB;
+ Wed,  1 May 2019 01:22:05 +0000 (UTC)
+Received: from [10.10.120.211] (ovpn-120-211.rdu2.redhat.com [10.10.120.211])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id A20DE36F7;
+ Wed,  1 May 2019 01:22:04 +0000 (UTC)
+Subject: Re: Having trouble profiling multiple events for an existing process
+ in ARM CortexA53
+To: Jerry Duan <jerryduan100@yahoo.com>,
+ "oprofile-list@lists.sourceforge.net" <oprofile-list@lists.sourceforge.net>
+References: <1656720488.1989768.1556563020320.ref@mail.yahoo.com>
+ <1656720488.1989768.1556563020320@mail.yahoo.com>
 From: William Cohen <wcohen@redhat.com>
-Message-ID: <da445fbd-eb82-82a5-570a-1f5177df7903@redhat.com>
-Date: Tue, 30 Apr 2019 11:51:17 -0400
+Message-ID: <1181b2fe-be48-41e2-eeb1-8f3e82050aac@redhat.com>
+Date: Tue, 30 Apr 2019 21:22:04 -0400
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.6.1
 MIME-Version: 1.0
-In-Reply-To: <5d08f0b431f86c54317f7f3677d38d65ddbfb3b7.camel@vnet.ibm.com>
+In-Reply-To: <1656720488.1989768.1556563020320@mail.yahoo.com>
 Content-Language: en-MW
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.40]); Tue, 30 Apr 2019 15:51:18 +0000 (UTC)
+ (mx1.redhat.com [10.5.110.47]); Wed, 01 May 2019 01:22:05 +0000 (UTC)
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: 28.so]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1hLV2S-001DQ6-M6
+X-Headers-End: 1hLdwp-003JaL-2V
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,119 +85,108 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: "Carl E. Love" <cel@us.ibm.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On 4/29/19 6:18 PM, will schmidt wrote:
-> Hi, 
-> 
-> This is intended to fix some compiler warnings noted when building oprofile with gcc 9.0.1
->     
->      * libutil++/tests/utility_tests.cpp:  Remove deprecated dynamic exception
->        specifications. (gcc -Werror=deprecated).
->      * libpe_utils/op_pe_utils.cpp: strncpy already copies the size of the
->        string, limit it to the size of the destination.
->      * opjitconf/opjitconv.c:  convert sprintf to snprintf and check the return
->        length from the call to ensure we do not overrun our buffer.
->        (gcc -Werror=format-overflow)
-> 
-> ---
-> Thanks
-> -Will
-
-Hi Will,
-
-The changes look fine.  There are committed to the mainline oprofile git repository.  Thanks,  -Will Cohen
-
-> 
-> 
-> diff --git a/libpe_utils/op_pe_utils.cpp b/libpe_utils/op_pe_utils.cpp
-> index 2cae784..d545cee 100644
-> --- a/libpe_utils/op_pe_utils.cpp
-> +++ b/libpe_utils/op_pe_utils.cpp
-> @@ -652,11 +652,11 @@ static bool _get_codes_for_match(unsigned int pfm_idx, const char name[],
->  			strcpy(evt_name ,"PM_CYC") ;
->  		} else if (strstr(event.name, "_GRP")) {
->  			string str = event.name;
->  			strncpy(evt_name, event.name, str.rfind("_GRP"));
->  		} else {
-> -			strncpy(evt_name, event.name, strlen(event.name));
-> +			strncpy(evt_name, event.name, strlen(evt_name));
->  		}
->  
->  		/* Events where the "_EDGE_COUNT" suffix has been appended to a
->  		 * real native event name are pseudo events (events that have
->  		 * not been formally defined in processor documentation), where
-> @@ -732,11 +732,11 @@ static bool _op_get_event_codes(vector<operf_event_t> * evt_vec)
->  			strcpy(evt_name ,"PM_CYC") ;
->  		} else if (strstr(event.name, "_GRP")) {
->  			string str = event.name;
->  			strncpy(evt_name, event.name, str.rfind("_GRP"));
->  		} else {
-> -			strncpy(evt_name, event.name, strlen(event.name));
-> +			strncpy(evt_name, event.name, sizeof(evt_name));
->  		}
->  
->  		/* Events where the "_EDGE_COUNT" suffix has been appended to a
->  		 * real native event name are pseudo events (events that have
->  		 * not been formally defined in processor documentation), where
-> diff --git a/libutil++/tests/utility_tests.cpp b/libutil++/tests/utility_tests.cpp
-> index 3955fd0..2f8286f 100644
-> --- a/libutil++/tests/utility_tests.cpp
-> +++ b/libutil++/tests/utility_tests.cpp
-> @@ -19,17 +19,17 @@
->  using namespace std;
->  
->  static int nb_new;
->  static int nb_new_array;
->  
-> -void* operator new(size_t size) throw(bad_alloc)
-> +void* operator new(size_t size)
->  {
->  	nb_new++;
->  	return malloc(size);
->  }
->  
-> -void* operator new[](size_t size) throw(bad_alloc)
-> +void* operator new[](size_t size)
->  {
->  	nb_new_array++;
->  	return malloc(size);
->  }
->  
-> diff --git a/opjitconv/opjitconv.c b/opjitconv/opjitconv.c
-> index 207054a..c55d8b1 100644
-> --- a/opjitconv/opjitconv.c
-> +++ b/opjitconv/opjitconv.c
-> @@ -720,12 +720,12 @@ static int op_process_jit_dumpfiles(char const * session_dir,
->  	
->  rm_tmp:
->  	/* Delete temporary working directory with all its files
->  	 * (i.e. dump and ELF file).
->  	 */
-> -	sprintf(sys_cmd_buffer, "/bin/rm -rf '%s'", tmp_conv_dir);
-> -	if (system(sys_cmd_buffer) != 0) {
-> +	retlen=snprintf(sys_cmd_buffer,sizeof(sys_cmd_buffer), "/bin/rm -rf '%s'", tmp_conv_dir);
-> +	if ((retlen <=0 ) || (system(sys_cmd_buffer) != 0)) {
->  		printf("opjitconv: Removing temporary working directory failed.\n");
->  		rc = OP_JIT_CONV_TMPDIR_NOT_REMOVED;
->  	}
->  	
->  out:
-> 
-> 
-> 
-> _______________________________________________
-> oprofile-list mailing list
-> oprofile-list@lists.sourceforge.net
-> https://lists.sourceforge.net/lists/listinfo/oprofile-list
-> 
-
-
-
-_______________________________________________
-oprofile-list mailing list
-oprofile-list@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/oprofile-list
+T24gNC8yOS8xOSAyOjM3IFBNLCBKZXJyeSBEdWFuIHZpYSBvcHJvZmlsZS1saXN0IHdyb3RlOgo+
+IEhpLAo+IEkgYW0gdHJ5aW5nIHRvIHVzZSBPcHJvZmlsZSAoMS4zLjApIHRvIGdldCBzb21lIGNh
+Y2hlIG1pc3MgcmF0ZSBmb3Igb3VyIGFwcGxpY2F0aW9uIGluIG91ciBwbGF0Zm9ybSAoQVJNdjgg
+Q29ydGV4QTUzLCBrZXJuZWwgNC45LjAsIFlvY3RvKS4gSXQgaXMga2luZCBvZiB3b3JraW5nIG5v
+dy4gQnV0LCB3aGVuIHVzaW5nIG9wZXJmIHRvIHByb2ZpbGUgbXVsdGlwbGUgZXZlbnRzIGZvciBh
+biBleGlzdGluZyBwcm9jZXNzLCBpdCBhbHdheXMgZmFpbGVkIHRvIHN0YXJ0IHByb2ZpbGluZyBi
+eSBzYXlpbmcgdGhlIHRhcmdldCBwcm9ncmFtIGlzIGFscmVhZHkgZW5kZWQuCj4gCj4gJG9wZXJm
+wqAgLS12bWxpbnV4IC9ib290L3ZtbGludXgtNC45LjDCoCAtLWV2ZW50cyBMMkRfQ0FDSEU6NTAw
+MDowOjE6MSxMMkRfQ0FDSEVfUkVGSUxMOjUwMDA6MDoxOjEgLXAgMzI1Mwo+IGV2ZW50cyBMMkRf
+Q0FDSEU6NTAwMDowOjE6MSxMMkRfQ0FDSEVfUkVGSUxMOjUwMDA6MDoxOjEgLXAgMzI1M3ggL2Jv
+b3Qvdm1saW51eC00LjkuMMKgIC0tCj4gISEhISBObyBzYW1wbGVzIGNvbGxlY3RlZCAhISEKPiBU
+aGUgdGFyZ2V0IHByb2dyYW0vY29tbWFuZCBlbmRlZCBiZWZvcmUgcHJvZmlsaW5nIHdhcyBzdGFy
+dGVkLgo+IG9wZXJmIHJlY29yZCBpbml0IGZhaWxlZAo+IHVzYWdlOiBvcGVyZiBbIG9wdGlvbnMg
+XSBbIC0tc3lzdGVtLXdpZGUgfCAtLXBpZCA8cGlkPiB8IFsgY29tbWFuZCBbIGFyZ3MgXSBdIF0K
+PiAkCj4gCj4gQW0gSSBkb2luZyBzb21ldGhpbmcgd3Jvbmc/IENvdWxkIHNvbWVvbmUgc2hlZCBh
+IGxpZ2h0IGZvciBtZT8KPiAKPiBCdXQgSSBkb24ndCBoYXZlIGFueSBpc3N1ZSBpZiBJIHByb2Zp
+bGUgb25seSBvbmUgZXZlbnQgKGkuZSwgTDJEX0NBQ0hFLEwyRF9DQUNIRV9XQiBvciBMMkRfQ0FD
+SEVfUkVGSUxMKSBmb3IgdGhlIHNhbWUgZXhpc3RpbmcgcHJvY2VzcyxhdCBsZWFzdCB0aGUgb3Bl
+cmYgc3RhcnRlZCBwcm9maWxpbmcgYW5kIG9wcmVwb3J0IGdhdmUgbWUgc29tZSByZXN1bHQuCj4g
+Cj4gJG9wZXJmwqAgLS12bWxpbnV4IC9ib290L3ZtbGludXgtNC45LjDCoCAtLWV2ZW50cyBMMkRf
+Q0FDSEU6NTAwMDowOjE6MSAtcCAzMjUzCj4gb3BlcmY6IFByZXNzIEN0bC1jIG9yICdraWxsIC1T
+SUdJTlQgNDgwMCcgdG8gc3RvcCBwcm9maWxpbmcKPiBvcGVyZjogUHJvZmlsZXIgc3RhcnRlZAo+
+IF5DCj4gUHJvZmlsaW5nIGRvbmUuCj4gJCBvcHJlcG9ydAo+IFVzaW5nIC9tbnQvbG9jYWxkaXNr
+L29wcm9maWxlX2RhdGEvc2FtcGxlcy8gZm9yIHNhbXBsZXMgZGlyZWN0b3J5Lgo+IENQVTogQVJN
+IENvcnRleC1BNTMsIHNwZWVkIDEyMDAgTUh6IChlc3RpbWF0ZWQpCj4gQ291bnRlZCBMMkRfQ0FD
+SEUgZXZlbnRzIChMZXZlbCAyIGRhdGEgY2FjaGUgYWNjZXNzKSB3aXRoIGEgdW5pdCBtYXNrIG9m
+IDB4MDAgKE5vIHVuaXQgbWFzaykgY291bnQgNTAwMAo+IMKgwqAgTDJEX0NBQ0hFOjUwMDB8Cj4g
+wqAgc2FtcGxlc3zCoMKgwqDCoMKgICV8Cj4gLS0tLS0tLS0tLS0tLS0tLS0tCj4gwqDCoMKgIDM5
+NTk0IDEwMC4wMDAgd2w0YXBwCj4gwqDCoCDCoMKgwqAgTDJEX0NBQ0hFOjUwMDB8Cj4gwqDCoCDC
+oMKgIHNhbXBsZXN8wqDCoMKgwqDCoCAlfAo+IMKgwqAgwqAtLS0tLS0tLS0tLS0tLS0tLS0KPiDC
+oMKgIMKgwqDCoMKgIDE1NjMyIDM5LjQ4MDcgbXlhcHAKPiDCoMKgIMKgwqDCoMKgIDE1MTkxIDM4
+LjM2Njkgdm1saW51eC00LjkuMAo+IMKgwqAgwqDCoMKgwqDCoCAzNTc4wqAgOS4wMzY3IGxpYmMt
+Mi4yNC5zbwo+IMKgwqAgwqDCoMKgwqDCoCAyNzMywqAgNi45MDAwIGxpYnptcS5zby41LjAuMQo+
+IMKgwqAgwqDCoMKgwqDCoCAxNjI0wqAgNC4xMDE2IGxpYnB0aHJlYWQtMi4yNC5zbwo+IMKgwqAg
+wqDCoMKgwqDCoMKgIDMyN8KgIDAuODI1OSBsaWJjem1xLnNvLjQuMC4yCj4gwqDCoCDCoMKgwqDC
+oMKgwqAgMjg3wqAgMC43MjQ5IFt2ZHNvXSAodGdpZDozMjUzIHJhbmdlOjB4N2ZhNDg0NTAwMC0w
+eDdmYTQ4NDVmZmYpCj4gwqDCoCDCoMKgwqDCoMKgwqAgMTgwwqAgMC40NTQ2IGxpYm1lbVRyYWNl
+LnNvLjAuMC4wCj4gwqDCoCDCoMKgwqDCoMKgwqDCoCAzMcKgIDAuMDc4MyBsaWJydC0yLjI0LnNv
+Cj4gwqDCoCDCoMKgwqDCoMKgwqDCoMKgIDbCoCAwLjAxNTIgbGQtMi4yNC5zbwo+IMKgwqAgwqDC
+oMKgwqDCoMKgwqDCoCAzwqAgMC4wMDc2IGxpYmNyeXB0by5zby4xLjAuMgo+IMKgwqAgwqDCoMKg
+wqDCoMKgwqDCoCAywqAgMC4wMDUxIG15bGliCj4gwqDCoCDCoMKgwqDCoMKgwqDCoMKgIDHCoCAw
+LjAwMjUgbGlic3lzdGVtZC5zby4wLjE1LjAKPiAkCj4gJG9wZXJmwqAgLS12bWxpbnV4IC9ib290
+L3ZtbGludXgtNC45LjDCoCAtLWV2ZW50cyBMMkRfQ0FDSEVfUkVGSUxMOjUwMDA6MDoxOjEgLXAg
+MzI1Mwo+IG9wZXJmOiBQcmVzcyBDdGwtYyBvciAna2lsbCAtU0lHSU5UIDQ4MzEnIHRvIHN0b3Ag
+cHJvZmlsaW5nCj4gb3BlcmY6IFByb2ZpbGVyIHN0YXJ0ZWQKPiBeQwo+IFByb2ZpbGluZyBkb25l
+Lgo+ICQKPiAKPiAkIG9wZXJmIC0tdmVyc2lvbgo+IG9wZXJmOiBvcHJvZmlsZSAxLjMuMCBjb21w
+aWxlZCBvbiBBcHIgMjUgMjAxOSAxMjowNjo1NAo+ICQKPiAKPiBSZWdhcmRzLAo+IEplcnJ5CgpI
+aSwKCldoYXQgcGFydGljdWxhciBhcm12OCBTb0MgYXJlIHlvdSB1c2luZz8gIEluIHRoZW9yeSBh
+bGwgdGhlIGNvcnRleCBhNTMgcHJvY2Vzc29ycyBzaG91bGQgaGF2ZSB0aGUgc2FtZSBwbXUgaGFy
+ZHdhcmUgd2l0aCA2IHByb2dyYW1tYWJsZSBjb3VudGVycywgYnV0IEkgd29uZGVyIGlmIHRoaXMg
+cHJvY2Vzc29yIG1pZ2h0IGJlIGxpbWl0ZWQgdG8gb25lIHByb2dyYW1tYWJsZSBjb3VudGVyIG9y
+IHdoZXRoZXIgc29tZSBvdGhlciBkcml2ZXIgaW4gdGhlIHN5c3RlbSBpcyByZXNlcnZpbmcgdGhl
+IGNvdW50ZXJzIHN1Y2ggYXMgInBlcmYgLWEgLWUgLi4uIi4gSXMgdGhlcmUgYW55dGhpbmcgZWxz
+ZSBvbiB0aGUgbWFjaGluZSB0aGF0IG1pZ2h0IGJlIHJlc2VydmluZyBjb3VudGVycyBzdWNoIGEg
+d2F0Y2hkb2c/IFlvdSBtaWdodCB0YWtlIGEgbG9vayB0aHJvdWdoIHRoZSBkbWVzZyBvdXRwdXQg
+Zm9yIGEgc29tZXRoaW5nIHRoYXQgbG9va3MgbGlrZSB0aGUgZm9sbG93aW5nIHN0YXRpbmcgdGhl
+IG51bWJlciBvZiBwZXJmb3JtYW5jZSBjb3VudGVycyB0aGF0IGFyZSBhdmFpbGFibGU6CgpbICAg
+IDEuNTcxOTE1XSBodyBwZXJmZXZlbnRzOiBlbmFibGVkIHdpdGggYXJtdjhfY29ydGV4X2E1MyBQ
+TVUgZHJpdmVyLCA3IGNvdW50ZXJzIGF2YWlsYWJsZQoKQWxzbyBpZiB5b3UgYXJlIHVzaW5nIGEg
+ZGV2aWNlIHRyZWUgZmlsZSBtYWtlIHN1cmUgdGhhdCBpdCBwcm9wZXJseSBkZXNjcmliZXMgdGhl
+IHBlcmZvcm1hbmNlIG1vbml0b3JpbmcgaGFyZHdhcmUuICBJbiB0aGUgcGFzdCBpbmNvcnJlY3Qg
+ZGVzY3JpcHRpb25zIGhhdmUgcHJldmVudGVkCgpJIHRyaWVkIHNvbWV0aGluZyBzaW1pbGFyIG9u
+IGEgZHJhZ29uYm9hZCA0MTBjLCBhIDk2Ym9hcmQgd2l0aCA0IGNvcnRleHQgYTUzIHByb2Nlc3Nv
+cnMuICBJdCBpcyBtdWNoIG5ld2VyIDUuMC45IGtlcm5lbC4gIE1heWJlIHRoZXJlIGlzIHNvbWV0
+aGluZyBnb2luZyBvbiBpbiB0aGUga2VybmVsIHRoYXQgaXMgcHJldmVudGluZyBib3RoIGV2ZW50
+cyBmcm9tIGJlaW5nIHNldCBhdCB0aGUgc2FtZSB0aW1lLiAgQmVsb3cgaXMgdGhlIG91dHB1dC4g
+CgoKCiQgcnBtIC1xIG9wcm9maWxlCm9wcm9maWxlLTEuMy4wLTEuZmMyOS5hYXJjaDY0CiQgc3Vk
+byBvcGVyZiAgLS12bWxpbnV4IC91c3IvbGliL2RlYnVnL2xpYi9tb2R1bGVzLzUuMC45LTIwMC5m
+YzI5LmFhcmNoNjQvdm1saW51eCAgLS1ldmVudHMgTDJEX0NBQ0hFOjUwMDA6MDoxOjEsTDJEX0NB
+Q0hFX1JFRklMTDo1MDAwOjA6MToxIC1wIDE4OTYgLS0Kb3BlcmY6IFByZXNzIEN0bC1jIG9yICdr
+aWxsIC1TSUdJTlQgMTE2NDgnIHRvIHN0b3AgcHJvZmlsaW5nCm9wZXJmOiBQcm9maWxlciBzdGFy
+dGVkCl5DXkN3YWl0cGlkIGZvciBvcGVyZi1yZWNvcmQgcHJvY2VzcyBmYWlsZWQ6IEludGVycnVw
+dGVkIHN5c3RlbSBjYWxsCl5Dd2FpdHBpZCBmb3Igb3BlcmYtcmVhZCBwcm9jZXNzIGZhaWxlZDog
+SW50ZXJydXB0ZWQgc3lzdGVtIGNhbGwKRXJyb3IgcnVubmluZyBwcm9maWxlcgpbd2NvaGVuQGxv
+Y2FsaG9zdCB+XSQgb3ByZXBvcnQKVXNpbmcgL2hvbWUvd2NvaGVuL29wcm9maWxlX2RhdGEvc2Ft
+cGxlcy8gZm9yIHNhbXBsZXMgZGlyZWN0b3J5LgpDUFU6IEFSTSBDb3J0ZXgtQTUzLCBzcGVlZCA1
+NyBNSHogKGVzdGltYXRlZCkKQ291bnRlZCBMMkRfQ0FDSEUgZXZlbnRzIChMZXZlbCAyIGRhdGEg
+Y2FjaGUgYWNjZXNzKSB3aXRoIGEgdW5pdCBtYXNrIG9mIDB4MDAgKE5vIHVuaXQgbWFzaykgY291
+bnQgNTAwMApDb3VudGVkIEwyRF9DQUNIRV9SRUZJTEwgZXZlbnRzIChMZXZlbCAyIGRhdGEgY2Fj
+aGUgcmVmaWxsKSB3aXRoIGEgdW5pdCBtYXNrIG9mIDB4MDAgKE5vIHVuaXQgbWFzaykgY291bnQg
+NTAwMAogICBMMkRfQ0FDSEU6NTAwMHxMMkRfQ0FDSEVfUkVGSS4uLnwKICBzYW1wbGVzfCAgICAg
+ICV8ICBzYW1wbGVzfCAgICAgICV8Ci0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LQogICAgMTA1MjkgOTkuNDk5MSAgICAgICA2NjEgOTcuNzgxMSBkdQoJICAgTDJEX0NBQ0hFOjUw
+MDB8TDJEX0NBQ0hFX1JFRkkuLi58CgkgIHNhbXBsZXN8ICAgICAgJXwgIHNhbXBsZXN8ICAgICAg
+JXwKCS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoJICAgICA4ODA4IDgzLjY1
+NDcgICAgICAgNTY4IDg1LjkzMDQgdm1saW51eAoJICAgICAgODc2ICA4LjMxOTkgICAgICAgIDQ5
+ICA3LjQxMzAgbGliYy0yLjI4LnNvCgkgICAgICA4NDQgIDguMDE2MCAgICAgICAgNDMgIDYuNTA1
+MyBkdQoJICAgICAgICAxICAwLjAwOTUgICAgICAgICAxICAwLjE1MTMgbGQtMi4yOC5zbwogICAg
+ICAgMzAgIDAuMjgzNSAgICAgICAgIDcgIDEuMDM1NSBycG0KCSAgIEwyRF9DQUNIRTo1MDAwfEwy
+RF9DQUNIRV9SRUZJLi4ufAoJICBzYW1wbGVzfCAgICAgICV8ICBzYW1wbGVzfCAgICAgICV8Cgkt
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCSAgICAgICAyNyA5MC4wMDAwICAg
+ICAgICAgNiA4NS43MTQzIHZtbGludXgKCSAgICAgICAgMyAxMC4wMDAwICAgICAgICAgMSAxNC4y
+ODU3IGxkLTIuMjguc28KICAgICAgIDIzICAwLjIxNzQgICAgICAgICA4ICAxLjE4MzQgYmFzaAoJ
+ICAgTDJEX0NBQ0hFOjUwMDB8TDJEX0NBQ0hFX1JFRkkuLi58CgkgIHNhbXBsZXN8ICAgICAgJXwg
+IHNhbXBsZXN8ICAgICAgJXwKCS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoJ
+ICAgICAgIDIwIDg2Ljk1NjUgICAgICAgICA1IDYyLjUwMDAgdm1saW51eAoJICAgICAgICAyICA4
+LjY5NTcgICAgICAgICAxIDEyLjUwMDAgYmFzaAoJICAgICAgICAxICA0LjM0NzggICAgICAgICAy
+IDI1LjAwMDAgbGliYy0yLjI4LnNvCgoKLVdpbGwgQ29oZW4KCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpvcHJvZmlsZS1saXN0IG1haWxpbmcgbGlzdApv
+cHJvZmlsZS1saXN0QGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZv
+cmdlLm5ldC9saXN0cy9saXN0aW5mby9vcHJvZmlsZS1saXN0Cg==
