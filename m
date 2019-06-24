@@ -2,82 +2,94 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6AC8751B47
-	for <lists+oprofile-list@lfdr.de>; Mon, 24 Jun 2019 21:15:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8684151B48
+	for <lists+oprofile-list@lfdr.de>; Mon, 24 Jun 2019 21:15:33 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1hfUQy-0005iP-Mj; Mon, 24 Jun 2019 19:15:20 +0000
+	id 1hfUQz-0005iV-2L; Mon, 24 Jun 2019 19:15:21 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <peterz@infradead.org>) id 1hfLVz-0003qo-Hr
- for oprofile-list@lists.sourceforge.net; Mon, 24 Jun 2019 09:43:55 +0000
+ (envelope-from <compudj@efficios.com>) id 1hfPpv-00084d-Gn
+ for oprofile-list@lists.sourceforge.net; Mon, 24 Jun 2019 14:20:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Subject:Cc:To:
- From:Date:Message-Id:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Subject:References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=t52uwsZ5CS16wjZkH/9lP0ZEe/KSj6WTDcY9RTylZiU=; b=lFSrzLTDbpiG4oaUSr44LBrGqD
- 1npI4f88KONuG3y+hdgbQNf4PWuSx5tzLgAb3pOgSX6U7bjvLcUNizDhgw8c8kRvkzJo/1coVzO4o
- IcsSBzVN8zMh2aw7RiAh9mia/0MRyuW196nH6jtf5+UtU5BXXTQ67RRrHjiY1/519Bl8=;
+ bh=jc8emB4G4DxkJzWoVya72U2d4KhEjMEUsAUMMkYgQZg=; b=inTVpua4IwKpEgo/e1xck4K3pu
+ LEVAzbkB9Eskm3sziB44CtJ5RXdL8XSN9YAsre9QqpKql49lTNALDY4chNexHH+vQOP1juDQatLY2
+ QsA75H50EKIMaKRVgnSqmQU3tRcL4eH29rH3pPAzCFywyh7jlGCn4bFjXsWN+wsOV0eU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:References:Subject:Cc:To:From:Date:Message-Id:
- Sender:Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:
- Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
- In-Reply-To:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=t52uwsZ5CS16wjZkH/9lP0ZEe/KSj6WTDcY9RTylZiU=; b=Z
- O40K3S4c84HqNMw6JB7TQ4Ezrutk0kYseuBadD7GQca9j16t5mGI8XyWFl+o5EhZ2FNMyCA8M3FQb
- PgHAluUB50c/RVfI40ZD5Ds9y5FBpxFW6HPwYMNrEcbggBUGOEe8/mXAzbh0kgkK5y/4woDrwcfZg
- LcBhvDGwAFvkT4a4=;
-Received: from merlin.infradead.org ([205.233.59.134])
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+ In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=jc8emB4G4DxkJzWoVya72U2d4KhEjMEUsAUMMkYgQZg=; b=S1wxhEVcHuZfexfQUJ023UK4Dl
+ wYXnJKd38GvtPy95mqy1x9sp4ijb16wzXWQDhboNw+2BSKVg2N1O36Rv48ASNLlqn8TszDl6ViJ6N
+ k1JqSi7fNHAerMslSVzts2G7Lpjhu8ouAiLDjrYUzbLukMiMYGR2ftSDt5/UO5JdKlrY=;
+Received: from mail.efficios.com ([167.114.142.138])
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- id 1hfLW2-00BWX3-1f
- for oprofile-list@lists.sourceforge.net; Mon, 24 Jun 2019 09:44:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Type:MIME-Version:References:
- Subject:Cc:To:From:Date:Message-Id:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=t52uwsZ5CS16wjZkH/9lP0ZEe/KSj6WTDcY9RTylZiU=; b=pPZckTeXk7GUNaGNfbBK8q0PET
- Psm8el7YAywshXMcwevA7aur0wDPpnp4QcJ+KqJ1uwvD5z0H8AUlfcQVnD1GHLXxRvLJDT1LJpdF+
- ArrXtpfxk76E2n8Y9P8oh/5r2UERyrrXl/s571fHUrdkz7DdsEVFgEQDYPshcUhoeRMWokvmtEIUi
- rV1OSQHDdsa9DeouIVSVaYHFlZRr+BHJiwf37wWPkUxGop+I4Gl+MVMNIGjW1SN4ZBSP9mBD+Jziz
- YZdsR77vZh1Wq7Q673JGai165+G3fDHIn4+Xk1z2UVtgN5RlURm45MF+2cWBzMWqVE6sTF8AKNA2u
- fK5uCIxA==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=hirez.programming.kicks-ass.net)
- by merlin.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hfLCm-0006v0-M0; Mon, 24 Jun 2019 09:24:04 +0000
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
- id 5518620A0EF24; Mon, 24 Jun 2019 11:24:02 +0200 (CEST)
-Message-Id: <20190624092109.805742823@infradead.org>
-User-Agent: quilt/0.65
-Date: Mon, 24 Jun 2019 11:18:45 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Jessica Yu <jeyu@kernel.org>, linux-kernel@vger.kernel.org,
- jpoimboe@redhat.com, jikos@kernel.org, mbenes@suse.cz, pmladek@suse.com,
- ast@kernel.org, daniel@iogearbox.net, akpm@linux-foundation.org,
- peterz@infradead.org
-Subject: [PATCH 2/3] module: Fix up module_notifier return values.
+ id 1hfPpx-00BkmS-Fm
+ for oprofile-list@lists.sourceforge.net; Mon, 24 Jun 2019 14:20:53 +0000
+Received: from localhost (ip6-localhost [IPv6:::1])
+ by mail.efficios.com (Postfix) with ESMTP id 1F7B81E5846;
+ Mon, 24 Jun 2019 10:01:05 -0400 (EDT)
+Received: from mail.efficios.com ([IPv6:::1])
+ by localhost (mail02.efficios.com [IPv6:::1]) (amavisd-new, port 10032)
+ with ESMTP id 30tAHu-OSvYj; Mon, 24 Jun 2019 10:01:04 -0400 (EDT)
+Received: from localhost (ip6-localhost [IPv6:::1])
+ by mail.efficios.com (Postfix) with ESMTP id 8165B1E5831;
+ Mon, 24 Jun 2019 10:01:04 -0400 (EDT)
+DKIM-Filter: OpenDKIM Filter v2.10.3 mail.efficios.com 8165B1E5831
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=default; t=1561384864;
+ bh=jc8emB4G4DxkJzWoVya72U2d4KhEjMEUsAUMMkYgQZg=;
+ h=Date:From:To:Message-ID:MIME-Version;
+ b=VRVt6rcQHjCVHpY12SUnfvqlKUBvg1qfQjZJd0XJbcWX4BQjiksIwFvj7U9rk0k4w
+ SDzLnSaHbDP1KXbm8Sh1yANLrmDpZpKiNFMIiLp+y9ZL24ctCzMDsacLQw5JaSVete
+ VmnbGGquOkVhdsMO4gxWpT5mf2ItkyFKwn/RPXXJTfJn8/Bh+fXD7hqN3ldc3nfz3O
+ xkzg2h9uAUKrUBuG2SlEmK0CGuYJAXyFrzwFA0sAHOBuhFX3mQB6tgAkvAjVOo69VE
+ VavVADsPFOi8CSochiTy/3DU5WMMQp/aADvnBhVdpq9eYpNYb7U+67m9/jTd9JMepV
+ HY/AvTjjRk+QA==
+X-Virus-Scanned: amavisd-new at efficios.com
+Received: from mail.efficios.com ([IPv6:::1])
+ by localhost (mail02.efficios.com [IPv6:::1]) (amavisd-new, port 10026)
+ with ESMTP id dJQ_J6pq8rdl; Mon, 24 Jun 2019 10:01:04 -0400 (EDT)
+Received: from mail02.efficios.com (mail02.efficios.com [167.114.142.138])
+ by mail.efficios.com (Postfix) with ESMTP id 541671E582B;
+ Mon, 24 Jun 2019 10:01:04 -0400 (EDT)
+Date: Mon, 24 Jun 2019 10:01:04 -0400 (EDT)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: Peter Zijlstra <peterz@infradead.org>, "Frank Ch. Eigler" <fche@redhat.com>
+Message-ID: <320564860.243.1561384864186.JavaMail.zimbra@efficios.com>
+In-Reply-To: <20190624092109.805742823@infradead.org>
 References: <20190624091843.859714294@infradead.org>
+ <20190624092109.805742823@infradead.org>
+Subject: Re: [PATCH 2/3] module: Fix up module_notifier return values.
 MIME-Version: 1.0
-X-Spam-Score: -0.3 (/)
+X-Originating-IP: [167.114.142.138]
+X-Mailer: Zimbra 8.8.12_GA_3803 (ZimbraWebClient - FF67 (Linux)/8.8.12_GA_3794)
+Thread-Topic: module: Fix up module_notifier return values.
+Thread-Index: wEhc4w1xfyhyzFRK4s3Hnq/quVAuEQ==
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [167.114.142.138 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1hfLW2-00BWX3-1f
+X-Headers-End: 1hfPpx-00BkmS-Fm
 X-Mailman-Approved-At: Mon, 24 Jun 2019 19:15:19 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -91,159 +103,111 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: Song Liu <songliubraving@fb.com>, Robert Richter <rric@kernel.org>,
- Ard Biesheuvel <ard.biesheuvel@linaro.org>, netdev@vger.kernel.org,
- bpf@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>,
- Ingo Molnar <mingo@redhat.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- "Joel Fernandes \(Google\)" <joel@joelfernandes.org>,
- Yonghong Song <yhs@fb.com>, Thomas Gleixner <tglx@linutronix.de>,
- "Paul E. McKenney" <paulmck@linux.ibm.com>, oprofile-list@lists.sf.net,
- Martin KaFai Lau <kafai@fb.com>
+Cc: Song Liu <songliubraving@fb.com>, Alexei Starovoitov <ast@kernel.org>,
+ "Joel Fernandes, Google" <joel@joelfernandes.org>,
+ paulmck <paulmck@linux.ibm.com>, mbenes@suse.cz,
+ Daniel Borkmann <daniel@iogearbox.net>, Ingo Molnar <mingo@redhat.com>,
+ oprofile-list@lists.sf.net, Yonghong Song <yhs@fb.com>,
+ Petr Mladek <pmladek@suse.com>, Robert Richter <rric@kernel.org>,
+ jikos@kernel.org, rostedt <rostedt@goodmis.org>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Ard Biesheuvel <ard.biesheuvel@linaro.org>, netdev <netdev@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>, Jessica Yu <jeyu@kernel.org>,
+ bpf@vger.kernel.org, Martin KaFai Lau <kafai@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-While auditing all module notifiers I noticed a whole bunch of fail
-wrt the return value. Notifiers have a 'special' return semantics.
+----- On Jun 24, 2019, at 5:18 AM, Peter Zijlstra peterz@infradead.org wrote:
 
-Cc: Robert Richter <rric@kernel.org>
-Cc: Steven Rostedt <rostedt@goodmis.org>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Alexei Starovoitov <ast@kernel.org>
-Cc: Daniel Borkmann <daniel@iogearbox.net>
-Cc: Martin KaFai Lau <kafai@fb.com>
-Cc: Song Liu <songliubraving@fb.com>
-Cc: Yonghong Song <yhs@fb.com>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: "Paul E. McKenney" <paulmck@linux.ibm.com>
-Cc: "Joel Fernandes (Google)" <joel@joelfernandes.org>
-Cc: Ard Biesheuvel <ard.biesheuvel@linaro.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: oprofile-list@lists.sf.net
-Cc: linux-kernel@vger.kernel.org
-Cc: netdev@vger.kernel.org
-Cc: bpf@vger.kernel.org
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
----
- drivers/oprofile/buffer_sync.c |    4 ++--
- kernel/module.c                |    9 +++++----
- kernel/trace/bpf_trace.c       |    8 ++++++--
- kernel/trace/trace.c           |    2 +-
- kernel/trace/trace_events.c    |    2 +-
- kernel/trace/trace_printk.c    |    4 ++--
- kernel/tracepoint.c            |    2 +-
- 7 files changed, 18 insertions(+), 13 deletions(-)
+> While auditing all module notifiers I noticed a whole bunch of fail
+> wrt the return value. Notifiers have a 'special' return semantics.
+> 
+> Cc: Robert Richter <rric@kernel.org>
+> Cc: Steven Rostedt <rostedt@goodmis.org>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Alexei Starovoitov <ast@kernel.org>
+> Cc: Daniel Borkmann <daniel@iogearbox.net>
+> Cc: Martin KaFai Lau <kafai@fb.com>
+> Cc: Song Liu <songliubraving@fb.com>
+> Cc: Yonghong Song <yhs@fb.com>
+> Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> Cc: "Paul E. McKenney" <paulmck@linux.ibm.com>
+> Cc: "Joel Fernandes (Google)" <joel@joelfernandes.org>
+> Cc: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: oprofile-list@lists.sf.net
+> Cc: linux-kernel@vger.kernel.org
+> Cc: netdev@vger.kernel.org
+> Cc: bpf@vger.kernel.org
+> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 
---- a/drivers/oprofile/buffer_sync.c
-+++ b/drivers/oprofile/buffer_sync.c
-@@ -116,7 +116,7 @@ module_load_notify(struct notifier_block
- {
- #ifdef CONFIG_MODULES
- 	if (val != MODULE_STATE_COMING)
--		return 0;
-+		return NOTIFY_DONE;
- 
- 	/* FIXME: should we process all CPU buffers ? */
- 	mutex_lock(&buffer_mutex);
-@@ -124,7 +124,7 @@ module_load_notify(struct notifier_block
- 	add_event_entry(MODULE_LOADED_CODE);
- 	mutex_unlock(&buffer_mutex);
- #endif
--	return 0;
-+	return NOTIFY_OK;
+Thanks Peter for looking into this, especially considering your
+endless love for kernel modules! ;)
+
+It's not directly related to your changes, but I notice that
+kernel/trace/trace_printk.c:hold_module_trace_bprintk_format()
+appears to leak memory. Am I missing something ?
+
+With respect to your changes:
+Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+
+I have a similar erroneous module notifier return value pattern
+in lttng-modules as well. I'll go fix it right away. CCing
+Frank Eigler from SystemTAP which AFAIK use a copy of
+lttng-tracepoint.c in their project, which should be fixed
+as well. I'm pasting the lttng-modules fix below.
+
+Thanks!
+
+Mathieu
+
+--
+
+commit 5eac9d146a7d947f0f314c4f7103c92cbccaeaf3
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Date:   Mon Jun 24 09:43:45 2019 -0400
+
+    Fix: lttng-tracepoint module notifier should return NOTIFY_OK
+    
+    Module notifiers should return NOTIFY_OK on success rather than the
+    value 0. The return value 0 does not seem to have any ill side-effects
+    in the notifier chain caller, but it is preferable to respect the API
+    requirements in case this changes in the future.
+    
+    Notifiers can encapsulate a negative errno value with
+    notifier_from_errno(), but this is not needed by the LTTng tracepoint
+    notifier.
+    
+    The approach taken in this notifier is to just print a console warning
+    on error, because tracing failure should not prevent loading a module.
+    So we definitely do not want to stop notifier iteration. Returning
+    an error without stopping iteration is not really that useful, because
+    only the return value of the last callback is returned to notifier chain
+    caller.
+    
+    Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+
+diff --git a/lttng-tracepoint.c b/lttng-tracepoint.c
+index bbb2c7a4..8298b397 100644
+--- a/lttng-tracepoint.c
++++ b/lttng-tracepoint.c
+@@ -256,7 +256,7 @@ int lttng_tracepoint_coming(struct tp_module *tp_mod)
+                }
+        }
+        mutex_unlock(&lttng_tracepoint_mutex);
+-       return 0;
++       return NOTIFY_OK;
  }
  
- 
---- a/kernel/trace/bpf_trace.c
-+++ b/kernel/trace/bpf_trace.c
-@@ -1302,10 +1302,11 @@ static int bpf_event_notify(struct notif
- {
- 	struct bpf_trace_module *btm, *tmp;
- 	struct module *mod = module;
-+	int ret = 0;
- 
- 	if (mod->num_bpf_raw_events == 0 ||
- 	    (op != MODULE_STATE_COMING && op != MODULE_STATE_GOING))
--		return 0;
-+		goto out;
- 
- 	mutex_lock(&bpf_module_mutex);
- 
-@@ -1315,6 +1316,8 @@ static int bpf_event_notify(struct notif
- 		if (btm) {
- 			btm->module = module;
- 			list_add(&btm->list, &bpf_trace_modules);
-+		} else {
-+			ret = -ENOMEM;
- 		}
- 		break;
- 	case MODULE_STATE_GOING:
-@@ -1330,7 +1333,8 @@ static int bpf_event_notify(struct notif
- 
- 	mutex_unlock(&bpf_module_mutex);
- 
--	return 0;
-+out:
-+	return notifier_from_errno(ret);
- }
- 
- static struct notifier_block bpf_module_nb = {
---- a/kernel/trace/trace.c
-+++ b/kernel/trace/trace.c
-@@ -8685,7 +8685,7 @@ static int trace_module_notify(struct no
- 		break;
- 	}
- 
--	return 0;
-+	return NOTIFY_OK;
- }
- 
- static struct notifier_block trace_module_nb = {
---- a/kernel/trace/trace_events.c
-+++ b/kernel/trace/trace_events.c
-@@ -2450,7 +2450,7 @@ static int trace_module_notify(struct no
- 	mutex_unlock(&trace_types_lock);
- 	mutex_unlock(&event_mutex);
- 
--	return 0;
-+	return NOTIFY_OK;
- }
- 
- static struct notifier_block trace_module_nb = {
---- a/kernel/trace/trace_printk.c
-+++ b/kernel/trace/trace_printk.c
-@@ -95,7 +95,7 @@ static int module_trace_bprintk_format_n
- 		if (val == MODULE_STATE_COMING)
- 			hold_module_trace_bprintk_format(start, end);
- 	}
--	return 0;
-+	return NOTIFY_OK;
- }
- 
- /*
-@@ -173,7 +173,7 @@ __init static int
- module_trace_bprintk_format_notify(struct notifier_block *self,
- 		unsigned long val, void *data)
- {
--	return 0;
-+	return NOTIFY_OK;
- }
- static inline const char **
- find_next_mod_format(int start_index, void *v, const char **fmt, loff_t *pos)
---- a/kernel/tracepoint.c
-+++ b/kernel/tracepoint.c
-@@ -538,7 +538,7 @@ static int tracepoint_module_notify(stru
- 	case MODULE_STATE_UNFORMED:
- 		break;
- 	}
--	return ret;
-+	return notifier_from_errno(ret);
- }
- 
- static struct notifier_block tracepoint_module_nb = {
+ static
 
 
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+http://www.efficios.com
 
 
 _______________________________________________
