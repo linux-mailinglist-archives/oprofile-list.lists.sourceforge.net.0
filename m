@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79E90550A5
-	for <lists+oprofile-list@lfdr.de>; Tue, 25 Jun 2019 15:42:26 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3C9625FCE1
+	for <lists+oprofile-list@lfdr.de>; Thu,  4 Jul 2019 20:27:59 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1hfliC-0003G9-94; Tue, 25 Jun 2019 13:42:16 +0000
+	id 1hj6SQ-00037S-Mt; Thu, 04 Jul 2019 18:27:46 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <peterz@infradead.org>) id 1hfg6I-0003Gt-2u
- for oprofile-list@lists.sourceforge.net; Tue, 25 Jun 2019 07:42:46 +0000
+ (envelope-from <rric.net@gmail.com>) id 1hj0wF-0005rG-DX
+ for oprofile-list@lists.sourceforge.net; Thu, 04 Jul 2019 12:34:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=3Woq6Ijx79j2u1qvlhauxGczuuE2pOnfE5TxDoYwUlo=; b=DPfv5jnw6v5zoUeKZzVR5T6V/C
- cTeNnWn6w5sE7WfGzWUtSSFJtpLFsDLxcwxEmZnRmoEA3dDFApTqQjsdVUTMlNa5oFj21Exz3xBcQ
- MM2I3ertTA6jew9vyQu9dlUbIRwJJo9biP5heTx5dyqCwTo4HJf3rjTzcOS0GFIjbILc=;
+ bh=WZGgIFqntPiBjka+Oo35Sy0erf1ztfXIu7MoeeCl7sI=; b=Mhlbm5Ia/Zw3U/u5LntknN8mI9
+ yvXYIA9Lt4+VrsqMPZWrg0HszOKKGmt5Inn/q1rmbSgv4JC7KhiENvnRF1uEI9pJ1Q1wxpCvuy93E
+ YK6eXM3Fr/+B5wGCJfgcrYYZltvVfMmJOq6Y0f/DBIoig27D1hgKP6nTkYqt4p1hF9LQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -29,57 +29,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=3Woq6Ijx79j2u1qvlhauxGczuuE2pOnfE5TxDoYwUlo=; b=gNNYG9wSlLqiy47qbhMV8igLwS
- /p3MmI9TtsGpaa/EFBmQgD4Wy2IytgRfdkbZIwSwvR50cUGPg+OwW//2OlC4NLDST4RbhXrVpwHaI
- XZ9S+KMH1LPYXFYUOEEReIJJyv+tSW2vi92kFfhAZ9GlC1DhVIiJ6+4TUfAigKhEnQMo=;
-Received: from merlin.infradead.org ([205.233.59.134])
+ bh=WZGgIFqntPiBjka+Oo35Sy0erf1ztfXIu7MoeeCl7sI=; b=mj1FgKeFHPpGjA1RkTgSPaam0e
+ 26ierpzaDaXQcGIUkdCozXAP2E9m5pgPCYzUDcGx9Nep/GyMqwP5ReB6Uq8YYhD2+T9PsfuQMasmg
+ YYkQE61WZcWM4wZVAPKlbXs5jd8LCLJYORpamNncFvtlKNjptqfra1L7MzI77GJVlhvg=;
+Received: from mail-lf1-f66.google.com ([209.85.167.66])
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- id 1hfg6K-00ClxK-Rk
- for oprofile-list@lists.sourceforge.net; Tue, 25 Jun 2019 07:42:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=3Woq6Ijx79j2u1qvlhauxGczuuE2pOnfE5TxDoYwUlo=; b=ZOsUs5qSf57Dj/Pk5RYzsxw59
- UEljXgjEtZQvU9qf0h/H8kknIf7OPGmcSz8smyBFHiroy9ujI8Qo/4ckFOQzdG/uelI5b6DAirzy6
- Deq5BLpWD9gsZsC0HfxvFd9u8xeHoKc6t3lE8UHCjzBetzSIdrTiNTZOKyfN2taQgp8CnXLEEPpno
- 0etHTcBjiIS3jz8xF40mDJIRn+dWXflSvl2dS9xAZScTCCvOTPrjD3oiNkgdt4nCj1//4PCBe4A8i
- DbOAA+hulLsM7sGPx247bRBzMA47vpqf9vhJRSSqMrJxqdq+acP818QPbjp1s4nSdOzxTUwQMULTc
- KwuD+LPhA==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=hirez.programming.kicks-ass.net)
- by merlin.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hfg5n-0002my-Rq; Tue, 25 Jun 2019 07:42:16 +0000
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 7C1BA20A0642F; Tue, 25 Jun 2019 09:42:14 +0200 (CEST)
-Date: Tue, 25 Jun 2019 09:42:14 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: "Frank Ch. Eigler" <fche@redhat.com>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.90_1)
+ id 1hj0wK-007WlT-KS
+ for oprofile-list@lists.sourceforge.net; Thu, 04 Jul 2019 12:34:21 +0000
+Received: by mail-lf1-f66.google.com with SMTP id v85so1198231lfa.6
+ for <oprofile-list@lists.sf.net>; Thu, 04 Jul 2019 05:34:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=WZGgIFqntPiBjka+Oo35Sy0erf1ztfXIu7MoeeCl7sI=;
+ b=U9w9DXvX6ZI9Ka2kloHxm/f4bFuu9xySWFoJtdxm/VYD4Rkc+XAKcMy5K7CBhciu02
+ SEq/+/Pio+BB9Rco4ZaD6BQbo6UwGX6CfbA1orS2o/JIML3G8areymFCYg7SLLSgm3y2
+ Cnp97gucU6HsG/BSS9GfAu2abg4TzfWCJELRa/XBgL1f/xeIB3En/q4vqN48n5X6v7fy
+ x47DQ9CxjWYjlNCwtb+lMVZAz1Xj+t38c8RSSwnnzhmdHJu6mqPPM6G7fucCRDrfcmjN
+ htaCUlrr8Pu2JHWIcLLuzeYPjlMTFg3a3UkK9gM+OPsHnkqzEMY4VnSl/1mq6NmYB0cV
+ MwFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :references:mime-version:content-disposition:in-reply-to:user-agent;
+ bh=WZGgIFqntPiBjka+Oo35Sy0erf1ztfXIu7MoeeCl7sI=;
+ b=HMIsQzcATMdjsqfn3u+fhg0sgyQ45SnMhfvMYU4FuXdHir53mjZUC1R7CCIn0cnXen
+ KnZFXmYA076ItEj3qjInyU2UBiQ+v+491teL8cN5S+ofgDCbA6XdE7hLM+ftCD9fpJze
+ +HJ1E5DavkOAXT5GW0DbWSAs1NlF1KRoTEkWn25dEc1tUb+ExQB2x9OQ/dZjrh062oVg
+ 6+PcvGLlBesOQGCJNXzc22Ci0W86WwLHdyBUlDPyRUr5yZ6480OoTP8adUQ2TU7XOVtw
+ 5BdTPjBy6EBIyIffNvIjyJLsRii+KatNMniYeH+oxVYs1dyTe0hHFiH7UZzN/RKb7IBY
+ lHIA==
+X-Gm-Message-State: APjAAAWYgaDyiM0jvhaeOQm3YeyxPl50P3rAQFxaaXyAfoF/wPYFf8e/
+ Qm5/17OmHGlvtmgmaKtliYc=
+X-Google-Smtp-Source: APXvYqySbtfjf5ef9HvwH/IVOxIOPBsJfR47YKZt5UHXpmB0NuOgbexAL27Jj/lAMUuPKodQ3L6YNA==
+X-Received: by 2002:ac2:4351:: with SMTP id o17mr1633834lfl.100.1562243649805; 
+ Thu, 04 Jul 2019 05:34:09 -0700 (PDT)
+Received: from rric.localdomain (83-233-147-164.cust.bredband2.com.
+ [83.233.147.164])
+ by smtp.gmail.com with ESMTPSA id b25sm866069lfq.11.2019.07.04.05.34.07
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Thu, 04 Jul 2019 05:34:08 -0700 (PDT)
+Date: Thu, 4 Jul 2019 14:34:00 +0200
+From: Robert Richter <rric@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
 Subject: Re: [PATCH 2/3] module: Fix up module_notifier return values.
-Message-ID: <20190625074214.GR3436@hirez.programming.kicks-ass.net>
+Message-ID: <20190704123359.jumjke6p7p5r7wbx@rric.localdomain>
 References: <20190624091843.859714294@infradead.org>
  <20190624092109.805742823@infradead.org>
- <320564860.243.1561384864186.JavaMail.zimbra@efficios.com>
- <20190624205810.GD26422@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190624205810.GD26422@redhat.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Score: -0.1 (/)
+In-Reply-To: <20190624092109.805742823@infradead.org>
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Spam-Score: 0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: linaro.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.167.66 listed in list.dnswl.org]
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (rric.net[at]gmail.com)
+ -0.1 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.66 listed in wl.mailspike.net]
+ 0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1hfg6K-00ClxK-Rk
-X-Mailman-Approved-At: Tue, 25 Jun 2019 13:42:15 +0000
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
+ freemail headers are different
+ 0.0 T_PDS_NO_HELO_DNS      High profile HELO but no A record
+X-Headers-End: 1hj0wK-007WlT-KS
+X-Mailman-Approved-At: Thu, 04 Jul 2019 18:27:45 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,42 +118,54 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: Song Liu <songliubraving@fb.com>, Alexei Starovoitov <ast@kernel.org>,
- "Joel Fernandes, Google" <joel@joelfernandes.org>,
- paulmck <paulmck@linux.ibm.com>, mbenes@suse.cz,
- Daniel Borkmann <daniel@iogearbox.net>, Ingo Molnar <mingo@redhat.com>,
- oprofile-list@lists.sf.net, Yonghong Song <yhs@fb.com>,
- Petr Mladek <pmladek@suse.com>, Robert Richter <rric@kernel.org>,
- jikos@kernel.org, rostedt <rostedt@goodmis.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Josh Poimboeuf <jpoimboe@redhat.com>, Thomas Gleixner <tglx@linutronix.de>,
- bpf@vger.kernel.org, Ard Biesheuvel <ard.biesheuvel@linaro.org>,
- netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Martin KaFai Lau <kafai@fb.com>
+Cc: Song Liu <songliubraving@fb.com>, ast@kernel.org,
+ "Joel Fernandes \(Google\)" <joel@joelfernandes.org>,
+ "Paul E. McKenney" <paulmck@linux.ibm.com>, mbenes@suse.cz,
+ daniel@iogearbox.net, Ingo Molnar <mingo@redhat.com>,
+ oprofile-list@lists.sf.net, Yonghong Song <yhs@fb.com>, pmladek@suse.com,
+ jikos@kernel.org, Steven Rostedt <rostedt@goodmis.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, jpoimboe@redhat.com,
+ Thomas Gleixner <tglx@linutronix.de>, akpm@linux-foundation.org,
+ Ard Biesheuvel <ard.biesheuvel@linaro.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Jessica Yu <jeyu@kernel.org>,
+ bpf@vger.kernel.org, Martin KaFai Lau <kafai@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On Mon, Jun 24, 2019 at 04:58:10PM -0400, Frank Ch. Eigler wrote:
-> Hi -
+On 24.06.19 11:18:45, Peter Zijlstra wrote:
+> While auditing all module notifiers I noticed a whole bunch of fail
+> wrt the return value. Notifiers have a 'special' return semantics.
 > 
-> > > While auditing all module notifiers I noticed a whole bunch of fail
-> > > wrt the return value. Notifiers have a 'special' return semantics.
-> 
-> From peterz's comments, the patches, it's not obvious to me how one is
-> to choose between 0 (NOTIFY_DONE) and 1 (NOTIFY_OK) in the case of a
-> routine success.
+> Cc: Robert Richter <rric@kernel.org>
+> Cc: Steven Rostedt <rostedt@goodmis.org>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Alexei Starovoitov <ast@kernel.org>
+> Cc: Daniel Borkmann <daniel@iogearbox.net>
+> Cc: Martin KaFai Lau <kafai@fb.com>
+> Cc: Song Liu <songliubraving@fb.com>
+> Cc: Yonghong Song <yhs@fb.com>
+> Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> Cc: "Paul E. McKenney" <paulmck@linux.ibm.com>
+> Cc: "Joel Fernandes (Google)" <joel@joelfernandes.org>
+> Cc: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: oprofile-list@lists.sf.net
+> Cc: linux-kernel@vger.kernel.org
+> Cc: netdev@vger.kernel.org
+> Cc: bpf@vger.kernel.org
+> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> ---
+>  drivers/oprofile/buffer_sync.c |    4 ++--
+>  kernel/module.c                |    9 +++++----
+>  kernel/trace/bpf_trace.c       |    8 ++++++--
+>  kernel/trace/trace.c           |    2 +-
+>  kernel/trace/trace_events.c    |    2 +-
+>  kernel/trace/trace_printk.c    |    4 ++--
+>  kernel/tracepoint.c            |    2 +-
+>  7 files changed, 18 insertions(+), 13 deletions(-)
 
-I'm not sure either; what I think I choice was:
-
- - if I want to completely ignore the callback, use DONE (per the
-   "Don't care" comment).
-
- - if we finished the notifier without error, use OK or
-   notifier_from_errno(0).
-
-But yes, its a bit of a shit interface.
+Reviewed-by: Robert Richter <rric@kernel.org>
 
 
 _______________________________________________
