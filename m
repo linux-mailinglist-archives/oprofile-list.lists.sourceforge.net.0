@@ -2,70 +2,98 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9B185720CE
-	for <lists+oprofile-list@lfdr.de>; Tue, 23 Jul 2019 22:31:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2E849772E7
+	for <lists+oprofile-list@lfdr.de>; Fri, 26 Jul 2019 22:39:12 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1hq1Ri-0007Q2-DO; Tue, 23 Jul 2019 20:31:38 +0000
+	id 1hr6zc-00009y-Ep; Fri, 26 Jul 2019 20:39:08 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <wcohen@redhat.com>) id 1hq1Rf-0007Po-0u
- for oprofile-list@lists.sourceforge.net; Tue, 23 Jul 2019 20:31:35 +0000
+ (envelope-from <will_schmidt@vnet.ibm.com>) id 1hr6zb-00009q-Mc
+ for oprofile-list@lists.sourceforge.net; Fri, 26 Jul 2019 20:39:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:Cc:References:To:Subject:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Mime-Version:Content-Type
+ :Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ttuIqVe0O4CEROdUItmdzzH10FNbdVP6GLV71gXCBd8=; b=hF+6azhosI3/umA8EuMP1Yi6Zb
- 2N2lobyNIRAJFm7Iy2PP6AtgQkWzQvG31qMAE7tyxdzd7bPoSOGDlLXw1OMWZirR4AYS6Xd071XKi
- U7zNJryTAxFOH7Rmw7DBQHIwHOcZYNZglh3oqtzB9f7BlvGNsQEWdpXaJjr4WtNkWIC0=;
+ bh=Bup3B9zNTzdlTo++3uW/rxFa/0spHycOiiX7DZepOjw=; b=Tim5x0Nof+t4Fyq4pis0Jrbpod
+ 0dYjaxAo5YMsUS5Cj9aQNtr/18hLzYaxWbQWvNPFPUA6r1mGnclpLgrdvcfvukFHoODCnqJc7OaBj
+ SjF544EAkrxIR5qhuiMhR2aBR2Jm7t/YYHqz4GuoQoo27REarNnLpctzvnmt9pzlsCJI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:Cc:References:To:Subject:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=ttuIqVe0O4CEROdUItmdzzH10FNbdVP6GLV71gXCBd8=; b=af8SE2Z5gtxlArtKsivoL9myls
- GIXEB3CpCwAmClBoNN0ESqjDn4Xu/pTlJ1rbKaZqi+ZTDQRwDPY9AYCCta2xUbfNXzq7wWBMdjnUy
- ++Jq893lprN02othMLpBZ1zvlxX2dC+0QLg8Dwqyo6QP1dlXSElB4ec3ruRgb7sGEAFs=;
-Received: from mx1.redhat.com ([209.132.183.28])
+ h=Content-Transfer-Encoding:Mime-Version:Content-Type:Date:Cc:To:From:
+ Subject:Message-ID:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=Bup3B9zNTzdlTo++3uW/rxFa/0spHycOiiX7DZepOjw=; b=b
+ HpKnSBuC8RErjXl2rhS2R5u+XaSEtMSajFotjQdeDNNPPSMhHvr3vSK8V6ffL23IzhP3KOZ2/fn59
+ HTR+Me7mYVs4ltxmadj0oevD4zL78nsEDbsPBn7qAQ0S+7JZ/3hguMY0PT2Hga7sG+LJrvzbFEarZ
+ rDBv8eM+T5/+s+Z8=;
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- id 1hq1Rb-00DD5U-EL
- for oprofile-list@lists.sourceforge.net; Tue, 23 Jul 2019 20:31:33 +0000
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
- [10.5.11.11])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 005CB30A7C7D;
- Tue, 23 Jul 2019 20:31:26 +0000 (UTC)
-Received: from [10.13.129.212] (dhcp129-212.rdu.redhat.com [10.13.129.212])
- by smtp.corp.redhat.com (Postfix) with ESMTP id C049E600C4;
- Tue, 23 Jul 2019 20:31:25 +0000 (UTC)
-Subject: Re: [oprof-cvs] popt.h: File not found
-To: Solal Amouyal <solal.amouyal@gmail.com>
-References: <CAN8ajf7-cJcW6cWLiQSQ_2q2s-XNnMJaOx1EtAvCJ4MP9h6WfA@mail.gmail.com>
-From: William Cohen <wcohen@redhat.com>
-Message-ID: <bb35ef0b-1001-0a48-b0f1-31eb775bc87e@redhat.com>
-Date: Tue, 23 Jul 2019 16:31:25 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
-MIME-Version: 1.0
-In-Reply-To: <CAN8ajf7-cJcW6cWLiQSQ_2q2s-XNnMJaOx1EtAvCJ4MP9h6WfA@mail.gmail.com>
-Content-Language: en-MW
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.42]); Tue, 23 Jul 2019 20:31:26 +0000 (UTC)
-X-Spam-Score: -0.0 (/)
+ id 1hr6za-000KO0-4V
+ for oprofile-list@lists.sourceforge.net; Fri, 26 Jul 2019 20:39:07 +0000
+Received: from pps.filterd (m0098410.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x6QKSWqL113886
+ for <oprofile-list@lists.sourceforge.net>; Fri, 26 Jul 2019 16:39:00 -0400
+Received: from ppma03wdc.us.ibm.com (ba.79.3fa9.ip4.static.sl-reverse.com
+ [169.63.121.186])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 2u06rd5gfd-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <oprofile-list@lists.sourceforge.net>; Fri, 26 Jul 2019 16:39:00 -0400
+Received: from pps.filterd (ppma03wdc.us.ibm.com [127.0.0.1])
+ by ppma03wdc.us.ibm.com (8.16.0.27/8.16.0.27) with SMTP id x6QKVrDY019648
+ for <oprofile-list@lists.sourceforge.net>; Fri, 26 Jul 2019 20:38:59 GMT
+Received: from b01cxnp22034.gho.pok.ibm.com (b01cxnp22034.gho.pok.ibm.com
+ [9.57.198.24]) by ppma03wdc.us.ibm.com with ESMTP id 2tymfds1g6-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <oprofile-list@lists.sourceforge.net>; Fri, 26 Jul 2019 20:38:59 +0000
+Received: from b01ledav006.gho.pok.ibm.com (b01ledav006.gho.pok.ibm.com
+ [9.57.199.111])
+ by b01cxnp22034.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ x6QKcwWf50790674
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Fri, 26 Jul 2019 20:38:59 GMT
+Received: from b01ledav006.gho.pok.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id E153BAC05E;
+ Fri, 26 Jul 2019 20:38:58 +0000 (GMT)
+Received: from b01ledav006.gho.pok.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id B5983AC059;
+ Fri, 26 Jul 2019 20:38:58 +0000 (GMT)
+Received: from brimstone.rchland.ibm.com (unknown [9.10.86.107])
+ by b01ledav006.gho.pok.ibm.com (Postfix) with ESMTP;
+ Fri, 26 Jul 2019 20:38:58 +0000 (GMT)
+Message-ID: <e76daaf713130240ccc6eac0c2f24455c52a1608.camel@vnet.ibm.com>
+Subject: [PATCH] Proposed fix for oprofile JIT bad event spec error
+From: will schmidt <will_schmidt@vnet.ibm.com>
+To: oprofile-list <oprofile-list@lists.sourceforge.net>
+Date: Fri, 26 Jul 2019 15:38:58 -0500
+X-Mailer: Evolution 3.28.5 (3.28.5-2.el7) 
+Mime-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-07-26_15:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=2 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1011 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1906280000 definitions=main-1907260234
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: s.jo]
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1hq1Rb-00DD5U-EL
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+X-Headers-End: 1hr6za-000KO0-4V
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,41 +106,101 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: oprofile-list <oprofile-list@lists.sourceforge.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: "Carl E. Love" <cel@us.ibm.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-T24gNy8yMy8xOSAxMDoxNyBBTSwgU29sYWwgQW1vdXlhbCB3cm90ZToKPiBIZWxsbywKCkhpLAoK
-Y2MnaW5nIHRoZSBhcHByb3ByaWF0ZSBsaXN0IGZvciB0aGlzIHJlcGx5LgoKPiAKPiBJIGFtIHJ1
-bm5pbmcgb24gQ2VudE9TIExpbnV4IHJlbGVhc2UgNy42LjE4MTAuCj4gCj4gSSBhbSB0cnlpbmcg
-dG8gaW5zdGFsbCBvcHJvZmlsZSBvbiBteSBtYWNoaW5lLiBJdCBpcyBhdmFpbGFibGUgdG8gaW5z
-dGFsbCBmcm9tIHl1bSBidXQgb25seSBhcyBhbiBvbGRlciB2ZXJzaW9uICgwLjkuOSkuCj4gCgpJ
-dCBpcyBhIGdvb2Qgc3RhcnRpbmcgcG9pbnQgdG8gZG93bmxvYWQgdGhlIHNvdXJjZSBycG0gYW5k
-IGxvb2sgYXQgdGhlIHBhY2thZ2VzIHRoYXQgeW91IG5lZWQgdG8gaGF2ZSBpbnN0YWxsZWQgdG8g
-YnVpbGQgdGhlIHBhY2thZ2UuICBUaGVzZSBzaG91bGQgYmUgcHJldHR5IG11Y2ggdGhlIHNhbWUg
-Zm9yIHRoZSBtb3JlIHJlY2VudCB2ZXJzaW9uIG9mIHRoZSBwYWNrYWdlICh0aGUgeXVtIGluc3Rh
-bGwuLi4gYW5kIHl1bS1idWlsZGRlcCB3aWxsIG5lZWQgdG8gYmUgcnVuIGFzIHJvb3QpOgoKeXVt
-IGluc3RhbGwgeXVtLXV0aWxzIHJwbS1idWlsZAp5dW1kb3dubG9hZGVyIC0tc291cmNlIG9wcm9m
-aWxlCnl1bS1idWlsZGRlcCAuL29wcm9maWxlKi5ycG0KCllvdSBjYW4gc2VlIHdoYXQgdGhleSBh
-cmUgeW91ciBzZWxmIHdpdGg6CgpycG0gLVV2aCBvcHJvZmlsZSoucnBtCm1vcmUgfi9ycG0vU1BF
-Q1Mvb3Byb2ZpbGUuc3BlYwoKCj4gSSBkb3dubG9hZGVkIHRoZSBnaXQgcmVwb3NpdG9yeSBhbmQg
-cnVuIC4vY29uZmlndXJlICYmIG1ha2UuIFRoZSBtYWtlIGNvbW1hbmQgdGVybWluYXRlZCB3aXRo
-IHRoZSBmb2xsb3dpbmcgZXJyb3I6Cj4gb3BfcG9wdC5oOjE2OjE4OiBmYXRhbCBlcnJvcjogcG9w
-dC5oOiBObyBzdWNoIGZpbGUgb3IgZGlyZWN0b3J5Cj4gwqAjaW5jbHVkZSA8cG9wdC5oPgo+IAo+
-IG9wX3BvcHQuaCBpcyBsb2NhdGVkIGluIC4vbGlidXRpbC5oCj4gVGhlcmUgaXMgbm90IHBvcHQu
-aCBmaWxlIGluIHRoZSByZXBvc2l0b3J5LCBvbmx5IHBvcHRfb3B0aW9ucy5oIGxvY2F0ZWQgaW4g
-bGlib3B0KysuCj4gSSB0cmllZCBhZGRpbmcgYSBwb3B0LmggZmlsZSBmb3VuZCBvbmxpbmUsIG1v
-ZGlmeWluZyBvcF9wb3B0LmggdG8gaW5jbHVkZSBwb3B0X29wdGlvbnMuaCBpbnN0ZWFkLi4uIEkg
-Y291bGRudCBnZXQgaXQgdG8gd29yay4gSSBoYXZlIGF0dGFjaGVkIHRoZSBjb25maWcubG9nIGZp
-bGUuCgpJdCBsb29rcyBsaWtlIHlvdSBhcmUgbWlzc2luZyBwb3B0LWRldmVsLiAgWW91IHdpbGwg
-bmVlZCB0byBpbnN0YWxsIHRoYXQuICBUaGVyZSBtYXkgYmUgc29tZSBvdGhlciBwYWNrYWdlcyB0
-aGF0IHlvdSBuZWVkIHRvIGluc3RhbGwgYmVzaWRlcyB0aGF0LgoKLVdpbGwKPiAKPiBBbnkgaGVs
-cCBpcyBhcHByZWNpYXRlZC4gVGhhbmtzLAo+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX18K
-PiAKPiBTb2xhbCBBbW91eWFsCj4gCj4gCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KPiBPcHJvZmlsZS1jb21taXRzIG1haWxpbmcgbGlzdAo+IE9wcm9m
-aWxlLWNvbW1pdHNAbGlzdHMuc291cmNlZm9yZ2UubmV0Cj4gaHR0cHM6Ly9saXN0cy5zb3VyY2Vm
-b3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3Byb2ZpbGUtY29tbWl0cwo+IAoKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpvcHJvZmlsZS1saXN0IG1haWxp
-bmcgbGlzdApvcHJvZmlsZS1saXN0QGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3Rz
-LnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcHJvZmlsZS1saXN0Cg==
+Hi Oprofile-devs,
+Attached is a fix for a problem we have seen recently when
+trying to profile against java/JIT workloads.
+    
+The error floated to the user at opreport time is:
+    
+  opreport error: parse_event_spec(): bad event specification: 165624.0x
+    
+Where the 165624 value will match the PIDs of the processes being profiled.
+    
+This ends up being an issue with how we are building the string for the file
+that contains the ELF blob for the java/JIT code (i.e.  12345.jo).  We were
+not truncating our 'path' string such that when we strncpy'd it into our
+path-and-file variable, we were getting part of an address range (12345.0x)
+instead of the desired .jo suffix.
+    
+The code has been updated to correct that.  Sniff testing shows we are
+now successfully processing the .jo contents, and no longer seeing the bad
+event spec error.
+    
+Tested locally, this appears to resolve the issue.
+    
+    agents/jvmti/libjvmti_oprofile.c:
+     - update strncpy call to avoid gcc warning on strncpy parameters.
+    opjitconv/opjitconv.c:
+     - update logic around calculation of elf_file_size, and rework snprintf
+     calls so we properly truncate the input string.
+    
+     Signed-off-by: Will Schmidt  <will_schmidt@vnet.ibm.com>
+
+---
+
+
+diff --git a/agents/jvmti/libjvmti_oprofile.c b/agents/jvmti/libjvmti_oprofile.c
+index 40f9979..b518eb1 100644
+--- a/agents/jvmti/libjvmti_oprofile.c
++++ b/agents/jvmti/libjvmti_oprofile.c
+@@ -174,11 +174,11 @@ static void JNICALL cb_compiled_method_load(jvmtiEnv * jvmti,
+ 
+ 	{
+ 	int cnt = strlen(method_name) + strlen(class_signature) +
+ 		strlen(method_signature) + 2;
+ 	char buf[cnt];
+-	strncpy(buf, class_signature, cnt - 1);
++	strncpy(buf, class_signature, sizeof(buf) - 1);
+ 	strncat(buf, method_name, cnt - strlen(buf) - 1);
+ 	strncat(buf, method_signature, cnt - strlen(buf) - 1);
+ 	if (op_write_native_code(agent_hdl, buf,
+ 				 (uint64_t)(uintptr_t) code_addr,
+ 				 code_addr, code_size)) {
+diff --git a/opjitconv/opjitconv.c b/opjitconv/opjitconv.c
+index c55d8b1..5b46142 100644
+--- a/opjitconv/opjitconv.c
++++ b/opjitconv/opjitconv.c
+@@ -311,10 +311,11 @@ static int process_jit_dumpfile(char const * dmp_pathname,
+ 	int jofd;
+ 	struct stat file_stat;
+ 	time_t dumpfile_modtime;
+ 	struct op_jitdump_info dmp_info;
+ 	char * elf_file = NULL;
++	char * tempstring = NULL;
+ 	char * proc_id = NULL;
+ 	char const * anon_dir;
+ 	char const * dumpfilename = rindex(dmp_pathname, '/');
+ 	/* temporary copy of dump file created for conversion step */
+ 	char * tmp_dumpfile;
+@@ -388,15 +389,16 @@ chk_proc_id:
+ 			rc = OP_JIT_CONV_FAIL;
+ 			goto free_res2;
+ 		}
+ 		result_dir_length = ++anon_path_seg - anon_dir;
+ 		/* create final ELF file name */
+-		elf_file_size = result_dir_length
++		elf_file_size = result_dir_length + strlen("/")
+ 			+ strlen(proc_id) + strlen(".jo") + 1;
+ 		elf_file = xmalloc(elf_file_size);
+-		snprintf(elf_file, elf_file_size, "%s%s.jo",
+-			 anon_dir, proc_id);
++		tempstring = xmalloc(elf_file_size);
++		snprintf(tempstring, result_dir_length, "%s",anon_dir);
++		snprintf(elf_file, elf_file_size, "%s/%s.jo",tempstring,proc_id);
+ 		/* create temporary ELF file name */
+ 		tmp_elffile_size = strlen(tmp_conv_dir) + 1
+ 			+ strlen(proc_id) + strlen(".jo") + 1;
+ 		tmp_elffile = xmalloc(tmp_elffile_size);
+ 		snprintf(tmp_elffile, tmp_elffile_size, "%s/%s.jo",
+
+
+
+_______________________________________________
+oprofile-list mailing list
+oprofile-list@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/oprofile-list
