@@ -2,72 +2,72 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6AB6BCE61D
-	for <lists+oprofile-list@lfdr.de>; Mon,  7 Oct 2019 16:53:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 76D5FCE61E
+	for <lists+oprofile-list@lfdr.de>; Mon,  7 Oct 2019 16:53:42 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1iHUOI-0000HY-EP; Mon, 07 Oct 2019 14:53:38 +0000
+	id 1iHUOI-0000HP-BS; Mon, 07 Oct 2019 14:53:38 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <peterz@infradead.org>) id 1iHR7X-0000AU-4Z
- for oprofile-list@lists.sourceforge.net; Mon, 07 Oct 2019 11:24:07 +0000
+ (envelope-from <peterz@infradead.org>) id 1iHPW9-0003qz-2U
+ for oprofile-list@lists.sourceforge.net; Mon, 07 Oct 2019 09:41:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Subject:Cc:To:
  From:Date:Message-Id:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=/dXEM5OM4zrNkl3+H0fx7UYSDgq0oZpTD7FikSQnxaI=; b=kjUTYhv4nq5UpwPxiLJ1BzeoVY
- As3W5jAmVFpa2wb8lqrjD+hGt8hSNRjisRphU38pfan8yHrxwwtAQCgcnZraEBL5ar4g+gxUUozad
- vkZ3WsmnRc0hK+7bi24CLBKvvmPnoqeMYKnBcd2c5VG/dkGHGp7trqfHVefSOjdCMBrw=;
+ bh=/dXEM5OM4zrNkl3+H0fx7UYSDgq0oZpTD7FikSQnxaI=; b=cMcD0GTzHjBboS6Yj5C5tjpzKs
+ bMJ74j97CYVgmbmjorOD8YTd5YW/9A4iLQ8TiIvKiJDprZusHzWJrMrbf4mluNeK664BklnVEM+D8
+ buD5qhqjxYcf0svV+VHJNmwDtKUWcOSzm0M5v3M3n6W8PpBJJKNPIpZdXXpqFY0jHgts=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:MIME-Version:References:Subject:Cc:To:From:Date:Message-Id:
  Sender:Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:
  Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
  In-Reply-To:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=/dXEM5OM4zrNkl3+H0fx7UYSDgq0oZpTD7FikSQnxaI=; b=O
- 6+Hc8dQAq+OxShFrmh5U+WwQXjxdX8qzvoYYeLQZkcT6GpJSN7de2vEEgGgkcCCukekmjPmMDU1Vf
- bUE+JOF4pFmXGtv2vcbBzIbSQlTaCzAQHP0PQVtUFm6kirZ4K4YFD09qo5Wg9EZ+cJzLIjQg3zjqj
- KXyyzUD9i3oR8Pqs=;
+ List-Owner:List-Archive; bh=/dXEM5OM4zrNkl3+H0fx7UYSDgq0oZpTD7FikSQnxaI=; b=Z
+ D3VMXU0kKSoxvtf5FnclWFhVury38OfZnVN75r1R/q9OQATLJfwEaBJxrHQNNhN0+TGE1Y1ob2c1k
+ 7vIDtetzMyepjUPThpOmsbuaqLX5Fs5ayGxxX0DYzTiwMDmwZdQcLz9hlkAVybbxHGqCYLLm9Gc1l
+ HjfSU0pFg6/UJgp0=;
 Received: from merlin.infradead.org ([205.233.59.134])
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iHR7T-0024wh-PM
- for oprofile-list@lists.sourceforge.net; Mon, 07 Oct 2019 11:24:07 +0000
+ id 1iHPW5-0022Lq-31
+ for oprofile-list@lists.sourceforge.net; Mon, 07 Oct 2019 09:41:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=merlin.20170209; h=Content-Type:MIME-Version:References:
  Subject:Cc:To:From:Date:Message-Id:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Id:List-Help:
  List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=/dXEM5OM4zrNkl3+H0fx7UYSDgq0oZpTD7FikSQnxaI=; b=v1HIiNoWA/ooj2MTshslA7lR2T
- qzcA9/BEQX+TaoIgjVD/1ispR2dsZMJD70ugVzVnvBsk/VVvLpQRxLS+Z/kP4bMXAr/n3wFJLzs4p
- xwPmkEigNXaWOQgaCDx8gVc4Pi6m7LyTffQ4/b/VjlEDp54eTZOKxKdtpW/muxTLRGCigDVZt5Z14
- s7Qec/gHvlQQ5uk5Ys6SIGx52CJPbuIUeXXlWF2xUL07OEcs6Pi4peSsXl8M1TPBiNbXlIkESFLZf
- qfeRBtbzoCBiwPMZazq22ICGJ/FHObIKgG+7p9BFOCYFMF/qhqZm5gEXrItf14kbC4vAlSX8GqgAD
- ULQkPLmQ==;
+ bh=/dXEM5OM4zrNkl3+H0fx7UYSDgq0oZpTD7FikSQnxaI=; b=OMlawtfiFjWyXrR7sjUfxe1Yv5
+ J0JzLZN/SYuAGUo6UhE57rRHQb9TOp5i/td0ZD42YrBSRgnxv5RY+vhPGBJGrkOOwQ+EKGM73oicN
+ Zxc6XJAIt5SbyCJuSdg+34KVWCq34uibK1oidBJrpKEJLqUX1sgFeOGKVJIi6gKIcAmaFfZkXWWZq
+ GGZu58ndEkPrNnan3OcTTC1V9cYYX3/MrZlzlKDY8L9UKlvZD5umrq427MmzhSYKjP2mztXgzCUul
+ E7H03O5NX613pPt/dQTkIESnZxZuZiq2cHf6nXsruN8uKsPydiCGWrlmqDeUpCKl+btD7VGp98Gvm
+ Cah4e3cw==;
 Received: from j217100.upc-j.chello.nl ([24.132.217.100]
  helo=noisy.programming.kicks-ass.net)
  by merlin.infradead.org with esmtpsa (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iHR6y-0002BU-AK; Mon, 07 Oct 2019 11:23:32 +0000
+ id 1iHP6t-0000dP-V3; Mon, 07 Oct 2019 09:15:20 +0000
 Received: from hirez.programming.kicks-ass.net
  (hirez.programming.kicks-ass.net [192.168.1.225])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 0080F306C06;
- Mon,  7 Oct 2019 13:22:36 +0200 (CEST)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 1EB49306C06;
+ Mon,  7 Oct 2019 11:14:23 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
- id 8A05620244FAE; Mon,  7 Oct 2019 13:23:26 +0200 (CEST)
-Message-Id: <20191007082700.08643163.5@infradead.org>
+ id 6DA0820245BBB; Mon,  7 Oct 2019 11:15:13 +0200 (CEST)
+Message-Id: <20191007082700.086431635@infradead.org>
 User-Agent: quilt/0.65
 Date: Mon, 07 Oct 2019 10:25:43 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: x86@kernel.org
 Subject: [PATCH v2 2/4] module: Fix up module_notifier return values.
-References: <20191007082541.64146933.7@infradead.org>
+References: <20191007082541.641469337@infradead.org>
 MIME-Version: 1.0
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
@@ -79,7 +79,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1iHR7T-0024wh-PM
+X-Headers-End: 1iHPW5-0022Lq-31
 X-Mailman-Approved-At: Mon, 07 Oct 2019 14:53:36 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -99,11 +99,12 @@ Cc: Song Liu <songliubraving@fb.com>, peterz@infradead.org,
  "Paul E. McKenney" <paulmck@linux.ibm.com>, mingo@kernel.org,
  Daniel Borkmann <daniel@iogearbox.net>, Ingo Molnar <mingo@redhat.com>,
  oprofile-list@lists.sf.net, Yonghong Song <yhs@fb.com>,
- Robert Richter <rric@kernel.org>, rostedt@goodmis.org, jbaron@akamai.com,
+ Robert Richter <rric@kernel.org>, inux-kernel@vger.kernel.org,
+ rostedt@goodmis.org, jbaron@akamai.com,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, luto@kernel.org,
  tglx@linutronix.de, ard.biesheuvel@linaro.org, bristot@redhat.com,
- linux-kernel@vger.kernel.org, mhiramat@kernel.org,
- torvalds@linux-foundation.org, Martin KaFai Lau <kafai@fb.com>
+ mhiramat@kernel.org, torvalds@linux-foundation.org,
+ Martin KaFai Lau <kafai@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
