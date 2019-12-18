@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id E68BA126605
+	by mail.lfdr.de (Postfix) with ESMTPS id E91AA126606
 	for <lists+oprofile-list@lfdr.de>; Thu, 19 Dec 2019 16:45:14 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1ihxzD-0003YH-Vg; Thu, 19 Dec 2019 15:45:11 +0000
+	id 1ihxzD-0003Wy-He; Thu, 19 Dec 2019 15:45:11 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <alexey.budankov@linux.intel.com>) id 1ihVpa-0000sk-2J
- for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:41:22 +0000
+ (envelope-from <alexey.budankov@linux.intel.com>) id 1ihVeg-0004Be-SM
+ for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:30:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=saNfVB+0g98a0kmeARTwUDL4WgMZcZcJHwg7ZEaYGhE=; b=AG6maefhRpXBx/BK+Dfzblklib
- aLfLdSfV5ee2YKhk1vbpChWtUSatsxG95dsln/hooBNxP7SHaaF5W94FOCqFqNKDB6z4VPyussyYw
- HbXuMflis/HCutk5hlLKYiIEPoWspAcni0MNaBX/OQhTPZzq2oT6mRm8LkPO/gopYED4=;
+ bh=dwT6bLe5GtNxmF0+nAKriAkF6ppYZnN1vrRn2zYPsRc=; b=Zlaj7OlHqHdV5MjINgppnqFYhB
+ Oj5mKK9R8gtmMlVGEoYR2Fkf0ffYmOYnzkK2Q0eqkzGNsk/lIchLit9A4igZIonj6O21yD40Dk96B
+ qtIeWpRg0x04ML9ZOrgpNjLB9x0u6Xctj+o2QLAWshULlJnzW0QmVQ2LuQqaa1L97zAQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
@@ -29,29 +29,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=saNfVB+0g98a0kmeARTwUDL4WgMZcZcJHwg7ZEaYGhE=; b=HQy2AOXh5UZxsytp3Bwj6PhKZm
- Td9ASBa9g3GdQ0QA58plw0vCOn3U7SS83bRNivxx4vG6NROAee2ULp8KZGYRPznd/h8YcjJo0Yln1
- IxFQegJVhPkj8SkQPQM0E2rMdSZ+UgnEpEij+BLKI+TENOeG7HJuK5ORWDCGHLDHeuJ8=;
-Received: from mga09.intel.com ([134.134.136.24])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=dwT6bLe5GtNxmF0+nAKriAkF6ppYZnN1vrRn2zYPsRc=; b=nMpIJL+Fo3n6/iH6V/EMhNqPMH
+ IMO5JQAdbhxECEbgeFLi75BdI9pgRshqF2YVAR8xIsWdXAEMrUiDW3EoYNUqE15jGYVCr14iclX7V
+ tgo0kKb4IAG8h9aYha7GoFak1QSXTmV1KW2E7cXC/hiOtPik7HGCYOZSsgIFIdcLwTOw=;
+Received: from mga11.intel.com ([192.55.52.93])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1ihVpY-005PFJ-0v
- for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:41:21 +0000
+ id 1ihVee-008Wbb-BX
+ for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:30:06 +0000
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
- by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 18 Dec 2019 01:25:46 -0800
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+ by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 18 Dec 2019 01:26:43 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,329,1571727600"; d="scan'208";a="240730020"
+X-IronPort-AV: E=Sophos;i="5.69,329,1571727600"; d="scan'208";a="218090290"
 Received: from linux.intel.com ([10.54.29.200])
- by fmsmga004.fm.intel.com with ESMTP; 18 Dec 2019 01:25:45 -0800
+ by orsmga003.jf.intel.com with ESMTP; 18 Dec 2019 01:26:43 -0800
 Received: from [10.125.252.219] (abudanko-mobl.ccr.corp.intel.com
  [10.125.252.219])
- by linux.intel.com (Postfix) with ESMTP id 0C6D65803E4;
- Wed, 18 Dec 2019 01:25:36 -0800 (PST)
-Subject: [PATCH v4 2/9] perf/core: open access for CAP_SYS_PERFMON privileged
- process
+ by linux.intel.com (Postfix) with ESMTP id 355B35802C9;
+ Wed, 18 Dec 2019 01:26:34 -0800 (PST)
+Subject: [PATCH v4 3/9] perf tool: extend Perf tool with CAP_SYS_PERFMON
+ capability support
 From: Alexey Budankov <alexey.budankov@linux.intel.com>
 To: Peter Zijlstra <peterz@infradead.org>,
  Arnaldo Carvalho de Melo <acme@kernel.org>, Ingo Molnar <mingo@redhat.com>,
@@ -68,8 +68,8 @@ To: Peter Zijlstra <peterz@infradead.org>,
  <casey@schaufler-ca.com>, Robert Richter <rric@kernel.org>
 References: <c0460c78-b1a6-b5f7-7119-d97e5998f308@linux.intel.com>
 Organization: Intel Corp.
-Message-ID: <c93309dc-b920-f5fa-f997-e8b2faf47b88@linux.intel.com>
-Date: Wed, 18 Dec 2019 12:25:35 +0300
+Message-ID: <75aa0324-d01c-59fa-f0f3-b49bf6c53ff3@linux.intel.com>
+Date: Wed, 18 Dec 2019 12:26:33 +0300
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
  Thunderbird/60.9.1
 MIME-Version: 1.0
@@ -82,13 +82,11 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: intel.com]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [134.134.136.24 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [192.55.52.93 listed in wl.mailspike.net]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1ihVpY-005PFJ-0v
+X-Headers-End: 1ihVee-008Wbb-BX
 X-Mailman-Approved-At: Thu, 19 Dec 2019 15:45:09 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -126,82 +124,104 @@ Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
 
-Open access to perf_events monitoring for CAP_SYS_PERFMON privileged
-processes. For backward compatibility reasons access to perf_events
-subsystem remains open for CAP_SYS_ADMIN privileged processes but
-CAP_SYS_ADMIN usage for secure perf_events monitoring is discouraged
-with respect to CAP_SYS_PERFMON capability.
+Extend error messages to mention CAP_SYS_PERFMON capability as an option
+to substitute CAP_SYS_ADMIN capability for secure system performance
+monitoring and observability operations. Make perf_event_paranoid_check()
+and __cmd_ftrace() to be aware of CAP_SYS_PERFMON capability.
 
 Signed-off-by: Alexey Budankov <alexey.budankov@linux.intel.com>
 ---
- include/linux/perf_event.h | 6 +++---
- kernel/events/core.c       | 6 +++---
- 2 files changed, 6 insertions(+), 6 deletions(-)
+ tools/perf/builtin-ftrace.c |  5 +++--
+ tools/perf/design.txt       |  3 ++-
+ tools/perf/util/cap.h       |  4 ++++
+ tools/perf/util/evsel.c     | 10 +++++-----
+ tools/perf/util/util.c      |  1 +
+ 5 files changed, 15 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 34c7c6910026..f46acd69425f 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -1285,7 +1285,7 @@ static inline int perf_is_paranoid(void)
+diff --git a/tools/perf/builtin-ftrace.c b/tools/perf/builtin-ftrace.c
+index d5adc417a4ca..8096e9b5f4f9 100644
+--- a/tools/perf/builtin-ftrace.c
++++ b/tools/perf/builtin-ftrace.c
+@@ -284,10 +284,11 @@ static int __cmd_ftrace(struct perf_ftrace *ftrace, int argc, const char **argv)
+ 		.events = POLLIN,
+ 	};
  
- static inline int perf_allow_kernel(struct perf_event_attr *attr)
+-	if (!perf_cap__capable(CAP_SYS_ADMIN)) {
++	if (!(perf_cap__capable(CAP_SYS_PERFMON) ||
++	      perf_cap__capable(CAP_SYS_ADMIN))) {
+ 		pr_err("ftrace only works for %s!\n",
+ #ifdef HAVE_LIBCAP_SUPPORT
+-		"users with the SYS_ADMIN capability"
++		"users with the CAP_SYS_PERFMON or CAP_SYS_ADMIN capability"
+ #else
+ 		"root"
+ #endif
+diff --git a/tools/perf/design.txt b/tools/perf/design.txt
+index 0453ba26cdbd..71755b3e1303 100644
+--- a/tools/perf/design.txt
++++ b/tools/perf/design.txt
+@@ -258,7 +258,8 @@ gets schedule to. Per task counters can be created by any user, for
+ their own tasks.
+ 
+ A 'pid == -1' and 'cpu == x' counter is a per CPU counter that counts
+-all events on CPU-x. Per CPU counters need CAP_SYS_ADMIN privilege.
++all events on CPU-x. Per CPU counters need CAP_SYS_PERFMON or
++CAP_SYS_ADMIN privilege.
+ 
+ The 'flags' parameter is currently unused and must be zero.
+ 
+diff --git a/tools/perf/util/cap.h b/tools/perf/util/cap.h
+index 051dc590ceee..0f79fbf6638b 100644
+--- a/tools/perf/util/cap.h
++++ b/tools/perf/util/cap.h
+@@ -29,4 +29,8 @@ static inline bool perf_cap__capable(int cap __maybe_unused)
+ #define CAP_SYSLOG	34
+ #endif
+ 
++#ifndef CAP_SYS_PERFMON
++#define CAP_SYS_PERFMON 38
++#endif
++
+ #endif /* __PERF_CAP_H */
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index f4dea055b080..3a46325e3702 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -2468,14 +2468,14 @@ int perf_evsel__open_strerror(struct evsel *evsel, struct target *target,
+ 		 "You may not have permission to collect %sstats.\n\n"
+ 		 "Consider tweaking /proc/sys/kernel/perf_event_paranoid,\n"
+ 		 "which controls use of the performance events system by\n"
+-		 "unprivileged users (without CAP_SYS_ADMIN).\n\n"
++		 "unprivileged users (without CAP_SYS_PERFMON or CAP_SYS_ADMIN).\n\n"
+ 		 "The current value is %d:\n\n"
+ 		 "  -1: Allow use of (almost) all events by all users\n"
+ 		 "      Ignore mlock limit after perf_event_mlock_kb without CAP_IPC_LOCK\n"
+-		 ">= 0: Disallow ftrace function tracepoint by users without CAP_SYS_ADMIN\n"
+-		 "      Disallow raw tracepoint access by users without CAP_SYS_ADMIN\n"
+-		 ">= 1: Disallow CPU event access by users without CAP_SYS_ADMIN\n"
+-		 ">= 2: Disallow kernel profiling by users without CAP_SYS_ADMIN\n\n"
++		 ">= 0: Disallow ftrace function tracepoint by users without CAP_SYS_PERFMON or CAP_SYS_ADMIN\n"
++		 "      Disallow raw tracepoint access by users without CAP_SYS_PERFMON or CAP_SYS_ADMIN\n"
++		 ">= 1: Disallow CPU event access by users without CAP_SYS_PERFMON or CAP_SYS_ADMIN\n"
++		 ">= 2: Disallow kernel profiling by users without CAP_SYS_PERFMON or CAP_SYS_ADMIN\n\n"
+ 		 "To make this setting permanent, edit /etc/sysctl.conf too, e.g.:\n\n"
+ 		 "	kernel.perf_event_paranoid = -1\n" ,
+ 				 target->system_wide ? "system-wide " : "",
+diff --git a/tools/perf/util/util.c b/tools/perf/util/util.c
+index 969ae560dad9..9981db0d8d09 100644
+--- a/tools/perf/util/util.c
++++ b/tools/perf/util/util.c
+@@ -272,6 +272,7 @@ int perf_event_paranoid(void)
+ bool perf_event_paranoid_check(int max_level)
  {
--	if (sysctl_perf_event_paranoid > 1 && !capable(CAP_SYS_ADMIN))
-+	if (sysctl_perf_event_paranoid > 1 && !perfmon_capable())
- 		return -EACCES;
- 
- 	return security_perf_event_open(attr, PERF_SECURITY_KERNEL);
-@@ -1293,7 +1293,7 @@ static inline int perf_allow_kernel(struct perf_event_attr *attr)
- 
- static inline int perf_allow_cpu(struct perf_event_attr *attr)
- {
--	if (sysctl_perf_event_paranoid > 0 && !capable(CAP_SYS_ADMIN))
-+	if (sysctl_perf_event_paranoid > 0 && !perfmon_capable())
- 		return -EACCES;
- 
- 	return security_perf_event_open(attr, PERF_SECURITY_CPU);
-@@ -1301,7 +1301,7 @@ static inline int perf_allow_cpu(struct perf_event_attr *attr)
- 
- static inline int perf_allow_tracepoint(struct perf_event_attr *attr)
- {
--	if (sysctl_perf_event_paranoid > -1 && !capable(CAP_SYS_ADMIN))
-+	if (sysctl_perf_event_paranoid > -1 && !perfmon_capable())
- 		return -EPERM;
- 
- 	return security_perf_event_open(attr, PERF_SECURITY_TRACEPOINT);
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 059ee7116008..d9db414f2197 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -9056,7 +9056,7 @@ static int perf_kprobe_event_init(struct perf_event *event)
- 	if (event->attr.type != perf_kprobe.type)
- 		return -ENOENT;
- 
--	if (!capable(CAP_SYS_ADMIN))
-+	if (!perfmon_capable())
- 		return -EACCES;
- 
- 	/*
-@@ -9116,7 +9116,7 @@ static int perf_uprobe_event_init(struct perf_event *event)
- 	if (event->attr.type != perf_uprobe.type)
- 		return -ENOENT;
- 
--	if (!capable(CAP_SYS_ADMIN))
-+	if (!perfmon_capable())
- 		return -EACCES;
- 
- 	/*
-@@ -11157,7 +11157,7 @@ SYSCALL_DEFINE5(perf_event_open,
- 	}
- 
- 	if (attr.namespaces) {
--		if (!capable(CAP_SYS_ADMIN))
-+		if (!perfmon_capable())
- 			return -EACCES;
- 	}
+ 	return perf_cap__capable(CAP_SYS_ADMIN) ||
++			perf_cap__capable(CAP_SYS_PERFMON) ||
+ 			perf_event_paranoid() <= max_level;
+ }
  
 -- 
 2.20.1
+
 
 
 
