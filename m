@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id E5772126604
-	for <lists+oprofile-list@lfdr.de>; Thu, 19 Dec 2019 16:45:14 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C4CB21265FB
+	for <lists+oprofile-list@lfdr.de>; Thu, 19 Dec 2019 16:45:13 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1ihxzD-0003Wf-DB; Thu, 19 Dec 2019 15:45:11 +0000
+	id 1ihxzE-0003YT-1Y; Thu, 19 Dec 2019 15:45:12 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <alexey.budankov@linux.intel.com>) id 1ihVeG-00049m-Nq
- for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:29:40 +0000
+ (envelope-from <alexey.budankov@linux.intel.com>) id 1ihVss-00050O-EB
+ for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:44:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=2tLzI83e94ZGS5eaDiXsHoyrj6Dr5RTCa11qCa4rKIk=; b=YJFWBSClefMvkMSXAAQ3HG8i4X
- pkqq9ERHLKSAp9LT+O43gLQtsLZGYzXvryvLZe1JVcFC2uClEQfZovoVZuoMtlZWygOebTjn7My01
- BWyhtoRvQPhr8WLamRu8Ccgnb3ASG7YqbgzIz9yPi4x7aKsWo3di0Mu5VA43R+zsXnfQ=;
+ bh=KNhML1v86h3vdmCtB/XXSkzz3AIPrkhs430c7SUj6iU=; b=dF4rh2AUk7vWSFlnITrP7oEA6v
+ Jb7cyEZxaVKVa/lRGBFbi1NwkGKYvkJohgTdKyDOKmraiFoqBAC72gAM70pGZzD4wvr3bdNLN3cqh
+ bixE7eaX8+cZlkttNok4hEBnbO4haDpdRyRjVbAoLgrxSN11LZZFqd8Jhp1eM7XNzXco=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
@@ -29,28 +29,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=2tLzI83e94ZGS5eaDiXsHoyrj6Dr5RTCa11qCa4rKIk=; b=RUzO3tYTMzAxbxSMiRVKFYWc2p
- c2cJCCG96SsU7ZOSgqk/eDy3HNkh7xCG7jwXfnmMsuPAzoWneJu5eOyP94qti3Ak25dNylovrxvTT
- XLJz2H2VJ0Wg5RxpztXG0LSqHrNDuPri6+mVrAl5OsUbBL2XJkRAyJeAFnrWA47dfD34=;
-Received: from mga12.intel.com ([192.55.52.136])
+ bh=KNhML1v86h3vdmCtB/XXSkzz3AIPrkhs430c7SUj6iU=; b=VQtuadPxreC8HLIp+j86ezvPiU
+ uId+tjkx+gDllXVraZH8kRuOdOcSoa8XGqH5Uqr6v/boW0OIxKVKCbFtd8Bd3x2m1sBcKC7fmBCZG
+ G3Z+JsoYxTwLQ9HiNmdT9Lhf+b5/vjTbWnX3LkO00yLDdQulUOP9gxjn3qPpfrwGwTMU=;
+Received: from mga03.intel.com ([134.134.136.65])
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1ihVe9-008fQ7-CF
- for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:29:38 +0000
+ id 1ihVsp-008g2s-DE
+ for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:44:46 +0000
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
- by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 18 Dec 2019 01:28:21 -0800
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+ by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 18 Dec 2019 01:29:09 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,329,1571727600"; d="scan'208";a="212654018"
+X-IronPort-AV: E=Sophos;i="5.69,329,1571727600"; d="scan'208";a="417169457"
 Received: from linux.intel.com ([10.54.29.200])
- by fmsmga007.fm.intel.com with ESMTP; 18 Dec 2019 01:28:20 -0800
+ by fmsmga006.fm.intel.com with ESMTP; 18 Dec 2019 01:29:08 -0800
 Received: from [10.125.252.219] (abudanko-mobl.ccr.corp.intel.com
  [10.125.252.219])
- by linux.intel.com (Postfix) with ESMTP id 779115803E4;
- Wed, 18 Dec 2019 01:28:11 -0800 (PST)
-Subject: [PATCH v4 5/9] trace/bpf_trace: open access for CAP_SYS_PERFMON
+ by linux.intel.com (Postfix) with ESMTP id 325CF5803E4;
+ Wed, 18 Dec 2019 01:28:58 -0800 (PST)
+Subject: [PATCH v4 6/9] powerpc/perf: open access for CAP_SYS_PERFMON
  privileged process
 From: Alexey Budankov <alexey.budankov@linux.intel.com>
 To: Peter Zijlstra <peterz@infradead.org>,
@@ -68,8 +68,8 @@ To: Peter Zijlstra <peterz@infradead.org>,
  <casey@schaufler-ca.com>, Robert Richter <rric@kernel.org>
 References: <c0460c78-b1a6-b5f7-7119-d97e5998f308@linux.intel.com>
 Organization: Intel Corp.
-Message-ID: <1d46cc07-ced7-9a29-a9a3-3cba6ef2df21@linux.intel.com>
-Date: Wed, 18 Dec 2019 12:28:10 +0300
+Message-ID: <b6b4cfb7-82c5-85f6-0588-43046ace8419@linux.intel.com>
+Date: Wed, 18 Dec 2019 12:28:58 +0300
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
  Thunderbird/60.9.1
 MIME-Version: 1.0
@@ -82,10 +82,11 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: intel.com]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
-X-Headers-End: 1ihVe9-008fQ7-CF
-X-Mailman-Approved-At: Thu, 19 Dec 2019 15:45:09 +0000
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1ihVsp-008g2s-DE
+X-Mailman-Approved-At: Thu, 19 Dec 2019 15:45:10 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -122,30 +123,38 @@ Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
 
-Open access to bpf_trace monitoring for CAP_SYS_PERFMON privileged
-processes. For backward compatibility reasons access to bpf_trace
-monitoring remains open for CAP_SYS_ADMIN privileged processes but
-CAP_SYS_ADMIN usage for secure bpf_trace monitoring is discouraged
-with respect to CAP_SYS_PERFMON capability.
+Open access to monitoring for CAP_SYS_PERFMON privileged processes.
+For backward compatibility reasons access to the monitoring remains open
+for CAP_SYS_ADMIN privileged processes but CAP_SYS_ADMIN usage for secure
+monitoring is discouraged with respect to CAP_SYS_PERFMON capability.
 
 Signed-off-by: Alexey Budankov <alexey.budankov@linux.intel.com>
 ---
- kernel/trace/bpf_trace.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/powerpc/perf/imc-pmu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
-index 44bd08f2443b..bafe21ac6d92 100644
---- a/kernel/trace/bpf_trace.c
-+++ b/kernel/trace/bpf_trace.c
-@@ -1272,7 +1272,7 @@ int perf_event_query_prog_array(struct perf_event *event, void __user *info)
- 	u32 *ids, prog_cnt, ids_len;
- 	int ret;
+diff --git a/arch/powerpc/perf/imc-pmu.c b/arch/powerpc/perf/imc-pmu.c
+index cb50a9e1fd2d..e837717492e4 100644
+--- a/arch/powerpc/perf/imc-pmu.c
++++ b/arch/powerpc/perf/imc-pmu.c
+@@ -898,7 +898,7 @@ static int thread_imc_event_init(struct perf_event *event)
+ 	if (event->attr.type != event->pmu->type)
+ 		return -ENOENT;
  
 -	if (!capable(CAP_SYS_ADMIN))
 +	if (!perfmon_capable())
- 		return -EPERM;
- 	if (event->attr.type != PERF_TYPE_TRACEPOINT)
- 		return -EINVAL;
+ 		return -EACCES;
+ 
+ 	/* Sampling not supported */
+@@ -1307,7 +1307,7 @@ static int trace_imc_event_init(struct perf_event *event)
+ 	if (event->attr.type != event->pmu->type)
+ 		return -ENOENT;
+ 
+-	if (!capable(CAP_SYS_ADMIN))
++	if (!perfmon_capable())
+ 		return -EACCES;
+ 
+ 	/* Return if this is a couting event */
 -- 
 2.20.1
 
