@@ -2,109 +2,89 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C05F3107A07
-	for <lists+oprofile-list@lfdr.de>; Fri, 22 Nov 2019 22:43:36 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 05F801265FE
+	for <lists+oprofile-list@lfdr.de>; Thu, 19 Dec 2019 16:45:14 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1iYGiE-0002l1-Ks; Fri, 22 Nov 2019 21:43:34 +0000
+	id 1ihxzD-0003XS-O1; Thu, 19 Dec 2019 15:45:11 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <will_schmidt@vnet.ibm.com>) id 1iYGiD-0002ks-1o
- for oprofile-list@lists.sourceforge.net; Fri, 22 Nov 2019 21:43:33 +0000
+ (envelope-from <alexey.budankov@linux.intel.com>) id 1ihVhF-0004Ig-6S
+ for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:32:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Mime-Version:Content-Type
- :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Date:Message-ID:Cc:To:Subject:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=drqZVe0EDaB25NVEXLYEPt3067g25v3lVHvGrI3KSMw=; b=BSd5gCfGV8Ky6onA1cB7yMDira
- wEw2xx1gfM7HhJeZu9KIf6OWWGHoVY7f7Ak9PU8Dt0KUSEJyixkQibABQuHtjrx935al34lJ6x93g
- Jtd7mTQMbuG/YC0FUz86+XiuUQm9gC/J29u8c6ND0PLqs2El4a4RfRLxHo6XuRflE3nI=;
+ bh=SNDq+hfSzIAn70mnFlvhtvKnegXwECeJ7cVzhcme+WM=; b=R10Mhm6hCVKhcYl50Lqq/AgIee
+ DamENvz50I/lrwZYLykxfpAFtVbKk4eSWhcqZU5dhs+m6tkOMpNForONHENyV9qeEg9jMwT1e5sTm
+ bGaI3bB9acrfQMzIhw/v2v5tH8eA5f2CvQLJN/c5y/FCyemF7ypxuJZknMc7TS7Xss9E=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Mime-Version:Content-Type:References:
- In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=drqZVe0EDaB25NVEXLYEPt3067g25v3lVHvGrI3KSMw=; b=OLpxhLs7IuetkOmwA5WH0axvUv
- 31UExb2I6Ze9wSnWkfcN6i0nea2x4ASizMykhUZZPy6ngZs3z1lr5n4VuNE04oNLDswph0T79O3bq
- 0WyHB/YFVGAHXZpIVY7f10ljjHSezIUs3vWaMpIBpUPDr6yZ3JGvIyj1icPDQDToR3So=;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-ID:Cc:To
+ :Subject:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=SNDq+hfSzIAn70mnFlvhtvKnegXwECeJ7cVzhcme+WM=; b=e
+ LfpXxwhzTWsrLKj11mBerkWcswNa97v33I/WsrDFWSmM0Sm17OyfHYk3zauHvBq3ir6aWS3NQAPcK
+ jpBLme4S8Eh30YHv7swiFU8vWoucfcAoGf1k2GkygZxslVvpRv72jffGFfuSIyKkZste3AJzYqgXn
+ rjT11uFi3N4ITpeU=;
+Received: from mga12.intel.com ([192.55.52.136])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iYGiA-00AgTT-FK
- for oprofile-list@lists.sourceforge.net; Fri, 22 Nov 2019 21:43:33 +0000
-Received: from pps.filterd (m0127361.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- xAMKbmCg017511
- for <oprofile-list@lists.sourceforge.net>; Fri, 22 Nov 2019 15:39:11 -0500
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2wactb2f3n-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
- for <oprofile-list@lists.sourceforge.net>; Fri, 22 Nov 2019 15:39:10 -0500
-Received: from m0127361.ppops.net (m0127361.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id xAMKbv33017983
- for <oprofile-list@lists.sourceforge.net>; Fri, 22 Nov 2019 15:39:10 -0500
-Received: from ppma04dal.us.ibm.com (7a.29.35a9.ip4.static.sl-reverse.com
- [169.53.41.122])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2wactb2f3c-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 22 Nov 2019 15:39:10 -0500
-Received: from pps.filterd (ppma04dal.us.ibm.com [127.0.0.1])
- by ppma04dal.us.ibm.com (8.16.0.27/8.16.0.27) with SMTP id xAMKZORL021695;
- Fri, 22 Nov 2019 20:39:09 GMT
-Received: from b03cxnp08028.gho.boulder.ibm.com
- (b03cxnp08028.gho.boulder.ibm.com [9.17.130.20])
- by ppma04dal.us.ibm.com with ESMTP id 2wa8r7sbeu-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 22 Nov 2019 20:39:09 +0000
-Received: from b03ledav004.gho.boulder.ibm.com
- (b03ledav004.gho.boulder.ibm.com [9.17.130.235])
- by b03cxnp08028.gho.boulder.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- xAMKd88C58196280
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 22 Nov 2019 20:39:08 GMT
-Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 6A1EB7805C;
- Fri, 22 Nov 2019 20:39:08 +0000 (GMT)
-Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 1BCEB78060;
- Fri, 22 Nov 2019 20:39:08 +0000 (GMT)
-Received: from brimstone.rchland.ibm.com (unknown [9.10.86.107])
- by b03ledav004.gho.boulder.ibm.com (Postfix) with ESMTP;
- Fri, 22 Nov 2019 20:39:07 +0000 (GMT)
-Message-ID: <4b095b71798305e60ca2af56e10e2929e9943935.camel@vnet.ibm.com>
-Subject: [PATCH V3] oprofile-tests Add test to exercise libjvmti_oprofile.so
-From: will schmidt <will_schmidt@vnet.ibm.com>
-To: William Cohen <wcohen@redhat.com>
-Date: Fri, 22 Nov 2019 14:39:07 -0600
-In-Reply-To: <ef4354b0-6fef-7898-2e5c-3cf297d5c8df@redhat.com>
-References: <b3d743ad26a29adc1ac5d513d5f9d36d6cdca20d.camel@vnet.ibm.com>
- <01e03f9f-8f48-51ee-fdff-f69a135bcce9@redhat.com>
- <c015f3f1e51ba0d84e688dd2b8be5c07cfc3a67b.camel@vnet.ibm.com>
- <2d3be06a-7a3e-599c-badd-0c40f5fd825f@redhat.com>
- <71522521f2d82ff622aab75c85ff259e@linux.vnet.ibm.com>
- <ef4354b0-6fef-7898-2e5c-3cf297d5c8df@redhat.com>
-X-Mailer: Evolution 3.28.5 (3.28.5-5.el7) 
-Mime-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.95,18.0.572
- definitions=2019-11-22_04:2019-11-21,2019-11-22 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0
- priorityscore=1501 phishscore=0 mlxlogscore=999 suspectscore=0
- adultscore=0 mlxscore=0 bulkscore=0 clxscore=1011 spamscore=0
- malwarescore=0 impostorscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-1910280000 definitions=main-1911220168
+ id 1ihVhD-008Wia-FZ
+ for oprofile-list@lists.sourceforge.net; Wed, 18 Dec 2019 09:32:45 +0000
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+ by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 18 Dec 2019 01:17:09 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.69,328,1571727600"; d="scan'208";a="205782211"
+Received: from linux.intel.com ([10.54.29.200])
+ by orsmga007.jf.intel.com with ESMTP; 18 Dec 2019 01:17:08 -0800
+Received: from [10.125.252.219] (abudanko-mobl.ccr.corp.intel.com
+ [10.125.252.219])
+ by linux.intel.com (Postfix) with ESMTP id 0400D5802C9;
+ Wed, 18 Dec 2019 01:16:59 -0800 (PST)
+From: Alexey Budankov <alexey.budankov@linux.intel.com>
+Subject: [PATCH v4 0/7] Introduce CAP_SYS_PERFMON to secure system performance
+ monitoring and observability
+To: Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ "jani.nikula@linux.intel.com" <jani.nikula@linux.intel.com>,
+ "joonas.lahtinen@linux.intel.com" <joonas.lahtinen@linux.intel.com>,
+ "rodrigo.vivi@intel.com" <rodrigo.vivi@intel.com>,
+ Alexei Starovoitov <ast@kernel.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ "james.bottomley@hansenpartnership.com"
+ <james.bottomley@hansenpartnership.com>, Serge Hallyn <serge@hallyn.com>,
+ James Morris <jmorris@namei.org>, Will Deacon <will.deacon@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Casey Schaufler
+ <casey@schaufler-ca.com>, Robert Richter <rric@kernel.org>
+Organization: Intel Corp.
+Message-ID: <c0460c78-b1a6-b5f7-7119-d97e5998f308@linux.intel.com>
+Date: Wed, 18 Dec 2019 12:16:58 +0300
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.1
+MIME-Version: 1.0
+Content-Language: en-US
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1iYGiA-00AgTT-FK
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: man7.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1ihVhD-008Wia-FZ
+X-Mailman-Approved-At: Thu, 19 Dec 2019 15:45:09 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -117,509 +97,184 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: oprofile-list@lists.sourceforge.net, "Carl E. Love" <cel@us.ibm.com>
+Cc: Song Liu <songliubraving@fb.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Stephane Eranian <eranian@google.com>, Jiri Olsa <jolsa@redhat.com>,
+ Andi Kleen <ak@linux.intel.com>, Igor Lubashev <ilubashe@akamai.com>,
+ oprofile-list@lists.sf.net, Kees Cook <keescook@chromium.org>,
+ Jann Horn <jannh@google.com>,
+ "selinux@vger.kernel.org" <selinux@vger.kernel.org>,
+ "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
+ Lionel Landwerlin <lionel.g.landwerlin@intel.com>,
+ Namhyung Kim <namhyung@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-arm-kernel@lists.infradead.org,
+ Tvrtko Ursulin <tvrtko.ursulin@linux.intel.com>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
+ "linux-security-module@vger.kernel.org"
+ <linux-security-module@vger.kernel.org>,
+ "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-Hi,
 
-(V3:)  Reworked per feedback from V2,  I have updated some of the logic
-    that searches for libjvmti_oprofile.so to also look in sibling lib64
-    directories.
+Currently access to perf_events, i915_perf and other performance monitoring and
+observability subsystems of the kernel is open for a privileged process [1] with
+CAP_SYS_ADMIN capability enabled in the process effective set [2].
 
-(V2:) I have updated the logic that looks for
-    libjvmti_oprofile.so to also search /usr/lib64/ and /usr/lib/
-    for the library, stopping when the library is found.  I have
-    tested a few additional variations locally.
+This patch set introduces CAP_SYS_PERFMON capability devoted to secure system
+performance monitoring and observability operations so that CAP_SYS_PERFMON would
+assist CAP_SYS_ADMIN capability in its governing role for perf_events, i915_perf
+and other performance monitoring and observability subsystems of the kernel.
 
-(V1:)
-    Assorted changes to exercise the use of oprofiles JVMTI hook.
-    (libjvmti_oprofile.so  - Java Virtual Machine Tools Interface).
-    
-    This has been tested this on assorted ppc64* systems with a mixture
-    of having the libjvmti_oprofile present and not.
-    
-    testsuite/lib/op_util.exp:
-    * Update compile_workload() procedure to allow building of .java files.
-    * Add procedure op_resolve_java_dependencies() to ensure that dependencies
-      for building and running the java test can be found. This includes java,
-      javac, and libjvmti_oprofile.so. Since the libjvmti_oprofile.so object
-      can't be readily found via 'which', logic is in place that assumes it can
-      be found in a path relative to where the operf binary is found.
-    
-    testsuite/lib/op_workloads.exp:
-    * Add an op_java_workload_table containing the new test.
-    
-    testsuite/lib/operf_util.exp:
-    * Add procedure (check_java_samples_exist) to see that samples can be
-      found that are associated with the generated .jo object.
-    * Add procedure (check_java_object_file_exists) to ensure that at
-      least one "*.jo" file was created during the run.
-    * Add procedure (do_java_test) to do the actual test.
-    
-    testsuite/workloads/java/Fibonacci.java:
-    * Add the java test itself.
+CAP_SYS_PERFMON intends to meet the demand to secure system performance monitoring
+and observability operations in security sensitive, restricted, production
+environments (e.g. HPC clusters, cloud and virtual compute environments) where root
+or CAP_SYS_ADMIN credentials are not available to mass users of a system because
+of security considerations.
 
-diff --git a/testsuite/lib/op_util.exp b/testsuite/lib/op_util.exp
-index 7f0473d..70a28cc 100644
---- a/testsuite/lib/op_util.exp
-+++ b/testsuite/lib/op_util.exp
-@@ -179,15 +179,15 @@ proc check_user {} {
- proc compile_workload {workload_src compile_options } {
- 
-     # Ideally the TCL command target_compile should be used.  However,
-     # target_compile is ignoring the compiler options argument.
- 
--    set compiler "cc"
-     set extension [lindex [split $workload_src "."] 1]
--    set workload_exc [ lindex [split $workload_src "."] 0]_bin
- 
-     if { [string compare $extension "c"] == 0 } {
-+	set workload_exc [ lindex [split $workload_src "."] 0]_bin
-+	set compiler "cc"
- 	# workload is a C program, see if it needs to be compiled.
- 	set test [local_exec "ls $workload_exc" "" "" 10]
- 
- 	if { [lindex $test 0] == 1 } {
- 	    # workload has not been compiled
-@@ -198,10 +198,28 @@ proc compile_workload {workload_src compile_options } {
- 	    }
- 	}
- 	return [ lindex [split $workload_src "."] 0]_bin
-     }
- 
-+    if { [string compare $extension "java"] == 0 } {
-+	set compiler "javac"
-+	set workload_exc [ lindex [split $workload_src "."] 0].class
-+	# workload is a java program, see if it needs to be compiled.
-+	set test [local_exec "ls $workload_exc" "" "" 10]
-+	if { [lindex $test 0] == 1 } {
-+	    # workload has not been compiled
-+	    set result [local_exec "$compiler $workload_src $compile_options" "" "" 10 ]
-+	    if { [lindex $result 0] == 1 } {
-+		print "\nERROR compiling workload: $workload_src"
-+		print "Compiler error message: $result\n"
-+	    }
-+	}
-+	set path_and_basename [lindex [split $workload_src "."] 0]
-+	set classonly [ lindex [ split $path_and_basename "/"] 2]
-+	return $classonly
-+    }
-+
-     # Assume the workload is a script, set the executable
-     # name to the same as the source name.
-     return $workload_src
- }
- 
-@@ -243,5 +261,81 @@ proc op_check_dependencies {} {
-         set op_deps_ok 0
-     } else {
-         set op_deps_ok 1
-     }
- }
-+
-+proc op_resolve_java_dependencies {} {
-+    global java_deps_ok
-+    global path_to_libjvmti
-+    set libjvmti_oprofile_present 0
-+    set java_present 0
-+    set javac_present 0
-+    set operf_present 0
-+
-+    set path_to_operf [ local_exec "which operf" "" "" 100 ]
-+    if {[regexp "operf" $path_to_operf operf_present] == 1} {
-+	verbose "Found operf ($operf_present) at $path_to_operf ."
-+    } else {
-+	send "Didn't find operf.\n"
-+    }
-+
-+    set path_to_javac [ local_exec "which javac" "" "" 100 ]
-+    if {[regexp "javac" $path_to_javac javac_present] == 1} {
-+	verbose "Found javac ($javac_present) at $path_to_javac ."
-+    } else {
-+	send "javac is require to build the java testcase.  I didn't find javac via 'which'.\n"
-+    }
-+
-+    set path_to_java [ local_exec "which java" "" "" 100 ]
-+    if {[regexp "java" $path_to_java java_present] == 1} {
-+	verbose "Found java ($java_present) at $path_to_java ."
-+    } else {
-+	send "java is require to run the java testcase.  I didn't find java via 'which'.\n"
-+    }
-+
-+    send "checking for libjvmti_oprofile.so .\n"
-+    # In the case of a userspace build, the oprofile install location has
-+    # sibling bin and lib or lib64 directories, so we will check for the 
-+    # libjvmti_oprofile.so library in those locations.
-+
-+    # Search in lib64 sibling directory.
-+    set path_to_libjvmti [string map {bin/operf lib64/oprofile/libjvmti_oprofile.so} $path_to_operf ]
-+    set path_to_libjvmti [string trimleft $path_to_libjvmti "0\ \{"]
-+    set path_to_libjvmti [string trim $path_to_libjvmti "\ \n\r\}"]
-+    verbose "checking for lib at $path_to_libjvmti \n"
-+    set libjvmti_oprofile_present [file exists $path_to_libjvmti ]
-+
-+    if {$libjvmti_oprofile_present == 0 } {
-+    # Search in lib sibling directory.
-+    set path_to_libjvmti [string map {bin/operf lib/oprofile/libjvmti_oprofile.so} $path_to_operf ]
-+    set path_to_libjvmti [string trimleft $path_to_libjvmti "0\ \{"]
-+    set path_to_libjvmti [string trim $path_to_libjvmti "\ \n\r\}"]
-+    verbose "checking for lib at $path_to_libjvmti \n"
-+    set libjvmti_oprofile_present [file exists $path_to_libjvmti ]
-+    }
-+
-+    # Search in common system directories.
-+    if {$libjvmti_oprofile_present == 0 } {
-+	foreach path_to_libjvmti { /usr/lib64/libjvmti_oprofile.so /usr/lib/libjvmti_oprofile.so } {
-+		verbose "checking for lib at $path_to_libjvmti \n"
-+		set libjvmti_oprofile_present [file exists $path_to_libjvmti ]
-+		if {$libjvmti_oprofile_present == 1 } {
-+			break
-+		} else {
-+			verbose "did not find libjvmti_oprofile in $path_to_libjvmti ) .\n"
-+		}
-+	}
-+   }
-+   send "found libjvmti_oprofile at $path_to_libjvmti . \n"
-+
-+    if {$operf_present == 0 || $java_present == 0 || $javac_present == 0 || $libjvmti_oprofile_present == 0} {
-+	set java_deps_ok 0
-+    } else {
-+	verbose "found operf at $path_to_operf . \n"
-+	verbose "found java at $path_to_java . \n"
-+	verbose "found javac at $path_to_javac . \n"
-+	verbose "found libjvmti_oprofile at $path_to_libjvmti . \n"
-+	set java_deps_ok 1
-+    }
-+}
-+
-diff --git a/testsuite/lib/op_workloads.exp b/testsuite/lib/op_workloads.exp
-index 661e280..9e96b52 100644
---- a/testsuite/lib/op_workloads.exp
-+++ b/testsuite/lib/op_workloads.exp
-@@ -2,10 +2,14 @@
- 
- if {! [array exists op_workload_table]} {
-     array set op_workload_table {}
- }
- 
-+if {! [array exists op_java_workload_table]} {
-+    array set op_java_workload_table {}
-+}
-+
- # Make sure the workload binary name is unique and not a substring of the
- # directory or the test to see if the symbol exists may find the symbol in
- # the directory name not the executable.
- #
- # The op_workload_table consists of three or more entries.  The entries
-@@ -59,5 +63,15 @@ set op_workload_table(anon_remap)                  \
-       {workloads/anon_remap_src/anon_remap.c}      \
-       {}                                           \
-       {}                                           \
-       { anon }                                       \
-     }
-+
-+# A new/different table for the java workload(s).
-+set op_java_workload_table(fibonacci)              \
-+        {                                          \
-+        {workloads/java/Fibonacci.java}            \
-+        {}                                         \
-+        {Fibonacci.main}                           \
-+        {}                                         \
-+}
-+
-diff --git a/testsuite/lib/operf_util.exp b/testsuite/lib/operf_util.exp
-index b34fd33..10ea9ac 100644
---- a/testsuite/lib/operf_util.exp
-+++ b/testsuite/lib/operf_util.exp
-@@ -1,7 +1,7 @@
--# op_util.exp
--#   Copyright (C) 2012 IBM
-+# operf_util.exp
-+#   Copyright (C) 2012-2019 IBM
- #
- # This file is free software; you can redistribute it and/or modify
- # it under the terms of the GNU General Public License as published by
- # the Free Software Foundation; either version 2 of the License, or
- # (at your option) any later version.
-@@ -86,10 +86,41 @@ proc operf_check_samples_exist {ctrs} {
-             pass "$test: {$event} created nonzero sample files"
-         }
-     }
- }
- 
-+proc operf_check_java_samples_exist {ctrs} {
-+    set test "checking for samples associated with *.jo"
-+    verbose "checking for samples associated with *.jo"
-+
-+    foreach ctr $ctrs {
-+        set n [lindex $ctr 0]
-+        set event [lindex $ctr 1]
-+        # add "-t 3" as a percentage threshold to cull some noise.
-+        # add "-n" to suppress the opreport header (easier for debug).
-+        # add a regexp blurb to get just the .jo entries.
-+        set result [ local_exec "opreport  event:$event -t 3 -n " "" "" 100 ]
-+        if { [regexp "\[0-9\].jo" "$result" ]} {
-+            pass "$test: {$event} found samples associated with *.jo"
-+        } else {
-+            fail "$test: {$event} didn't find samples associated with *.jo"
-+        }
-+    }
-+}
-+
-+proc operf_check_java_object_file_exists {} {
-+    set test "At least one java object (.jo) file exists."
-+    verbose "At least one java object (.jo) file exists."
-+
-+    set result [ local_exec "find . -name \"*.jo\" "  "" "" 100 ]
-+    if {[regexp ".jo" "$result"]} {
-+            pass "$test: found at least one java object file."
-+    } else {
-+            fail "$test: Did not find a java object (*.jo) file."
-+    }
-+}
-+
- proc operf_ocount_get_version {tool} {
-     global operf_ocount_version
-     global user_is_root
- 
-     if { [string compare $tool "operf"] == 0 } {
-@@ -159,10 +190,85 @@ proc operf_get_version {} {
-     set test "OProfile operf version check"
-     operf_ocount_get_version "operf"
-     set operf_version $operf_ocount_version
- }
- 
-+# run a java test.
-+proc do_java_test {ctrs output_check test_debug_option} {
-+
-+    global op_java_workload_table
-+    global op_workload_table
-+    global path_to_libjvmti
-+    set kernel 1
-+    set user 1
-+    set ctr_opts {}
-+
-+    if { $output_check == 1 && $test_debug_option == 0 } {
-+        validate_xml_help
-+    }
-+
-+    foreach ctr $ctrs {
-+#       n - counter number, no longer used but didn't want to change
-+#       specification format
-+        set n [lindex $ctr 0]
-+        set event [lindex $ctr 1]
-+        set um [lindex $ctr 2]
-+        if {$output_check == 3} {
-+            # With callgraph profiling, we only use the cycles-based event for the
-+            # architecture.  Just set the count value high enough to make sure it's
-+            # at least 15x the minimum; 1,500,000 should do it.
-+            set count 1500000
-+        } else {
-+            set count [lindex $ctr 3]
-+        }
-+        append ctr_opts "${event}:${count}:${um}:${kernel}:${user},"
-+    }
-+
-+    foreach entry [array name op_java_workload_table] {
-+        set workload_src [lindex $op_java_workload_table($entry) 0]
-+        set compile_options [lindex $op_java_workload_table($entry) 1]
-+        set workload_exc [compile_workload $workload_src  $compile_options]
-+        verbose "Workload: $workload_exc\n"
-+        verbose "Counter options: $ctr_opts\n"
-+        # Run the workload
-+        set java_classpath "workloads/java/"
-+        set cmd "operf java -agentpath:${path_to_libjvmti} -cp ${java_classpath} ${workload_exc}"
-+        verbose "operf command is: $cmd \n"
-+
-+        if {$test_debug_option == 1} {
-+            set dbg_test " (--debug-info)"
-+        } else {
-+            set dbg_test ""
-+        }
-+        set test "operf test against java: $cmd"
-+        verbose "\nTest: $test\n"
-+        if {[lindex [local_exec $cmd "" "" 100] 0] == 0} {
-+            pass $test
-+        } else {
-+            fail $test
-+        }
-+
-+        # - verify that the test ran.
-+        operf_check_samples_exist $ctrs
-+        # - verify that at least one .jo file exists.
-+        operf_check_java_object_file_exists
-+        # - verify that the .jo entry shows up in the output.
-+        operf_check_java_samples_exist $ctrs
-+
-+        # Verify the interesting symbols for this test are found in
-+        # the output.  Only checking the symbols for the first group of
-+        # events.
-+        if {$output_check == 1} {
-+            local_exec "sleep 1" "" "" 10
-+            verify_output $op_java_workload_table($entry) $workload_exc $ctr_opts $test_debug_option
-+        }
-+
-+        operf_delete_samples
-+    }
-+}
-+
-+
- proc do_single_process_test {ctrs output_check test_debug_option} {
- #   The tests are run in single process mode which does not require root
- #
- #   output_check values:
- #     1 - check output for symbols from workload table
-diff --git a/testsuite/oprofile-java/oprofile-java.exp b/testsuite/oprofile-java/oprofile-java.exp
-new file mode 100644
-index 0000000..1c9cd0b
---- /dev/null
-+++ b/testsuite/oprofile-java/oprofile-java.exp
-@@ -0,0 +1,112 @@
-+# oprofile-java.exp
-+#   Copyright (C) 2019 IBM Corporation
-+#
-+# This file is free software; you can redistribute it and/or modify
-+# it under the terms of the GNU General Public License as published by
-+# the Free Software Foundation; either version 2 of the License, or
-+# (at your option) any later version.
-+#
-+# This program is distributed in the hope that it will be useful,
-+# but WITHOUT ANY WARRANTY; without even the implied warranty of
-+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-+# GNU General Public License for more details.
-+#
-+# You should have received a copy of the GNU General Public License
-+# along with this program; if not, write to the Free Software
-+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-+#
-+
-+global path_to_libjvmti
-+
-+check_user
-+load_lib "op_events.exp"
-+load_lib "op_util.exp"
-+load_lib "operf_util.exp"
-+load_lib "op_workloads.exp"
-+
-+# run operf against a java utility, verify that a .jo file is created,
-+# and that an oreport can run successfully against the run.
-+
-+proc oprofile_run_java_tests {} {
-+    global op_event_table
-+
-+    set cpu [operf_cpu_type]
-+    if {$cpu == "bogus"} {
-+        send "Error, not able to find a valid cpu type. Exiting.\n"
-+    } else {
-+        set output_check 2
-+        set test_debug_option  0
-+        # Test using the first event entry only.
-+        set spec [lindex $op_event_table($cpu) 0]
-+        do_java_test $spec $output_check $test_debug_option
-+    }
-+}
-+
-+#main
-+
-+set operf_version 0
-+set op_version 0
-+
-+op_check_dependencies
-+if {$op_deps_ok == 0} {
-+    return
-+}
-+
-+op_resolve_java_dependencies
-+if {$java_deps_ok == 0} {
-+#send "returning from java_deps_ok check"
-+    send "Skipping the java test due to missing dependencies."
-+    send "Oprofile needs to be built --with-java=<path/to/jdk/>, such "
-+    send "that the libjvmti_oprofile.so object is built and installed."
-+    send "java, javac, operf also need to be available and in the PATH."
-+    return
-+}
-+
-+# Check to see of opcontrol is installed.  Need to do this first as
-+# to set opcontrol_installed.  If opcontrol is not installed, then we do
-+# not make any opcontrol calls to do cleanup of existing opcontrol data samples
-+# or call --deinit when exiting.
-+
-+operf_get_version
-+op_get_version
-+
-+if {$op_version == 0} {
-+    # could not find opcontrol
-+    set opcontrol_installed 0
-+} else {
-+    if {$op_version < $operf_version} {
-+        # Don't run the opcontrol tests at all if the opcontrol binary appears to
-+        # be from an earlier version of OProfile.
-+        set opcontrol_installed 0
-+    } else {
-+        set opcontrol_installed 1
-+    }
-+}
-+
-+if { $operf_version == 0 } {
-+    send "Skipping the operf tests.\n"
-+    send "Unable to find or verify the version of the OProfile operf utility.\n"
-+} else {
-+    # Ensure that the oprofile kernel module is unloaded, since it can
-+    # interfere with proper operf operation on some platforms.
-+#    if {$opcontrol_installed == 1} {
-+#        local_exec "opcontrol --deinit" "" "" 100
-+#        # Make sure there are no samples from the opcontrol laying
-+#        # around that opreport might inadvertently pick up.
-+#        op_daemon_delete_any_samples
-+#    }
-+    # Make sure there are no samples from the operf laying
-+    # around that opreport might inadvertently pick up.
-+    operf_delete_samples
-+
-+    case $operf_version {
-+        { 0.* } {
-+            # Just don't run this on old versions.
-+            send "v==0, skipping. \n"
-+            }
-+        { * } {
-+            send "Running operf against a java workload. \n"
-+            oprofile_run_java_tests
-+        }
-+    }
-+}
-diff --git a/testsuite/workloads/java/Fibonacci.java b/testsuite/workloads/java/Fibonacci.java
-new file mode 100644
-index 0000000..8d92b6a
---- /dev/null
-+++ b/testsuite/workloads/java/Fibonacci.java
-@@ -0,0 +1,25 @@
-+
-+/* A simple java test to generate some activity to verify operf is working
-+ * properly. */
-+
-+public class Fibonacci {
-+   public static void main(String[] args) {
-+      long sum=0;
-+      int i = 1;
-+      /* The test harness does not easily handle passing arguments
-+       * to the test, so hardcode a value here.
-+       * This (sum) will overflow, but that is fine as we are only after
-+       * activity, and are not concerned with the result.  */
-+      int n = 12345; /*Integer.parseInt(args[0]);*/
-+      long f1 = 0;
-+      long f2 = f1 + 1;
-+      while (i <= n) {
-+         sum = f1 + f2;
-+         f1 = f2;
-+         f2 = sum;
-+         i++;
-+      }
-+      System.out.print(sum);
-+      System.out.print("\n");
-+     }
-+}
+CAP_SYS_PERFMON intends to harden system security and integrity during system
+performance monitoring and observability operations by decreasing attack surface
+that is available to CAP_SYS_ADMIN privileged processes [2].
+
+CAP_SYS_PERFMON intends to take over CAP_SYS_ADMIN credentials related to system
+performance monitoring and observability operations and balance amount of
+CAP_SYS_ADMIN credentials following the recommendations in the capabilities man
+page [2] for CAP_SYS_ADMIN: "Note: this capability is overloaded; see Notes to
+kernel developers, below."
+
+For backward compatibility reasons access to system performance monitoring and
+observability subsystems of the kernel remains open for CAP_SYS_ADMIN privileged
+processes but CAP_SYS_ADMIN capability usage for secure system performance
+monitoring and observability operations is discouraged with respect to the
+introduced CAP_SYS_PERFMON capability.
+
+The patch set is for tip perf/core repository:
+git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip perf/core
+sha1: ceb9e77324fa661b1001a0ae66f061b5fcb4e4e6
+
+---
+Changes in v4:
+- converted perfmon_capable() into an inline function
+- made perf_events kprobes, uprobes, hw breakpoints and namespaces data available
+  to CAP_SYS_PERFMON privileged processes
+- applied perfmon_capable() to drivers/perf and drivers/oprofile
+- extended __cmd_ftrace() with support of CAP_SYS_PERFMON
+Changes in v3:
+- implemented perfmon_capable() macros aggregating required capabilities checks
+Changes in v2:
+- made perf_events trace points available to CAP_SYS_PERFMON privileged processes
+- made perf_event_paranoid_check() treat CAP_SYS_PERFMON equally to CAP_SYS_ADMIN
+- applied CAP_SYS_PERFMON to i915_perf, bpf_trace, powerpc and parisc system
+  performance monitoring and observability related subsystems
+
+---
+Alexey Budankov (9):
+  capabilities: introduce CAP_SYS_PERFMON to kernel and user space
+  perf/core: open access for CAP_SYS_PERFMON privileged process
+  perf tool: extend Perf tool with CAP_SYS_PERFMON capability support
+  drm/i915/perf: open access for CAP_SYS_PERFMON privileged process
+  trace/bpf_trace: open access for CAP_SYS_PERFMON privileged process
+  powerpc/perf: open access for CAP_SYS_PERFMON privileged process
+  parisc/perf: open access for CAP_SYS_PERFMON privileged process
+  drivers/perf: open access for CAP_SYS_PERFMON privileged process
+  drivers/oprofile: open access for CAP_SYS_PERFMON privileged process
+
+ arch/parisc/kernel/perf.c           |  2 +-
+ arch/powerpc/perf/imc-pmu.c         |  4 ++--
+ drivers/gpu/drm/i915/i915_perf.c    | 13 ++++++-------
+ drivers/oprofile/event_buffer.c     |  2 +-
+ drivers/perf/arm_spe_pmu.c          |  4 ++--
+ include/linux/capability.h          |  4 ++++
+ include/linux/perf_event.h          |  6 +++---
+ include/uapi/linux/capability.h     |  8 +++++++-
+ kernel/events/core.c                |  6 +++---
+ kernel/trace/bpf_trace.c            |  2 +-
+ security/selinux/include/classmap.h |  4 ++--
+ tools/perf/builtin-ftrace.c         |  5 +++--
+ tools/perf/design.txt               |  3 ++-
+ tools/perf/util/cap.h               |  4 ++++
+ tools/perf/util/evsel.c             | 10 +++++-----
+ tools/perf/util/util.c              |  1 +
+ 16 files changed, 47 insertions(+), 31 deletions(-)
+
+---
+Testing and validation (Intel Skylake, 8 cores, Fedora 29, 5.4.0-rc8+, x86_64):
+
+libcap library [3], [4] and Perf tool can be used to apply CAP_SYS_PERFMON 
+capability for secure system performance monitoring and observability beyond the
+scope permitted by the system wide perf_event_paranoid kernel setting [5] and
+below are the steps for evaluation:
+
+  - patch, build and boot the kernel
+  - patch, build Perf tool e.g. to /home/user/perf
+  ...
+  # git clone git://git.kernel.org/pub/scm/libs/libcap/libcap.git libcap
+  # pushd libcap
+  # patch libcap/include/uapi/linux/capabilities.h with [PATCH 1]
+  # make
+  # pushd progs
+  # ./setcap "cap_sys_perfmon,cap_sys_ptrace,cap_syslog=ep" /home/user/perf
+  # ./setcap -v "cap_sys_perfmon,cap_sys_ptrace,cap_syslog=ep" /home/user/perf
+  /home/user/perf: OK
+  # ./getcap /home/user/perf
+  /home/user/perf = cap_sys_ptrace,cap_syslog,cap_sys_perfmon+ep
+  # echo 2 > /proc/sys/kernel/perf_event_paranoid
+  # cat /proc/sys/kernel/perf_event_paranoid 
+  2
+  ...
+  $ /home/user/perf top
+    ... works as expected ...
+  $ cat /proc/`pidof perf`/status
+  Name:	perf
+  Umask:	0002
+  State:	S (sleeping)
+  Tgid:	2958
+  Ngid:	0
+  Pid:	2958
+  PPid:	9847
+  TracerPid:	0
+  Uid:	500	500	500	500
+  Gid:	500	500	500	500
+  FDSize:	256
+  ...
+  CapInh:	0000000000000000
+  CapPrm:	0000004400080000
+  CapEff:	0000004400080000 => 01000100 00000000 00001000 00000000 00000000
+                                     cap_sys_perfmon,cap_sys_ptrace,cap_syslog
+  CapBnd:	0000007fffffffff
+  CapAmb:	0000000000000000
+  NoNewPrivs:	0
+  Seccomp:	0
+  Speculation_Store_Bypass:	thread vulnerable
+  Cpus_allowed:	ff
+  Cpus_allowed_list:	0-7
+  ...
+
+Usage of cap_sys_perfmon effectively avoids unused credentials excess:
+
+- with cap_sys_admin:
+  CapEff:	0000007fffffffff => 01111111 11111111 11111111 11111111 11111111
+
+- with cap_sys_perfmon:
+  CapEff:	0000004400080000 => 01000100 00000000 00001000 00000000 00000000
+                                    38   34               19
+                           sys_perfmon   syslog           sys_ptrace
+
+---
+
+[1] https://www.kernel.org/doc/html/latest/admin-guide/perf-security.html
+[2] http://man7.org/linux/man-pages/man7/capabilities.7.html
+[3] http://man7.org/linux/man-pages/man8/setcap.8.html
+[4] https://git.kernel.org/pub/scm/libs/libcap/libcap.git
+[5] http://man7.org/linux/man-pages/man2/perf_event_open.2.html
+[6] https://sites.google.com/site/fullycapable/, posix_1003.1e-990310.pdf
+
+-- 
+2.20.1
 
 
 
