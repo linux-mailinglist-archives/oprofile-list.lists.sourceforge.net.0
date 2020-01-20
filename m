@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id D174E142DAD
-	for <lists+oprofile-list@lfdr.de>; Mon, 20 Jan 2020 15:37:29 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DE8D9142DB6
+	for <lists+oprofile-list@lfdr.de>; Mon, 20 Jan 2020 15:37:30 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1itYBE-0005kL-9q; Mon, 20 Jan 2020 14:37:28 +0000
+	id 1itYBE-0005kX-DM; Mon, 20 Jan 2020 14:37:28 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <alexey.budankov@linux.intel.com>) id 1itVEb-0000Wk-AT
- for oprofile-list@lists.sourceforge.net; Mon, 20 Jan 2020 11:28:45 +0000
+ (envelope-from <alexey.budankov@linux.intel.com>) id 1itVFu-0004RD-MA
+ for oprofile-list@lists.sourceforge.net; Mon, 20 Jan 2020 11:30:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=LXVJD8p6uCuM1fuEp+esIxYIWI5YTBNd8Uwotp8yMak=; b=HIPA7VOcXa3/uLpVinzg3vxKSX
- 2Oul16RVuvrWldLkZp76YQh1r4LHn6CML36I9OYK6gT5Kw+CkqJsxZUM02KP7hsCFe0jht7picSi+
- CWcwtF80o7giZawbR6rDCEOj9j4+wdQNn7icyhZXudfsUTdCvC6bbzs3EKL+ibWKt1t8=;
+ bh=YWOHfGeo6oTlLi/9QNobdoBhhB7iVVi/i885yBkHx4k=; b=X5W1p+RCrCBd9b0j7e9X7WYdSr
+ BcmPNvxD2u5CyGGZb8QWQQ/GYJ9FnjN1nQEKRw76JVkFjx2MZy9MKSd07U3ltwlqVPGUs7nvcfyPE
+ AlZvvhXaO7wQZbw7hHNy4vYR7ue45lf/W2ivOR3aJ8aRKr+8OWk5YmA0dnGcmSTnUfOM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
@@ -29,28 +29,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=LXVJD8p6uCuM1fuEp+esIxYIWI5YTBNd8Uwotp8yMak=; b=FWaXY4ymoslZKGyhIKfBCi8EiT
- 0bSuP7U+S+GI5x619Rgjs+Kf3xLXz8/X61XFfjclfdSQHkHuTrqGXCnUN9m9FdoeX778iNhfW3W2K
- C7POCQM5LvQ5qEqhoAGLatoHncnqq7wy2JCbL+Rv8psvRcM9l6Mi3HVBV3qoSlsqX6jw=;
-Received: from mga09.intel.com ([134.134.136.24])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=YWOHfGeo6oTlLi/9QNobdoBhhB7iVVi/i885yBkHx4k=; b=SulTnMFCMOU5YOn3Mw/wf7Y30B
+ 6GM/6x/tJWWrHHU3pEL5G9ug+lhrE0M3SWLwYtlATNwYbHVN/4pb1l20peRA27RqDLeFXh2GNrHpV
+ GIWgXbE4rWqBNs8HcCenjOcupUOuLsBI9i2ZoB8Wv3XjiQzK+XVWguTmmBsE7NmkSFRs=;
+Received: from mga04.intel.com ([192.55.52.120])
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1itVEX-00EtOx-5x
- for oprofile-list@lists.sourceforge.net; Mon, 20 Jan 2020 11:28:45 +0000
+ id 1itVFq-00BLx4-QX
+ for oprofile-list@lists.sourceforge.net; Mon, 20 Jan 2020 11:30:06 +0000
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
- by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 20 Jan 2020 03:28:35 -0800
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+ by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 20 Jan 2020 03:29:57 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,341,1574150400"; d="scan'208";a="425168570"
+X-IronPort-AV: E=Sophos;i="5.70,341,1574150400"; d="scan'208";a="426701472"
 Received: from linux.intel.com ([10.54.29.200])
- by fmsmga005.fm.intel.com with ESMTP; 20 Jan 2020 03:28:34 -0800
+ by fmsmga006.fm.intel.com with ESMTP; 20 Jan 2020 03:29:54 -0800
 Received: from [10.125.252.193] (abudanko-mobl.ccr.corp.intel.com
  [10.125.252.193])
- by linux.intel.com (Postfix) with ESMTP id 20D515803C5;
- Mon, 20 Jan 2020 03:28:25 -0800 (PST)
-Subject: [PATCH v5 05/10] drm/i915/perf: open access for CAP_PERFMON
+ by linux.intel.com (Postfix) with ESMTP id 74B705802C1;
+ Mon, 20 Jan 2020 03:29:46 -0800 (PST)
+Subject: [PATCH v5 06/10] trace/bpf_trace: open access for CAP_PERFMON
  privileged process
 From: Alexey Budankov <alexey.budankov@linux.intel.com>
 To: Peter Zijlstra <peterz@infradead.org>,
@@ -67,8 +67,8 @@ To: Peter Zijlstra <peterz@infradead.org>,
  Alexei Starovoitov <ast@kernel.org>
 References: <0548c832-7f4b-dc4c-8883-3f2b6d351a08@linux.intel.com>
 Organization: Intel Corp.
-Message-ID: <e5691e6c-84cf-a977-8c7a-8e124ac37f46@linux.intel.com>
-Date: Mon, 20 Jan 2020 14:28:24 +0300
+Message-ID: <4c91a53f-0124-0816-917d-a8cb232dc6a1@linux.intel.com>
+Date: Mon, 20 Jan 2020 14:29:45 +0300
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
  Thunderbird/68.4.1
 MIME-Version: 1.0
@@ -79,11 +79,8 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [134.134.136.24 listed in wl.mailspike.net]
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1itVEX-00EtOx-5x
+ -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1itVFq-00BLx4-QX
 X-Mailman-Approved-At: Mon, 20 Jan 2020 14:37:26 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -117,66 +114,32 @@ Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
 
-Open access to i915_perf monitoring for CAP_PERFMON privileged processes.
-For backward compatibility reasons access to i915_perf subsystem remains
+Open access to bpf_trace monitoring for CAP_PERFMON privileged processes.
+For backward compatibility reasons access to bpf_trace monitoring remains
 open for CAP_SYS_ADMIN privileged processes but CAP_SYS_ADMIN usage for
-secure i915_perf monitoring is discouraged with respect to CAP_PERFMON
+secure bpf_trace monitoring is discouraged with respect to CAP_PERFMON
 capability. Providing the access under CAP_PERFMON capability singly,
 without the rest of CAP_SYS_ADMIN credentials, excludes chances to misuse
 the credentials and makes operations more secure.
 
 Signed-off-by: Alexey Budankov <alexey.budankov@linux.intel.com>
 ---
- drivers/gpu/drm/i915/i915_perf.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+ kernel/trace/bpf_trace.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/i915/i915_perf.c b/drivers/gpu/drm/i915/i915_perf.c
-index 2ae14bc14931..d89347861b7d 100644
---- a/drivers/gpu/drm/i915/i915_perf.c
-+++ b/drivers/gpu/drm/i915/i915_perf.c
-@@ -3375,10 +3375,10 @@ i915_perf_open_ioctl_locked(struct i915_perf *perf,
- 	/* Similar to perf's kernel.perf_paranoid_cpu sysctl option
- 	 * we check a dev.i915.perf_stream_paranoid sysctl option
- 	 * to determine if it's ok to access system wide OA counters
--	 * without CAP_SYS_ADMIN privileges.
-+	 * without CAP_PERFMON or CAP_SYS_ADMIN privileges.
- 	 */
- 	if (privileged_op &&
--	    i915_perf_stream_paranoid && !capable(CAP_SYS_ADMIN)) {
-+	    i915_perf_stream_paranoid && !perfmon_capable()) {
- 		DRM_DEBUG("Insufficient privileges to open i915 perf stream\n");
- 		ret = -EACCES;
- 		goto err_ctx;
-@@ -3571,9 +3571,8 @@ static int read_properties_unlocked(struct i915_perf *perf,
- 			} else
- 				oa_freq_hz = 0;
+diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
+index e5ef4ae9edb5..334f1d71ebb1 100644
+--- a/kernel/trace/bpf_trace.c
++++ b/kernel/trace/bpf_trace.c
+@@ -1395,7 +1395,7 @@ int perf_event_query_prog_array(struct perf_event *event, void __user *info)
+ 	u32 *ids, prog_cnt, ids_len;
+ 	int ret;
  
--			if (oa_freq_hz > i915_oa_max_sample_rate &&
--			    !capable(CAP_SYS_ADMIN)) {
--				DRM_DEBUG("OA exponent would exceed the max sampling frequency (sysctl dev.i915.oa_max_sample_rate) %uHz without root privileges\n",
-+			if (oa_freq_hz > i915_oa_max_sample_rate && !perfmon_capable()) {
-+				DRM_DEBUG("OA exponent would exceed the max sampling frequency (sysctl dev.i915.oa_max_sample_rate) %uHz without CAP_PERFMON or CAP_SYS_ADMIN privileges\n",
- 					  i915_oa_max_sample_rate);
- 				return -EACCES;
- 			}
-@@ -3994,7 +3993,7 @@ int i915_perf_add_config_ioctl(struct drm_device *dev, void *data,
+-	if (!capable(CAP_SYS_ADMIN))
++	if (!perfmon_capable())
+ 		return -EPERM;
+ 	if (event->attr.type != PERF_TYPE_TRACEPOINT)
  		return -EINVAL;
- 	}
- 
--	if (i915_perf_stream_paranoid && !capable(CAP_SYS_ADMIN)) {
-+	if (i915_perf_stream_paranoid && !perfmon_capable()) {
- 		DRM_DEBUG("Insufficient privileges to add i915 OA config\n");
- 		return -EACCES;
- 	}
-@@ -4141,7 +4140,7 @@ int i915_perf_remove_config_ioctl(struct drm_device *dev, void *data,
- 		return -ENOTSUPP;
- 	}
- 
--	if (i915_perf_stream_paranoid && !capable(CAP_SYS_ADMIN)) {
-+	if (i915_perf_stream_paranoid && !perfmon_capable()) {
- 		DRM_DEBUG("Insufficient privileges to remove i915 OA config\n");
- 		return -EACCES;
- 	}
 -- 
 2.20.1
 
