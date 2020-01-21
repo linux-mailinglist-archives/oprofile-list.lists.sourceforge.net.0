@@ -2,92 +2,104 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5F469144358
-	for <lists+oprofile-list@lfdr.de>; Tue, 21 Jan 2020 18:35:15 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 92B7914453B
+	for <lists+oprofile-list@lfdr.de>; Tue, 21 Jan 2020 20:41:06 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1itxQm-0000bm-1p; Tue, 21 Jan 2020 17:35:12 +0000
+	id 1itzOZ-0006oj-MH; Tue, 21 Jan 2020 19:41:03 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <alexey.budankov@linux.intel.com>) id 1itxN0-00011T-9y
- for oprofile-list@lists.sourceforge.net; Tue, 21 Jan 2020 17:31:18 +0000
+ (envelope-from <alexei.starovoitov@gmail.com>) id 1itxlA-00025m-P5
+ for oprofile-list@lists.sourceforge.net; Tue, 21 Jan 2020 17:56:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
+ In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Rf7fgyGnyIU+rESyeeYSwSVvYIZmBpijrM/IEaHLKi0=; b=NQ6fKX+D6vuV39EyhZOqCQ6KJc
- uXyt3IfYymaUstJcBRrKaFSZJIFqMwlRKMKfQQiCSCfWiS1LkyXbW+TZ7ctwW5pANJBS2RuL/r7pG
- 77nr4mkXRAHXvG8S77De9kKUvwKpwcTsuckYqb0h2b3rW20Q0FvYqvOUnNu1AtTBq6ZI=;
+ bh=98bZxOBbCQ3VnMNuVxei8T8EkXL1AFFFNz8Ptr5Fwf4=; b=lK2bSxGXFCY2RDr2VCmaelDYU1
+ OFVwqiOrvmXAkLJfCI7GP/aSCEQ4Y+EJK0krSoUjcThSAC6LebcyqtbVfRk9JbAzbWqn8ksETfAxP
+ R0i2XtYk6z5eqwpNW6uXfDVc9yncSB6eFhm6H3TfK20TvigWEsqyA7T3FZLk3kytium0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Rf7fgyGnyIU+rESyeeYSwSVvYIZmBpijrM/IEaHLKi0=; b=g/55L57+/EBetYrnrz6NAb02P5
- Jakgwl4mz8URwc0az+xX2S6Byl7NE/FxK7MrBpQdmHxX1nP+7HEdjjkqQF3K4KVoyvGH6u4f1MA9K
- Z1bMQOtMITFGBAwQSzXvtnxVjFUtHcdokVLljNUMJKV+XyQ1I8f80Z9VYysG1HT6UAPE=;
-Received: from mga11.intel.com ([192.55.52.93])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1itxMw-00Cfhf-S2
- for oprofile-list@lists.sourceforge.net; Tue, 21 Jan 2020 17:31:18 +0000
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
- by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 21 Jan 2020 09:31:08 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,346,1574150400"; d="scan'208";a="221768046"
-Received: from linux.intel.com ([10.54.29.200])
- by fmsmga008.fm.intel.com with ESMTP; 21 Jan 2020 09:31:04 -0800
-Received: from [10.252.13.111] (iganakov-mobl1.ger.corp.intel.com
- [10.252.13.111])
- by linux.intel.com (Postfix) with ESMTP id 874B25803C5;
- Tue, 21 Jan 2020 09:30:55 -0800 (PST)
-Subject: Re: [PATCH v5 01/10] capabilities: introduce CAP_PERFMON to kernel
- and user space
-To: Stephen Smalley <sds@tycho.nsa.gov>, Peter Zijlstra
- <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Ingo Molnar <mingo@redhat.com>,
- "jani.nikula@linux.intel.com" <jani.nikula@linux.intel.com>,
- "joonas.lahtinen@linux.intel.com" <joonas.lahtinen@linux.intel.com>,
- "rodrigo.vivi@intel.com" <rodrigo.vivi@intel.com>,
- "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
- "james.bottomley@hansenpartnership.com"
- <james.bottomley@hansenpartnership.com>, Serge Hallyn <serge@hallyn.com>,
- James Morris <jmorris@namei.org>, Will Deacon <will.deacon@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Robert Richter <rric@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>
+ bh=98bZxOBbCQ3VnMNuVxei8T8EkXL1AFFFNz8Ptr5Fwf4=; b=M+G93VPGyE5tbzYUoilp+s7O17
+ tkJEW2DhqTcmzc4EVYkLRNb/qRIwxbvx+WZWhElW//Jo2AmEbjR9nAine8v52Yc5ZXjy/3Tw3/f4Z
+ IZQmhTg2NsciIY3TCSvfn/Thgt66th/yBaeNwf7iiDKqxJfN4lKNpGBTfc7YTCyxIHnY=;
+Received: from mail-lj1-f196.google.com ([209.85.208.196])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1itxl6-00ChmC-Gc
+ for oprofile-list@lists.sourceforge.net; Tue, 21 Jan 2020 17:56:16 +0000
+Received: by mail-lj1-f196.google.com with SMTP id w1so3766320ljh.5
+ for <oprofile-list@lists.sf.net>; Tue, 21 Jan 2020 09:56:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=98bZxOBbCQ3VnMNuVxei8T8EkXL1AFFFNz8Ptr5Fwf4=;
+ b=f0UMJKfmKZdH5ae7CC35Bo8JfJuzIWwRMR2d3DvgxxocOt4ZxltoLSDNLwnzFZ8sCh
+ mHQ747HPLwIz8jiYkjw/ZBy7Z+2kGJIfn0vBm2e30i+bbMJpifVwiABEulHvlUjKF3e+
+ zmkyIyJf834Xz+CPHcMmtF5hwd//KEWq0xygi0vqFBd3IcGN7Ao8G+F+LXLzP7r3FTHU
+ oWLSaaKu9S1cZeQ2mmM7DUSMHSd9Ajyf0ADQRJWavAuhTtXQndb3srd5FE+ES5vHQ81S
+ 2hSAKezaBjD/oILoUk/qKVeqjfM7viogSA5lWNPJ1ygAzh6EIYbDvnDKr6JiQhFI5jr2
+ EyIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=98bZxOBbCQ3VnMNuVxei8T8EkXL1AFFFNz8Ptr5Fwf4=;
+ b=eRwNbIL6W9Xj+Izhr8n2bOv6bgk6yFkrr6hsacmm1ctacqHqsyfaT12OHA4RRo2QYd
+ +Pp4Ek9TR6nY0yhbvYWdecpwTFhyvuB0CgXPDShZt9q5RMkx3CSL3WXx5cpfM7cduRci
+ CObFbMVvpqnL/UT2yLnmiYz01tPSc4yHQfOOQKVb+QMgkrlPbBD88Vm9RN+yXFqdNHPu
+ udM0Zba+HPw/5ge7fooTSkgOcDCraG9IxoBDCnWz8ryL8WHue+xDoVZTtZyrLPzHW5sI
+ /FDF80J37/l2f+ya3OIidOCZ+xUBhrB1hXD1jNsrHxBtqjgAtk/h6DRbhBxwRisdSsDo
+ FjoA==
+X-Gm-Message-State: APjAAAVoADAhgV27AGxsfhkkBe6oNQSxzcjTPjQUaNmYXJNA+K0crMdH
+ nj0CAt2I+JPfSI0G1n+ngdafu1ds5kHbXpO+Kms=
+X-Google-Smtp-Source: APXvYqzSduuvbYALVkj//Xrt9JfaU9cf6Qr6bCvfXcM6mqwY1KvupDpCfJTjcSWmOKPsyFlFi8k1zTlkXGNFH8MYpJ4=
+X-Received: by 2002:a05:651c:8f:: with SMTP id
+ 15mr17366951ljq.109.1579629365512; 
+ Tue, 21 Jan 2020 09:56:05 -0800 (PST)
+MIME-Version: 1.0
 References: <0548c832-7f4b-dc4c-8883-3f2b6d351a08@linux.intel.com>
  <9b77124b-675d-5ac7-3741-edec575bd425@linux.intel.com>
  <64cab472-806e-38c4-fb26-0ffbee485367@tycho.nsa.gov>
-From: Alexey Budankov <alexey.budankov@linux.intel.com>
-Organization: Intel Corp.
-Message-ID: <05297eff-8e14-ccdf-55a4-870c64516de8@linux.intel.com>
-Date: Tue, 21 Jan 2020 20:30:54 +0300
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
-MIME-Version: 1.0
-In-Reply-To: <64cab472-806e-38c4-fb26-0ffbee485367@tycho.nsa.gov>
-Content-Language: en-US
-X-Spam-Score: 0.0 (/)
+ <05297eff-8e14-ccdf-55a4-870c64516de8@linux.intel.com>
+In-Reply-To: <05297eff-8e14-ccdf-55a4-870c64516de8@linux.intel.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Tue, 21 Jan 2020 09:55:53 -0800
+Message-ID: <CAADnVQK-JzK-GUk4KOozn4c1xr=7TiCpB9Fi0QDC9nE6iVn8iQ@mail.gmail.com>
+Subject: Re: [PATCH v5 01/10] capabilities: introduce CAP_PERFMON to kernel
+ and user space
+To: Alexey Budankov <alexey.budankov@linux.intel.com>
+X-Spam-Score: -0.4 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: intel.com]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (alexei.starovoitov[at]gmail.com)
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.208.196 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.208.196 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1itxMw-00Cfhf-S2
-X-Mailman-Approved-At: Tue, 21 Jan 2020 17:35:10 +0000
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1itxl6-00ChmC-Gc
+X-Mailman-Approved-At: Tue, 21 Jan 2020 19:41:03 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,87 +112,119 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: Song Liu <songliubraving@fb.com>, Andi Kleen <ak@linux.intel.com>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
- Igor Lubashev <ilubashe@akamai.com>,
- linux-kernel <linux-kernel@vger.kernel.org>,
+Cc: Mark Rutland <mark.rutland@arm.com>, Song Liu <songliubraving@fb.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "joonas.lahtinen@linux.intel.com" <joonas.lahtinen@linux.intel.com>,
+ Will Deacon <will.deacon@arm.com>, Alexei Starovoitov <ast@kernel.org>,
  Stephane Eranian <eranian@google.com>,
- "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
+ "james.bottomley@hansenpartnership.com"
+ <james.bottomley@hansenpartnership.com>, Paul Mackerras <paulus@samba.org>,
+ Jiri Olsa <jolsa@redhat.com>, Andi Kleen <ak@linux.intel.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Igor Lubashev <ilubashe@akamai.com>,
+ James Morris <jmorris@namei.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Ingo Molnar <mingo@redhat.com>, oprofile-list@lists.sf.net,
+ Stephen Smalley <sds@tycho.nsa.gov>, Serge Hallyn <serge@hallyn.com>,
+ Robert Richter <rric@kernel.org>,
  "selinux@vger.kernel.org" <selinux@vger.kernel.org>,
- "linux-security-module@vger.kernel.org"
- <linux-security-module@vger.kernel.org>, oprofile-list@lists.sf.net,
- Lionel Landwerlin <lionel.g.landwerlin@intel.com>,
+ "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
+ "jani.nikula@linux.intel.com" <jani.nikula@linux.intel.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ "rodrigo.vivi@intel.com" <rodrigo.vivi@intel.com>,
  Namhyung Kim <namhyung@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Jiri Olsa <jolsa@redhat.com>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ Lionel Landwerlin <lionel.g.landwerlin@intel.com>,
+ Andy Lutomirski <luto@amacapital.net>,
+ "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
+ "linux-security-module@vger.kernel.org"
+ <linux-security-module@vger.kernel.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-Ck9uIDIxLjAxLjIwMjAgMTc6NDMsIFN0ZXBoZW4gU21hbGxleSB3cm90ZToKPiBPbiAxLzIwLzIw
-IDY6MjMgQU0sIEFsZXhleSBCdWRhbmtvdiB3cm90ZToKPj4KPj4gSW50cm9kdWNlIENBUF9QRVJG
-TU9OIGNhcGFiaWxpdHkgZGVzaWduZWQgdG8gc2VjdXJlIHN5c3RlbSBwZXJmb3JtYW5jZQo+PiBt
-b25pdG9yaW5nIGFuZCBvYnNlcnZhYmlsaXR5IG9wZXJhdGlvbnMgc28gdGhhdCBDQVBfUEVSRk1P
-TiB3b3VsZCBhc3Npc3QKPj4gQ0FQX1NZU19BRE1JTiBjYXBhYmlsaXR5IGluIGl0cyBnb3Zlcm5p
-bmcgcm9sZSBmb3IgcGVyZl9ldmVudHMsIGk5MTVfcGVyZgo+PiBhbmQgb3RoZXIgcGVyZm9ybWFu
-Y2UgbW9uaXRvcmluZyBhbmQgb2JzZXJ2YWJpbGl0eSBzdWJzeXN0ZW1zLgo+Pgo+PiBDQVBfUEVS
-Rk1PTiBpbnRlbmRzIHRvIGhhcmRlbiBzeXN0ZW0gc2VjdXJpdHkgYW5kIGludGVncml0eSBkdXJp
-bmcgc3lzdGVtCj4+IHBlcmZvcm1hbmNlIG1vbml0b3JpbmcgYW5kIG9ic2VydmFiaWxpdHkgb3Bl
-cmF0aW9ucyBieSBkZWNyZWFzaW5nIGF0dGFjawo+PiBzdXJmYWNlIHRoYXQgaXMgYXZhaWxhYmxl
-IHRvIGEgQ0FQX1NZU19BRE1JTiBwcml2aWxlZ2VkIHByb2Nlc3MgWzFdLgo+PiBQcm92aWRpbmcg
-YWNjZXNzIHRvIHN5c3RlbSBwZXJmb3JtYW5jZSBtb25pdG9yaW5nIGFuZCBvYnNlcnZhYmlsaXR5
-Cj4+IG9wZXJhdGlvbnMgdW5kZXIgQ0FQX1BFUkZNT04gY2FwYWJpbGl0eSBzaW5nbHksIHdpdGhv
-dXQgdGhlIHJlc3Qgb2YKPj4gQ0FQX1NZU19BRE1JTiBjcmVkZW50aWFscywgZXhjbHVkZXMgY2hh
-bmNlcyB0byBtaXN1c2UgdGhlIGNyZWRlbnRpYWxzIGFuZAo+PiBtYWtlcyBvcGVyYXRpb24gbW9y
-ZSBzZWN1cmUuCj4+Cj4+IENBUF9QRVJGTU9OIGludGVuZHMgdG8gdGFrZSBvdmVyIENBUF9TWVNf
-QURNSU4gY3JlZGVudGlhbHMgcmVsYXRlZCB0bwo+PiBzeXN0ZW0gcGVyZm9ybWFuY2UgbW9uaXRv
-cmluZyBhbmQgb2JzZXJ2YWJpbGl0eSBvcGVyYXRpb25zIGFuZCBiYWxhbmNlCj4+IGFtb3VudCBv
-ZiBDQVBfU1lTX0FETUlOIGNyZWRlbnRpYWxzIGZvbGxvd2luZyB0aGUgcmVjb21tZW5kYXRpb25z
-IGluIHRoZQo+PiBjYXBhYmlsaXRpZXMgbWFuIHBhZ2UgWzFdIGZvciBDQVBfU1lTX0FETUlOOiAi
-Tm90ZTogdGhpcyBjYXBhYmlsaXR5IGlzCj4+IG92ZXJsb2FkZWQ7IHNlZSBOb3RlcyB0byBrZXJu
-ZWwgZGV2ZWxvcGVycywgYmVsb3cuIgo+Pgo+PiBBbHRob3VnaCB0aGUgc29mdHdhcmUgcnVubmlu
-ZyB1bmRlciBDQVBfUEVSRk1PTiBjYW4gbm90IGVuc3VyZSBhdm9pZGFuY2UKPj4gb2YgcmVsYXRl
-ZCBoYXJkd2FyZSBpc3N1ZXMsIHRoZSBzb2Z0d2FyZSBjYW4gc3RpbGwgbWl0aWdhdGUgdGhlc2Ug
-aXNzdWVzCj4+IGZvbGxvd2luZyB0aGUgb2ZmaWNpYWwgZW1iYXJnb2VkIGhhcmR3YXJlIGlzc3Vl
-cyBtaXRpZ2F0aW9uIHByb2NlZHVyZSBbMl0uCj4+IFRoZSBidWdzIGluIHRoZSBzb2Z0d2FyZSBp
-dHNlbGYgY291bGQgYmUgZml4ZWQgZm9sbG93aW5nIHRoZSBzdGFuZGFyZAo+PiBrZXJuZWwgZGV2
-ZWxvcG1lbnQgcHJvY2VzcyBbM10gdG8gbWFpbnRhaW4gYW5kIGhhcmRlbiBzZWN1cml0eSBvZiBz
-eXN0ZW0KPj4gcGVyZm9ybWFuY2UgbW9uaXRvcmluZyBhbmQgb2JzZXJ2YWJpbGl0eSBvcGVyYXRp
-b25zLgo+Pgo+PiBbMV0gaHR0cDovL21hbjcub3JnL2xpbnV4L21hbi1wYWdlcy9tYW43L2NhcGFi
-aWxpdGllcy43Lmh0bWwKPj4gWzJdIGh0dHBzOi8vd3d3Lmtlcm5lbC5vcmcvZG9jL2h0bWwvbGF0
-ZXN0L3Byb2Nlc3MvZW1iYXJnb2VkLWhhcmR3YXJlLWlzc3Vlcy5odG1sCj4+IFszXSBodHRwczov
-L3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL2xhdGVzdC9hZG1pbi1ndWlkZS9zZWN1cml0eS1idWdz
-Lmh0bWwKPj4KPj4gU2lnbmVkLW9mZi1ieTogQWxleGV5IEJ1ZGFua292IDxhbGV4ZXkuYnVkYW5r
-b3ZAbGludXguaW50ZWwuY29tPgo+PiAtLS0KPj4gwqAgaW5jbHVkZS9saW51eC9jYXBhYmlsaXR5
-LmjCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMiArKysrKysrKysrKysKPj4gwqAgaW5jbHVkZS91YXBp
-L2xpbnV4L2NhcGFiaWxpdHkuaMKgwqDCoMKgIHzCoCA4ICsrKysrKystCj4+IMKgIHNlY3VyaXR5
-L3NlbGludXgvaW5jbHVkZS9jbGFzc21hcC5oIHzCoCA0ICsrLS0KPj4gwqAgMyBmaWxlcyBjaGFu
-Z2VkLCAyMSBpbnNlcnRpb25zKCspLCAzIGRlbGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEv
-aW5jbHVkZS9saW51eC9jYXBhYmlsaXR5LmggYi9pbmNsdWRlL2xpbnV4L2NhcGFiaWxpdHkuaAo+
-PiBpbmRleCBlY2NlMGY0M2M3M2EuLjg3ODQ5NjlkOTFlMSAxMDA2NDQKPj4gLS0tIGEvaW5jbHVk
-ZS9saW51eC9jYXBhYmlsaXR5LmgKPj4gKysrIGIvaW5jbHVkZS9saW51eC9jYXBhYmlsaXR5LmgK
-Pj4gQEAgLTI1MSw2ICsyNTEsMTggQEAgZXh0ZXJuIGJvb2wgcHJpdmlsZWdlZF93cnRfaW5vZGVf
-dWlkZ2lkKHN0cnVjdCB1c2VyX25hbWVzcGFjZSAqbnMsIGNvbnN0IHN0cnVjdAo+PiDCoCBleHRl
-cm4gYm9vbCBjYXBhYmxlX3dydF9pbm9kZV91aWRnaWQoY29uc3Qgc3RydWN0IGlub2RlICppbm9k
-ZSwgaW50IGNhcCk7Cj4+IMKgIGV4dGVybiBib29sIGZpbGVfbnNfY2FwYWJsZShjb25zdCBzdHJ1
-Y3QgZmlsZSAqZmlsZSwgc3RydWN0IHVzZXJfbmFtZXNwYWNlICpucywgaW50IGNhcCk7Cj4+IMKg
-IGV4dGVybiBib29sIHB0cmFjZXJfY2FwYWJsZShzdHJ1Y3QgdGFza19zdHJ1Y3QgKnRzaywgc3Ry
-dWN0IHVzZXJfbmFtZXNwYWNlICpucyk7Cj4+ICtzdGF0aWMgaW5saW5lIGJvb2wgcGVyZm1vbl9j
-YXBhYmxlKHZvaWQpCj4+ICt7Cj4+ICvCoMKgwqAgc3RydWN0IHVzZXJfbmFtZXNwYWNlICpucyA9
-ICZpbml0X3VzZXJfbnM7Cj4+ICsKPj4gK8KgwqDCoCBpZiAobnNfY2FwYWJsZV9ub2F1ZGl0KG5z
-LCBDQVBfUEVSRk1PTikpCj4+ICvCoMKgwqDCoMKgwqDCoCByZXR1cm4gbnNfY2FwYWJsZShucywg
-Q0FQX1BFUkZNT04pOwo+PiArCj4+ICvCoMKgwqAgaWYgKG5zX2NhcGFibGVfbm9hdWRpdChucywg
-Q0FQX1NZU19BRE1JTikpCj4+ICvCoMKgwqDCoMKgwqDCoCByZXR1cm4gbnNfY2FwYWJsZShucywg
-Q0FQX1NZU19BRE1JTik7Cj4+ICsKPj4gK8KgwqDCoCByZXR1cm4gZmFsc2U7Cj4+ICt9Cj4gCj4g
-V2h5IF9ub2F1ZGl0KCk/wqAgTm9ybWFsbHkgb25seSB1c2VkIHdoZW4gYSBwZXJtaXNzaW9uIGZh
-aWx1cmUgaXMgbm9uLWZhdGFsIHRvIHRoZSBvcGVyYXRpb24uwqAgT3RoZXJ3aXNlLCB3ZSB3YW50
-IHRoZSBhdWRpdCBtZXNzYWdlLgoKU29tZSBvZiBpZGVhcyBmcm9tIHY0IHJldmlldy4KV2VsbCwg
-b24gdGhlIHNlY29uZCBzaWdodCwgaXQgZGVmZW5pdGx5IHNob3VsZCBiZSBsb2dnZWQgZm9yIENB
-UF9TWVNfQURNSU4uClByb2JhYmx5IGl0IGlzIG5vdCBzbyBmYXRhbCBmb3IgQ0FQX1BFUkZNT04s
-IGJ1dCBwZXJzb25hbGx5IApJIHdvdWxkIHVuY29uZGl0aW9uYWxseSBsb2cgaXQgZm9yIENBUF9Q
-RVJGTU9OIGFzIHdlbGwuCkdvb2QgY2F0Y2gsIHRoYW5rIHlvdS4KCn5BbGV4ZXkKCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpvcHJvZmlsZS1saXN0IG1h
-aWxpbmcgbGlzdApvcHJvZmlsZS1saXN0QGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xp
-c3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcHJvZmlsZS1saXN0Cg==
+On Tue, Jan 21, 2020 at 9:31 AM Alexey Budankov
+<alexey.budankov@linux.intel.com> wrote:
+>
+>
+> On 21.01.2020 17:43, Stephen Smalley wrote:
+> > On 1/20/20 6:23 AM, Alexey Budankov wrote:
+> >>
+> >> Introduce CAP_PERFMON capability designed to secure system performance
+> >> monitoring and observability operations so that CAP_PERFMON would assist
+> >> CAP_SYS_ADMIN capability in its governing role for perf_events, i915_perf
+> >> and other performance monitoring and observability subsystems.
+> >>
+> >> CAP_PERFMON intends to harden system security and integrity during system
+> >> performance monitoring and observability operations by decreasing attack
+> >> surface that is available to a CAP_SYS_ADMIN privileged process [1].
+> >> Providing access to system performance monitoring and observability
+> >> operations under CAP_PERFMON capability singly, without the rest of
+> >> CAP_SYS_ADMIN credentials, excludes chances to misuse the credentials and
+> >> makes operation more secure.
+> >>
+> >> CAP_PERFMON intends to take over CAP_SYS_ADMIN credentials related to
+> >> system performance monitoring and observability operations and balance
+> >> amount of CAP_SYS_ADMIN credentials following the recommendations in the
+> >> capabilities man page [1] for CAP_SYS_ADMIN: "Note: this capability is
+> >> overloaded; see Notes to kernel developers, below."
+> >>
+> >> Although the software running under CAP_PERFMON can not ensure avoidance
+> >> of related hardware issues, the software can still mitigate these issues
+> >> following the official embargoed hardware issues mitigation procedure [2].
+> >> The bugs in the software itself could be fixed following the standard
+> >> kernel development process [3] to maintain and harden security of system
+> >> performance monitoring and observability operations.
+> >>
+> >> [1] http://man7.org/linux/man-pages/man7/capabilities.7.html
+> >> [2] https://www.kernel.org/doc/html/latest/process/embargoed-hardware-issues.html
+> >> [3] https://www.kernel.org/doc/html/latest/admin-guide/security-bugs.html
+> >>
+> >> Signed-off-by: Alexey Budankov <alexey.budankov@linux.intel.com>
+> >> ---
+> >>   include/linux/capability.h          | 12 ++++++++++++
+> >>   include/uapi/linux/capability.h     |  8 +++++++-
+> >>   security/selinux/include/classmap.h |  4 ++--
+> >>   3 files changed, 21 insertions(+), 3 deletions(-)
+> >>
+> >> diff --git a/include/linux/capability.h b/include/linux/capability.h
+> >> index ecce0f43c73a..8784969d91e1 100644
+> >> --- a/include/linux/capability.h
+> >> +++ b/include/linux/capability.h
+> >> @@ -251,6 +251,18 @@ extern bool privileged_wrt_inode_uidgid(struct user_namespace *ns, const struct
+> >>   extern bool capable_wrt_inode_uidgid(const struct inode *inode, int cap);
+> >>   extern bool file_ns_capable(const struct file *file, struct user_namespace *ns, int cap);
+> >>   extern bool ptracer_capable(struct task_struct *tsk, struct user_namespace *ns);
+> >> +static inline bool perfmon_capable(void)
+> >> +{
+> >> +    struct user_namespace *ns = &init_user_ns;
+> >> +
+> >> +    if (ns_capable_noaudit(ns, CAP_PERFMON))
+> >> +        return ns_capable(ns, CAP_PERFMON);
+> >> +
+> >> +    if (ns_capable_noaudit(ns, CAP_SYS_ADMIN))
+> >> +        return ns_capable(ns, CAP_SYS_ADMIN);
+> >> +
+> >> +    return false;
+> >> +}
+> >
+> > Why _noaudit()?  Normally only used when a permission failure is non-fatal to the operation.  Otherwise, we want the audit message.
+>
+> Some of ideas from v4 review.
+
+well, in the requested changes form v4 I wrote:
+return capable(CAP_PERFMON);
+instead of
+return false;
+
+That's what Andy suggested earlier for CAP_BPF.
+I think that should resolve Stephen's concern.
+
+
+_______________________________________________
+oprofile-list mailing list
+oprofile-list@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/oprofile-list
