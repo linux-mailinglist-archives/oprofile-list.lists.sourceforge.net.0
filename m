@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2A3014B9BA
-	for <lists+oprofile-list@lfdr.de>; Tue, 28 Jan 2020 15:34:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0207614B9C2
+	for <lists+oprofile-list@lfdr.de>; Tue, 28 Jan 2020 15:34:28 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1iwRwd-0005lw-Ay; Tue, 28 Jan 2020 14:34:23 +0000
+	id 1iwRwd-0005mB-En; Tue, 28 Jan 2020 14:34:23 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <alexey.budankov@linux.intel.com>) id 1iwK8J-000365-CB
- for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 06:13:55 +0000
+ (envelope-from <alexey.budankov@linux.intel.com>) id 1iwK93-0000da-Hi
+ for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 06:14:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=o7MpdinBhHOqkYJftOU4ySDK7G9Ba95KIe12IvdLuns=; b=BBPU9xk9SMlJdiuYkgDkpzabNS
- mOy64LDaX63IoxDr2WfpOykKVlUkcOdCAeKZPM3jndByN3PA5r/Qa4xx8e6hjMUUqaJV8TIu8D4Fx
- ZYsNd94nXy8Q2CitojTj5vY2jqTBDoUQWtoNLwnpOugx30eYXeF1v5V3LAPfLQWxhtek=;
+ bh=DMIf/uQJOUtTcXDv52Utm+bLp6O/QqWCRz2GylF3Dpk=; b=e4DVF4pwyRToMBaBFbcQjnVX2h
+ QByHU0K+622TTVUIcE4kauHZJqEUQ0pHDlV3a9Kkwcn6BgJq/v3+mvLR/F4D+3kT8v+4kkD3wCjHT
+ Qb6GfV0MVtt6dYUxOS+PBUo70lXpiFxNZMbdIsSqWBNVlg6T+JbBM16d9q8yuH+pdxdc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
@@ -29,29 +29,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=o7MpdinBhHOqkYJftOU4ySDK7G9Ba95KIe12IvdLuns=; b=M7+GM+nAvzPyIch9DndgAgUpf7
- llJvd/YlkQNynQDqjUH0q975J0nUnu3D7n72bXD8rgCufyJSMuiJo1xkyzKsCeQ3nqWOPmP6NhO1d
- XPlyYWkwELXQ1PTKAZmBPOemAq/C3VTJSnakc2YGGyCZyTvGjsmRLB6vm13Iz9jAZBgQ=;
-Received: from mga06.intel.com ([134.134.136.31])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ bh=DMIf/uQJOUtTcXDv52Utm+bLp6O/QqWCRz2GylF3Dpk=; b=Yng7sIqKoRSkSuK98/rJh2JCbN
+ RmEC9oCm9nTRl8RRos7VFRml4KOmgfkmzA8udbCosUdMX3U6wWhgm7HqUTtJcLmJY7eewJ+amKY5e
+ zaw3MPF7GTuPOl+54ATHnRTSAk7+vvvbgDg3Oq5YMbrmDTxBsjqIcTkqC3QOzj0W7DsQ=;
+Received: from mga17.intel.com ([192.55.52.151])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iwK8I-002gVZ-6G
- for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 06:13:55 +0000
+ id 1iwK8z-002kic-Fw
+ for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 06:14:41 +0000
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
- by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 27 Jan 2020 22:13:48 -0800
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+ by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 27 Jan 2020 22:14:31 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,372,1574150400"; d="scan'208";a="217528129"
+X-IronPort-AV: E=Sophos;i="5.70,372,1574150400"; d="scan'208";a="427538213"
 Received: from linux.intel.com ([10.54.29.200])
- by orsmga007.jf.intel.com with ESMTP; 27 Jan 2020 22:13:48 -0800
+ by fmsmga005.fm.intel.com with ESMTP; 27 Jan 2020 22:14:30 -0800
 Received: from [10.252.25.124] (abudanko-mobl.ccr.corp.intel.com
  [10.252.25.124])
- by linux.intel.com (Postfix) with ESMTP id B84CA5803C1;
- Mon, 27 Jan 2020 22:13:40 -0800 (PST)
-Subject: [PATCH v6 09/10] drivers/perf: open access for CAP_PERFMON privileged
- process
+ by linux.intel.com (Postfix) with ESMTP id C3E41580277;
+ Mon, 27 Jan 2020 22:14:22 -0800 (PST)
+Subject: [PATCH v6 10/10] drivers/oprofile: open access for CAP_PERFMON
+ privileged process
 From: Alexey Budankov <alexey.budankov@linux.intel.com>
 To: Peter Zijlstra <peterz@infradead.org>,
  Arnaldo Carvalho de Melo <acme@kernel.org>, Ingo Molnar <mingo@redhat.com>,
@@ -63,14 +63,14 @@ To: Peter Zijlstra <peterz@infradead.org>,
  Alexei Starovoitov <ast@kernel.org>
 References: <74d524ab-ac11-a7b8-1052-eba10f117e09@linux.intel.com>
 Organization: Intel Corp.
-Message-ID: <f2877038-da53-f981-4ddb-4e6c1c27c60f@linux.intel.com>
-Date: Tue, 28 Jan 2020 09:13:38 +0300
+Message-ID: <eff5e211-7114-f854-f53f-08491f9dcc26@linux.intel.com>
+Date: Tue, 28 Jan 2020 09:14:21 +0300
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
  Thunderbird/68.4.1
 MIME-Version: 1.0
 In-Reply-To: <74d524ab-ac11-a7b8-1052-eba10f117e09@linux.intel.com>
 Content-Language: en-US
-X-Spam-Score: -0.0 (/)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
@@ -80,7 +80,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1iwK8I-002gVZ-6G
+X-Headers-End: 1iwK8z-002kic-Fw
 X-Mailman-Approved-At: Tue, 28 Jan 2020 14:34:21 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -114,10 +114,10 @@ Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
 
-Open access to monitoring for CAP_PERFMON privileged process.
-Providing the access under CAP_PERFMON capability singly, without the
-rest of CAP_SYS_ADMIN credentials, excludes chances to misuse the
-credentials and makes operation more secure.
+Open access to monitoring for CAP_PERFMON privileged process. Providing
+the access under CAP_PERFMON capability singly, without the rest of
+CAP_SYS_ADMIN credentials, excludes chances to misuse the credentials and
+makes operation more secure.
 
 CAP_PERFMON implements the principal of least privilege for performance
 monitoring and observability operations (POSIX IEEE 1003.1e 2.2.2.39 principle
@@ -132,31 +132,22 @@ monitoring is discouraged with respect to CAP_PERFMON capability.
 
 Signed-off-by: Alexey Budankov <alexey.budankov@linux.intel.com>
 ---
- drivers/perf/arm_spe_pmu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/oprofile/event_buffer.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 4e4984a55cd1..5dff81bc3324 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -274,7 +274,7 @@ static u64 arm_spe_event_to_pmscr(struct perf_event *event)
- 	if (!attr->exclude_kernel)
- 		reg |= BIT(SYS_PMSCR_EL1_E1SPE_SHIFT);
+diff --git a/drivers/oprofile/event_buffer.c b/drivers/oprofile/event_buffer.c
+index 12ea4a4ad607..6c9edc8bbc95 100644
+--- a/drivers/oprofile/event_buffer.c
++++ b/drivers/oprofile/event_buffer.c
+@@ -113,7 +113,7 @@ static int event_buffer_open(struct inode *inode, struct file *file)
+ {
+ 	int err = -EPERM;
  
--	if (IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR) && capable(CAP_SYS_ADMIN))
-+	if (IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR) && perfmon_capable())
- 		reg |= BIT(SYS_PMSCR_EL1_CX_SHIFT);
+-	if (!capable(CAP_SYS_ADMIN))
++	if (!perfmon_capable())
+ 		return -EPERM;
  
- 	return reg;
-@@ -700,7 +700,7 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
- 		return -EOPNOTSUPP;
- 
- 	reg = arm_spe_event_to_pmscr(event);
--	if (!capable(CAP_SYS_ADMIN) &&
-+	if (!perfmon_capable() &&
- 	    (reg & (BIT(SYS_PMSCR_EL1_PA_SHIFT) |
- 		    BIT(SYS_PMSCR_EL1_CX_SHIFT) |
- 		    BIT(SYS_PMSCR_EL1_PCT_SHIFT))))
+ 	if (test_and_set_bit_lock(0, &buffer_opened))
 -- 
 2.20.1
 
