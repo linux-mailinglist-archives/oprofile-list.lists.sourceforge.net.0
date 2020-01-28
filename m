@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 767FD14CD8B
-	for <lists+oprofile-list@lfdr.de>; Wed, 29 Jan 2020 16:37:03 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B7DBA14CD8F
+	for <lists+oprofile-list@lfdr.de>; Wed, 29 Jan 2020 16:37:05 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1iwpOo-0002UI-1U; Wed, 29 Jan 2020 15:37:02 +0000
+	id 1iwpOn-0002U8-Vz; Wed, 29 Jan 2020 15:37:01 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <jmorris@namei.org>) id 1iwZ5G-0008CJ-9q
- for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 22:11:46 +0000
+ (envelope-from <jmorris@namei.org>) id 1iwZ52-0006XB-0b
+ for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 22:11:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Message-ID:
  In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=rItK9Va7xIuFifzMvBMEVLPpdocAID3/jZk+FenngH4=; b=AXt0IHSuANHmEzvTx6rFPxlgSH
- YtRRS3wE1UBi6QkQkPLqvnp0b3L9DhBGHL7L/DpYq9CzIJaDDeA0i5Gm0UlvyESInSluET8BWD5AD
- VfCAIe6Ld7JvFc0cCtmfsQu3US3PAF6HMq+3XXqhrpg9Oxxz2akeVi8s7ffgxUx5LAZ8=;
+ bh=lE/rV3aTwL0fsHM5lWXPO58FDQQqArWHcPbgn4ChIOY=; b=CXMPwTV8HGfBE2LVrWcMXzBNir
+ fheziCc8GPJwYTi4omuLJw5RI+6s4YMvp0T2lNnbe9IFeo6KPnytCWXA65aDccN5WUV0EEifGIuIW
+ iG3NMovZEw0KJccLP0lzoQtVt63or4IUUC3SWaguEQvx+Dfw6wRFVJIVdfUoMcFgX5zA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To
@@ -29,26 +29,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=rItK9Va7xIuFifzMvBMEVLPpdocAID3/jZk+FenngH4=; b=jbr1fZlHw8J8ifh/iLczZNB7iG
- PCI6DYu+7egBD4QPD/qwFVCA6KOAlBF85y6Is4cfDpaxRXQO80oyLqTYbEJtzmgASXGtqxmCRjRol
- 1BIBIcRItgni4ttmCduKAzA4D2EjsAOfuTA11X9y1PwKJfXL8uh6yQPmjwfF2LxlMBn4=;
+ bh=lE/rV3aTwL0fsHM5lWXPO58FDQQqArWHcPbgn4ChIOY=; b=ALyqvPnF5QdqC8QbTFYzyxTg5j
+ xexOrwlCauMahhFNQ1B+85+/AtB/LyGroeKWdFd5YYJdnemfOVQWHWITnFsyof+OtxoHUUkNF5IUT
+ Cw2xi6ZHOaYnlcMsiTXUEqGPIkQDB1X3EiHuApZ+XWzhX5iFqFbMnXbvhUe6Rubc6sdc=;
 Received: from namei.org ([65.99.196.166])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iwZ5E-008cgB-TP
- for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 22:11:46 +0000
+ id 1iwZ50-003JnF-LK
+ for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 22:11:31 +0000
 Received: from localhost (localhost [127.0.0.1])
- by namei.org (8.14.4/8.14.4) with ESMTP id 00SLI4pL004594;
- Tue, 28 Jan 2020 21:18:04 GMT
-Date: Wed, 29 Jan 2020 08:18:04 +1100 (AEDT)
+ by namei.org (8.14.4/8.14.4) with ESMTP id 00SLIGx1004605;
+ Tue, 28 Jan 2020 21:18:16 GMT
+Date: Wed, 29 Jan 2020 08:18:16 +1100 (AEDT)
 From: James Morris <jmorris@namei.org>
 To: Alexey Budankov <alexey.budankov@linux.intel.com>
-Subject: Re: [PATCH v6 09/10] drivers/perf: open access for CAP_PERFMON
+Subject: Re: [PATCH v6 10/10] drivers/oprofile: open access for CAP_PERFMON
  privileged process
-In-Reply-To: <f2877038-da53-f981-4ddb-4e6c1c27c60f@linux.intel.com>
-Message-ID: <alpine.LRH.2.21.2001290817560.2204@namei.org>
+In-Reply-To: <eff5e211-7114-f854-f53f-08491f9dcc26@linux.intel.com>
+Message-ID: <alpine.LRH.2.21.2001290818090.2204@namei.org>
 References: <74d524ab-ac11-a7b8-1052-eba10f117e09@linux.intel.com>
- <f2877038-da53-f981-4ddb-4e6c1c27c60f@linux.intel.com>
+ <eff5e211-7114-f854-f53f-08491f9dcc26@linux.intel.com>
 User-Agent: Alpine 2.21 (LRH 202 2017-01-01)
 MIME-Version: 1.0
 X-Spam-Score: 0.0 (/)
@@ -60,7 +60,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  for more information. [URIs: intel.com]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1iwZ5E-008cgB-TP
+X-Headers-End: 1iwZ50-003JnF-LK
 X-Mailman-Approved-At: Wed, 29 Jan 2020 15:37:01 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -104,10 +104,10 @@ Errors-To: oprofile-list-bounces@lists.sourceforge.net
 On Tue, 28 Jan 2020, Alexey Budankov wrote:
 
 > 
-> Open access to monitoring for CAP_PERFMON privileged process.
-> Providing the access under CAP_PERFMON capability singly, without the
-> rest of CAP_SYS_ADMIN credentials, excludes chances to misuse the
-> credentials and makes operation more secure.
+> Open access to monitoring for CAP_PERFMON privileged process. Providing
+> the access under CAP_PERFMON capability singly, without the rest of
+> CAP_SYS_ADMIN credentials, excludes chances to misuse the credentials and
+> makes operation more secure.
 > 
 > CAP_PERFMON implements the principal of least privilege for performance
 > monitoring and observability operations (POSIX IEEE 1003.1e 2.2.2.39 principle
@@ -122,36 +122,26 @@ On Tue, 28 Jan 2020, Alexey Budankov wrote:
 > 
 > Signed-off-by: Alexey Budankov <alexey.budankov@linux.intel.com>
 > ---
->  drivers/perf/arm_spe_pmu.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
+>  drivers/oprofile/event_buffer.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 
 Acked-by: James Morris <jamorris@linux.microsoft.com>
 
-
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index 4e4984a55cd1..5dff81bc3324 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -274,7 +274,7 @@ static u64 arm_spe_event_to_pmscr(struct perf_event *event)
->  	if (!attr->exclude_kernel)
->  		reg |= BIT(SYS_PMSCR_EL1_E1SPE_SHIFT);
+> 
+> diff --git a/drivers/oprofile/event_buffer.c b/drivers/oprofile/event_buffer.c
+> index 12ea4a4ad607..6c9edc8bbc95 100644
+> --- a/drivers/oprofile/event_buffer.c
+> +++ b/drivers/oprofile/event_buffer.c
+> @@ -113,7 +113,7 @@ static int event_buffer_open(struct inode *inode, struct file *file)
+>  {
+>  	int err = -EPERM;
 >  
-> -	if (IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR) && capable(CAP_SYS_ADMIN))
-> +	if (IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR) && perfmon_capable())
->  		reg |= BIT(SYS_PMSCR_EL1_CX_SHIFT);
+> -	if (!capable(CAP_SYS_ADMIN))
+> +	if (!perfmon_capable())
+>  		return -EPERM;
 >  
->  	return reg;
-> @@ -700,7 +700,7 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
->  		return -EOPNOTSUPP;
->  
->  	reg = arm_spe_event_to_pmscr(event);
-> -	if (!capable(CAP_SYS_ADMIN) &&
-> +	if (!perfmon_capable() &&
->  	    (reg & (BIT(SYS_PMSCR_EL1_PA_SHIFT) |
->  		    BIT(SYS_PMSCR_EL1_CX_SHIFT) |
->  		    BIT(SYS_PMSCR_EL1_PCT_SHIFT))))
+>  	if (test_and_set_bit_lock(0, &buffer_opened))
 > 
 
 -- 
