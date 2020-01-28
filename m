@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id EBBEE14B9B7
-	for <lists+oprofile-list@lfdr.de>; Tue, 28 Jan 2020 15:34:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B20C614B9C0
+	for <lists+oprofile-list@lfdr.de>; Tue, 28 Jan 2020 15:34:27 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1iwRwd-0005lY-7N; Tue, 28 Jan 2020 14:34:23 +0000
+	id 1iwRwd-0005lk-8m; Tue, 28 Jan 2020 14:34:23 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <alexey.budankov@linux.intel.com>) id 1iwK72-0000YD-9a
- for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 06:12:36 +0000
+ (envelope-from <alexey.budankov@linux.intel.com>) id 1iwK7g-00086f-FI
+ for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 06:13:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=8wlsmEDMB4pe3fVtP80JM5FlHrZPL2lWGNuLNPaX+mg=; b=XzvbVJ9AZuXmhOaCvo/7rcgLIt
- SDUzKLCmkfTVZyPMWtVHp9wHfFEAbf0KL9529EU6he9EYnNsDudNO20894KjjUjIAv4eXtYSBybNY
- yTBYE4Et7JQI+znHzirCYPkBCwc7Pji2Mp/uo3ufMphdFzV/+fvRvBU4h8n+5UxOfsRE=;
+ bh=1cgE8/y7CkfrkL6ghcV3qJZa73o1nxoFlVCzQSK75EM=; b=gTbajFnf4AQ5GcF02BgQJcqQtS
+ IW/89IlH8TKA1RqQp10rccB2fWEzwRW3O7VP/rq/jfPDJw07rBpwCVeva7G71G1s/Yoa3/sXPR+gC
+ sEp8WoVwIpnj9Gq9B+jbOQKX8ly58i8YY66uyhycFom5WdDhmFYfAmrvPRp6wKykV39A=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
@@ -29,28 +29,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=8wlsmEDMB4pe3fVtP80JM5FlHrZPL2lWGNuLNPaX+mg=; b=Sj7O/BBafCFvlwnFjiB6ivAfUt
- 9nUtJBdJ/Uig4sKBZ+opjtlBTqUwjldsaZfi36KVFv8f/YpviElPqdDOEZd0d+ouXTPvHLkWjXjMn
- GRqXM15oJsxa5y6u0491mBYhFjm8mchNn9R0GEebKxC+ozqouDpLvhOoStzPZQ+6HK/Q=;
-Received: from mga01.intel.com ([192.55.52.88])
+ bh=1cgE8/y7CkfrkL6ghcV3qJZa73o1nxoFlVCzQSK75EM=; b=dsw0yo+9jqaA3tdhwbMYOz5ZrZ
+ xtpEIDo/E8ni9+vXICKsVlbokf8dkErZQDssFeJRarES0JZaKVWmPdgb8Ukpx4CzWPU+pi/FY7p8H
+ ps8MClI5kR6O5stLrW7BI/pA247or+6HnjrGWLxF0Nj8nUVQPG2V2O9DdBh5+63X1KGw=;
+Received: from mga03.intel.com ([134.134.136.65])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iwK6z-007qx3-Cy
- for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 06:12:36 +0000
+ id 1iwK7f-007qyg-8e
+ for oprofile-list@lists.sourceforge.net; Tue, 28 Jan 2020 06:13:16 +0000
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
- by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 27 Jan 2020 22:12:27 -0800
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+ by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 27 Jan 2020 22:13:09 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,372,1574150400"; d="scan'208";a="221990078"
+X-IronPort-AV: E=Sophos;i="5.70,372,1574150400"; d="scan'208";a="231802051"
 Received: from linux.intel.com ([10.54.29.200])
- by orsmga008.jf.intel.com with ESMTP; 27 Jan 2020 22:12:27 -0800
+ by orsmga006.jf.intel.com with ESMTP; 27 Jan 2020 22:13:09 -0800
 Received: from [10.252.25.124] (abudanko-mobl.ccr.corp.intel.com
  [10.252.25.124])
- by linux.intel.com (Postfix) with ESMTP id 909725803C1;
- Mon, 27 Jan 2020 22:12:19 -0800 (PST)
-Subject: [PATCH v6 07/10] powerpc/perf: open access for CAP_PERFMON privileged
+ by linux.intel.com (Postfix) with ESMTP id C4312580277;
+ Mon, 27 Jan 2020 22:13:01 -0800 (PST)
+Subject: [PATCH v6 08/10] parisc/perf: open access for CAP_PERFMON privileged
  process
 From: Alexey Budankov <alexey.budankov@linux.intel.com>
 To: Peter Zijlstra <peterz@infradead.org>,
@@ -63,8 +63,8 @@ To: Peter Zijlstra <peterz@infradead.org>,
  Alexei Starovoitov <ast@kernel.org>
 References: <74d524ab-ac11-a7b8-1052-eba10f117e09@linux.intel.com>
 Organization: Intel Corp.
-Message-ID: <3ce8fc61-a61f-5efc-9167-94f5d39b6f1b@linux.intel.com>
-Date: Tue, 28 Jan 2020 09:12:18 +0300
+Message-ID: <17be72ff-dc52-72ef-fbcc-0e9ec8b61604@linux.intel.com>
+Date: Tue, 28 Jan 2020 09:12:59 +0300
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
  Thunderbird/68.4.1
 MIME-Version: 1.0
@@ -77,13 +77,10 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: intel.com]
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [192.55.52.88 listed in wl.mailspike.net]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1iwK6z-007qx3-Cy
+ -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1iwK7f-007qyg-8e
 X-Mailman-Approved-At: Tue, 28 Jan 2020 14:34:21 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -135,31 +132,22 @@ monitoring is discouraged with respect to CAP_PERFMON capability.
 
 Signed-off-by: Alexey Budankov <alexey.budankov@linux.intel.com>
 ---
- arch/powerpc/perf/imc-pmu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/parisc/kernel/perf.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/perf/imc-pmu.c b/arch/powerpc/perf/imc-pmu.c
-index cb50a9e1fd2d..e837717492e4 100644
---- a/arch/powerpc/perf/imc-pmu.c
-+++ b/arch/powerpc/perf/imc-pmu.c
-@@ -898,7 +898,7 @@ static int thread_imc_event_init(struct perf_event *event)
- 	if (event->attr.type != event->pmu->type)
- 		return -ENOENT;
+diff --git a/arch/parisc/kernel/perf.c b/arch/parisc/kernel/perf.c
+index 676683641d00..c4208d027794 100644
+--- a/arch/parisc/kernel/perf.c
++++ b/arch/parisc/kernel/perf.c
+@@ -300,7 +300,7 @@ static ssize_t perf_write(struct file *file, const char __user *buf,
+ 	else
+ 		return -EFAULT;
  
 -	if (!capable(CAP_SYS_ADMIN))
 +	if (!perfmon_capable())
  		return -EACCES;
  
- 	/* Sampling not supported */
-@@ -1307,7 +1307,7 @@ static int trace_imc_event_init(struct perf_event *event)
- 	if (event->attr.type != event->pmu->type)
- 		return -ENOENT;
- 
--	if (!capable(CAP_SYS_ADMIN))
-+	if (!perfmon_capable())
- 		return -EACCES;
- 
- 	/* Return if this is a couting event */
+ 	if (count != sizeof(uint32_t))
 -- 
 2.20.1
 
