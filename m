@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 54865161531
-	for <lists+oprofile-list@lfdr.de>; Mon, 17 Feb 2020 15:54:16 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DDEC516152F
+	for <lists+oprofile-list@lfdr.de>; Mon, 17 Feb 2020 15:54:15 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1j3hml-0006ZE-9V; Mon, 17 Feb 2020 14:54:11 +0000
+	id 1j3hml-0006ZM-BC; Mon, 17 Feb 2020 14:54:11 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <alexey.budankov@linux.intel.com>) id 1j3bQ1-0004BW-Hh
- for oprofile-list@lists.sourceforge.net; Mon, 17 Feb 2020 08:06:17 +0000
+ (envelope-from <alexey.budankov@linux.intel.com>) id 1j3bQs-0000o9-9C
+ for oprofile-list@lists.sourceforge.net; Mon, 17 Feb 2020 08:07:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=83PEG2NhUggUDRbqUS5zjoHJbPT8heD1RdbFCdgehLw=; b=hMxYDYZuCeBRLxrR/Dgsy11txW
- F8cFKk322ot9zoSI5HHXOpE6p1+PEY/V3RKTeMVVMBN2vT2t7ZQtxmTf8RIxirBRuViV2ve9BbdGe
- uyrtYa+ScFDJYOhrwBDAMlOB+HNnsU1sTNH7PMnNR4CEO4H0iV8x2/WLx6/Pl0wuaJv8=;
+ bh=l7L5lViG5arA9erB4w91JGBnTiP5iSqC+lMkgoJ8ITo=; b=fCx6IjZ6nJYXGOHjJ5Jg1hC1ih
+ iC5mqJxgoG8c6ZUWaIpdnu1jrYfyrMv/v+/9c8rvjsztoEwNsZUhO4XUouCouM/S6nOh7fA2iw70F
+ Rlbz/UA132EA4U7V13mZ2VDps5BZOI6mpJgPt9QyA0hVXeBE0BBpu9iWiqUA8yVzCifM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
@@ -29,29 +29,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=83PEG2NhUggUDRbqUS5zjoHJbPT8heD1RdbFCdgehLw=; b=QZlVmbCwYfiFBTnn+Nf7c7ujfi
- yQAMCQxNo5TeDYYczceYm/8IyGk4t/YR6/1oGKqHFENoHL2rTQDoWndQyAk7H0BCu1PxfKtmt1TQy
- lC9IRYM0U2n6oZWWC/0v7S+MIR6DrAFhs92o6Wua9SlfO93MpsoVjJ6YITi7Pjlq9AtE=;
-Received: from mga02.intel.com ([134.134.136.20])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ bh=l7L5lViG5arA9erB4w91JGBnTiP5iSqC+lMkgoJ8ITo=; b=GdPijapWtTgkJPsZ81yX/Hobtc
+ iwDlNCBU9ndzWcn32lusbfUllzGdPAhR94aDw76YKUkDGeYp4BIpCTLmrxrTmtlaY6mAENcnVaIJY
+ cya2VizqPXI0mi4EFBUYE1dz5Y50MJDQM/s6XRQKAj9zFOV05dRu1rQPHed9WaWuYuIE=;
+Received: from mga07.intel.com ([134.134.136.100])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1j3bPx-006CCg-MH
- for oprofile-list@lists.sourceforge.net; Mon, 17 Feb 2020 08:06:17 +0000
+ id 1j3bQq-00FAn5-Nt
+ for oprofile-list@lists.sourceforge.net; Mon, 17 Feb 2020 08:07:10 +0000
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
- by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 17 Feb 2020 00:06:07 -0800
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+ by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 17 Feb 2020 00:07:02 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,451,1574150400"; d="scan'208";a="239000292"
+X-IronPort-AV: E=Sophos;i="5.70,451,1574150400"; d="scan'208";a="407698100"
 Received: from linux.intel.com ([10.54.29.200])
- by orsmga006.jf.intel.com with ESMTP; 17 Feb 2020 00:06:07 -0800
+ by orsmga005.jf.intel.com with ESMTP; 17 Feb 2020 00:07:01 -0800
 Received: from [10.125.252.180] (abudanko-mobl.ccr.corp.intel.com
  [10.125.252.180])
- by linux.intel.com (Postfix) with ESMTP id CFA1D58052E;
- Mon, 17 Feb 2020 00:06:01 -0800 (PST)
-Subject: [PATCH v7 01/12] capabilities: introduce CAP_PERFMON to kernel and
- user space
+ by linux.intel.com (Postfix) with ESMTP id 23E685804A2;
+ Mon, 17 Feb 2020 00:06:55 -0800 (PST)
+Subject: [PATCH v7 02/12] perf/core: open access to the core for CAP_PERFMON
+ privileged process
 From: Alexey Budankov <alexey.budankov@linux.intel.com>
 To: James Morris <jmorris@namei.org>, Serge Hallyn <serge@hallyn.com>,
  Stephen Smalley <sds@tycho.nsa.gov>, Peter Zijlstra <peterz@infradead.org>,
@@ -62,23 +62,20 @@ To: James Morris <jmorris@namei.org>, Serge Hallyn <serge@hallyn.com>,
  Thomas Gleixner <tglx@linutronix.de>
 References: <c8de937a-0b3a-7147-f5ef-69f467e87a13@linux.intel.com>
 Organization: Intel Corp.
-Message-ID: <f56fbb5c-1477-44d5-7346-85a1ca0869dc@linux.intel.com>
-Date: Mon, 17 Feb 2020 11:06:00 +0300
+Message-ID: <e68be109-7174-2c9e-11a9-9770a6316834@linux.intel.com>
+Date: Mon, 17 Feb 2020 11:06:55 +0300
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
  Thunderbird/68.5.0
 MIME-Version: 1.0
 In-Reply-To: <c8de937a-0b3a-7147-f5ef-69f467e87a13@linux.intel.com>
 Content-Language: en-US
-X-Spam-Score: -0.0 (/)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [134.134.136.20 listed in wl.mailspike.net]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1j3bPx-006CCg-MH
+ -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1j3bQq-00FAn5-Nt
 X-Mailman-Approved-At: Mon, 17 Feb 2020 14:54:08 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -110,116 +107,76 @@ Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
 
-Introduce CAP_PERFMON capability designed to secure system performance
-monitoring and observability operations so that CAP_PERFMON would assist
-CAP_SYS_ADMIN capability in its governing role for performance
-monitoring and observability subsystems.
+Open access to monitoring of kernel code, cpus, tracepoints and
+namespaces data for a CAP_PERFMON privileged process. Providing the
+access under CAP_PERFMON capability singly, without the rest of
+CAP_SYS_ADMIN credentials, excludes chances to misuse the credentials
+and makes operation more secure.
 
-CAP_PERFMON hardens system security and integrity during performance
-monitoring and observability operations by decreasing attack surface
-that is available to a CAP_SYS_ADMIN privileged process [2]. Providing
-the access to system performance monitoring and observability operations
-under CAP_PERFMON capability singly, without the rest of CAP_SYS_ADMIN
-credentials, excludes chances to misuse the credentials and makes the
-operation more secure. Thus, CAP_PERFMON implements the principal of
-least privilege for performance monitoring and observability operations
-(POSIX IEEE 1003.1e: 2.2.2.39 principle of least privilege: A security
-design principle that states that a process or program be granted only
-those privileges (e.g., capabilities) necessary to accomplish its
-legitimate function, and only for the time that such privileges are
-actually required)
+CAP_PERFMON implements the principal of least privilege for performance
+monitoring and observability operations (POSIX IEEE 1003.1e 2.2.2.39
+principle of least privilege: A security design principle that states
+that a process or program be granted only those privileges (e.g.,
+capabilities) necessary to accomplish its legitimate function, and only
+for the time that such privileges are actually required)
 
-CAP_PERFMON meets the demand to secure system performance monitoring and
-observability operations for adoption in security sensitive, restricted,
-multiuser production environments (e.g. HPC clusters, cloud and virtual
-compute environments), where root or CAP_SYS_ADMIN credentials are not
-available to mass users of a system, and securely unblocks accessibility
-of system performance monitoring and observability operations beyond
-the root and CAP_SYS_ADMIN use cases.
-
-CAP_PERFMON takes over CAP_SYS_ADMIN credentials related to system
-performance monitoring and observability operations and balances amount
-of CAP_SYS_ADMIN credentials following the recommendations in the
-capabilities man page [1] for CAP_SYS_ADMIN: "Note: this capability is
-overloaded; see Notes to kernel developers, below." For backward
-compatibility reasons access to system performance monitoring and
-observability subsystems of the kernel remains open for CAP_SYS_ADMIN
-privileged processes but CAP_SYS_ADMIN usage for secure system
-performance monitoring and observability operations is discouraged with
-respect to the designed CAP_PERFMON capability.
-
-Although the software running under CAP_PERFMON can not ensure avoidance
-of related hardware issues, the software can still mitigate these issues
-following the official hardware issues mitigation procedure [2].
-The bugs in the software itself can be fixed following the standard
-kernel development process [3] to maintain and harden security of system
-performance monitoring and observability operations.
-
-[1] http://man7.org/linux/man-pages/man7/capabilities.7.html
-[2] https://www.kernel.org/doc/html/latest/process/embargoed-hardware-issues.html
-[3] https://www.kernel.org/doc/html/latest/admin-guide/security-bugs.html
+For backward compatibility reasons access to perf_events subsystem
+remains open for CAP_SYS_ADMIN privileged processes but CAP_SYS_ADMIN
+usage for secure perf_events monitoring is discouraged with respect to
+CAP_PERFMON capability.
 
 Signed-off-by: Alexey Budankov <alexey.budankov@linux.intel.com>
 ---
- include/linux/capability.h          | 4 ++++
- include/uapi/linux/capability.h     | 8 +++++++-
- security/selinux/include/classmap.h | 4 ++--
- 3 files changed, 13 insertions(+), 3 deletions(-)
+ include/linux/perf_event.h | 6 +++---
+ kernel/events/core.c       | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/include/linux/capability.h b/include/linux/capability.h
-index ecce0f43c73a..027d7e4a853b 100644
---- a/include/linux/capability.h
-+++ b/include/linux/capability.h
-@@ -251,6 +251,10 @@ extern bool privileged_wrt_inode_uidgid(struct user_namespace *ns, const struct
- extern bool capable_wrt_inode_uidgid(const struct inode *inode, int cap);
- extern bool file_ns_capable(const struct file *file, struct user_namespace *ns, int cap);
- extern bool ptracer_capable(struct task_struct *tsk, struct user_namespace *ns);
-+static inline bool perfmon_capable(void)
-+{
-+	return capable(CAP_PERFMON) || capable(CAP_SYS_ADMIN);
-+}
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 68e21e828893..5cbfc06c56b3 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1297,7 +1297,7 @@ static inline int perf_is_paranoid(void)
  
- /* audit system wants to get cap info from files as well */
- extern int get_vfs_caps_from_disk(const struct dentry *dentry, struct cpu_vfs_cap_data *cpu_caps);
-diff --git a/include/uapi/linux/capability.h b/include/uapi/linux/capability.h
-index 272dc69fa080..e58c9636741b 100644
---- a/include/uapi/linux/capability.h
-+++ b/include/uapi/linux/capability.h
-@@ -367,8 +367,14 @@ struct vfs_ns_cap_data {
+ static inline int perf_allow_kernel(struct perf_event_attr *attr)
+ {
+-	if (sysctl_perf_event_paranoid > 1 && !capable(CAP_SYS_ADMIN))
++	if (sysctl_perf_event_paranoid > 1 && !perfmon_capable())
+ 		return -EACCES;
  
- #define CAP_AUDIT_READ		37
+ 	return security_perf_event_open(attr, PERF_SECURITY_KERNEL);
+@@ -1305,7 +1305,7 @@ static inline int perf_allow_kernel(struct perf_event_attr *attr)
  
-+/*
-+ * Allow system performance and observability privileged operations
-+ * using perf_events, i915_perf and other kernel subsystems
-+ */
-+
-+#define CAP_PERFMON		38
+ static inline int perf_allow_cpu(struct perf_event_attr *attr)
+ {
+-	if (sysctl_perf_event_paranoid > 0 && !capable(CAP_SYS_ADMIN))
++	if (sysctl_perf_event_paranoid > 0 && !perfmon_capable())
+ 		return -EACCES;
  
--#define CAP_LAST_CAP         CAP_AUDIT_READ
-+#define CAP_LAST_CAP         CAP_PERFMON
+ 	return security_perf_event_open(attr, PERF_SECURITY_CPU);
+@@ -1313,7 +1313,7 @@ static inline int perf_allow_cpu(struct perf_event_attr *attr)
  
- #define cap_valid(x) ((x) >= 0 && (x) <= CAP_LAST_CAP)
+ static inline int perf_allow_tracepoint(struct perf_event_attr *attr)
+ {
+-	if (sysctl_perf_event_paranoid > -1 && !capable(CAP_SYS_ADMIN))
++	if (sysctl_perf_event_paranoid > -1 && !perfmon_capable())
+ 		return -EPERM;
  
-diff --git a/security/selinux/include/classmap.h b/security/selinux/include/classmap.h
-index 986f3ac14282..d233ab3f1533 100644
---- a/security/selinux/include/classmap.h
-+++ b/security/selinux/include/classmap.h
-@@ -27,9 +27,9 @@
- 	    "audit_control", "setfcap"
+ 	return security_perf_event_open(attr, PERF_SECURITY_TRACEPOINT);
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index 3f1f77de7247..46464367c47a 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -11205,7 +11205,7 @@ SYSCALL_DEFINE5(perf_event_open,
+ 	}
  
- #define COMMON_CAP2_PERMS  "mac_override", "mac_admin", "syslog", \
--		"wake_alarm", "block_suspend", "audit_read"
-+		"wake_alarm", "block_suspend", "audit_read", "perfmon"
- 
--#if CAP_LAST_CAP > CAP_AUDIT_READ
-+#if CAP_LAST_CAP > CAP_PERFMON
- #error New capability defined, please update COMMON_CAP2_PERMS.
- #endif
+ 	if (attr.namespaces) {
+-		if (!capable(CAP_SYS_ADMIN))
++		if (!perfmon_capable())
+ 			return -EACCES;
+ 	}
  
 -- 
 2.20.1
-
 
 
 
