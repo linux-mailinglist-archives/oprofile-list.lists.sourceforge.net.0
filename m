@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C1846163091
-	for <lists+oprofile-list@lfdr.de>; Tue, 18 Feb 2020 20:48:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0913A163094
+	for <lists+oprofile-list@lfdr.de>; Tue, 18 Feb 2020 20:48:26 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1j48r0-00009N-RW; Tue, 18 Feb 2020 19:48:22 +0000
+	id 1j48r0-00009o-Tb; Tue, 18 Feb 2020 19:48:22 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <jmorris@namei.org>) id 1j48SI-0005mL-78
- for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:22:50 +0000
+ (envelope-from <jmorris@namei.org>) id 1j48Sd-0007ZL-UG
+ for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:23:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Message-ID:
  In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=DT9naZqKs/CaULEqz2EpP9KkM72ybgKWmbKrdZ2vBp4=; b=F4k50GRF83o3zo03Wg7jfO19oe
- Pu3vVjAVlpO4eCd21jFgAqI/ZO3cnaxeiVRcWGLfz16nI5PGXlg8Zrl4y+CIWRNa63bfsNmYF5JEs
- tapFVSs8Tx0so9ORLqmiI3sSENBnr0MY7l86TE0aHcaqN2ubj6NvtM58fUDU72lgdjqQ=;
+ bh=Lq8rsUT+2GzKJaQB+Gm/iEylLvoh/nBVB5htyx6hBwA=; b=AwcCDC3byywKIr6/ZqbBEI8Rdj
+ iT9TgoEsBQzMU8aP2lOyvh1R5oHfz5y5M5/ir5WZK5mOGqkt3UE0mSAWP4hhrpaQSiN1oQyTub26C
+ cTt4j1DKdZ3GuN4pKzX4BXr2s/tZMCfSHH63XD71w+8YzZOlwnIrs+2AkMoNJChGTEQM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To
@@ -29,26 +29,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=DT9naZqKs/CaULEqz2EpP9KkM72ybgKWmbKrdZ2vBp4=; b=A9esy2h4yWNAsqno+GyRNgpKbA
- Bxc1I5uYjWG8qYN1wKAboAtQUA7oCKOXi77pz1vphOhny1FShJjSbrU9eTXQ1TQiQoXUyz4xGjUnE
- ZqgCFy+P7QHXR8SUNdQm9vaIazlxA4tQyO6hWO3f+05WweltcG8rTjsgbVyiHBv+PCeA=;
+ bh=Lq8rsUT+2GzKJaQB+Gm/iEylLvoh/nBVB5htyx6hBwA=; b=SM/UIlW5TtPDXm2b2+nATgRXX8
+ n+nP9bKwnc4Oa9I7ULr+o98dkJ1yy29jluciwj53rUIEHtbJsvsBC4rBuX7ZHnC9XEgw4uKA/l4bw
+ zFOFfNGSZx3CTUHyBg4lriFYGeDV4z2SWZbIKCzNXTUcc9UmBWwgtnHAIuIAgBxDsz78=;
 Received: from namei.org ([65.99.196.166])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1j48SG-007cof-J9
- for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:22:50 +0000
+ id 1j48Sc-007cpn-Gw
+ for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:23:11 +0000
 Received: from localhost (localhost [127.0.0.1])
- by namei.org (8.14.4/8.14.4) with ESMTP id 01IJMJhB013131;
- Tue, 18 Feb 2020 19:22:19 GMT
-Date: Wed, 19 Feb 2020 06:22:19 +1100 (AEDT)
+ by namei.org (8.14.4/8.14.4) with ESMTP id 01IJMet4013185;
+ Tue, 18 Feb 2020 19:22:40 GMT
+Date: Wed, 19 Feb 2020 06:22:40 +1100 (AEDT)
 From: James Morris <jmorris@namei.org>
 To: Alexey Budankov <alexey.budankov@linux.intel.com>
-Subject: Re: [PATCH v7 02/12] perf/core: open access to the core for
- CAP_PERFMON privileged process
-In-Reply-To: <e68be109-7174-2c9e-11a9-9770a6316834@linux.intel.com>
-Message-ID: <alpine.LRH.2.21.2002190622060.10165@namei.org>
+Subject: Re: [PATCH v7 03/12] perf/core: open access to probes for CAP_PERFMON
+ privileged process
+In-Reply-To: <3364fa26-b5d1-1808-aaee-c057f26e0eb4@linux.intel.com>
+Message-ID: <alpine.LRH.2.21.2002190622300.10165@namei.org>
 References: <c8de937a-0b3a-7147-f5ef-69f467e87a13@linux.intel.com>
- <e68be109-7174-2c9e-11a9-9770a6316834@linux.intel.com>
+ <3364fa26-b5d1-1808-aaee-c057f26e0eb4@linux.intel.com>
 User-Agent: Alpine 2.21 (LRH 202 2017-01-01)
 MIME-Version: 1.0
 X-Spam-Score: 0.0 (/)
@@ -57,10 +57,10 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: namei.org]
+ for more information. [URIs: intel.com]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1j48SG-007cof-J9
+X-Headers-End: 1j48Sc-007cpn-Gw
 X-Mailman-Approved-At: Tue, 18 Feb 2020 19:48:21 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -101,11 +101,16 @@ Errors-To: oprofile-list-bounces@lists.sourceforge.net
 On Mon, 17 Feb 2020, Alexey Budankov wrote:
 
 > 
-> Open access to monitoring of kernel code, cpus, tracepoints and
-> namespaces data for a CAP_PERFMON privileged process. Providing the
-> access under CAP_PERFMON capability singly, without the rest of
-> CAP_SYS_ADMIN credentials, excludes chances to misuse the credentials
-> and makes operation more secure.
+> Open access to monitoring via kprobes and uprobes and eBPF tracing for
+> CAP_PERFMON privileged process. Providing the access under CAP_PERFMON
+> capability singly, without the rest of CAP_SYS_ADMIN credentials,
+> excludes chances to misuse the credentials and makes operation more
+> secure.
+> 
+> perf kprobes and uprobes are used by ftrace and eBPF. perf probe uses
+> ftrace to define new kprobe events, and those events are treated as
+> tracepoint events. eBPF defines new probes via perf_event_open interface
+> and then the probes are used in eBPF tracing.
 > 
 > CAP_PERFMON implements the principal of least privilege for performance
 > monitoring and observability operations (POSIX IEEE 1003.1e 2.2.2.39
