@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B24E516308E
-	for <lists+oprofile-list@lfdr.de>; Tue, 18 Feb 2020 20:48:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0865E163093
+	for <lists+oprofile-list@lfdr.de>; Tue, 18 Feb 2020 20:48:26 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1j48r1-0000B1-96; Tue, 18 Feb 2020 19:48:23 +0000
+	id 1j48r1-0000BD-AM; Tue, 18 Feb 2020 19:48:23 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <jmorris@namei.org>) id 1j48Zk-0001Vy-34
- for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:30:32 +0000
+ (envelope-from <jmorris@namei.org>) id 1j48oE-0008R2-KD
+ for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:45:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Message-ID:
  In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=bqvCI+Jyrrzobv8Jo6qbnOniDyd7jTfXgBT6cBdi+U8=; b=NVfPR7nF4iatIOQwyfh/m3B+ef
- AViccNtn7xJ0rRJYdkoNecRF3GxLyLzsqualWfCiFBYiMZOXXXB+6u4/lF/B23N9Rr47Fxuprwx2S
- QcMBlqTZxKv/iIaEUPQuIXeISjRC+2jW4c9CEEy8dE2tI3OVwfoWY1YCOwXtwBIiRWsQ=;
+ bh=AYK1m3GqmftPL/ljiReI19As3QzyWwzAOJ9NA94GV6Y=; b=UtZbIfWyQnlXzZ4i0yRy9R9UuD
+ yBPeR0D7OaQd3to/esqmX/iqoZESQ4zvcxUv8QmwBTKQRmMcBAhXYW+M4NwnsQLaI+Kdt4UUJhAFv
+ H1pv13cKOnAxqD0koJg/+ctPRaIBds4Tos1xyzJj4PgB4CJvsuoq1VYn6jB4CKmgSz7Y=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To
@@ -29,26 +29,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=bqvCI+Jyrrzobv8Jo6qbnOniDyd7jTfXgBT6cBdi+U8=; b=VH/aSlvHbK9GMt1H50Db5l1tuc
- ubOB0tAVWmKBY+GCwCT17N7HVYXJ2cg8rTABTonRe1OyTYGUzfmhmN+zt6fKhVowZZXfJbSO8Basj
- 2hww0KEYrWfuoi1a9QlOaw1YKIFFaueTmYrVskd/1G6XANRfdPtx9Y4SMt7Zo4XXdkJs=;
+ bh=AYK1m3GqmftPL/ljiReI19As3QzyWwzAOJ9NA94GV6Y=; b=U9YoY6G9hvMmB5uz+pj17y6kAr
+ xzlXt3ErxQgWvdc8pA69TDe0miDgoZKpfstPJ3grzaBvuu3W0JziUzJfSmOI+tZMBF5daERWpHwTb
+ 325mm38HRbmKLKi7sTpR7C4AOcPu688lPhv+EDyt7cuCgpDcpCMvsyU0HIQArtPpRsd8=;
 Received: from namei.org ([65.99.196.166])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1j48Zi-007Hi2-Qe
- for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:30:31 +0000
+ id 1j48oD-00Gs5f-Fc
+ for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:45:30 +0000
 Received: from localhost (localhost [127.0.0.1])
- by namei.org (8.14.4/8.14.4) with ESMTP id 01IJT09I014208;
- Tue, 18 Feb 2020 19:29:00 GMT
-Date: Wed, 19 Feb 2020 06:29:00 +1100 (AEDT)
+ by namei.org (8.14.4/8.14.4) with ESMTP id 01IJhv9J016349;
+ Tue, 18 Feb 2020 19:43:58 GMT
+Date: Wed, 19 Feb 2020 06:43:57 +1100 (AEDT)
 From: James Morris <jmorris@namei.org>
 To: Alexey Budankov <alexey.budankov@linux.intel.com>
-Subject: Re: [PATCH v7 08/12] parisc/perf: open access for CAP_PERFMON
+Subject: Re: [PATCH v7 09/12] drivers/perf: open access for CAP_PERFMON
  privileged process
-In-Reply-To: <29e45605-7a3c-944b-7bea-5959f8ff0793@linux.intel.com>
-Message-ID: <alpine.LRH.2.21.2002190628460.10165@namei.org>
+In-Reply-To: <48baecd5-a015-3dbf-f774-9f2caee13893@linux.intel.com>
+Message-ID: <alpine.LRH.2.21.2002190643390.10165@namei.org>
 References: <c8de937a-0b3a-7147-f5ef-69f467e87a13@linux.intel.com>
- <29e45605-7a3c-944b-7bea-5959f8ff0793@linux.intel.com>
+ <48baecd5-a015-3dbf-f774-9f2caee13893@linux.intel.com>
 User-Agent: Alpine 2.21 (LRH 202 2017-01-01)
 MIME-Version: 1.0
 X-Spam-Score: 0.0 (/)
@@ -60,7 +60,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  for more information. [URIs: intel.com]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1j48Zi-007Hi2-Qe
+X-Headers-End: 1j48oD-00Gs5f-Fc
 X-Mailman-Approved-At: Tue, 18 Feb 2020 19:48:21 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -109,6 +109,7 @@ On Mon, 17 Feb 2020, Alexey Budankov wrote:
 
 
 Reviewed-by: James Morris <jamorris@linux.microsoft.com>
+
 
 -- 
 James Morris
