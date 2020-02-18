@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0913A163094
-	for <lists+oprofile-list@lfdr.de>; Tue, 18 Feb 2020 20:48:26 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B9F5B163090
+	for <lists+oprofile-list@lfdr.de>; Tue, 18 Feb 2020 20:48:24 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1j48r0-00009o-Tb; Tue, 18 Feb 2020 19:48:22 +0000
+	id 1j48r1-0000A0-2J; Tue, 18 Feb 2020 19:48:23 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <jmorris@namei.org>) id 1j48Sd-0007ZL-UG
- for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:23:11 +0000
+ (envelope-from <jmorris@namei.org>) id 1j48U4-00016C-Nd
+ for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:24:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Message-ID:
  In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Lq8rsUT+2GzKJaQB+Gm/iEylLvoh/nBVB5htyx6hBwA=; b=AwcCDC3byywKIr6/ZqbBEI8Rdj
- iT9TgoEsBQzMU8aP2lOyvh1R5oHfz5y5M5/ir5WZK5mOGqkt3UE0mSAWP4hhrpaQSiN1oQyTub26C
- cTt4j1DKdZ3GuN4pKzX4BXr2s/tZMCfSHH63XD71w+8YzZOlwnIrs+2AkMoNJChGTEQM=;
+ bh=y2KmW1KyMrRW73G7uZAsXQYBBUDmHYQQWjABcimjyDo=; b=mbr/I0b0rQWuobzvQ+qHYqUVkr
+ vzLLlizpF2kVD6JQMbimInDfkLvKQ2qb5IiRP3+9E0dIw8wbYqRKSGJ1NqUFnfPBclhqeUvupTFy1
+ M965iV05SPXqohw1oMGC1wSQKwksVRYdwwYZnTGnKvcId4sHYMi7Ly8A32ujZeAgGJw0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To
@@ -29,26 +29,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Lq8rsUT+2GzKJaQB+Gm/iEylLvoh/nBVB5htyx6hBwA=; b=SM/UIlW5TtPDXm2b2+nATgRXX8
- n+nP9bKwnc4Oa9I7ULr+o98dkJ1yy29jluciwj53rUIEHtbJsvsBC4rBuX7ZHnC9XEgw4uKA/l4bw
- zFOFfNGSZx3CTUHyBg4lriFYGeDV4z2SWZbIKCzNXTUcc9UmBWwgtnHAIuIAgBxDsz78=;
+ bh=y2KmW1KyMrRW73G7uZAsXQYBBUDmHYQQWjABcimjyDo=; b=mUGAViicZjZd0q81/1AsMicr1g
+ s5W1hjOGhur5nc01IH+HFBqSl7+z7BpzQEhI/x9aXIhTlY1Q/49q+Q+87Cx5za0Z4mScdqIvfZw6j
+ sbUsVXbzRGQ+1gQBTxCT2g7qlr0SzXzMyyhjFJYqtXinclP0LQ+9CN/CrIwwft7iIwSA=;
 Received: from namei.org ([65.99.196.166])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1j48Sc-007cpn-Gw
- for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:23:11 +0000
+ id 1j48U3-007HTW-E9
+ for oprofile-list@lists.sourceforge.net; Tue, 18 Feb 2020 19:24:40 +0000
 Received: from localhost (localhost [127.0.0.1])
- by namei.org (8.14.4/8.14.4) with ESMTP id 01IJMet4013185;
- Tue, 18 Feb 2020 19:22:40 GMT
-Date: Wed, 19 Feb 2020 06:22:40 +1100 (AEDT)
+ by namei.org (8.14.4/8.14.4) with ESMTP id 01IJO3sT013441;
+ Tue, 18 Feb 2020 19:24:03 GMT
+Date: Wed, 19 Feb 2020 06:24:03 +1100 (AEDT)
 From: James Morris <jmorris@namei.org>
 To: Alexey Budankov <alexey.budankov@linux.intel.com>
-Subject: Re: [PATCH v7 03/12] perf/core: open access to probes for CAP_PERFMON
- privileged process
-In-Reply-To: <3364fa26-b5d1-1808-aaee-c057f26e0eb4@linux.intel.com>
-Message-ID: <alpine.LRH.2.21.2002190622300.10165@namei.org>
+Subject: Re: [PATCH v7 04/12] perf tool: extend Perf tool with CAP_PERFMON
+ capability support
+In-Reply-To: <5f961a07-36d0-d8f4-1895-6cfc38bcb81e@linux.intel.com>
+Message-ID: <alpine.LRH.2.21.2002190623450.10165@namei.org>
 References: <c8de937a-0b3a-7147-f5ef-69f467e87a13@linux.intel.com>
- <3364fa26-b5d1-1808-aaee-c057f26e0eb4@linux.intel.com>
+ <5f961a07-36d0-d8f4-1895-6cfc38bcb81e@linux.intel.com>
 User-Agent: Alpine 2.21 (LRH 202 2017-01-01)
 MIME-Version: 1.0
 X-Spam-Score: 0.0 (/)
@@ -60,7 +60,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  for more information. [URIs: intel.com]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1j48Sc-007cpn-Gw
+X-Headers-End: 1j48U3-007HTW-E9
 X-Mailman-Approved-At: Tue, 18 Feb 2020 19:48:21 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -101,16 +101,10 @@ Errors-To: oprofile-list-bounces@lists.sourceforge.net
 On Mon, 17 Feb 2020, Alexey Budankov wrote:
 
 > 
-> Open access to monitoring via kprobes and uprobes and eBPF tracing for
-> CAP_PERFMON privileged process. Providing the access under CAP_PERFMON
-> capability singly, without the rest of CAP_SYS_ADMIN credentials,
-> excludes chances to misuse the credentials and makes operation more
-> secure.
-> 
-> perf kprobes and uprobes are used by ftrace and eBPF. perf probe uses
-> ftrace to define new kprobe events, and those events are treated as
-> tracepoint events. eBPF defines new probes via perf_event_open interface
-> and then the probes are used in eBPF tracing.
+> Extend error messages to mention CAP_PERFMON capability as an option
+> to substitute CAP_SYS_ADMIN capability for secure system performance
+> monitoring and observability. Make perf_event_paranoid_check() and
+> __cmd_ftrace() to be aware of CAP_PERFMON capability.
 > 
 > CAP_PERFMON implements the principal of least privilege for performance
 > monitoring and observability operations (POSIX IEEE 1003.1e 2.2.2.39
