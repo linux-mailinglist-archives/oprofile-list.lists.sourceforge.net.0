@@ -2,100 +2,84 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 95F02166986
-	for <lists+oprofile-list@lfdr.de>; Thu, 20 Feb 2020 22:05:55 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 14BEC16C1F9
+	for <lists+oprofile-list@lfdr.de>; Tue, 25 Feb 2020 14:18:51 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1j4t15-0007hv-W0; Thu, 20 Feb 2020 21:05:51 +0000
+	id 1j6a6q-0006b0-Kt; Tue, 25 Feb 2020 13:18:48 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <raj.khem@gmail.com>) id 1j4sJE-0002mp-Fa
- for oprofile-list@lists.sourceforge.net; Thu, 20 Feb 2020 20:20:32 +0000
+ (envelope-from <alexey.budankov@linux.intel.com>) id 1j6Wwn-00060C-3K
+ for oprofile-list@lists.sourceforge.net; Tue, 25 Feb 2020 09:56:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ MIME-Version:Date:Message-ID:References:Cc:To:Subject:From:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=evzZqy4g2+qwdiaNL7OkyWOuHkqpgTpz9PE+LrpfaT8=; b=A+f6pdJJtwfMwKkc1g0932ydh2
- 5HJU2e9w3VixBHYqA+tSPTV4VJK2yoo6iFT47XNwuVviM6gl5M+ICHMZbUy6D+rlec8RCJY75iILB
- 2iyOx1y0sVxHCseBbiZuXjARCFaOg/RU1pDlc00T668w0WLyHpc4fjBLh1NTl2/F4tJE=;
+ bh=TX0RahGMWE00rVXPUpye5O9VNOdCRX0CXIwr4KZ5nYs=; b=XMuWv2sZnN5MHtPPq/oRJHF7su
+ g3vgSw+1Yg/t41bKB1aRpbYXDkQavxaX0rncUiKhIHBB/5Os1joDFbPiG8jCmyUEmazJSYXHvb9v6
+ W4Ph/a4YgoW3o6Qtg1n0XKCitEaHB6X9uraQWMLfGDjUVqCpkijxLfrWhlvXUgPYKG2I=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=evzZqy4g2+qwdiaNL7OkyWOuHkqpgTpz9PE+LrpfaT8=; b=e
- nLlJQd4prdOL0sXj45F+bB2TxUlnnq6kR1lCnssckvS803lUWVdBeY7PBCG/EFSxviD2oc/ckjS3t
- F8rl/Dq+//neuBkt92yBd55wXXuJD0RvkweEnTpnuUxU5brr+M0nkq82Ds6s+3BBOYjKay/ZaoszA
- uZueCADnZgAIRFbQ=;
-Received: from mail-oi1-f193.google.com ([209.85.167.193])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1j4sJC-003KKz-NN
- for oprofile-list@lists.sourceforge.net; Thu, 20 Feb 2020 20:20:32 +0000
-Received: by mail-oi1-f193.google.com with SMTP id q84so28905484oic.4
- for <oprofile-list@lists.sf.net>; Thu, 20 Feb 2020 12:20:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=evzZqy4g2+qwdiaNL7OkyWOuHkqpgTpz9PE+LrpfaT8=;
- b=d4wpL8fi2BJQIkknEYgeCyQ8WNFDoohUxsA1VnAS5j1+pwJL/gPuZomk6GQ5jXz1as
- xF9OT74/utVDAb48/apUcBXXP/qCHsNoY63O9rSZJCo6YiXBGFE3MX7yBD14kiPi8GUg
- s6jk5bcfJGTvJWlVBGD2QLGqd0RnW3ajyNlJpzpbcrOg5nOqjKcJ6/9fVONZY98cug/d
- 3qB8CFRVPGXZsYLT3GAxg9W8Lw6LVgWWkmuYsWrnKHp73EcsUp25TjbgQlMGWFnljhrk
- Dwe5mVm3gIJ0Xg7oYENaanrgiJNIoVhgm7YO5LfXACMEtH8qezA+gy6ezjvEaPuCkLmf
- G3Jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=evzZqy4g2+qwdiaNL7OkyWOuHkqpgTpz9PE+LrpfaT8=;
- b=MfXv8bVPQxv3g7GW/7qaiolPXWjcFmVNqdhbSs0ijo4NzIKVphWLYQiGEDFdyKnM1D
- 18l2Y8umtCP2v718IAPpSjyTha7eUrAaoDLo3LRK6qUd+ka94d48u7A2UhMN3Xm3w3aT
- Sc+YVODQM/PAgNzNZDTfNHGy49R8GqY1lfaLb1wjypV8R7iOKoYIXmeBLxN40YITVmPG
- NeuEwSbXpYGyIAGN0Ri43BvHofIaXxtrAtidoOnPojcEY5A8xW/YL32YpZOPZtb20H3i
- lg7BkStSAHPxpZu7VdNWYqkmbHitlEx2THfUSvdDHKpjmfTWWF2pKneAPQE4DuKcLoiK
- oHZg==
-X-Gm-Message-State: APjAAAXbnN+5Vc9U6VZvvjUb3bIsyMJ5Ved5U12xKUKTGbkAEefLimLv
- sAgBvTCCjICW6tcVWyo+QONRYCBrtGs=
-X-Google-Smtp-Source: APXvYqzOYYA8sKwAcdAS0blWzRM9nf9eG+K+5bTh1Jpf4BRpVy/QzD/3wmUYaMfNblMAD/wfPebLdA==
-X-Received: by 2002:a17:90a:348a:: with SMTP id
- p10mr4582827pjb.120.1582215502533; 
- Thu, 20 Feb 2020 08:18:22 -0800 (PST)
-Received: from apollo.hsd1.ca.comcast.net ([2601:646:9200:4e0::396c])
- by smtp.gmail.com with ESMTPSA id 26sm4079742pjk.3.2020.02.20.08.18.21
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 20 Feb 2020 08:18:22 -0800 (PST)
-From: Khem Raj <raj.khem@gmail.com>
-To: oprofile-list@lists.sf.net
-Subject: [PATCH] Use new bfd APIs from 2.34+
-Date: Thu, 20 Feb 2020 08:18:33 -0800
-Message-Id: <20200220161833.2999988-1-raj.khem@gmail.com>
-X-Mailer: git-send-email 2.25.1
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:References:Cc:To:Subject:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=TX0RahGMWE00rVXPUpye5O9VNOdCRX0CXIwr4KZ5nYs=; b=eWLyZGnjLlC/3XixttBEB05aMs
+ ddgWucJZ1yTIH73O/toaMaYV4xzzFCngWgpqWosJOE+N/NL4UGnqsvR+LACa+NmpjSMhvLbK2dSa1
+ wrCGXd530wVYZq6mUJorKI6RgHAgovcaW/8GjqAkRDhKWjuobCFgJtqsjLPm+ak/ZglY=;
+Received: from mga07.intel.com ([134.134.136.100])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1j6Wwi-00FtfR-Td
+ for oprofile-list@lists.sourceforge.net; Tue, 25 Feb 2020 09:56:13 +0000
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+ by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 25 Feb 2020 01:56:01 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.70,483,1574150400"; d="scan'208";a="317039975"
+Received: from linux.intel.com ([10.54.29.200])
+ by orsmga001.jf.intel.com with ESMTP; 25 Feb 2020 01:56:01 -0800
+Received: from [10.125.253.45] (abudanko-mobl.ccr.corp.intel.com
+ [10.125.253.45])
+ by linux.intel.com (Postfix) with ESMTP id 3429A58052E;
+ Tue, 25 Feb 2020 01:55:54 -0800 (PST)
+From: Alexey Budankov <alexey.budankov@linux.intel.com>
+Subject: Re: [PATCH v7 00/12] Introduce CAP_PERFMON to secure system
+ performance monitoring and observability
+To: James Morris <jmorris@namei.org>, Serge Hallyn <serge@hallyn.com>,
+ Stephen Smalley <sds@tycho.nsa.gov>, Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+ "joonas.lahtinen@linux.intel.com" <joonas.lahtinen@linux.intel.com>,
+ Alexei Starovoitov <ast@kernel.org>, Will Deacon <will@kernel.org>,
+ Paul Mackerras <paulus@samba.org>, Helge Deller <deller@gmx.de>,
+ Thomas Gleixner <tglx@linutronix.de>
+References: <c8de937a-0b3a-7147-f5ef-69f467e87a13@linux.intel.com>
+Organization: Intel Corp.
+Message-ID: <3ae0bed5-204e-de81-7647-5f0d8106cd67@linux.intel.com>
+Date: Tue, 25 Feb 2020 12:55:54 +0300
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.5.0
 MIME-Version: 1.0
-X-Spam-Score: -0.2 (/)
+In-Reply-To: <c8de937a-0b3a-7147-f5ef-69f467e87a13@linux.intel.com>
+Content-Language: en-US
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (raj.khem[at]gmail.com)
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.193 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.193 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: man7.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.1 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1j4sJC-003KKz-NN
-X-Mailman-Approved-At: Thu, 20 Feb 2020 21:05:51 +0000
+X-Headers-End: 1j6Wwi-00FtfR-Td
+X-Mailman-Approved-At: Tue, 25 Feb 2020 13:18:46 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -108,85 +92,240 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: Khem Raj <raj.khem@gmail.com>
+Cc: linux-man@vger.kernel.org, Andi Kleen <ak@linux.intel.com>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "selinux@vger.kernel.org" <selinux@vger.kernel.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
+ Igor Lubashev <ilubashe@akamai.com>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ Stephane Eranian <eranian@google.com>,
+ "linux-security-module@vger.kernel.org"
+ <linux-security-module@vger.kernel.org>, oprofile-list@lists.sf.net,
+ Jiri Olsa <jolsa@redhat.com>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-Upstream-Status: Pending
-Signed-off-by: Khem Raj <raj.khem@gmail.com>
----
- libutil++/bfd_support.cpp | 10 +++++-----
- opjitconv/create_bfd.c    |  6 +++---
- 2 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/libutil++/bfd_support.cpp b/libutil++/bfd_support.cpp
-index fa904839..e53a1530 100644
---- a/libutil++/bfd_support.cpp
-+++ b/libutil++/bfd_support.cpp
-@@ -137,7 +137,7 @@ static bool get_build_id(bfd * ibfd, unsigned char * build_id)
- 		}
- 	}
- 
--	bfd_size_type buildid_sect_size = bfd_section_size(ibfd, sect);
-+	bfd_size_type buildid_sect_size = bfd_section_size(sect);
- 	char * contents = (char *) xmalloc(buildid_sect_size);
- 	errno = 0;
- 	if (!bfd_get_section_contents(ibfd, sect,
-@@ -188,7 +188,7 @@ bool get_debug_link_info(bfd * ibfd, string & filename, unsigned long & crc32)
- 	if (sect == NULL)
- 		return false;
- 	
--	bfd_size_type debuglink_size = bfd_section_size(ibfd, sect);  
-+	bfd_size_type debuglink_size = bfd_section_size(sect);  
- 	char * contents = (char *) xmalloc(debuglink_size);
- 	cverb << vbfd
- 	      << ".gnu_debuglink section has size " << debuglink_size << endl;
-@@ -346,7 +346,7 @@ void fixup_linenr(bfd * abfd, asection * section, asymbol ** syms,
- 	// first restrict the search on a sensible range of vma, 16 is
- 	// an intuitive value based on epilog code look
- 	size_t max_search = 16;
--	size_t section_size = bfd_section_size(abfd, section);
-+	size_t section_size = bfd_section_size(section);
- 	if (pc + max_search > section_size)
- 		max_search = section_size - pc;
- 
-@@ -819,10 +819,10 @@ find_nearest_line(bfd_info const & b, op_bfd_symbol const & sym,
- 	else
- 		pc = (sym.value() + offset) - sym.filepos();
- 
--	if ((bfd_get_section_flags(abfd, section) & SEC_ALLOC) == 0)
-+	if ((bfd_section_flags(section) & SEC_ALLOC) == 0)
- 		goto fail;
- 
--	if (pc >= bfd_section_size(abfd, section))
-+	if (pc >= bfd_section_size(section))
- 		goto fail;
- 
- 	ret = bfd_find_nearest_line(abfd, section, syms, pc, &cfilename,
-diff --git a/opjitconv/create_bfd.c b/opjitconv/create_bfd.c
-index 48db143b..5c0e9152 100644
---- a/opjitconv/create_bfd.c
-+++ b/opjitconv/create_bfd.c
-@@ -86,12 +86,12 @@ asection * create_section(bfd * abfd, char const * section_name,
- 		bfd_perror("bfd_make_section");
- 		goto error;
- 	}
--	bfd_set_section_vma(abfd, section, vma);
--	if (bfd_set_section_size(abfd, section, size) == FALSE) {
-+	bfd_set_section_vma(section, vma);
-+	if (bfd_set_section_size(section, size) == FALSE) {
- 		bfd_perror("bfd_set_section_size");
- 		goto error;
- 	}
--	if (bfd_set_section_flags(abfd, section, flags) == FALSE) {
-+	if (bfd_set_section_flags(section, flags) == FALSE) {
- 		bfd_perror("bfd_set_section_flags");
- 		goto error;
- 	}
--- 
-2.25.1
+Hi,
 
+Is there anything else I could do in order to move the changes forward
+or is something still missing from this patch set?
+Could you please share you mind?
+
+Thanks,
+Alexey
+
+On 17.02.2020 11:02, Alexey Budankov wrote:
+> 
+> Currently access to perf_events, i915_perf and other performance
+> monitoring and observability subsystems of the kernel is open only for
+> a privileged process [1] with CAP_SYS_ADMIN capability enabled in the
+> process effective set [2].
+> 
+> This patch set introduces CAP_PERFMON capability designed to secure
+> system performance monitoring and observability operations so that
+> CAP_PERFMON would assist CAP_SYS_ADMIN capability in its governing role
+> for performance monitoring and observability subsystems of the kernel.
+> 
+> CAP_PERFMON intends to harden system security and integrity during
+> performance monitoring and observability operations by decreasing attack
+> surface that is available to a CAP_SYS_ADMIN privileged process [2].
+> Providing the access to performance monitoring and observability
+> operations under CAP_PERFMON capability singly, without the rest of
+> CAP_SYS_ADMIN credentials, excludes chances to misuse the credentials
+> and makes the operation more secure. Thus, CAP_PERFMON implements the
+> principal of least privilege for performance monitoring and
+> observability operations (POSIX IEEE 1003.1e: 2.2.2.39 principle of
+> least privilege: A security design principle that states that a process
+> or program be granted only those privileges (e.g., capabilities)
+> necessary to accomplish its legitimate function, and only for the time
+> that such privileges are actually required)
+> 
+> CAP_PERFMON intends to meet the demand to secure system performance
+> monitoring and observability operations for adoption in security
+> sensitive, restricted, multiuser production environments (e.g. HPC
+> clusters, cloud and virtual compute environments), where root or
+> CAP_SYS_ADMIN credentials are not available to mass users of a system,
+> and securely unblock accessibility of system performance monitoring and
+> observability operations beyond root and CAP_SYS_ADMIN use cases.
+> 
+> CAP_PERFMON intends to take over CAP_SYS_ADMIN credentials related to
+> system performance monitoring and observability operations and balance
+> amount of CAP_SYS_ADMIN credentials following the recommendations in
+> the capabilities man page [2] for CAP_SYS_ADMIN: "Note: this capability
+> is overloaded; see Notes to kernel developers, below." For backward
+> compatibility reasons access to system performance monitoring and
+> observability subsystems of the kernel remains open for CAP_SYS_ADMIN
+> privileged processes but CAP_SYS_ADMIN capability usage for secure
+> system performance monitoring and observability operations is
+> discouraged with respect to the designed CAP_PERFMON capability.
+> 
+> Possible alternative solution to this system security hardening,
+> capabilities balancing task of making performance monitoring and
+> observability operations more secure and accessible could be to use
+> the existing CAP_SYS_PTRACE capability to govern system performance
+> monitoring and observability subsystems. However CAP_SYS_PTRACE
+> capability still provides users with more credentials than are
+> required for secure performance monitoring and observability
+> operations and this excess is avoided by the designed CAP_PERFMON.
+> 
+> Although software running under CAP_PERFMON can not ensure avoidance of
+> related hardware issues, the software can still mitigate those issues
+> following the official hardware issues mitigation procedure [3]. The
+> bugs in the software itself can be fixed following the standard kernel
+> development process [4] to maintain and harden security of system
+> performance monitoring and observability operations. Finally, the patch
+> set is shaped in the way that simplifies backtracking procedure of
+> possible induced issues [5] as much as possible.
+> 
+> The patch set is for tip perf/core repository:
+> git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip perf/core
+> sha1: fdb64822443ec9fb8c3a74b598a74790ae8d2e22
+> 
+> ---
+> Changes in v7:
+> - updated and extended kernel.rst and perf-security.rst documentation 
+>   files with the information about CAP_PERFMON capability and its use cases
+> - documented the case of double audit logging of CAP_PERFMON and CAP_SYS_ADMIN
+>   capabilities on a SELinux enabled system
+> Changes in v6:
+> - avoided noaudit checks in perfmon_capable() to explicitly advertise
+>   CAP_PERFMON usage thru audit logs to secure system performance
+>   monitoring and observability
+> Changes in v5:
+> - renamed CAP_SYS_PERFMON to CAP_PERFMON
+> - extended perfmon_capable() with noaudit checks
+> Changes in v4:
+> - converted perfmon_capable() into an inline function
+> - made perf_events kprobes, uprobes, hw breakpoints and namespaces data
+>   available to CAP_SYS_PERFMON privileged processes
+> - applied perfmon_capable() to drivers/perf and drivers/oprofile
+> - extended __cmd_ftrace() with support of CAP_SYS_PERFMON
+> Changes in v3:
+> - implemented perfmon_capable() macros aggregating required capabilities
+>   checks
+> Changes in v2:
+> - made perf_events trace points available to CAP_SYS_PERFMON privileged
+>   processes
+> - made perf_event_paranoid_check() treat CAP_SYS_PERFMON equally to
+>   CAP_SYS_ADMIN
+> - applied CAP_SYS_PERFMON to i915_perf, bpf_trace, powerpc and parisc
+>   system performance monitoring and observability related subsystems
+> 
+> ---
+> Alexey Budankov (12):
+>   capabilities: introduce CAP_PERFMON to kernel and user space
+>   perf/core: open access to the core for CAP_PERFMON privileged process
+>   perf/core: open access to probes for CAP_PERFMON privileged process
+>   perf tool: extend Perf tool with CAP_PERFMON capability support
+>   drm/i915/perf: open access for CAP_PERFMON privileged process
+>   trace/bpf_trace: open access for CAP_PERFMON privileged process
+>   powerpc/perf: open access for CAP_PERFMON privileged process
+>   parisc/perf: open access for CAP_PERFMON privileged process
+>   drivers/perf: open access for CAP_PERFMON privileged process
+>   drivers/oprofile: open access for CAP_PERFMON privileged process
+>   doc/admin-guide: update perf-security.rst with CAP_PERFMON information
+>   doc/admin-guide: update kernel.rst with CAP_PERFMON information
+> 
+>  Documentation/admin-guide/perf-security.rst | 65 +++++++++++++--------
+>  Documentation/admin-guide/sysctl/kernel.rst | 16 +++--
+>  arch/parisc/kernel/perf.c                   |  2 +-
+>  arch/powerpc/perf/imc-pmu.c                 |  4 +-
+>  drivers/gpu/drm/i915/i915_perf.c            | 13 ++---
+>  drivers/oprofile/event_buffer.c             |  2 +-
+>  drivers/perf/arm_spe_pmu.c                  |  4 +-
+>  include/linux/capability.h                  |  4 ++
+>  include/linux/perf_event.h                  |  6 +-
+>  include/uapi/linux/capability.h             |  8 ++-
+>  kernel/events/core.c                        |  6 +-
+>  kernel/trace/bpf_trace.c                    |  2 +-
+>  security/selinux/include/classmap.h         |  4 +-
+>  tools/perf/builtin-ftrace.c                 |  5 +-
+>  tools/perf/design.txt                       |  3 +-
+>  tools/perf/util/cap.h                       |  4 ++
+>  tools/perf/util/evsel.c                     | 10 ++--
+>  tools/perf/util/util.c                      |  1 +
+>  18 files changed, 98 insertions(+), 61 deletions(-)
+> 
+> ---
+> Validation (Intel Skylake, 8 cores, Fedora 29, 5.5.0-rc3+, x86_64):
+> 
+> libcap library [6], [7], [8] and Perf tool can be used to apply
+> CAP_PERFMON capability for secure system performance monitoring and
+> observability beyond the scope permitted by the system wide
+> perf_event_paranoid kernel setting [9] and below are the steps for
+> evaluation:
+> 
+>   - patch, build and boot the kernel
+>   - patch, build Perf tool e.g. to /home/user/perf
+>   ...
+>   # git clone git://git.kernel.org/pub/scm/libs/libcap/libcap.git libcap
+>   # pushd libcap
+>   # patch libcap/include/uapi/linux/capabilities.h with [PATCH 1]
+>   # make
+>   # pushd progs
+>   # ./setcap "cap_perfmon,cap_sys_ptrace,cap_syslog=ep" /home/user/perf
+>   # ./setcap -v "cap_perfmon,cap_sys_ptrace,cap_syslog=ep" /home/user/perf
+>   /home/user/perf: OK
+>   # ./getcap /home/user/perf
+>   /home/user/perf = cap_sys_ptrace,cap_syslog,cap_perfmon+ep
+>   # echo 2 > /proc/sys/kernel/perf_event_paranoid
+>   # cat /proc/sys/kernel/perf_event_paranoid 
+>   2
+>   ...
+>   $ /home/user/perf top
+>     ... works as expected ...
+>   $ cat /proc/`pidof perf`/status
+>   Name:	perf
+>   Umask:	0002
+>   State:	S (sleeping)
+>   Tgid:	2958
+>   Ngid:	0
+>   Pid:	2958
+>   PPid:	9847
+>   TracerPid:	0
+>   Uid:	500	500	500	500
+>   Gid:	500	500	500	500
+>   FDSize:	256
+>   ...
+>   CapInh:	0000000000000000
+>   CapPrm:	0000004400080000
+>   CapEff:	0000004400080000 => 01000100 00000000 00001000 00000000 00000000
+>                                      cap_perfmon,cap_sys_ptrace,cap_syslog
+>   CapBnd:	0000007fffffffff
+>   CapAmb:	0000000000000000
+>   NoNewPrivs:	0
+>   Seccomp:	0
+>   Speculation_Store_Bypass:	thread vulnerable
+>   Cpus_allowed:	ff
+>   Cpus_allowed_list:	0-7
+>   ...
+> 
+> Usage of cap_perfmon effectively avoids unused credentials excess:
+> 
+> - with cap_sys_admin:
+>   CapEff:	0000007fffffffff => 01111111 11111111 11111111 11111111 11111111
+> 
+> - with cap_perfmon:
+>   CapEff:	0000004400080000 => 01000100 00000000 00001000 00000000 00000000
+>                                     38   34               19
+>                                perfmon   syslog           sys_ptrace
+> 
+> ---
+> [1] https://www.kernel.org/doc/html/latest/admin-guide/perf-security.html
+> [2] http://man7.org/linux/man-pages/man7/capabilities.7.html
+> [3] https://www.kernel.org/doc/html/latest/process/embargoed-hardware-issues.html
+> [4] https://www.kernel.org/doc/html/latest/admin-guide/security-bugs.html
+> [5] https://www.kernel.org/doc/html/latest/process/management-style.html#decisions
+> [6] http://man7.org/linux/man-pages/man8/setcap.8.html
+> [7] https://git.kernel.org/pub/scm/libs/libcap/libcap.git
+> [8] https://sites.google.com/site/fullycapable/, posix_1003.1e-990310.pdf
+> [9] http://man7.org/linux/man-pages/man2/perf_event_open.2.html
+> 
 
 
 _______________________________________________
