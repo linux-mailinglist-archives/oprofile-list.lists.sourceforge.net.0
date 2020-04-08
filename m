@@ -2,67 +2,85 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 529AB195CB3
-	for <lists+oprofile-list@lfdr.de>; Fri, 27 Mar 2020 18:27:56 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2685F1A22FE
+	for <lists+oprofile-list@lfdr.de>; Wed,  8 Apr 2020 15:29:57 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1jHslu-0002Kg-2f; Fri, 27 Mar 2020 17:27:54 +0000
+	id 1jMAmA-0007pj-DX; Wed, 08 Apr 2020 13:29:54 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <jmorris@namei.org>) id 1jHbwg-0001Hx-Ll
- for oprofile-list@lists.sourceforge.net; Thu, 26 Mar 2020 23:29:54 +0000
+ (envelope-from <jiaxun.yang@flygoat.com>) id 1jM9IP-0007EB-4W
+ for oprofile-list@lists.sourceforge.net; Wed, 08 Apr 2020 11:55:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Message-ID:
- In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
+ :Date:Subject:Message-ID:Cc:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=USVclo75MbQofynQvz6ob1KqtGfrfKPo3JVhLDXPhMA=; b=eDeI6kcXSvmhx4cTeqysqH1cQC
- 8EGOvL/Apq4FGkpB2Zrhs8N28sADEzNE6S6DWobyXvT5+e5ZkFlNI19Jx/UWx3rV4EkVpuwl8TkaB
- H/9BlDPkPcyuR3pFowA++mRlBXFFr51DiKzpVJlaIUVhM4lKSWAI5faqznbdtuaFYFOI=;
+ bh=x1C0J0dW+TFy1A/rQgku1MmxKq3NJPJkkGtqpNKObTQ=; b=FtkBSjiyaj+DI2ayALrTEySAVM
+ Pe5JcxS8bCl4FxkYziEBGLdlmGzX/EbmXUPT0NsWTax3sim1LLkV7ujffjdi2IOxuUWtOxmMwOgm/
+ I27r3sFiM+E8PsARa1c/zcqagX4SRZPSnd1oIr53iK15suiziwWPgnf+B4Ba1U+t4Pl4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ h=Content-Type:Content-Transfer-Encoding:MIME-Version:Date:Subject:
+ Message-ID:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:
+ Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+ In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=USVclo75MbQofynQvz6ob1KqtGfrfKPo3JVhLDXPhMA=; b=C+CMgbZN6e3nxv5P7XqEgToPmA
- LpUgBYCaJHKp6oIBi65NMlSoCg0vry/9FnXWeEiMcDp3zAx2QlXDgijmnF9lVviRT1TjbhMWZ+Jf7
- Kgy1wWO4A5Kgh5jT8zvs5BnGy+2jXBmbUqhKM8rNgy23MRgMq+UPdaSh+iIhw3cMPBFk=;
-Received: from namei.org ([65.99.196.166])
+ bh=x1C0J0dW+TFy1A/rQgku1MmxKq3NJPJkkGtqpNKObTQ=; b=l3vi25CHy9XNP8R/T+g0KzcJa1
+ orOT3Z5oClt7qrBgeS+ojX94Lll5H/HeFYfuis7jsjIsT3+bAGLj+rGHxibCtWMcSWwWmjTMG8veE
+ +b2j1CMgb46qBQM55vI4CDPnFfEZ/cpeM6Va4k1XE58tFrkMo+1NQuR/ZUiYCG/ocJHE=;
+Received: from sender3-op-o12.zoho.com.cn ([124.251.121.243])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1jHbwe-004xuy-OZ
- for oprofile-list@lists.sourceforge.net; Thu, 26 Mar 2020 23:29:54 +0000
-Received: from localhost (localhost [127.0.0.1])
- by namei.org (8.14.4/8.14.4) with ESMTP id 02QNSlWb015673;
- Thu, 26 Mar 2020 23:28:47 GMT
-Date: Fri, 27 Mar 2020 10:28:47 +1100 (AEDT)
-From: James Morris <jmorris@namei.org>
-To: Serge Hallyn <serge@hallyn.com>
-Subject: Re: [Intel-gfx] [PATCH v7 00/12] Introduce CAP_PERFMON to secure
- system performance monitoring and observability
-In-Reply-To: <20200302001913.GA21145@sl>
-Message-ID: <alpine.LRH.2.21.2003271026290.14767@namei.org>
-References: <c8de937a-0b3a-7147-f5ef-69f467e87a13@linux.intel.com>
- <3ae0bed5-204e-de81-7647-5f0d8106cd67@linux.intel.com>
- <20200302001913.GA21145@sl>
-User-Agent: Alpine 2.21 (LRH 202 2017-01-01)
+ (TLSv1.2:ECDHE-RSA-AES256-SHA384:256) (Exim 4.92.2)
+ id 1jM9IK-0082MK-0v
+ for oprofile-list@lists.sourceforge.net; Wed, 08 Apr 2020 11:55:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1586345803; cv=none; d=zoho.com.cn; s=zohoarc; 
+ b=ktM0p/VLgeyxhuHarSGAHIWGuBytEId+BMh4P/kfdRl1DDvMpQG9ufh6qn2Ec764Y0KU1NUtcSrVSzy6yFmyC0Dzpfswe9POwQILYk46/f8DUskxKQOBoDaFSr/CVhSSN4VJV5/TlXnVkn78CxY93aHnqy6X9DbYh1m7LHIckVI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zoho.com.cn;
+ s=zohoarc; t=1586345803;
+ h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:MIME-Version:Message-ID:Subject:To;
+ bh=x1C0J0dW+TFy1A/rQgku1MmxKq3NJPJkkGtqpNKObTQ=; 
+ b=qktwhZsYG7BIHRgBgCH3Ou0bkfmki5IUBj8AXsncoZfT4mp7pyDLpuVo5uPfM78BxZewhsrFHUEIwbla/4yFslxF0GzZjKMl1IVul4BeUB3m2C4xFzC9ZJKEUOpnD+MyUiZ3G0j26jSQ/pGEKck59ZkKYFhH4euxxUEZFOWAS80=
+ARC-Authentication-Results: i=1; mx.zoho.com.cn;
+ dkim=pass  header.i=flygoat.com;
+ spf=pass  smtp.mailfrom=jiaxun.yang@flygoat.com;
+ dmarc=pass header.from=<jiaxun.yang@flygoat.com>
+ header.from=<jiaxun.yang@flygoat.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1586345803; 
+ s=mail; d=flygoat.com; i=jiaxun.yang@flygoat.com;
+ h=From:To:Cc:Message-ID:Subject:Date:MIME-Version:Content-Transfer-Encoding:Content-Type;
+ bh=x1C0J0dW+TFy1A/rQgku1MmxKq3NJPJkkGtqpNKObTQ=;
+ b=agrWO9EgVsZuV6M/NtYZPq/9kvBSLCtvE/CY3de3FNVq7T76ifH8N+uAvd7RbwRi
+ jCnrDk/P5JRLRMsYLEw8z4AXTjv57oErOXthP+KZy7JlR6yrpaNjG4z1vqw3FeLe5DM
+ EHeT/F/YwvYWUnaFxVnPdLYHh/dikNdqPW8hX6X4=
+Received: from localhost.localdomain (39.155.141.144 [39.155.141.144]) by
+ mx.zoho.com.cn with SMTPS id 1586345800507759.7747042437669;
+ Wed, 8 Apr 2020 19:36:40 +0800 (CST)
+From: Jiaxun Yang <jiaxun.yang@flygoat.com>
+To: linux-mips@vger.kernel.org
+Message-ID: <20200408113505.2528103-1-jiaxun.yang@flygoat.com>
+Subject: [PATCH 00/12] MIPS: Topology & DeviceTree CPU rework
+Date: Wed,  8 Apr 2020 19:34:10 +0800
+X-Mailer: git-send-email 2.26.0.rc2
 MIME-Version: 1.0
-X-Spam-Score: 0.0 (/)
+X-ZohoCNMailClient: External
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: hallyn.com]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1jHbwe-004xuy-OZ
-X-Mailman-Approved-At: Fri, 27 Mar 2020 17:27:53 +0000
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [124.251.121.243 listed in list.dnswl.org]
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+X-Headers-End: 1jM9IK-0082MK-0v
+X-Mailman-Approved-At: Wed, 08 Apr 2020 13:29:53 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -75,69 +93,100 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-man@vger.kernel.org,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- "joonas.lahtinen@linux.intel.com" <joonas.lahtinen@linux.intel.com>,
- Alexei Starovoitov <ast@kernel.org>, Stephane Eranian <eranian@google.com>,
- Paul Mackerras <paulus@samba.org>, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@kernel.org>, Andi Kleen <ak@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>,
- Alexey Budankov <alexey.budankov@linux.intel.com>,
- Igor Lubashev <ilubashe@akamai.com>, oprofile-list@lists.sf.net,
- Stephen Smalley <sds@tycho.nsa.gov>,
- "selinux@vger.kernel.org" <selinux@vger.kernel.org>,
- "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ Kate Stewart <kstewart@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Paul Cercueil <paul@crapouillou.net>,
+ Richard Fontana <rfontana@redhat.com>, Peter Xu <peterx@redhat.com>,
+ Huacai Chen <chenhc@lemote.com>, Oleksij Rempel <linux@rempel-privat.de>,
+ Jiri Olsa <jolsa@redhat.com>, afzal mohammed <afzal.mohd.ma@gmail.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Paul Burton <paulburton@kernel.org>,
+ Kamal Dasu <kdasu.kdev@gmail.com>, Marc Zyngier <maz@kernel.org>,
+ Mike Rapoport <rppt@linux.ibm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Ingo Molnar <mingo@redhat.com>, bcm-kernel-feedback-list@broadcom.com,
+ oprofile-list@lists.sf.net,
+ Vladimir Kondratiev <vladimir.kondratiev@intel.com>,
+ Robert Richter <rric@kernel.org>, Jason Cooper <jason@lakedaemon.net>,
+ Arnd Bergmann <arnd@arndb.de>, YunQiang Su <syq@debian.org>,
  Arnaldo Carvalho de Melo <acme@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- "linux-security-module@vger.kernel.org"
- <linux-security-module@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- Helge Deller <deller@gmx.de>
+ Alexios Zavras <alexios.zavras@intel.com>, Steve Winslow <swinslow@gmail.com>,
+ Namhyung Kim <namhyung@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Allison Randal <allison@lohutok.net>, Zhou Yanjie <zhouyanjie@zoho.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Matt Redfearn <matt.redfearn@mips.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ Serge Semin <fancer.lancer@gmail.com>,
+ =?UTF-8?q?=E5=91=A8=E7=90=B0=E6=9D=B0=20=28Zhou=20Yanjie=29?=
+ <zhouyanjie@wanyeetech.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Enrico Weigelt <info@metux.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On Sun, 1 Mar 2020, Serge Hallyn wrote:
+This set mainly added DeviceTree based CPU probe support and reworked
+topology handling for MIPS. In order to prepare for pure DeviceTree
+boot for Loongson64. It can also convinient Yanjie's Inegnic jz4780/X2000
+SMP/SMT support.
 
-> Thanks, this looks good to me, in keeping with the CAP_SYSLOG break.
-> 
-> Acked-by: Serge E. Hallyn <serge@hallyn.com>
-> 
-> for the set.
-> 
-> James/Ingo/Peter, if noone has remaining objections, whose branch
-> should these go in through?
-> 
-> thanks,
-> -serge
-> 
-> On Tue, Feb 25, 2020 at 12:55:54PM +0300, Alexey Budankov wrote:
-> > 
-> > Hi,
-> > 
-> > Is there anything else I could do in order to move the changes forward
-> > or is something still missing from this patch set?
-> > Could you please share you mind?
+I've done build test for bmips, nlm, ip27 and boot test for malta with
+34Kf, I6400 in QEMU, Loongson64 on a Loongson-3B1500 real machine.
 
-Alexey,
+Thanks.
 
-It seems some of the previous Acks are not included in this patchset, e.g. 
-https://lkml.org/lkml/2020/1/22/655
+Jiaxun Yang (12):
+  MIPS: setup: Drop prefill_possible_map
+  MIPS: prom: Add helper to parse CPU node in dt
+  arch_topology: Make it avilable for MIPS
+  arch_topology: Reset all cpus in reset_cpu_topology
+  MIPS: Switch to arch_topology
+  MIPS: Kernel: Switch to new topology interface
+  MIPS: CPS & MT: Switch to new topology interface
+  irqchip: mips-cpu: Switch to new topology interface
+  MIPS: bmips: Switch to new topology interface
+  MIPS: nlm: Switch to new topology interface
+  MIPS: Loongson64: Switch to new topology interface
+  MIPS: ip27: Fix includes
 
-Every patch needs a Reviewed-by or Acked-by from maintainers of the code 
-being changed.
-
-You have enough from the security folk, but I can't see any included from 
-the perf folk.
-
+ arch/mips/Kconfig                             |   1 +
+ arch/mips/include/asm/cpu-info.h              |  49 -------
+ arch/mips/include/asm/mach-ip27/mmzone.h      |   2 +
+ arch/mips/include/asm/mach-ip27/topology.h    |   2 +
+ .../include/asm/mach-loongson64/topology.h    |   2 +
+ arch/mips/include/asm/mips-cm.h               |   9 +-
+ arch/mips/include/asm/mips-cps.h              |   2 +
+ arch/mips/include/asm/prom.h                  |   2 +
+ arch/mips/include/asm/smp-ops.h               |   2 -
+ arch/mips/include/asm/smp.h                   |   2 -
+ arch/mips/include/asm/sn/addrs.h              |   1 +
+ arch/mips/include/asm/topology.h              |  48 ++++++-
+ arch/mips/kernel/cacheinfo.c                  |   5 +-
+ arch/mips/kernel/cpu-probe.c                  |  43 ------
+ arch/mips/kernel/mips-cm.c                    |   4 +-
+ arch/mips/kernel/mips-cpc.c                   |   4 +-
+ arch/mips/kernel/perf_event_mipsxx.c          |   4 +-
+ arch/mips/kernel/pm-cps.c                     |  12 +-
+ arch/mips/kernel/proc.c                       |   8 +-
+ arch/mips/kernel/prom.c                       |  96 ++++++++++++++
+ arch/mips/kernel/setup.c                      |  22 +---
+ arch/mips/kernel/smp-bmips.c                  |   3 +-
+ arch/mips/kernel/smp-cmp.c                    |   5 +-
+ arch/mips/kernel/smp-cps.c                    |  41 +++---
+ arch/mips/kernel/smp-mt.c                     |   3 +-
+ arch/mips/kernel/smp.c                        |  55 +-------
+ arch/mips/kernel/topology.c                   |  42 ++++++
+ arch/mips/loongson64/smp.c                    |  20 +--
+ arch/mips/mm/c-r4k.c                          |   4 +-
+ arch/mips/mm/context.c                        |   4 +-
+ arch/mips/netlogic/common/smp.c               |   4 +-
+ arch/mips/oprofile/op_model_mipsxx.c          |   4 +-
+ drivers/base/arch_topology.c                  | 123 ++++++++++--------
+ drivers/irqchip/irq-mips-cpu.c                |   2 +-
+ 34 files changed, 337 insertions(+), 293 deletions(-)
 
 -- 
-James Morris
-<jmorris@namei.org>
+2.26.0.rc2
+
 
 
 
