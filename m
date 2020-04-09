@@ -2,92 +2,110 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 250D91A67DE
-	for <lists+oprofile-list@lfdr.de>; Mon, 13 Apr 2020 16:20:56 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1CBE41A67D5
+	for <lists+oprofile-list@lfdr.de>; Mon, 13 Apr 2020 16:20:55 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1jNzxF-0001eU-Kf; Mon, 13 Apr 2020 14:20:53 +0000
+	id 1jNzxF-0001ch-37; Mon, 13 Apr 2020 14:20:53 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <jiaxun.yang@flygoat.com>) id 1jMTfx-0005ke-4E
- for oprofile-list@lists.sourceforge.net; Thu, 09 Apr 2020 09:40:45 +0000
+ (envelope-from <rppt@linux.ibm.com>) id 1jMU6B-0000HA-0g
+ for oprofile-list@lists.sourceforge.net; Thu, 09 Apr 2020 10:07:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Message-Id:In-Reply-To:Content-Type:MIME-Version:
+ References:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=U3OUEi6suDWXBHYtmbz9aBjh2aLvWTneUmFTniJfo9s=; b=LKNdgUdIimTS7/qTZ4RHmC7Jse
- A1AxUpCyMwFJEhI9vyL0vC5aBIo7+Q2SPsQYxtJRieUHnMRx6o1dx/74phMvK+NGY86ryWMwpWQEu
- X9RmK2FBKM0u76es7DIKW2RO381Kgx2tAsvxQraqoFnAXlozLhDLkfjPtz8oJi6Hr/4w=;
+ bh=U32s1UInPk4VixUur5z8BfuGEQPxvUqJzebAgTl4Uxo=; b=YNUQNVoKJW6l7IBypnxpNr60En
+ lWAWZIda2IdFnoyjRhBRr5kkV2eVyg3EIG35c7T6UUpgmBWU52TKF0Sed+BR378MW3MwwYs/WaxvU
+ AVXfcYu++YquZrgZlENd6zm/ACFLMsuuPzBS+c9Co6b7t6T3gwV9buNxxXoK6z/yXTy8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
- In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+ h=Message-Id:In-Reply-To:Content-Type:MIME-Version:References:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=U3OUEi6suDWXBHYtmbz9aBjh2aLvWTneUmFTniJfo9s=; b=ITgi86PT4bwGI0xDn6+Yb+G1yv
- ey+BACtwvXzSDTN/Rh5c3qVQ7lS577T4zWAi/4oR49PbhuQwNaaGM2lsXH7j7crCgQlKNpdejKs5c
- af6gzDoLoYTcTCfIStNiVYQrL08/T/Cpycf3r4mP+fBgYsF29w/1gLvYAW6KrROOFEmw=;
-Received: from sender3-op-o12.zoho.com.cn ([124.251.121.243])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-SHA384:256) (Exim 4.92.2)
- id 1jMTft-00DCuV-QH
- for oprofile-list@lists.sourceforge.net; Thu, 09 Apr 2020 09:40:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1586425119; cv=none; d=zoho.com.cn; s=zohoarc; 
- b=Xm3Is2wmldS7Fqn/L5Q9W0eSTd20L/QVaCDc+Vfft1gdW9dt2kAAM0cIAf9QqwZYe8gMrCxaAmMGZMQ1HMXv8nn09ncigMrsB35uIxZx8cKqBtt5nYMjyYbr0ze1VofG7oJ1Spoc777iaizchzhflfRo27m2GzynOdL3uVDXdTM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zoho.com.cn;
- s=zohoarc; t=1586425119;
- h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To;
- bh=U3OUEi6suDWXBHYtmbz9aBjh2aLvWTneUmFTniJfo9s=; 
- b=GnkLlFKnSKLj7DTVZTCdrjRlP13qvpGHkadT06XRSrxPEvlumpO+GPjc4eFAZNA/+11z+vefJoRIa8E0aQNKXGHzBlmH09EHBsTXKKACzHrgeWMIg4XqMX+WIOwauAR0mVVTTWOHMuhDnGg9h+EuxU9vOwviXM9vr+zuu+DJ/YI=
-ARC-Authentication-Results: i=1; mx.zoho.com.cn;
- dkim=pass  header.i=flygoat.com;
- spf=pass  smtp.mailfrom=jiaxun.yang@flygoat.com;
- dmarc=pass header.from=<jiaxun.yang@flygoat.com>
- header.from=<jiaxun.yang@flygoat.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1586425119; 
- s=mail; d=flygoat.com; i=jiaxun.yang@flygoat.com;
- h=Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:Content-Transfer-Encoding;
- bh=U3OUEi6suDWXBHYtmbz9aBjh2aLvWTneUmFTniJfo9s=;
- b=WqgMCsmN0p2/AV8ZdfiD+DjoAfTXs8dItcVu2zIm6F/K0Y2L8txyGC+aMAhLvVJo
- BJmAcvz5IYBaC1PS2faE4yaDdTxyVP9q6rmPEzDOI5h2xnckGO1KYfiyVAo3FP/hr2T
- qfo7neCcoswAdkrD/N6mKWV5xwB5PSobKn1Lek4c=
-Received: from flygoat-x1e (122.235.212.87 [122.235.212.87]) by mx.zoho.com.cn
- with SMTPS id 1586425116678346.8969598464105;
- Thu, 9 Apr 2020 17:38:36 +0800 (CST)
-Date: Thu, 9 Apr 2020 17:38:35 +0800
-From: Jiaxun Yang <jiaxun.yang@flygoat.com>
-To: Mike Rapoport <rppt@linux.ibm.com>
+ bh=U32s1UInPk4VixUur5z8BfuGEQPxvUqJzebAgTl4Uxo=; b=YC2kSStnYWJNzXwOvRdwM2X7Ho
+ ygtQgOe6UiULskCqfI2aNI7pfZZRovzY1zoMnyNFU0MSbuQzdhwJTq7hCtGbMNGDIWtktXVe9sPJT
+ uj6tAHQcwcvINvYOmDTcUuXyubhQg1LwY8Wtb75p/8sMdKHS9XnyfFS6VwT7ULLnnfl0=;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1jMU68-009YHB-RB
+ for oprofile-list@lists.sourceforge.net; Thu, 09 Apr 2020 10:07:50 +0000
+Received: from pps.filterd (m0098414.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 039A4Yos109430
+ for <oprofile-list@lists.sf.net>; Thu, 9 Apr 2020 06:07:43 -0400
+Received: from e06smtp02.uk.ibm.com (e06smtp02.uk.ibm.com [195.75.94.98])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 30920tryh3-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <oprofile-list@lists.sf.net>; Thu, 09 Apr 2020 06:07:42 -0400
+Received: from localhost
+ by e06smtp02.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <oprofile-list@lists.sf.net> from <rppt@linux.ibm.com>;
+ Thu, 9 Apr 2020 11:07:20 +0100
+Received: from b06avi18878370.portsmouth.uk.ibm.com (9.149.26.194)
+ by e06smtp02.uk.ibm.com (192.168.101.132) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Thu, 9 Apr 2020 11:07:12 +0100
+Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com
+ [9.149.105.61])
+ by b06avi18878370.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP
+ id 039A7VBW33358272
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Thu, 9 Apr 2020 10:07:31 GMT
+Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 5F75411C05C;
+ Thu,  9 Apr 2020 10:07:31 +0000 (GMT)
+Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id A2EEE11C05E;
+ Thu,  9 Apr 2020 10:07:28 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.148.207.228])
+ by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Thu,  9 Apr 2020 10:07:28 +0000 (GMT)
+Date: Thu, 9 Apr 2020 13:07:26 +0300
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Jiaxun Yang <jiaxun.yang@flygoat.com>
 Subject: Re: [PATCH 12/12] MIPS: ip27: Fix includes
-Message-ID: <20200409173835.27ed1e64@flygoat-x1e>
-In-Reply-To: <20200409091922.GA17293@linux.ibm.com>
 References: <20200408113505.2528103-1-jiaxun.yang@flygoat.com>
  <20200408130024.2529220-7-jiaxun.yang@flygoat.com>
  <20200409091922.GA17293@linux.ibm.com>
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ <20200409173835.27ed1e64@flygoat-x1e>
 MIME-Version: 1.0
-X-ZohoCNMailClient: External
-X-Spam-Score: -0.1 (/)
+Content-Disposition: inline
+In-Reply-To: <20200409173835.27ed1e64@flygoat-x1e>
+X-TM-AS-GCONF: 00
+x-cbid: 20040910-0008-0000-0000-0000036D7458
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 20040910-0009-0000-0000-00004A8F160C
+Message-Id: <20200409100726.GB17293@linux.ibm.com>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.138, 18.0.676
+ definitions=2020-04-09_03:2020-04-07,
+ 2020-04-09 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=1
+ impostorscore=0 mlxscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ adultscore=0 lowpriorityscore=0 spamscore=0 bulkscore=0 clxscore=1015
+ mlxlogscore=266 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2003020000 definitions=main-2004090073
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [124.251.121.243 listed in list.dnswl.org]
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: flygoat.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
-X-Headers-End: 1jMTft-00DCuV-QH
+X-Headers-End: 1jMU68-009YHB-RB
 X-Mailman-Approved-At: Mon, 13 Apr 2020 14:20:50 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -125,29 +143,43 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On Thu, 9 Apr 2020 12:19:22 +0300
-Mike Rapoport <rppt@linux.ibm.com> wrote:
-
-> On Wed, Apr 08, 2020 at 08:59:54PM +0800, Jiaxun Yang wrote:
-> > Somehow changes in topology messed up headers.
-> > So just add necessary headers to make it compile again.  
+On Thu, Apr 09, 2020 at 05:38:35PM +0800, Jiaxun Yang wrote:
+> On Thu, 9 Apr 2020 12:19:22 +0300
+> Mike Rapoport <rppt@linux.ibm.com> wrote:
 > 
-> Please avoid aftermath build fixes because it breaks bisection.
-> Each commit should be buildable, so this changes should go into the
-> patches that actually require them.
+> > On Wed, Apr 08, 2020 at 08:59:54PM +0800, Jiaxun Yang wrote:
+> > > Somehow changes in topology messed up headers.
+> > > So just add necessary headers to make it compile again.  
+> > 
+> > Please avoid aftermath build fixes because it breaks bisection.
+> > Each commit should be buildable, so this changes should go into the
+> > patches that actually require them.
+> 
+> I'd love to but for that I'll have to squash patch #5~#12 into a single
+> patch. T thought it's to big and touching too many files.
+> 
+> Is that acceptable? 
 
-I'd love to but for that I'll have to squash patch #5~#12 into a single
-patch. T thought it's to big and touching too many files.
+If I understand correctly, the patches #5-#12 replace custom MIPS
+implementation of CPU topology with a generic one, so making them a single
+patch could be Ok as it is single logical change.
 
-Is that acceptable? 
+But I'm not sure it is required. Judging by diffstat, my guess would be
+that patch #5 breaks ip27 builds. If that's true, only patch #5 should be
+redacted
+ 
+> Thanks.
+> >  
+> > > Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
+> > > ---
+> --
+> Jiaxun Yang
+> 
+> 
 
-Thanks.
->  
-> > Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
-> > ---
---
-Jiaxun Yang
-
+-- 
+Sincerely yours,
+Mike.
 
 
 
