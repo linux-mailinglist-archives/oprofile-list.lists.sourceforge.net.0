@@ -2,56 +2,98 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 600F21A67E2
+	by mail.lfdr.de (Postfix) with ESMTPS id 64B521A67E4
 	for <lists+oprofile-list@lfdr.de>; Mon, 13 Apr 2020 16:20:56 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1jNzxF-0001dU-AC; Mon, 13 Apr 2020 14:20:53 +0000
+	id 1jNzxF-0001cY-1g; Mon, 13 Apr 2020 14:20:53 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <valentin.schneider@arm.com>) id 1jMFbE-0000Aj-Ad
- for oprofile-list@lists.sourceforge.net; Wed, 08 Apr 2020 18:38:56 +0000
+ (envelope-from <rppt@linux.ibm.com>) id 1jMTgP-0002sB-38
+ for oprofile-list@lists.sourceforge.net; Thu, 09 Apr 2020 09:41:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Message-ID:Date:
- In-reply-to:Subject:Cc:To:From:References:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=toxzkSVLuXT9q+hwBPFzTsUvDYXBPNCwtaxdpbbVCBg=; b=UtbkPl3+Hm3s/HQtaJgfyHnH9
- ztGw+mm45bOIySNxeIvPemrvcsW1DNb4hB4Chl1vNH+MYLkm/kbpkx9t9Uqva2vYhlT0A16Svrjea
- kicnyk006wLqJ+7tqQ6hBvo6keSEI3FXnmm8LsJTa2Pp6g+F+jVGzbEqKkGg1h6qMIDRI=;
+ d=sourceforge.net; s=x; h=Message-Id:In-Reply-To:Content-Type:MIME-Version:
+ References:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=k1o6TV1zu4bBOYz+4PDDIi4RXee7089kZWaAlhFY+/8=; b=X5PqnOLSB7rCXDuRyRZvH02W5O
+ p654f68xtwSHa4NSEz079J0dzpClgbAgZBWuRtImABkVWe6u5kGkfz8J2QNbQXZWLcpblxq9sysPg
+ FpHPGQ4skX6rLDrusYiS+XVwWreMKVv0iI7XZ+WIX5O4LIcISPF45U4grb1pSmyNNEdE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:Message-ID:Date:In-reply-to:Subject:Cc:To:From:
- References:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Message-Id:In-Reply-To:Content-Type:MIME-Version:References:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=toxzkSVLuXT9q+hwBPFzTsUvDYXBPNCwtaxdpbbVCBg=; b=CKGo9tMgJ8wzTBgFcSd4OQq7zb
- ANlMPNFX/MVfw0wwcc0JshgVSxz1tBmZJBWPTA+nqQk8bJt4XDNg+IkuyLrgYeu6bh+ApFC7l2yiM
- Ktnws4m0owedA8HDwTUPjVSnx8OLwguT7KiwPdiQi7ORpI4vi2V8fI0oDo5FXBEe0C3I=;
-Received: from foss.arm.com ([217.140.110.172])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtp (Exim 4.92.2)
- id 1jMFbC-00869L-OR
- for oprofile-list@lists.sourceforge.net; Wed, 08 Apr 2020 18:38:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 753527FA;
- Wed,  8 Apr 2020 11:23:37 -0700 (PDT)
-Received: from e113632-lin (e113632-lin.cambridge.arm.com [10.1.194.46])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC5403F73D;
- Wed,  8 Apr 2020 11:23:32 -0700 (PDT)
-References: <20200408113505.2528103-1-jiaxun.yang@flygoat.com>
- <20200408113505.2528103-5-jiaxun.yang@flygoat.com>
-User-agent: mu4e 0.9.17; emacs 26.3
-From: Valentin Schneider <valentin.schneider@arm.com>
+ bh=k1o6TV1zu4bBOYz+4PDDIi4RXee7089kZWaAlhFY+/8=; b=eos/Z0qHrT1X/ZKDBHrOHWuCNx
+ bduycNCeP7ymH42qtEPISnxp8eBrtegqkIX0aBMzTUz/5uwPmrn0saeT7ZxKosSwIGU8Flakf0WLI
+ DabTmShVKNfXICvqaSI5AgXOPO7RgxK82bAKoOQmLuWaA0Cq3BgXst6W+J4Mul/FP/80=;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1jMTgM-00DCvV-Tx
+ for oprofile-list@lists.sourceforge.net; Thu, 09 Apr 2020 09:41:12 +0000
+Received: from pps.filterd (m0098419.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 039939Ft006559
+ for <oprofile-list@lists.sf.net>; Thu, 9 Apr 2020 05:19:40 -0400
+Received: from e06smtp04.uk.ibm.com (e06smtp04.uk.ibm.com [195.75.94.100])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 3092030hu8-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <oprofile-list@lists.sf.net>; Thu, 09 Apr 2020 05:19:39 -0400
+Received: from localhost
+ by e06smtp04.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <oprofile-list@lists.sf.net> from <rppt@linux.ibm.com>;
+ Thu, 9 Apr 2020 10:19:10 +0100
+Received: from b06cxnps4074.portsmouth.uk.ibm.com (9.149.109.196)
+ by e06smtp04.uk.ibm.com (192.168.101.134) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Thu, 9 Apr 2020 10:19:01 +0100
+Received: from d06av23.portsmouth.uk.ibm.com (d06av23.portsmouth.uk.ibm.com
+ [9.149.105.59])
+ by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 0399JRTc48169080
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Thu, 9 Apr 2020 09:19:27 GMT
+Received: from d06av23.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 24E3CA405D;
+ Thu,  9 Apr 2020 09:19:27 +0000 (GMT)
+Received: from d06av23.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 757FDA404D;
+ Thu,  9 Apr 2020 09:19:24 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.148.207.228])
+ by d06av23.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Thu,  9 Apr 2020 09:19:24 +0000 (GMT)
+Date: Thu, 9 Apr 2020 12:19:22 +0300
+From: Mike Rapoport <rppt@linux.ibm.com>
 To: Jiaxun Yang <jiaxun.yang@flygoat.com>
-Subject: Re: [PATCH 04/12] arch_topology: Reset all cpus in reset_cpu_topology
-In-reply-to: <20200408113505.2528103-5-jiaxun.yang@flygoat.com>
-Date: Wed, 08 Apr 2020 19:23:30 +0100
-Message-ID: <jhjpnchj0pp.mognet@arm.com>
+Subject: Re: [PATCH 12/12] MIPS: ip27: Fix includes
+References: <20200408113505.2528103-1-jiaxun.yang@flygoat.com>
+ <20200408130024.2529220-7-jiaxun.yang@flygoat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200408130024.2529220-7-jiaxun.yang@flygoat.com>
+X-TM-AS-GCONF: 00
+x-cbid: 20040909-0016-0000-0000-000003014CE8
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 20040909-0017-0000-0000-000033653176
+Message-Id: <20200409091922.GA17293@linux.ibm.com>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.138, 18.0.676
+ definitions=2020-04-09_03:2020-04-07,
+ 2020-04-09 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 mlxscore=0
+ phishscore=0 impostorscore=0 adultscore=0 mlxlogscore=418 spamscore=0
+ suspectscore=1 clxscore=1011 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2003020000 definitions=main-2004090066
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
@@ -61,8 +103,8 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  for more information. [URIs: flygoat.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1jMFbC-00869L-OR
-X-Mailman-Approved-At: Mon, 13 Apr 2020 14:20:51 +0000
+X-Headers-End: 1jMTgM-00DCvV-Tx
+X-Mailman-Approved-At: Mon, 13 Apr 2020 14:20:50 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -76,63 +118,91 @@ List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
 Cc: Mark Rutland <mark.rutland@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Peter Xu <peterx@redhat.com>, linux-kernel@vger.kernel.org,
- Paul Cercueil <paul@crapouillou.net>, Richard Fontana <rfontana@redhat.com>,
- Huacai Chen <chenhc@lemote.com>, Oleksij Rempel <linux@rempel-privat.de>,
- Jiri Olsa <jolsa@redhat.com>, afzal mohammed <afzal.mohd.ma@gmail.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Paul Burton <paulburton@kernel.org>,
- Kamal Dasu <kdasu.kdev@gmail.com>, Marc Zyngier <maz@kernel.org>,
- Mike Rapoport <rppt@linux.ibm.com>,
+ Kate Stewart <kstewart@linuxfoundation.org>,
+ Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org,
+ Richard Fontana <rfontana@redhat.com>, Huacai Chen <chenhc@lemote.com>,
+ Jiri Olsa <jolsa@redhat.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Paul Burton <paulburton@kernel.org>, Kamal Dasu <kdasu.kdev@gmail.com>,
+ Marc Zyngier <maz@kernel.org>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Ingo Molnar <mingo@redhat.com>, bcm-kernel-feedback-list@broadcom.com,
  oprofile-list@lists.sf.net,
  Vladimir Kondratiev <vladimir.kondratiev@intel.com>,
  Robert Richter <rric@kernel.org>, Jason Cooper <jason@lakedaemon.net>,
- Arnd Bergmann <arnd@arndb.de>, YunQiang Su <syq@debian.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Arnaldo Carvalho de Melo <acme@kernel.org>,
  Alexios Zavras <alexios.zavras@intel.com>, Steve Winslow <swinslow@gmail.com>,
  Namhyung Kim <namhyung@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Allison Randal <allison@lohutok.net>, Zhou Yanjie <zhouyanjie@zoho.com>,
+ Allison Randal <allison@lohutok.net>,
  Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
  Matt Redfearn <matt.redfearn@mips.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-mips@vger.kernel.org,
- Serge Semin <fancer.lancer@gmail.com>,
- =?utf-8?B?5ZGo55Cw5p2wIChaaG91IFlhbmppZSk=?= <zhouyanjie@wanyeetech.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Enrico Weigelt <info@metux.net>
+ Serge Semin <fancer.lancer@gmail.com>, Oleksij Rempel <linux@rempel-privat.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
+On Wed, Apr 08, 2020 at 08:59:54PM +0800, Jiaxun Yang wrote:
+> Somehow changes in topology messed up headers.
+> So just add necessary headers to make it compile again.
 
-On 08/04/20 12:34, Jiaxun Yang wrote:
-> For MIPS platform, when topology isn't probed by DeviceTree,
-> possible_cpu might be empty when calling init_cpu_topology,
-> that may result cpu_topology not fully reseted for all CPUs.
-> So here we can reset all cpus instead of possible cpus.
->
+Please avoid aftermath build fixes because it breaks bisection.
+Each commit should be buildable, so this changes should go into the patches
+that actually require them.
+ 
 > Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
 > ---
->  drivers/base/arch_topology.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index 9c2405d08dae..3398b7ac7dfb 100644
-> --- a/drivers/base/arch_topology.c
-> +++ b/drivers/base/arch_topology.c
-> @@ -542,7 +542,7 @@ void __init reset_cpu_topology(void)
->  {
->       unsigned int cpu;
->
-> -	for_each_possible_cpu(cpu) {
-> +	for (cpu = 0; cpu < NR_CPUS; cpu++) {
+>  arch/mips/include/asm/mach-ip27/mmzone.h   | 2 ++
+>  arch/mips/include/asm/mach-ip27/topology.h | 2 ++
+>  arch/mips/include/asm/sn/addrs.h           | 1 +
+>  3 files changed, 5 insertions(+)
+> 
+> diff --git a/arch/mips/include/asm/mach-ip27/mmzone.h b/arch/mips/include/asm/mach-ip27/mmzone.h
+> index 08c36e50a860..e0a53b97b4a8 100644
+> --- a/arch/mips/include/asm/mach-ip27/mmzone.h
+> +++ b/arch/mips/include/asm/mach-ip27/mmzone.h
+> @@ -2,6 +2,8 @@
+>  #ifndef _ASM_MACH_MMZONE_H
+>  #define _ASM_MACH_MMZONE_H
+>  
+> +#include <linux/mmzone.h>
+> +
+>  #include <asm/sn/addrs.h>
+>  #include <asm/sn/arch.h>
+>  #include <asm/sn/agent.h>
+> diff --git a/arch/mips/include/asm/mach-ip27/topology.h b/arch/mips/include/asm/mach-ip27/topology.h
+> index d66cc53feab8..601e350908f7 100644
+> --- a/arch/mips/include/asm/mach-ip27/topology.h
+> +++ b/arch/mips/include/asm/mach-ip27/topology.h
+> @@ -2,6 +2,8 @@
+>  #ifndef _ASM_MACH_TOPOLOGY_H
+>  #define _ASM_MACH_TOPOLOGY_H	1
+>  
+> +#include <linux/numa.h>
+> +
+>  #include <asm/sn/types.h>
+>  #include <asm/mmzone.h>
+>  
+> diff --git a/arch/mips/include/asm/sn/addrs.h b/arch/mips/include/asm/sn/addrs.h
+> index 837d23e24976..1d3945ef2ca4 100644
+> --- a/arch/mips/include/asm/sn/addrs.h
+> +++ b/arch/mips/include/asm/sn/addrs.h
+> @@ -13,6 +13,7 @@
+>  #ifndef __ASSEMBLY__
+>  #include <linux/smp.h>
+>  #include <linux/types.h>
+> +#include <asm/io.h>
+>  #endif /* !__ASSEMBLY__ */
+>  
+>  #include <asm/addrspace.h>
+> -- 
+> 2.26.0.rc2
+> 
+> 
 
-Hmph, kind of a shame but if you really have to do it then perhaps you
-should go with ARRAY_SIZE(cpu_topology) instead.
+-- 
+Sincerely yours,
+Mike.
 
->               struct cpu_topology *cpu_topo = &cpu_topology[cpu];
->
->               cpu_topo->thread_id = -1;
 
 
 _______________________________________________
