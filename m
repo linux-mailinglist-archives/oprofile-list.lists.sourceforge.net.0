@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C03381A67D7
+	by mail.lfdr.de (Postfix) with ESMTPS id BE4221A67D6
 	for <lists+oprofile-list@lfdr.de>; Mon, 13 Apr 2020 16:20:55 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1jNzxF-0001fr-VB; Mon, 13 Apr 2020 14:20:53 +0000
+	id 1jNzxG-0001gM-41; Mon, 13 Apr 2020 14:20:54 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <jiaxun.yang@flygoat.com>) id 1jNTR8-0000gC-5H
- for oprofile-list@lists.sourceforge.net; Sun, 12 Apr 2020 03:37:34 +0000
+ (envelope-from <jiaxun.yang@flygoat.com>) id 1jNTRE-00046q-Ik
+ for oprofile-list@lists.sourceforge.net; Sun, 12 Apr 2020 03:37:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=XN4nkOtzi6y5LExoDs+AkQfcDqYSoNayAIbsuf/lZp4=; b=J5QQFeAnAnjG2As4TxYNVJyLFd
- PwqFJwBkptSF034ndGNWVcbeLBEGAMFioy7joX2mNw2Mzyolcd1IWVzFj0vF+2TstYVjz8JhthLWa
- 3H8jQqFGWf6Gt2ZrgDjz1d4Gk7vHe6dbaBXR87tfnRHrWai16rt/P01k0Z8Gzb6t351k=;
+ bh=pr4JRVKsDGZLiWxGisAHt04R8KPpJJlWWiczH85283M=; b=VREkSX0eUGpzDq8qW09HTiMyDh
+ C8f/qFR6DjHmP67N3g13mGUC4dcivIvp8/smz7QYwX9gpZ7NoNiXg/hlSvXv+fZbWOurwSW43ymwi
+ Fpbunw2vbQZXv5sNBf/UcdWwX2HOj2afeo+sNXvelL/vudT8dVD+Q33BCNzkrrBp2cpU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,32 +29,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=XN4nkOtzi6y5LExoDs+AkQfcDqYSoNayAIbsuf/lZp4=; b=QKGKu6zZn2LY18yNtPdGEdVr14
- fBn7a0d30FiF9YTJtHtdIBPjTLxMOqMZK2Espg/vYqZaATfk8ItqOk7+eSoRnpzb2out/WQ1d19I+
- +d/UWzoq9o3+3IR1GrC7IWF71Fp/N8VsvoxbyShsrdnChOQyuJbyB35V0+JUgeIpn6+w=;
+ bh=pr4JRVKsDGZLiWxGisAHt04R8KPpJJlWWiczH85283M=; b=XTvJfjW2XJSlMhuZdpsPiKCmCU
+ r7/EREhD5uY1eUpb7RbXZqcCC8eXpvmdFGOroQ7jY8q77fy+jJXspG3G/STqH/LLBkXQ1FOT4n+d2
+ h07lf6AvIKDUq0tyIb9KrR5FkorpKicJyiNbyAk8XXfsj7CZMMEX57ovcwtzwdzU4zFQ=;
 Received: from vultr.net.flygoat.com ([149.28.68.211])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1jNTR2-00BxAe-If
- for oprofile-list@lists.sourceforge.net; Sun, 12 Apr 2020 03:37:34 +0000
+ id 1jNTRD-00BxAq-6k
+ for oprofile-list@lists.sourceforge.net; Sun, 12 Apr 2020 03:37:40 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2001:da8:20f:4430:250:56ff:fe9a:7470])
- by vultr.net.flygoat.com (Postfix) with ESMTPSA id 074EA20D28;
- Sun, 12 Apr 2020 03:30:12 +0000 (UTC)
+ by vultr.net.flygoat.com (Postfix) with ESMTPSA id C95F420D2B;
+ Sun, 12 Apr 2020 03:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=flygoat.com; s=vultr;
- t=1586662220; bh=n4+06mBFG2E/6pL4l2HWMXmoCzgCWYsl2JbLBTdqk/Q=;
+ t=1586662270; bh=ZVoEHgyxwKRnpz9YM+7JK0CgnU+b6VSlDxJRGNc9WhU=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=G6c6rQPj7i8G4NQzr1+RrqfibhJZrKz05vJtbSnHpUi2899+XEDwnBocTlOdWvqav
- Z5qm4Nv07R3bGOBaBW75RlbHnfToqG74vRz+p48NLsqwQkCbflshXes1diVmo41aDL
- cC2QbgVWzT2IG2VTjJ/MHcfrwNaZ42c89fjkcmpWPKNJQFSxzim7pqz6JUph1w8DVE
- 1qBEF6becW1Leh8T5Tm7afBU/YEaWbkhdehIiSm8y1Xoy8XE0vv4gAnEgfpbK4XZJi
- Fu6xmqD5vmdHtzGXMElKA2nuIdJ//JB3NDC9ujK5H9kSb1sKyqMZZJTl152xIVUi9+
- ezK78J/8oWKfw==
+ b=AguW/aEn9egIUVf9Xs/nZ5oJzpXDA+gH+31H66p/dgAjejW5GZBsekpFsfshFyn1/
+ Q/7+38hfghIhqY7aWWUphwB01sJsYYQSoQ4zoftpqR8/T17hwt7yebt5/4yKQCDAaE
+ 3J/V1guU57bOZGpQvEEfacr3dbG6+iRtebHsV9hHfMBBbJbS3OzqoV+mRjYSUPU67m
+ Z4XrMASt7salrpbY8/x9z8SNk0LHVLdeHRT21uD8UBOzR7H1imATE05DT3jPzLzVp6
+ D0+pr6x8u70Q7CayGX2NbOd7e2fJAcjXcO+fGJxu/6ljl74DBo9cH/UMcUV5RaWJeK
+ LQhxAdnggTMYw==
 From: Jiaxun Yang <jiaxun.yang@flygoat.com>
 To: linux-mips@vger.kernel.org
-Subject: [PATCH v2 09/11] MIPS: bmips: Switch to new topology interface
-Date: Sun, 12 Apr 2020 11:20:39 +0800
-Message-Id: <20200412032123.3896114-10-jiaxun.yang@flygoat.com>
+Subject: [PATCH v2 10/11] MIPS: nlm: Switch to new topology interface
+Date: Sun, 12 Apr 2020 11:20:40 +0800
+Message-Id: <20200412032123.3896114-11-jiaxun.yang@flygoat.com>
 X-Mailer: git-send-email 2.26.0.rc2
 In-Reply-To: <20200412032123.3896114-1-jiaxun.yang@flygoat.com>
 References: <20200412032123.3896114-1-jiaxun.yang@flygoat.com>
@@ -74,8 +74,8 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jNTR2-00BxAe-If
-X-Mailman-Approved-At: Mon, 13 Apr 2020 14:20:50 +0000
+X-Headers-End: 1jNTRD-00BxAq-6k
+X-Mailman-Approved-At: Mon, 13 Apr 2020 14:20:51 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -120,29 +120,27 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-Change the parameter of cpu_set_core from cpudata to cpuid.
-Also set cluster id for bmips as it have different method to probe
-actual hwid of CPU, and smp_store_cpuinfo is using cluster id to
-determine if we should probe topology info again.
+Use new functions to set core_id & cluster_id.
 
 Signed-off-by: Jiaxun Yang <jiaxun.yang@flygoat.com>
 ---
- arch/mips/kernel/smp-bmips.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/mips/netlogic/common/smp.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/mips/kernel/smp-bmips.c b/arch/mips/kernel/smp-bmips.c
-index 9058e9dcf080..c40bb37eab38 100644
---- a/arch/mips/kernel/smp-bmips.c
-+++ b/arch/mips/kernel/smp-bmips.c
-@@ -247,7 +247,8 @@ static void bmips_init_secondary(void)
- 		break;
- 	case CPU_BMIPS5000:
- 		write_c0_brcm_action(ACTION_CLR_IPI(smp_processor_id(), 0));
--		cpu_set_core(&current_cpu_data, (read_c0_brcm_config() >> 25) & 3);
-+		cpu_set_core(smp_processor_id(), (read_c0_brcm_config() >> 25) & 3);
-+		cpu_set_cluster(smp_processor_id(), 0);
- 		break;
- 	}
+diff --git a/arch/mips/netlogic/common/smp.c b/arch/mips/netlogic/common/smp.c
+index 39a300bd6cc2..14bfa8a099cc 100644
+--- a/arch/mips/netlogic/common/smp.c
++++ b/arch/mips/netlogic/common/smp.c
+@@ -122,8 +122,8 @@ static void nlm_init_secondary(void)
+ 	int hwtid;
+ 
+ 	hwtid = hard_smp_processor_id();
+-	cpu_set_core(&current_cpu_data, hwtid / NLM_THREADS_PER_CORE);
+-	current_cpu_data.package = nlm_nodeid();
++	cpu_set_core(smp_processor_id(), hwtid / NLM_THREADS_PER_CORE);
++	cpu_set_cluster(smp_processor_id(), nlm_nodeid());
+ 	nlm_percpu_init(hwtid);
+ 	nlm_smp_irq_init(hwtid);
  }
 -- 
 2.26.0.rc2
