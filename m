@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B52F11A8050
-	for <lists+oprofile-list@lfdr.de>; Tue, 14 Apr 2020 16:49:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 24B471A8056
+	for <lists+oprofile-list@lfdr.de>; Tue, 14 Apr 2020 16:49:48 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1jOMsj-0005tg-Hh; Tue, 14 Apr 2020 14:49:45 +0000
+	id 1jOMsj-0005sy-7T; Tue, 14 Apr 2020 14:49:45 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <gregkh@linuxfoundation.org>) id 1jOLTK-0001ae-Q3
- for oprofile-list@lists.sourceforge.net; Tue, 14 Apr 2020 13:19:26 +0000
+ (envelope-from <gregkh@linuxfoundation.org>) id 1jOLOU-0001kU-T7
+ for oprofile-list@lists.sourceforge.net; Tue, 14 Apr 2020 13:14:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Ho1WYZcuYJxaOveuqzjzhhN7Qc3fQZuer0IuVwVVPcQ=; b=igB0sh+Se1e/Ni1gH4in+JXOx3
- E/ks6gkL8LV0V0yQW86THK3EyCDsXPfZu+uBCaV5DnDAAuJmgYREAQXwfYoiYeCS52WYWRtkacDA6
- iCdQlh030IuHL4tiuZKkrFw2sA5QQyQevOiJJh/fhAayDS0UVpRC9TnK+Fo2RegXs9vM=;
+ bh=luGG2k3AyY3iLFwXaePWnUB1vWs9kw0xeCFweEDu4fc=; b=axjAErzCs7+nUL2pnW9IJcygq1
+ KOxnNaudxblI+n1n9FA9Jv2E7bTPZ6+ILZFvlJU+7QQueGV5QEbElmUv4Ahhp0L/q52DFXciUaRI5
+ suQsa1gYG6ECFnxHcUlT2rT98paaVxV1W4UsWrAkVqKYLYB2I3U0Kd4HFZXNphGtvo0I=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -29,38 +29,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Ho1WYZcuYJxaOveuqzjzhhN7Qc3fQZuer0IuVwVVPcQ=; b=hOu/pmDycZg4/GZ4CcuLDMhj1+
- Z1GqkZQFAphR96FE0ODDzmL7gQm5AhIf8j3hp+pAq+XYqTyKZvYll+9CoWnVdbe6i22w1ZWE4dVq+
- Ym2SlSKfChrtA1pmL4oIRz5kaEsp0/5MkvaQOSLUpJPApR/UVYSFHLYbgsmPnDTY4CWA=;
+ bh=luGG2k3AyY3iLFwXaePWnUB1vWs9kw0xeCFweEDu4fc=; b=hVpmY8kzP4vt6duMCedazT/4+O
+ +6OqRccPfQvhZSwfTFPtmmN/JFktgc/FmymiNxSD9BvxpJrnn6HiQsdFkvVW8cE4cZKPyLsJd+jOx
+ ELadMH+GVsnkEujOgtuyJKWxsQVWdeZqOi/FbtScPfpIiH2xqMswPyUqbZDzfcdi781k=;
 Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1jOLTJ-00Fp8t-Fj
- for oprofile-list@lists.sourceforge.net; Tue, 14 Apr 2020 13:19:26 +0000
+ id 1jOLOT-000mZe-Gb
+ for oprofile-list@lists.sourceforge.net; Tue, 14 Apr 2020 13:14:26 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 3F0D220775;
- Tue, 14 Apr 2020 12:54:20 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 75B9C206A2;
+ Tue, 14 Apr 2020 12:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1586868861;
- bh=w6XXP195+Jxp1MIJYohG3U+bL2LY4rMomokRATUVj6Y=;
+ s=default; t=1586868906;
+ bh=3mtVbazOODlWmZkI2pC3OZrxU4xuKxy4xYMqOMi+DOo=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=KUUWawnRhZWVZA4Mx1xQ7dOhftFNPIxzf1waPD79QN2nHLTwGwIA6cevta1EjCSOo
- //wKDlEIhBkx41x9paKY8+IyKktSaZFdJL/+3KUH2daqkCRS3WinhuXoTw3ctowKfO
- 34eA1F0TTUmwr4Vr1nPyvba5Bm60H1KoF4fIh+7c=
-Date: Tue, 14 Apr 2020 14:54:18 +0200
+ b=owjpvTR/99cTOPzzwnkDnpkDpyHwqR3u/28s6xClkS7BDEyhyW63auTVtn9fbzvgw
+ gSPxDTRm63N6w859trpZorcERRfHwuo0gOq3qU8enok4JrslGok4+0RyU/6hKXTvQp
+ N1FGoKtqAWcRwtbvdskl4jZY6mpYC1zWhMkP0m6o=
+Date: Tue, 14 Apr 2020 14:55:03 +0200
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Emanuele Giuseppe Esposito <eesposit@redhat.com>
-Subject: Re: [PATCH 2/8] fs: extract simple_pin/release_fs to separate files
-Message-ID: <20200414125418.GA720679@kroah.com>
+Subject: Re: [PATCH 5/8] simplefs: add alloc_anon_inode wrapper
+Message-ID: <20200414125503.GB720679@kroah.com>
 References: <20200414124304.4470-1-eesposit@redhat.com>
- <20200414124304.4470-3-eesposit@redhat.com>
+ <20200414124304.4470-6-eesposit@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200414124304.4470-3-eesposit@redhat.com>
-X-Spam-Score: -0.2 (/)
+In-Reply-To: <20200414124304.4470-6-eesposit@redhat.com>
+X-Spam-Score: -0.3 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -69,8 +69,8 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
- -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jOLTJ-00Fp8t-Fj
+ -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jOLOT-000mZe-Gb
 X-Mailman-Approved-At: Tue, 14 Apr 2020 14:49:42 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -133,52 +133,12 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On Tue, Apr 14, 2020 at 02:42:56PM +0200, Emanuele Giuseppe Esposito wrote:
-> We will augment this family of functions with inode management.  To avoid
-> littering include/linux/fs.h and fs/libfs.c, move them to a separate header,
-> with a Kconfig symbol to enable them.
-> 
-> Signed-off-by: Emanuele Giuseppe Esposito <eesposit@redhat.com>
+On Tue, Apr 14, 2020 at 02:42:59PM +0200, Emanuele Giuseppe Esposito wrote:
+> Start adding file creation wrappers, the simplest returns an anonymous
+> inode.
 
-You have a lot of people on cc:, this is going to be hard for everyone
-to review...
-
-
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index d1398cef3b18..fc38a6f0fc11 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -288,12 +288,16 @@ config STRIP_ASM_SYMS
->  
->  config READABLE_ASM
->  	bool "Generate readable assembler code"
-> -	depends on DEBUG_KERNEL
-> -	help
-> -	  Disable some compiler optimizations that tend to generate human unreadable
-> -	  assembler output. This may make the kernel slightly slower, but it helps
-> -	  to keep kernel developers who have to stare a lot at assembler listings
-> -	  sane.
-> +    depends on DEBUG_KERNEL
-> +    help
-> +      Disable some compiler optimizations that tend to generate human unreadable
-> +      assembler output. This may make the kernel slightly slower, but it helps
-> +      to keep kernel developers who have to stare a lot at assembler listings
-> +      sane.
-> +	  
-
-Why did you loose the indentation here and add trailing whitespace?
-
-> +config DEBUG_FS
-> +	bool "Debug Filesystem"
-> +	select SIMPLEFS
->  
-
-We already have a DEBUG_FS config option in this file, why another one?
-And what happened to the help text?
-
-I think you need to rework your patch series to do smaller things on
-each step, which would make it reviewable much easier, and prevent
-mistakes like this one.
+This changelog text does not make much sense on its own.  Please say why
+you are doing something, not just what you are doing.
 
 thanks,
 
