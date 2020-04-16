@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id D8E061AC122
-	for <lists+oprofile-list@lfdr.de>; Thu, 16 Apr 2020 14:23:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 981521AC123
+	for <lists+oprofile-list@lfdr.de>; Thu, 16 Apr 2020 14:23:49 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1jP3YX-00080K-A2; Thu, 16 Apr 2020 12:23:45 +0000
+	id 1jP3YX-00080T-BO; Thu, 16 Apr 2020 12:23:45 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <mcgrof@gmail.com>) id 1jOyG0-0004Kd-58
- for oprofile-list@lists.sourceforge.net; Thu, 16 Apr 2020 06:44:16 +0000
+ (envelope-from <mcgrof@gmail.com>) id 1jOyOP-0004la-Az
+ for oprofile-list@lists.sourceforge.net; Thu, 16 Apr 2020 06:52:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=eihWpoiPluNClprWA5IrbR8QX54DG9JK4Pz3fjQ6jyU=; b=YWSIXOfhsMVkm2NRJw61GZ4K3T
- LhNHhPLIKmNeJRyuXLANIoePfbTAcBJsg/ek7Wwp1sLTJelDPxj/Dz69DHR3bnEMc7AMz+3VQ42xz
- 6+tZrkwpnZRbSBqx0877xyBp5M3FPYZGRyILQrNcKLnzwAI6DPJ8y77bgVwSVKv0kNDI=;
+ bh=u9FJuUtFkBVVe754ASFiMsIrGIfB932jO4gCk5SijoQ=; b=iTt4Sgxw3u8UrGvvoRxIHIjJBp
+ oDENpb7O2cVWL3zBni2lhUpq22PkNmuhCbS1tvQQlrYEJYzJP/NW+0GHyRjDZANv93+M6hJrr7x4Y
+ JxIsE27iJRmn+nqd6DM8zijYjyVoVV/ZCIE8G2fUyI2dt7n55QVGDAiZclQWJR4GRM9c=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -29,68 +29,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=eihWpoiPluNClprWA5IrbR8QX54DG9JK4Pz3fjQ6jyU=; b=FqEVFBTy7qxlUK0hfNWHtJKSLm
- g+RLB2PEyzC3PKP+aZKV16VWSFO6al1lP6iyQADu5YRN2wmiRrz88uPFifzpI31mtrnDTS6VLid90
- jN4oFn1XCaRzBxLV7tE0cknhVOAUCdBvJeUxr6s8PrvfMdR3eHzHMd872aDS5KsaLmfw=;
-Received: from mail-pg1-f194.google.com ([209.85.215.194])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ bh=u9FJuUtFkBVVe754ASFiMsIrGIfB932jO4gCk5SijoQ=; b=ddOC6nzBu3V6ZFGVMQqNdx62Ib
+ 1CDl9kKdjgW9bCeKMR0mQvSJ4AaSEIJBsqPQr4whtLZH4FlKDYT/GAj55pXnQwSOW3GyJi3wR907R
+ tjrUbxQATA7/gQ3rP6uGYlnXamkUdOKf20vCvLrnoYYigt2PvGNIfIUkYmve0CAa35bg=;
+Received: from mail-pf1-f193.google.com ([209.85.210.193])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1jOyFx-00HVAC-5W
- for oprofile-list@lists.sourceforge.net; Thu, 16 Apr 2020 06:44:16 +0000
-Received: by mail-pg1-f194.google.com with SMTP id t11so1198283pgg.2
- for <oprofile-list@lists.sf.net>; Wed, 15 Apr 2020 23:44:12 -0700 (PDT)
+ id 1jOyON-001W1s-SC
+ for oprofile-list@lists.sourceforge.net; Thu, 16 Apr 2020 06:52:57 +0000
+Received: by mail-pf1-f193.google.com with SMTP id r20so1231725pfh.9
+ for <oprofile-list@lists.sf.net>; Wed, 15 Apr 2020 23:52:55 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=eihWpoiPluNClprWA5IrbR8QX54DG9JK4Pz3fjQ6jyU=;
- b=OMRwhFDRCkL63Y3Ew3g8fgJZwjrzDCxnmh5hVGMYpmL68wOSBaCW+0TRLiBtHKA6pW
- 41Tk/Os7HBUXYehEBt0rEun7mMHPg7aiX6+zirT+wF1/qIS1dzFPyLWk8k0EEWuLN4mt
- 8xu2i2TT4sDSAp3Xh2YhXt2Yl/7GiasOecubNWhV+8vPfkzSdZX+s6NrzhPHqR5UCgga
- POi8ux8SywSKrVR6nk/yUCd8sfFOw0AYH35ZVFdMaj0KUJAthzsuXRcZIoqkU+SOVvKT
- 3s5pRcjYvVKjI9ydnaQfMf4sqBweEZsw5o3rPUIuyH4cllwwe3TqqNeeUwbMgCcyQMrJ
- qrbQ==
-X-Gm-Message-State: AGi0PuZGe5sn1pDK1z/zLCJ5+mPftiyaxukb6ferU77FfcamUtbjmgjW
- cTYxJNI3wO75Yeivk10A7Ko=
-X-Google-Smtp-Source: APiQypKU4BlzlMTwCZuRiYybUlVtNoxZaoUABDWWVme+WqLsgGvZg5mtQywjuvphRIQcwraiu04gQg==
-X-Received: by 2002:a63:6604:: with SMTP id a4mr28659379pgc.381.1587019447416; 
- Wed, 15 Apr 2020 23:44:07 -0700 (PDT)
+ bh=u9FJuUtFkBVVe754ASFiMsIrGIfB932jO4gCk5SijoQ=;
+ b=KHtct2/g0aP7/NBT4kiM9sxz31JofCgPPFAkb5twF41EOzX7yCkL6QFv+9H0UNf+wG
+ uEMByTh3D6FdYToODokQDwxFXjzFvsA0lExcmWQYv6MiLIVyEyonwdhvjm6tqbEtClev
+ 0b4HHTZZr+Toa0Dsbma7a538S+rmnwt3KxzAYn77rDKzrnwU7Y1Gbx0LORm7Z2e4TpmX
+ KkAPjkQcwsf2lIQruOEdkr3Tt8+Yzp4oW/w1ZnvWDeQ7gjQFgQtw7Uy5Eyx84tyf7Dg1
+ Hzy0jjIt26kU/NcZsMPi+ffn4RI2k0683WMfCAbK4/vTkihGMWt/an618rWWH4j9RH5b
+ EHSw==
+X-Gm-Message-State: AGi0PubUOwWqWlY9jd+2TUO2RcpMtN1EsYghDWUV/URB1TWuaE2Xj32o
+ nneCF25K7dY8cysY45nX1LQ=
+X-Google-Smtp-Source: APiQypKByakqrvOibndG+UYJLRLNL9uRjqKma5zqDprpms3bUdiJFXDLYMCGhOmLou9lQzysqs9jaQ==
+X-Received: by 2002:a63:5f01:: with SMTP id t1mr29126955pgb.186.1587019969901; 
+ Wed, 15 Apr 2020 23:52:49 -0700 (PDT)
 Received: from 42.do-not-panic.com (42.do-not-panic.com. [157.230.128.187])
- by smtp.gmail.com with ESMTPSA id ml24sm1413754pjb.48.2020.04.15.23.44.05
+ by smtp.gmail.com with ESMTPSA id o125sm14400027pgo.74.2020.04.15.23.52.48
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 15 Apr 2020 23:44:05 -0700 (PDT)
+ Wed, 15 Apr 2020 23:52:48 -0700 (PDT)
 Received: by 42.do-not-panic.com (Postfix, from userid 1000)
- id 4F61640277; Thu, 16 Apr 2020 06:44:05 +0000 (UTC)
-Date: Thu, 16 Apr 2020 06:44:05 +0000
+ id 8222840277; Thu, 16 Apr 2020 06:52:47 +0000 (UTC)
+Date: Thu, 16 Apr 2020 06:52:47 +0000
 From: Luis Chamberlain <mcgrof@kernel.org>
-To: Emanuele Giuseppe Esposito <eesposit@redhat.com>,
- Goldwyn Rodrigues <goldwynr@gmail.com>
-Subject: Re: [PATCH 1/8] apparmor: just use vfs_kern_mount to make .null
-Message-ID: <20200416064405.GP11244@42.do-not-panic.com>
+To: Emanuele Giuseppe Esposito <eesposit@redhat.com>
+Subject: Re: [PATCH 2/8] fs: extract simple_pin/release_fs to separate files
+Message-ID: <20200416065247.GR11244@42.do-not-panic.com>
 References: <20200414124304.4470-1-eesposit@redhat.com>
- <20200414124304.4470-2-eesposit@redhat.com>
+ <20200414124304.4470-3-eesposit@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200414124304.4470-2-eesposit@redhat.com>
+In-Reply-To: <20200414124304.4470-3-eesposit@redhat.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (mcgrof[at]gmail.com)
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.215.194 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.215.194 listed in list.dnswl.org]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.193 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.210.193 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
  -0.7 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jOyFx-00HVAC-5W
+X-Headers-End: 1jOyON-001W1s-SC
 X-Mailman-Approved-At: Thu, 16 Apr 2020 12:23:44 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -153,59 +152,49 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On Tue, Apr 14, 2020 at 02:42:55PM +0200, Emanuele Giuseppe Esposito wrote:
-> aa_mk_null_file is using simple_pin_fs/simple_release_fs with local
-> variables as arguments, for what would amount to a simple
-> vfs_kern_mount/mntput pair if everything was inlined.  Just use
-> the normal filesystem API since the reference counting is not needed
-> here.
+On Tue, Apr 14, 2020 at 02:42:56PM +0200, Emanuele Giuseppe Esposito wrote:
+> We will augment this family of functions with inode management.  To avoid
+> littering include/linux/fs.h and fs/libfs.c, move them to a separate header,
+> with a Kconfig symbol to enable them.
 
-*Why* is refcounting not needed here?
+If there are no functional changes, indicating that on the commit log
+will make the review much easier.
 
-   Luis
+> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+> index d1398cef3b18..fc38a6f0fc11 100644
+> --- a/lib/Kconfig.debug
+> +++ b/lib/Kconfig.debug
+> @@ -288,12 +288,16 @@ config STRIP_ASM_SYMS
+>  
+>  config READABLE_ASM
+>  	bool "Generate readable assembler code"
+> -	depends on DEBUG_KERNEL
+> -	help
+> -	  Disable some compiler optimizations that tend to generate human unreadable
+> -	  assembler output. This may make the kernel slightly slower, but it helps
+> -	  to keep kernel developers who have to stare a lot at assembler listings
+> -	  sane.
+> +    depends on DEBUG_KERNEL
+> +    help
+> +      Disable some compiler optimizations that tend to generate human unreadable
+> +      assembler output. This may make the kernel slightly slower, but it helps
+> +      to keep kernel developers who have to stare a lot at assembler listings
+> +      sane.
+> +	  
 
-> 
-> Signed-off-by: Emanuele Giuseppe Esposito <eesposit@redhat.com>
-> ---
->  security/apparmor/apparmorfs.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/security/apparmor/apparmorfs.c b/security/apparmor/apparmorfs.c
-> index 280741fc0f5f..828bb1eb77ea 100644
-> --- a/security/apparmor/apparmorfs.c
-> +++ b/security/apparmor/apparmorfs.c
-> @@ -2525,14 +2525,14 @@ struct path aa_null;
->  
->  static int aa_mk_null_file(struct dentry *parent)
->  {
-> -	struct vfsmount *mount = NULL;
-> +	struct file_system_type *type = parent->d_sb->s_type;
-> +	struct vfsmount *mount;
->  	struct dentry *dentry;
->  	struct inode *inode;
-> -	int count = 0;
-> -	int error = simple_pin_fs(parent->d_sb->s_type, &mount, &count);
->  
-> -	if (error)
-> -		return error;
-> +	mount = vfs_kern_mount(type, SB_KERNMOUNT, type->name, NULL);
-> +	if (IS_ERR(mount))
-> +		return PTR_ERR(mount);
->  
->  	inode_lock(d_inode(parent));
->  	dentry = lookup_one_len(NULL_FILE_NAME, parent, strlen(NULL_FILE_NAME));
-> @@ -2561,7 +2561,7 @@ static int aa_mk_null_file(struct dentry *parent)
->  	dput(dentry);
->  out:
->  	inode_unlock(d_inode(parent));
-> -	simple_release_fs(&mount, &count);
-> +	mntput(mount);
->  	return error;
->  }
->  
-> -- 
-> 2.25.2
-> 
+This minor change above should just be a separate patch. Its just noise
+otherwise.
+
+> +config DEBUG_FS
+> +	bool "Debug Filesystem"
+> +	select SIMPLEFS
+
+I'm at a loss reviewing this,  my lib/Kconfig.debug already has a config
+DEBUG_FS.  But above I see it is being added for the very first time.
+I'm sure there is some odd conditional which is obscuring this, can
+this be explained in the commit log?
+
+  Luis
 
 
 _______________________________________________
