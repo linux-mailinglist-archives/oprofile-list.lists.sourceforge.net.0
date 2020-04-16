@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 25B041A8058
-	for <lists+oprofile-list@lfdr.de>; Tue, 14 Apr 2020 16:49:49 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id D8E061AC122
+	for <lists+oprofile-list@lfdr.de>; Thu, 16 Apr 2020 14:23:48 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1jOMsj-0005tU-EN; Tue, 14 Apr 2020 14:49:45 +0000
+	id 1jP3YX-00080K-A2; Thu, 16 Apr 2020 12:23:45 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <gregkh@linuxfoundation.org>) id 1jOLOZ-0001Le-Ew
- for oprofile-list@lists.sourceforge.net; Tue, 14 Apr 2020 13:14:31 +0000
+ (envelope-from <mcgrof@gmail.com>) id 1jOyG0-0004Kd-58
+ for oprofile-list@lists.sourceforge.net; Thu, 16 Apr 2020 06:44:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=rpQRYUU25dbGoG1SVvlJC2U1EwNiTdA+giTY2sk8hjU=; b=QEaHcoTa0zi1AsF4niBjcfFl2g
- 350dAVTBbPkrVHt0ZsZDiBDY98Vr80+RwejILXjT4jUYhqQJkbmtcm4QGDJm+IvHmXfzv6qnbGuVx
- yJbenAHzNuKnhj5xAkYtab5V8ANT42hbWfZ1RhYnyj6DxlwoF8puEE7M1ygV7Z++6NNM=;
+ bh=eihWpoiPluNClprWA5IrbR8QX54DG9JK4Pz3fjQ6jyU=; b=YWSIXOfhsMVkm2NRJw61GZ4K3T
+ LhNHhPLIKmNeJRyuXLANIoePfbTAcBJsg/ek7Wwp1sLTJelDPxj/Dz69DHR3bnEMc7AMz+3VQ42xz
+ 6+tZrkwpnZRbSBqx0877xyBp5M3FPYZGRyILQrNcKLnzwAI6DPJ8y77bgVwSVKv0kNDI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -29,54 +29,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=rpQRYUU25dbGoG1SVvlJC2U1EwNiTdA+giTY2sk8hjU=; b=VfZU7mvJpeMTzu4Gr2eD04iiFg
- 6czTqCqca71iBGp18xU7xlr59PVs8MuMnww8EsdZfbhiytK/wLNfqaoYpXqaMxAciqIVdwsa37rTD
- mOVLyxOK16MCFDKfTU+1Z8joK+w9yJ6iM4nOncBsQb/yAenC7uBWOEL/PHn4ROIhITI0=;
-Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1jOLOT-00Fopz-Fq
- for oprofile-list@lists.sourceforge.net; Tue, 14 Apr 2020 13:14:31 +0000
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
- [83.86.89.107])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 6A7BF2075E;
- Tue, 14 Apr 2020 13:03:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1586869433;
- bh=EOypBrU9tcg2QQEPNGGQltllXks3y35z6IXUGjl1DG4=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=XLWBhRlVYg1iCtB++EIMGXPAVeF1ZU6z7ff1mOzRtuHPt0RW282VdRwUJrVcq7xeD
- 10yO4veG3HRuw+wEo+nv2oXA/aW+uL5LE1lsss39dNDwE7jHcFqC693e0pj+pbc2Iw
- pkZZOnW468SR89YvW+ma9CDlA+A8SG2buRxyANGk=
-Date: Tue, 14 Apr 2020 15:03:50 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Emanuele Giuseppe Esposito <eesposit@redhat.com>
-Subject: Re: [PATCH 3/8] fs: wrap simple_pin_fs/simple_release_fs arguments
- in a struct
-Message-ID: <20200414130350.GE720679@kroah.com>
+ bh=eihWpoiPluNClprWA5IrbR8QX54DG9JK4Pz3fjQ6jyU=; b=FqEVFBTy7qxlUK0hfNWHtJKSLm
+ g+RLB2PEyzC3PKP+aZKV16VWSFO6al1lP6iyQADu5YRN2wmiRrz88uPFifzpI31mtrnDTS6VLid90
+ jN4oFn1XCaRzBxLV7tE0cknhVOAUCdBvJeUxr6s8PrvfMdR3eHzHMd872aDS5KsaLmfw=;
+Received: from mail-pg1-f194.google.com ([209.85.215.194])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1jOyFx-00HVAC-5W
+ for oprofile-list@lists.sourceforge.net; Thu, 16 Apr 2020 06:44:16 +0000
+Received: by mail-pg1-f194.google.com with SMTP id t11so1198283pgg.2
+ for <oprofile-list@lists.sf.net>; Wed, 15 Apr 2020 23:44:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=eihWpoiPluNClprWA5IrbR8QX54DG9JK4Pz3fjQ6jyU=;
+ b=OMRwhFDRCkL63Y3Ew3g8fgJZwjrzDCxnmh5hVGMYpmL68wOSBaCW+0TRLiBtHKA6pW
+ 41Tk/Os7HBUXYehEBt0rEun7mMHPg7aiX6+zirT+wF1/qIS1dzFPyLWk8k0EEWuLN4mt
+ 8xu2i2TT4sDSAp3Xh2YhXt2Yl/7GiasOecubNWhV+8vPfkzSdZX+s6NrzhPHqR5UCgga
+ POi8ux8SywSKrVR6nk/yUCd8sfFOw0AYH35ZVFdMaj0KUJAthzsuXRcZIoqkU+SOVvKT
+ 3s5pRcjYvVKjI9ydnaQfMf4sqBweEZsw5o3rPUIuyH4cllwwe3TqqNeeUwbMgCcyQMrJ
+ qrbQ==
+X-Gm-Message-State: AGi0PuZGe5sn1pDK1z/zLCJ5+mPftiyaxukb6ferU77FfcamUtbjmgjW
+ cTYxJNI3wO75Yeivk10A7Ko=
+X-Google-Smtp-Source: APiQypKU4BlzlMTwCZuRiYybUlVtNoxZaoUABDWWVme+WqLsgGvZg5mtQywjuvphRIQcwraiu04gQg==
+X-Received: by 2002:a63:6604:: with SMTP id a4mr28659379pgc.381.1587019447416; 
+ Wed, 15 Apr 2020 23:44:07 -0700 (PDT)
+Received: from 42.do-not-panic.com (42.do-not-panic.com. [157.230.128.187])
+ by smtp.gmail.com with ESMTPSA id ml24sm1413754pjb.48.2020.04.15.23.44.05
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 15 Apr 2020 23:44:05 -0700 (PDT)
+Received: by 42.do-not-panic.com (Postfix, from userid 1000)
+ id 4F61640277; Thu, 16 Apr 2020 06:44:05 +0000 (UTC)
+Date: Thu, 16 Apr 2020 06:44:05 +0000
+From: Luis Chamberlain <mcgrof@kernel.org>
+To: Emanuele Giuseppe Esposito <eesposit@redhat.com>,
+ Goldwyn Rodrigues <goldwynr@gmail.com>
+Subject: Re: [PATCH 1/8] apparmor: just use vfs_kern_mount to make .null
+Message-ID: <20200416064405.GP11244@42.do-not-panic.com>
 References: <20200414124304.4470-1-eesposit@redhat.com>
- <20200414124304.4470-4-eesposit@redhat.com>
+ <20200414124304.4470-2-eesposit@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200414124304.4470-4-eesposit@redhat.com>
+In-Reply-To: <20200414124304.4470-2-eesposit@redhat.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: checkpatch.pl]
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (mcgrof[at]gmail.com)
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.215.194 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.215.194 listed in list.dnswl.org]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
- -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jOLOT-00Fopz-Fq
-X-Mailman-Approved-At: Tue, 14 Apr 2020 14:49:42 +0000
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
+ freemail headers are different
+ -0.7 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jOyFx-00HVAC-5W
+X-Mailman-Approved-At: Thu, 16 Apr 2020 12:23:44 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,7 +113,7 @@ Cc: Song Liu <songliubraving@fb.com>, linux-usb@vger.kernel.org,
  "J. Bruce Fields" <bfields@fieldses.org>,
  Joseph Qi <joseph.qi@linux.alibaba.com>, Hugh Dickins <hughd@google.com>,
  Paul Mackerras <paulus@samba.org>, John Johansen <john.johansen@canonical.com>,
- netdev@vger.kernel.org, ocfs2-devel@oss.oracle.com,
+ netdev@vger.kernel.org, linux-s390@vger.kernel.org, ocfs2-devel@oss.oracle.com,
  Christoph Hellwig <hch@lst.de>, Andrew Donnellan <ajd@linux.ibm.com>,
  Matthew Garrett <matthew.garrett@nebula.com>, linux-efi@vger.kernel.org,
  Arnd Bergmann <arnd@arndb.de>, Daniel Borkmann <daniel@iogearbox.net>,
@@ -123,11 +138,11 @@ Cc: Song Liu <songliubraving@fb.com>, linux-usb@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>, Felipe Balbi <balbi@kernel.org>,
  linux-nfs@vger.kernel.org, Iurii Zaikin <yzaikin@google.com>,
  linux-scsi@vger.kernel.org, "Martin K. Petersen" <martin.petersen@oracle.com>,
- linux-mm@kvack.org, linux-s390@vger.kernel.org,
+ linux-mm@kvack.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Dennis Dalessandro <dennis.dalessandro@intel.com>,
- Miklos Szeredi <miklos@szeredi.hu>, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, Anna Schumaker <anna.schumaker@netapp.com>,
- Luis Chamberlain <mcgrof@kernel.org>, Chuck Lever <chuck.lever@oracle.com>,
+ Miklos Szeredi <miklos@szeredi.hu>, linux-kernel@vger.kernel.org,
+ Anna Schumaker <anna.schumaker@netapp.com>,
+ linux-security-module@vger.kernel.org, Chuck Lever <chuck.lever@oracle.com>,
  Jeremy Kerr <jk@ozlabs.org>, Daniel Vetter <daniel@ffwll.ch>,
  Colin Cross <ccross@android.com>, Frederic Barrat <fbarrat@linux.ibm.com>,
  Paolo Bonzini <pbonzini@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
@@ -138,24 +153,59 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On Tue, Apr 14, 2020 at 02:42:57PM +0200, Emanuele Giuseppe Esposito wrote:
-> @@ -676,9 +674,9 @@ static void __debugfs_file_removed(struct dentry *dentry)
+On Tue, Apr 14, 2020 at 02:42:55PM +0200, Emanuele Giuseppe Esposito wrote:
+> aa_mk_null_file is using simple_pin_fs/simple_release_fs with local
+> variables as arguments, for what would amount to a simple
+> vfs_kern_mount/mntput pair if everything was inlined.  Just use
+> the normal filesystem API since the reference counting is not needed
+> here.
+
+*Why* is refcounting not needed here?
+
+   Luis
+
+> 
+> Signed-off-by: Emanuele Giuseppe Esposito <eesposit@redhat.com>
+> ---
+>  security/apparmor/apparmorfs.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/security/apparmor/apparmorfs.c b/security/apparmor/apparmorfs.c
+> index 280741fc0f5f..828bb1eb77ea 100644
+> --- a/security/apparmor/apparmorfs.c
+> +++ b/security/apparmor/apparmorfs.c
+> @@ -2525,14 +2525,14 @@ struct path aa_null;
 >  
->  static void remove_one(struct dentry *victim)
+>  static int aa_mk_null_file(struct dentry *parent)
 >  {
-> -        if (d_is_reg(victim))
-> +    if (d_is_reg(victim))
->  		__debugfs_file_removed(victim);
-> -	simple_release_fs(&debugfs_mount, &debugfs_mount_count);
-> +	simple_release_fs(&debugfs);
+> -	struct vfsmount *mount = NULL;
+> +	struct file_system_type *type = parent->d_sb->s_type;
+> +	struct vfsmount *mount;
+>  	struct dentry *dentry;
+>  	struct inode *inode;
+> -	int count = 0;
+> -	int error = simple_pin_fs(parent->d_sb->s_type, &mount, &count);
+>  
+> -	if (error)
+> -		return error;
+> +	mount = vfs_kern_mount(type, SB_KERNMOUNT, type->name, NULL);
+> +	if (IS_ERR(mount))
+> +		return PTR_ERR(mount);
+>  
+>  	inode_lock(d_inode(parent));
+>  	dentry = lookup_one_len(NULL_FILE_NAME, parent, strlen(NULL_FILE_NAME));
+> @@ -2561,7 +2561,7 @@ static int aa_mk_null_file(struct dentry *parent)
+>  	dput(dentry);
+>  out:
+>  	inode_unlock(d_inode(parent));
+> -	simple_release_fs(&mount, &count);
+> +	mntput(mount);
+>  	return error;
 >  }
 >  
->  /**
-
-Always run checkpatch.pl on your patches so you do not get grumpy
-maintainers telling you to run checkpatch.pl on your patches...
-
-
+> -- 
+> 2.25.2
+> 
 
 
 _______________________________________________
