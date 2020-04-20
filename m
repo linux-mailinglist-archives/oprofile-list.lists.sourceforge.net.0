@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8B4721B0DA3
-	for <lists+oprofile-list@lfdr.de>; Mon, 20 Apr 2020 16:02:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9921B1B0DA4
+	for <lists+oprofile-list@lfdr.de>; Mon, 20 Apr 2020 16:02:06 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1jQWzq-0006Am-IK; Mon, 20 Apr 2020 14:02:02 +0000
+	id 1jQWzq-0006Av-Jt; Mon, 20 Apr 2020 14:02:02 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <eesposit@redhat.com>) id 1jQWw1-00020k-Ij
- for oprofile-list@lists.sourceforge.net; Mon, 20 Apr 2020 13:58:05 +0000
+ (envelope-from <eesposit@redhat.com>) id 1jQWwL-0002qp-TO
+ for oprofile-list@lists.sourceforge.net; Mon, 20 Apr 2020 13:58:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  MIME-Version:Date:Message-ID:References:Cc:To:Subject:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=pK26z2Uz8J+xMXGm08XY3fCeYfVumTWEKpq3I9uMJ70=; b=CJNYEC1Q+DhqkW7uwKg7x6/CKS
- sfQiuCcGEb4rfBeaL6PWOWIopZkluklzkDEDMq1c4/mNf7eH6bzDxnmHyFEnbQSbZh6yAMzsaDXlh
- Lir9OSvWwV6R+pvwwctD4JBz+mR58/40b6GVGaO9nS8Z7wuG2lU7LgPm/f3GbqHjLa74=;
+ bh=xUgf1dELTVkqbl5oz8lk6XQ7zC/RuDwFip+M0efFdJc=; b=jph32spHp+B8CL8VE3XFMxkErl
+ cSEtAniQ9LnnDXW2or4RFQU1KWOwoC7lAmfPyBX5+fP9lj8EowrF05Ryq4MCHV17h9bCu8/nUrEBJ
+ qtChpXuOSU0xXNzIABJUMxw/ChBTYVaoavUI8Z8beZKlbMwApdtK+/sfVgpDd9sCtaS8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
@@ -29,67 +29,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=pK26z2Uz8J+xMXGm08XY3fCeYfVumTWEKpq3I9uMJ70=; b=IpNgF2oUJCzIOccyOchOjGfGI8
- YIxNI93OOKwRQ4p4A51ZRj6P02RJCNon3Enm2j9kBSRLnGCBnks+Jo5Tsj1sKvoycTVZOiinUJ+O7
- JNdiHvs0kbyM2ZoV7b1AL85exicb2DCEmEfnXRMQEuAQDFq06RP8Je1kVYCFnVrogRjg=;
+ bh=xUgf1dELTVkqbl5oz8lk6XQ7zC/RuDwFip+M0efFdJc=; b=Efo5517C0agdxk+AQbzf+fLrG2
+ ZKtfozXXFFSL7X+dMuJnZf4mSqQzqNewdYQDRQM5Nq61b1txlyhlDGqrqOX6Ima4vD9jjcs1PRIwZ
+ /t4vPAtuA4eYPT+ugMGyVOGVQ7OXLaWiG86ZTp5iv9YvE6T9hmyUryxDC28srMkQEZMs=;
 Received: from us-smtp-2.mimecast.com ([207.211.31.81]
  helo=us-smtp-delivery-1.mimecast.com)
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-SHA384:256) (Exim 4.92.2)
- id 1jQWvz-004Rz3-RJ
- for oprofile-list@lists.sourceforge.net; Mon, 20 Apr 2020 13:58:05 +0000
+ id 1jQWwH-007Gba-18
+ for oprofile-list@lists.sourceforge.net; Mon, 20 Apr 2020 13:58:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1587391076;
+ s=mimecast20190719; t=1587391091;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=pK26z2Uz8J+xMXGm08XY3fCeYfVumTWEKpq3I9uMJ70=;
- b=JBeBupR2hI6+yPH2Jr9g+YknQbpgbnCv1v3pgHYKCX5jxVmhwOeJeXfoNscz03zlTY5JBe
- p2Kfp7etIPFA2k2wP3aoJIy1xhhLs7Qc/+KcpvVdx+gJIVV3Od3gbg+HSCrLR8AVcsQ5Zs
- BFebMb+Romn4HGK1c81Jx2O3JxmWMog=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-357-54stG5efOqeJKtRxI7nNuQ-1; Mon, 20 Apr 2020 09:57:54 -0400
-X-MC-Unique: 54stG5efOqeJKtRxI7nNuQ-1
-Received: by mail-wr1-f71.google.com with SMTP id h95so5716170wrh.11
- for <oprofile-list@lists.sf.net>; Mon, 20 Apr 2020 06:57:54 -0700 (PDT)
+ bh=xUgf1dELTVkqbl5oz8lk6XQ7zC/RuDwFip+M0efFdJc=;
+ b=bXyaw7FqWAsTBovH9OASnYheQMJHoLqEYSPllAfJvgpnrGG1BqQlE5R2ZOHmZxKlBWr1Rh
+ 5ZLzRTjCh8X9UukdOBSiewaTEnsuzUFgqFyCxL4gUfjC8FXjLsmQFyJf79XmrMl34oSSaQ
+ 7euSQ+BjPHRpmRYMbwQ4ZcoVns5yow8=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-289-uH0Wzz_fNw2RCPiVjm1QdA-1; Mon, 20 Apr 2020 09:58:07 -0400
+X-MC-Unique: uH0Wzz_fNw2RCPiVjm1QdA-1
+Received: by mail-wm1-f72.google.com with SMTP id f128so4189772wmf.8
+ for <oprofile-list@lists.sf.net>; Mon, 20 Apr 2020 06:58:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:subject:to:cc:references:message-id:date
  :user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=pK26z2Uz8J+xMXGm08XY3fCeYfVumTWEKpq3I9uMJ70=;
- b=iocRd5le+E+7DbOlQebWRROPFqM33mvKk+Ul0IadVL6GotqUtqLXAZe7WpA5udcdo8
- 1V1GqzuE6dBUALaEXTtxPluSnf4aAAx9UzraYBO+saHyuCwZu+ZzVpL5aqvxu9jt8jWf
- dD4Vi7mfWJuZywiox9IvQMztzWiULIxtS+FZg7+zslbfSNCJQlfyuCDHis00IUiee7wx
- zR4cFrx9aKkVPhaTolW+/LUwS4Mm2MT6xyRhpnV4BiPFgSlI7+791EC3aT2QPmDxgZ0h
- yUr4pwzXBa3j+Plaf9aL3N7Z3gldHMdzlaDsuAy4RpZyCSHHgeXifR17drBCWND5phIa
- qxhw==
-X-Gm-Message-State: AGi0PubDI6A8g6Pif7lgZlzQH2qIKjH8SNKL544fd48BF173gAlTDzxM
- 5eiL6PMYMtVzcxL86LezQdlOuX69FgfDT5JKYLiGpiB6uTar5EJiL6v47YWSxoSzHTvebEIs1BJ
- jzlEWEC8vd+92U66PsvMVYw==
-X-Received: by 2002:a7b:cf2b:: with SMTP id m11mr16860492wmg.147.1587391073775; 
- Mon, 20 Apr 2020 06:57:53 -0700 (PDT)
-X-Google-Smtp-Source: APiQypKZBYixV5ajKWzxEAUUh742/WPOg+S3dMK8bDyvyM4eMw8EIY0hxy1C7QN16yJpeFB4fL8+FQ==
-X-Received: by 2002:a7b:cf2b:: with SMTP id m11mr16860432wmg.147.1587391073551; 
- Mon, 20 Apr 2020 06:57:53 -0700 (PDT)
+ bh=xUgf1dELTVkqbl5oz8lk6XQ7zC/RuDwFip+M0efFdJc=;
+ b=d7776MtNseHNH75os8dwvsfOUGmrwf3JX/bvhm0sMQayjn3CRyY2H/BtHvZWqQx7Le
+ 76NvMorIULW62CrbSYJz7Cut3oRlqntSQ8BT69xgHyquIZsa3hF+OfGg9A39DXNgqMFY
+ WqbwQcU5UcBObjoBQBwfHOq4si6XV4Ej36Zsfz1FiP9e9lOGYY83rgJAcOTQ/v5+8LH0
+ Oyb0WFtI/vX/HGBo2PuVvzI57gONGnxEvt7k6BoLq96c2YZHlZEVP0AyWRED1G8LC4CL
+ mMNg73mONZSn7uveBzirh7kke5w1+XSGw3qZwlRlABkn8WOCPR/le8D/yoAkzLfeJi7R
+ 8GRA==
+X-Gm-Message-State: AGi0PuaksDIohvWF0yvUJZNMffivshxPWmfPVrSin8zpRma8amsBhveM
+ Eqz6z3MdpFGQcftMgb9aqocmkRSV4Jss6MBK0fydgm12lkiDKnNGFtEC9BlvGwYdG82kSxwJt4F
+ fqLtiswDemZiyEr/N47ALZQ==
+X-Received: by 2002:adf:f343:: with SMTP id e3mr18182985wrp.51.1587391086588; 
+ Mon, 20 Apr 2020 06:58:06 -0700 (PDT)
+X-Google-Smtp-Source: APiQypKgfh4+u4HEj4PPYW/XSZ46PCQmhZFzPWrmjnxffDGdhSBfk7/303BzRADycOzBMc3ansohTA==
+X-Received: by 2002:adf:f343:: with SMTP id e3mr18182928wrp.51.1587391086383; 
+ Mon, 20 Apr 2020 06:58:06 -0700 (PDT)
 Received: from localhost.localdomain ([194.230.155.102])
- by smtp.gmail.com with ESMTPSA id l5sm1432890wmi.22.2020.04.20.06.57.49
+ by smtp.gmail.com with ESMTPSA id y18sm1584636wmc.45.2020.04.20.06.58.02
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 20 Apr 2020 06:57:52 -0700 (PDT)
+ Mon, 20 Apr 2020 06:58:05 -0700 (PDT)
 From: Emanuele Giuseppe Esposito <eesposit@redhat.com>
-Subject: Re: [PATCH 6/8] simplefs: add file creation functions
+Subject: Re: [PATCH 4/8] fs: introduce simple_new_inode
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 References: <20200414124304.4470-1-eesposit@redhat.com>
- <20200414124304.4470-7-eesposit@redhat.com>
- <20200414125626.GC720679@kroah.com>
-Message-ID: <f371bcc0-266a-cb0b-3bde-fed336b8c9b5@redhat.com>
-Date: Mon, 20 Apr 2020 15:57:48 +0200
+ <20200414124304.4470-5-eesposit@redhat.com>
+ <20200414130140.GD720679@kroah.com>
+Message-ID: <e87e032e-32cf-a6fc-af8f-3bcece2fcff7@redhat.com>
+Date: Mon, 20 Apr 2020 15:58:02 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.6.0
 MIME-Version: 1.0
-In-Reply-To: <20200414125626.GC720679@kroah.com>
+In-Reply-To: <20200414130140.GD720679@kroah.com>
 Content-Language: en-US
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
@@ -109,7 +109,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  not necessarily valid
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
  -0.1 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jQWvz-004Rz3-RJ
+X-Headers-End: 1jQWwH-007Gba-18
 X-Mailman-Approved-At: Mon, 20 Apr 2020 14:02:01 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -174,36 +174,46 @@ Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
 
 
-On 4/14/20 2:56 PM, Greg Kroah-Hartman wrote:
-> On Tue, Apr 14, 2020 at 02:43:00PM +0200, Emanuele Giuseppe Esposito wrote:
->> A bunch of code is duplicated between debugfs and tracefs, unify it to the
->> simplefs library.
->>
->> The code is very similar, except that dentry and inode creation are unified
->> into a single function (unlike start_creating in debugfs and tracefs, which
->> only takes care of dentries).  This adds an output parameter to the creation
->> functions, but pushes all error recovery into fs/simplefs.c.
->>
->> Signed-off-by: Emanuele Giuseppe Esposito <eesposit@redhat.com>
->> ---
->>   fs/simplefs.c            | 150 +++++++++++++++++++++++++++++++++++++++
->>   include/linux/simplefs.h |  19 +++++
->>   2 files changed, 169 insertions(+)
+On 4/14/20 3:01 PM, Greg Kroah-Hartman wrote:
+> On Tue, Apr 14, 2020 at 02:42:58PM +0200, Emanuele Giuseppe Esposito wrote:
+>> It is a common special case for new_inode to initialize the
+>> time to the current time and the inode to get_next_ino().
+>> Introduce a core function that does it and use it throughout
+>> Linux.
 > 
-> What's wrong with libfs, isn't that supposed to be for these types of
-> "common" filesystem interactions?
+> Shouldn't this just be called new_inode_current_time()?
 > 
-> Why create a whole "new" fs for this?
+> How is anyone going to remember what simple_new_inode() does to the
+> inode structure?
 
-I assume you meant a new file. These new functions are used only by a 
-few filesystems, and I didn't want to include them in vmlinux 
-unconditionally, so I introduced simplefs.c and CONFIG_SIMPLEFS instead 
-of extending libfs.c. In this way only fs that need this code like 
-debugfs and tracefs will load it.
+I noticed that most functions in libfs.c are called "simple_*" when they 
+do the right thing for the majority of simple use cases (e.g., 
+simple_symlink_inode_operations or simple_dir_operations). I can 
+certainly rename the function.
 
-Thank you,
+Thank you for all the feedback, I will incorporate it and send a new 
+patch series soon.
+
 
 Emanuele
+> 
+>> --- a/fs/libfs.c
+>> +++ b/fs/libfs.c
+>> @@ -595,6 +595,18 @@ int simple_write_end(struct file *file, struct address_space *mapping,
+>>   }
+>>   EXPORT_SYMBOL(simple_write_end);
+>>   
+>> +struct inode *simple_new_inode(struct super_block *sb)
+>> +{
+>> +	struct inode *inode = new_inode(sb);
+>> +	if (inode) {
+>> +		inode->i_ino = get_next_ino();
+>> +		inode->i_atime = inode->i_mtime =
+>> +			inode->i_ctime = current_time(inode);
+>> +	}
+>> +	return inode;
+>> +}
+>> +EXPORT_SYMBOL(simple_new_inode);
 
 
 
