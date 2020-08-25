@@ -2,136 +2,88 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 201AA24D75F
-	for <lists+oprofile-list@lfdr.de>; Fri, 21 Aug 2020 16:32:45 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8E84F251165
+	for <lists+oprofile-list@lfdr.de>; Tue, 25 Aug 2020 07:16:11 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1k985x-0004X2-F7; Fri, 21 Aug 2020 14:32:41 +0000
+	id 1kARJY-0004FL-HJ; Tue, 25 Aug 2020 05:16:08 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <Zhe.He@windriver.com>) id 1k93Dk-0000mg-DJ
- for oprofile-list@lists.sourceforge.net; Fri, 21 Aug 2020 09:20:24 +0000
+ (envelope-from <joe@perches.com>) id 1kARJX-0004Et-29
+ for oprofile-list@lists.sourceforge.net; Tue, 25 Aug 2020 05:16:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :In-Reply-To:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=3mdL0QKGf1VMaxE+yFFiPcOi2C+u5aL005WruikGTZs=; b=Ul1VuDjG5KcrddlVgygGWPNB4+
- 6yGFQ4ifJFv+/erzneFrjwcTNQ8nNiUBUVaFc3EKeFyklfpO8hkb3FMSfhdIrh9vMnk72HsWl5s3s
- Vvl8N+r1wucohtcxDRDfEkjGo1GxtMQar5uQGT9w7ltL9RdYMut9d7wWJpbZENuGc2Jc=;
+ bh=mGpMl3ugLgn+9I6Ohi4ZL/JrXtFqLNEECynrQZWX6Sw=; b=L3cpcCnfdqrB6ylNoUvfHn3kMl
+ ob/Db+d5C2HR2DBICEAc55AdVN14pC3M7HdZX6410rfBhtvSw2hMC5fNXJ1pQcf8iV3bObtYcD9Cs
+ uMbsgqjLfGa1qL6CZrLZYph7ui/ct0w0k4WV2jbMrD1FkB4qRpN2emmO8O7yEJkyxvYQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:Date:
- Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=3mdL0QKGf1VMaxE+yFFiPcOi2C+u5aL005WruikGTZs=; b=adUGIMA3Q8fvMACJgwcaTD+u2E
- efOTgSnR7CkvKXIFYkdinva72/cX5AZNpQAgJIhTC3xvBYS+JKmsOAqUx/+d8Js+TTPctvCOaR1vj
- rX49VJi/8lP6R/rnQadACk2NcEi60oo3AfCStBjc3nVSwl+AF5dAqKuc08MfyO0j0fMA=;
-Received: from mail-bn8nam11on2043.outbound.protection.outlook.com
- ([40.107.236.43] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+ bh=mGpMl3ugLgn+9I6Ohi4ZL/JrXtFqLNEECynrQZWX6Sw=; b=At93o2PTn/s4jZp17O9PV61dic
+ 4EcdV1F1azxkbWrC8p5qvw8OQmM6PjkQS5oKZnpm9b3yuZaZibacUoalKDPSWzPK3KJQeOvE+Tbvn
+ voMrLsYPW219J/BRaNJ3eH0IboT9beEoafLliSmS8Yi9LNN1aaiOltBbv/Dxv/EBDyjk=;
+Received: from smtprelay0250.hostedemail.com ([216.40.44.250]
+ helo=smtprelay.hostedemail.com)
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1k93Dd-0031DU-D6
- for oprofile-list@lists.sourceforge.net; Fri, 21 Aug 2020 09:20:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=kefBkRWNfKeNgghAM2IZFiCbAXNWaADFM4lRTxjfjMSl096Q9qeQbuiGGdzNhKgCjN42T9Vh3MuUE3HCjh48v19Hv2t+J6kKUcQsI+QhgdTdrJx/2rM1kJ8sV1QDaBfY1ZsGNAY01y6fMBPUQgtQ1MnczRJPtJ9Aw8lVHwJjSme4Hv8yuOaLEACONGNq7b/nvs88GIlZo3hj4tf6EZJsxHLLpwC+B8/w0KJTeZ7i+YSfUoiLW0TlUDasiMSlOaIwMWgslOg93xSC35ExC8pmFDyP65KvKA/h08OkYvW113+21gWO1qtBh+U0mrL9JH7JJOFeVoIKJP+XTslafP76bw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3mdL0QKGf1VMaxE+yFFiPcOi2C+u5aL005WruikGTZs=;
- b=TvuMQYLTHZfnC87ahfV9OZ2kpEtKQJ0qy0bkrmTg+A+z39pava+EWVOsYa6yJUerzITH5Qy80zfOpD4CGaPsPG5ZDv4Z2LctUJven127035C8AelSx0ChUeHphHg8HAJ+rw8ujx/X5TG4YsJYxmTOfzC+U66owhAvFyChPP7qk7T1S24oHMhotlnwnLoNakWJvTOnni7U1CZil9ujTEnLylTItl/PWEXjTSIj5f7+RlzTVRifcSWloe/YZ03Pj2ONFplp3vzm/cMEWWKJD8zkfxLwSVWls0r0YxRGjWLxJzB48/7d9W+blFrMcSMg6B8fuIVSz/tw2bnYaE6hz4yYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=windriversystems.onmicrosoft.com;
- s=selector2-windriversystems-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3mdL0QKGf1VMaxE+yFFiPcOi2C+u5aL005WruikGTZs=;
- b=e/tTvIsWDbK+l603Nqljm2zQayPC+Qo2l669nrkzSymAKA2qW5Slbea76u6ZvkVT714+K6kn4Bepj/zSjBHZGXDBIipqdtK+tImeyYXIXSj9IBkjc9Uy6N5Jm1pkDKairICnh5Ym3JMxKkq2TRaiLCFBpw1i9tJJA9menph6qYo=
-Authentication-Results: vger.kernel.org; dkim=none (message not signed)
- header.d=none;vger.kernel.org; dmarc=none action=none
- header.from=windriver.com;
-Received: from SN6PR11MB3360.namprd11.prod.outlook.com (2603:10b6:805:c8::30)
- by SA0PR11MB4637.namprd11.prod.outlook.com (2603:10b6:806:97::16)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3305.24; Fri, 21 Aug
- 2020 08:46:46 +0000
-Received: from SN6PR11MB3360.namprd11.prod.outlook.com
- ([fe80::4497:4639:274:54d6]) by SN6PR11MB3360.namprd11.prod.outlook.com
- ([fe80::4497:4639:274:54d6%6]) with mapi id 15.20.3305.025; Fri, 21 Aug 2020
- 08:46:46 +0000
-Subject: Re: [PATCH] mips/oprofile: Fix fallthrough placement
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-References: <20200820125440.350184-1-zhe.he@windriver.com>
- <20200821074821.GD8336@alpha.franken.de>
-From: He Zhe <zhe.he@windriver.com>
-Message-ID: <5e86b824-4c92-3cfe-fc36-493425e85f2a@windriver.com>
-Date: Fri, 21 Aug 2020 16:46:39 +0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
-In-Reply-To: <20200821074821.GD8336@alpha.franken.de>
-Content-Language: en-US
-X-ClientProxiedBy: BYAPR08CA0053.namprd08.prod.outlook.com
- (2603:10b6:a03:117::30) To SN6PR11MB3360.namprd11.prod.outlook.com
- (2603:10b6:805:c8::30)
+ id 1kARJV-005o3R-F1
+ for oprofile-list@lists.sourceforge.net; Tue, 25 Aug 2020 05:16:07 +0000
+Received: from smtprelay.hostedemail.com (10.5.19.251.rfc1918.com
+ [10.5.19.251])
+ by smtpgrave08.hostedemail.com (Postfix) with ESMTP id 6AD3F182D3E77
+ for <oprofile-list@lists.sf.net>; Tue, 25 Aug 2020 04:56:52 +0000 (UTC)
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay08.hostedemail.com (Postfix) with ESMTP id 5B1DE182CED2A;
+ Tue, 25 Aug 2020 04:56:46 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
+ RULES_HIT:41:355:379:541:800:960:973:988:989:1260:1311:1314:1345:1359:1437:1515:1534:1542:1711:1730:1747:1777:1792:2393:2559:2562:2898:3138:3139:3140:3141:3142:3352:3865:3866:3868:3872:4321:4605:5007:6119:6261:10004:10848:11026:11658:11914:12043:12297:12438:12555:12895:12986:13870:13894:13972:14181:14394:14721:21080:21627:30054:30070,
+ 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
+ DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
+ LFtime:1, LUA_SUMMARY:none
+X-HE-Tag: cover96_0806a5227059
+X-Filterd-Recvd-Size: 3208
+Received: from joe-laptop.perches.com (unknown [47.151.133.149])
+ (Authenticated sender: joe@perches.com)
+ by omf08.hostedemail.com (Postfix) with ESMTPA;
+ Tue, 25 Aug 2020 04:56:44 +0000 (UTC)
+From: Joe Perches <joe@perches.com>
+To: Jiri Kosina <trivial@kernel.org>,
+	Robert Richter <rric@kernel.org>
+Subject: [PATCH 02/29] alpha: Avoid comma separated statements
+Date: Mon, 24 Aug 2020 21:55:59 -0700
+Message-Id: <4facd57f80c70437f085ba3a1bcf13ae0b63c3bc.1598331148.git.joe@perches.com>
+X-Mailer: git-send-email 2.26.0
+In-Reply-To: <cover.1598331148.git.joe@perches.com>
+References: <cover.1598331148.git.joe@perches.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from 255.255.255.255 (255.255.255.255) by
- BYAPR08CA0053.namprd08.prod.outlook.com (2603:10b6:a03:117::30) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3305.25 via Frontend
- Transport; Fri, 21 Aug 2020 08:46:43 +0000
-X-Originating-IP: [60.247.85.82]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 2101f93d-d5c1-442c-98b9-08d845aebc33
-X-MS-TrafficTypeDiagnostic: SA0PR11MB4637:
-X-Microsoft-Antispam-PRVS: <SA0PR11MB4637CB95445D9B262D89388F8F5B0@SA0PR11MB4637.namprd11.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:3513;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: m7HQOBQyScLygMHiJiB+FNW3l5N4JnJE9pjmQDjOAkmDvEi5D40TM5GHxayKcoJ4DR0xbLm+UvKSVSlJ30qtqg6ANMeaPY6hhAuTYWzpJPwSX6dnPmWEY6tA4FuYCz2o5ljFQvaanXQbLOZOcWX51Gw1dp+4LtCOPMdgRi/nwSSOT8vE7d2FW9Teyz+bZ68poEKeVyg5M3N9lhyJ8YhYcv3XkAKrUMDlN8x4LlIdMO9zj3OMhM9XUSw/10DoI4aZs8CPLcz1nU5XMjVLsQdElh5288qowM0xpkh4eXOF5c0lIdpWshxOZ2wy1AgCnpqFdkpmD/uzb6qnlhvOr7Dh3S9GX/0z0auE5uXG0EsHEXTr6Y5/qWnQRalbgJO7eelzhqUhHUrejC8bz4/3IuhAY2STkLIe3iQV6bsGEBfTWBd08RkpUZDp4hDYPAYQaMr9vKCx2RWCnXETBqCaE8mznFXhOoqUKLE59Ws92BbA9Zo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:SN6PR11MB3360.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(396003)(136003)(39850400004)(366004)(346002)(376002)(4326008)(31686004)(6486002)(8676002)(16576012)(186003)(2616005)(956004)(316002)(6666004)(8936002)(52116002)(110011004)(2906002)(83380400001)(66476007)(6916009)(53546011)(66946007)(5660300002)(66556008)(86362001)(966005)(36756003)(478600001)(26005)(31696002)(43740500002);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: 4j+G2VRhl7QB4uZhuvM7oWx2bPcq14tLuuNTaO/yjdWs6EktAjLBqMjl88AYJCj5bNL+mKEYl1HV8JFg6zWI7QhPtRW070hp+b1w9/GtoKeEIRMSKqFW392TNHkLe3MyZO4LZg8kshkF0wxVXMLJNNw0jq/dq8HWUVOYP4kJG7FenXZRWZjjq5i91WFFR1PWBNNre0/fkveE3rwOVh7oS7kP8fNz42xr5xbUCrDeHZF8O6Uhvdy6bhvqMfrhidn0BXJ1NQ2MD6YAJY1kGlsF5TEyfDFzYy3mOdWkAi3gwzSB8B3Di9NW8W4de9hGFbcJNf35di+tmqIo7Owe8UgDSbJCMWSMEtRHFy9s6A5+AF38ajwc07J6jPDuqduYV7Qk7SaAEDFowSuXIzFgdIPj5xNFBR3U1uXYGKfQY+pUKwf23HnvkXX8/Ot+3h8p7qY9+qNtBCaPPa3w/w+t3LrG52LM4fT4Gc5XG24lDhw4ST+fzRlhUJVpxO3IqODY6FYyjFhdppNJFoM+oSkd4/A0BiQCFjC1v+im1dcy37QtCAZp1cZy3bOfXAeC9oSug/srZGqpATa1pUotGYI4j2IVF+EMx3CEDjk8rXzY54KsOXsd0eMPT4LQSx2girce9YZ6ujr50FXtl92OBn9B6Iiy1Q==
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2101f93d-d5c1-442c-98b9-08d845aebc33
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR11MB3360.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2020 08:46:46.3135 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4L6yCCAbRhmfD44OtLC9+Sm/NdC7A4lgIhHhZYccjF+QoyhDW4jzgoVzR+xkj2/Ttviubfci2GVqjh7iVsNTHg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR11MB4637
-X-Spam-Score: -0.8 (/)
+X-Spam-Score: -0.3 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 1.3 RCVD_ILLEGAL_IP        Received: contains illegal IP address
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [40.107.236.43 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [40.107.236.43 listed in wl.mailspike.net]
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: windriver.com]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 0.0 MSGID_FROM_MTA_HEADER  Message-Id was added by a relay
- -2.1 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1k93Dd-0031DU-D6
-X-Mailman-Approved-At: Fri, 21 Aug 2020 14:32:39 +0000
+ for more information. [URIs: perches.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [216.40.44.250 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [216.40.44.250 listed in wl.mailspike.net]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1kARJV-005o3R-F1
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -144,52 +96,100 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: oprofile-list@lists.sf.net, rric@kernel.org, linux-mips@vger.kernel.org,
- linux-kernel@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, oprofile-list@lists.sf.net,
+ linux-alpha@vger.kernel.org, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ Matt Turner <mattst88@gmail.com>, Richard Henderson <rth@twiddle.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
+Use semicolons and braces.
 
+Signed-off-by: Joe Perches <joe@perches.com>
+---
+ arch/alpha/kernel/pci_iommu.c      |  8 +++++---
+ arch/alpha/oprofile/op_model_ev4.c | 22 ++++++++++++++--------
+ arch/alpha/oprofile/op_model_ev5.c |  8 +++++---
+ 3 files changed, 24 insertions(+), 14 deletions(-)
 
-On 8/21/20 3:48 PM, Thomas Bogendoerfer wrote:
-> On Thu, Aug 20, 2020 at 08:54:40PM +0800, zhe.he@windriver.com wrote:
->> From: He Zhe <zhe.he@windriver.com>
->>
->> We want neither
->> "
->> include/linux/compiler_attributes.h:201:41: warning: statement will never
->> be executed [-Wswitch-unreachable]
->>   201 | # define fallthrough __attribute__((__fallthrough__))
->>       |                      ^~~~~~~~~~~~~
->> "
->> nor
->> "
->> include/linux/compiler_attributes.h:201:41: warning: attribute
->> 'fallthrough' not preceding a case label or default label
->>   201 | # define fallthrough __attribute__((__fallthrough__))
->>       |                      ^~~~~~~~~~~~~
->> "
->>
->> It's not worth adding one more macro. Let's simply place the fallthrough
->> in between the expansions.
->>
->> Signed-off-by: He Zhe <zhe.he@windriver.com>
-> there is already another patch for the problem, which I've applied
-> to mips-fixes.
-
-You mean the below one?
-https://git.kernel.org/pub/scm/linux/kernel/git/mips/linux.git/commit/?h=mips-fixes&id=5900acb374fe2f4f42bbcb2c84db64f582d917a1
-
-That patch handles the first warning in my commit log but does not handle the
-second one which is introduced since gcc v10.1.0 commit 6c80b1b56dec
-("Make more bad uses of fallthrough attribute into pedwarns.").
-
-Zhe
-
->
-> Thomas.
->
+diff --git a/arch/alpha/kernel/pci_iommu.c b/arch/alpha/kernel/pci_iommu.c
+index 81037907268d..b8af7ad6c607 100644
+--- a/arch/alpha/kernel/pci_iommu.c
++++ b/arch/alpha/kernel/pci_iommu.c
+@@ -161,10 +161,12 @@ iommu_arena_find_pages(struct device *dev, struct pci_iommu_arena *arena,
+ 			goto again;
+ 		}
+ 
+-		if (ptes[p+i])
+-			p = ALIGN(p + i + 1, mask + 1), i = 0;
+-		else
++		if (ptes[p+i]) {
++			p = ALIGN(p + i + 1, mask + 1);
++			i = 0;
++		} else {
+ 			i = i + 1;
++		}
+ 	}
+ 
+ 	if (i < n) {
+diff --git a/arch/alpha/oprofile/op_model_ev4.c b/arch/alpha/oprofile/op_model_ev4.c
+index 086a0d5445c5..004f80a4291f 100644
+--- a/arch/alpha/oprofile/op_model_ev4.c
++++ b/arch/alpha/oprofile/op_model_ev4.c
+@@ -46,18 +46,24 @@ ev4_reg_setup(struct op_register_config *reg,
+ 	   map it onto one of the possible values, and write it back.  */
+ 
+ 	count = ctr[0].count;
+-	if (count <= 4096)
+-		count = 4096, hilo = 1;
+-	else
+-		count = 65536, hilo = 0;
++	if (count <= 4096) {
++		count = 4096;
++		hilo = 1;
++	} else {
++		count = 65536;
++		hilo = 0;
++	}
+ 	ctr[0].count = count;
+ 	ctl |= (ctr[0].enabled && hilo) << 3;
+ 
+ 	count = ctr[1].count;
+-	if (count <= 256)
+-		count = 256, hilo = 1;
+-	else
+-		count = 4096, hilo = 0;
++	if (count <= 256) {
++		count = 256;
++		hilo = 1;
++	} else {
++		count = 4096;
++		hilo = 0;
++	}
+ 	ctr[1].count = count;
+ 	ctl |= (ctr[1].enabled && hilo);
+ 
+diff --git a/arch/alpha/oprofile/op_model_ev5.c b/arch/alpha/oprofile/op_model_ev5.c
+index c300f5ef3482..6f52244e1181 100644
+--- a/arch/alpha/oprofile/op_model_ev5.c
++++ b/arch/alpha/oprofile/op_model_ev5.c
+@@ -92,9 +92,11 @@ common_reg_setup(struct op_register_config *reg,
+ 		if (!ctr[i].enabled)
+ 			continue;
+ 
+-		if (count <= 256)
+-			count = 256, hilo = 3, max = 256;
+-		else {
++		if (count <= 256) {
++			max = 256;
++			hilo = 3;
++			count = 256;
++		} else {
+ 			max = (i == 2 ? 16384 : 65536);
+ 			hilo = 2;
+ 			if (count > max)
+-- 
+2.26.0
 
 
 
