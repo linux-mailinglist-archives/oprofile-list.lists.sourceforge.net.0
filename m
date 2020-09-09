@@ -2,97 +2,119 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A873025E753
-	for <lists+oprofile-list@lfdr.de>; Sat,  5 Sep 2020 13:41:56 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id DB3F6262F52
+	for <lists+oprofile-list@lfdr.de>; Wed,  9 Sep 2020 15:49:10 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1kEWZu-0005PV-P5; Sat, 05 Sep 2020 11:41:54 +0000
+	id 1kG0TE-0005e7-Pm; Wed, 09 Sep 2020 13:49:08 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <bircoph@gmail.com>) id 1kEWZt-0005PA-Hp
- for oprofile-list@lists.sourceforge.net; Sat, 05 Sep 2020 11:41:53 +0000
+ (envelope-from <martin.petersen@oracle.com>) id 1kFqeO-0004Qm-Oy
+ for oprofile-list@lists.sourceforge.net; Wed, 09 Sep 2020 03:20:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Mime-Version:Message-Id:Subject:To:
- From:Date:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=E3OXhbonLaLnYHU2A9GwPOxBG+Ojt4xBMWJfKU6OLeI=; b=b+t7kHaUp67XzPnb/ChkmVp0My
- Tne2ondAKdg87I4HoZ3DNrfQVLmLlsf/RfJP0bvmbEKI68wOlXBP2GqPeFKKfG0PlKhGvZuj3iTQN
- Mp7bcB4SVrlUnmlCuZFvvEfg7SIMejFUtqmmNz1rC7mDg6KyzQgzKpBHY6NF3dQ2hsC0=;
+ bh=vtum29krzlUsLIvRnyVxjLuvhWBtLTr/qnU9AvnGbCE=; b=AdO3sYCG0SA/ORjqTm+HHMmp1d
+ EeSp7V3AHg5sM3biMp8FfLfXHKifLuDFlDK65JGlNPTz8vAxaBVY5C28dnWE4WmaVsvpXc0tkAMDk
+ d/5Ywk+UtwjHUU7D57FOUpoQa8Q/nIy0BroZjndgF+1UbYCLk05DYccnw9/R22Y2xyYI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Mime-Version:Message-Id:Subject:To:From:Date:Sender:Reply-To
- :Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=E3OXhbonLaLnYHU2A9GwPOxBG+Ojt4xBMWJfKU6OLeI=; b=M
- 8AVq5JRTCCJC1b+2Q2F73G4D/aOHFIz+DIOdYWgHeInL5fb4KfuJzmH/rBXhhbuuV165beVNbU6rM
- i7OTylTf83x/d/PBwZOh0Tzs/UUizSvqNPv01So6t/ym6pTXvolpqjPHN9PCvXH3RzFsrXHuQwYBx
- uVoNpZrbqWMXW2ig=;
-Received: from mail-lj1-f195.google.com ([209.85.208.195])
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=vtum29krzlUsLIvRnyVxjLuvhWBtLTr/qnU9AvnGbCE=; b=YGUFk97Xeiqho2DxkXrG8Te8YG
+ BPai7T6iA+hYIqKA3h+p/MWJfKfJuq6pgCCxUwjNrnjlNkmiWwHiBDGmfnGF4zE9XfnOAWMCdRY1h
+ O849Zr1RzKPo8EUI157InJMLS9cS4Gci37aJ5Bj0K0Jlnk0rqawM8snnVR0We2xEHmxE=;
+Received: from aserp2120.oracle.com ([141.146.126.78])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kEWZp-00DDzc-BT
- for oprofile-list@lists.sourceforge.net; Sat, 05 Sep 2020 11:41:53 +0000
-Received: by mail-lj1-f195.google.com with SMTP id v23so10924481ljd.1
- for <oprofile-list@lists.sourceforge.net>;
- Sat, 05 Sep 2020 04:41:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:subject:message-id:mime-version;
- bh=E3OXhbonLaLnYHU2A9GwPOxBG+Ojt4xBMWJfKU6OLeI=;
- b=CUISd8jw/NbyRX9MD6jwB6swi8QbfNCg8gQvwX+tgHhTKJNFbmk0q1UiBcwGrEG+lU
- RPQqd5mYjR7BuZtoGbQlTVyrbTumPW2cyPivMtZIRoOZ39kBEGIAeb5X8vk7uyIbh2PM
- bA/8mlSW6Ehri0cRjIJwHFhALSJRKrNL11F+fy7Ksso8d1ONJfvE21riQwrPCy+oV/Bu
- Clvaq7CR2g1OAIOPS1D8PxIqFT9SKCd6aGn5O4IHpOEH82YnOr2OtAVGwKlzNAzNT8WW
- ibfYdfOxHivPKaWzB7HgmJN1VV/6y9MGw5Nu0msLj9eFIl8E6ytS1JyhI+lCtfGCF7wx
- JJJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:subject:message-id:mime-version;
- bh=E3OXhbonLaLnYHU2A9GwPOxBG+Ojt4xBMWJfKU6OLeI=;
- b=FegNRJQPE9R0wcvxxJYLng65hLbUefesd0o5OgZ0ivEdo+71x0HGovDzrhAZbWNrq6
- ZS0mblH0PWnZO5RvPt1/uAx2+berfMTsT67pjQGIuqObIR5MHcijbt/TX7LVVeaaynVn
- R0wQJBn+Kf5d4K317X9oY+IZASZNy4lDnEqRS7YT+71S8z/yOJeoxKGju+qCDmXHVzE5
- LZHdyzuOmkNdGb6fruW4eRk0yuyIDP6TDiebJCcViQwKMwT6z4NUnGg7ukRRT6G0OBki
- RXZ/ywGOESYtgJlrX4dCnN9R10151fEwsbljyORfXUA2oMuHoy4wbq2Gi5e5wt8iPw0D
- tXOg==
-X-Gm-Message-State: AOAM531s/pYMr9KKQ//A/kb9MvB/naVcDKNOAlk26bOK2G5Uh5CnhgjR
- sXRWmV95wteQfV/IGaAbKkVjMApNtEjvxw==
-X-Google-Smtp-Source: ABdhPJxWMhbfs1/OI8qkKC/ulgGwxCt6NHs2k4o7jEALXUN4E5J4MnTbQiJEVpB+X/u+iGvxOdUNOQ==
-X-Received: by 2002:a2e:8115:: with SMTP id d21mr6243474ljg.16.1599306095423; 
- Sat, 05 Sep 2020 04:41:35 -0700 (PDT)
-Received: from localhost ([185.173.37.158])
- by smtp.gmail.com with ESMTPSA id e8sm1932859lja.93.2020.09.05.04.41.34
- for <oprofile-list@lists.sourceforge.net>
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Sat, 05 Sep 2020 04:41:34 -0700 (PDT)
-Date: Sat, 5 Sep 2020 14:41:30 +0300
-From: Andrew Savchenko <bircoph@gmail.com>
-To: oprofile-list@lists.sourceforge.net
-Subject: Fix build with musl
-Message-Id: <20200905144130.ee360e0bdade714384051fd4@gmail.com>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; i686-pc-linux-gnu)
-Mime-Version: 1.0
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1kFqeH-0001Y4-D7
+ for oprofile-list@lists.sourceforge.net; Wed, 09 Sep 2020 03:20:00 +0000
+Received: from pps.filterd (aserp2120.oracle.com [127.0.0.1])
+ by aserp2120.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 0892AS5c094075;
+ Wed, 9 Sep 2020 02:11:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=from : to : cc :
+ subject : date : message-id : in-reply-to : references : mime-version :
+ content-transfer-encoding; s=corp-2020-01-29;
+ bh=vtum29krzlUsLIvRnyVxjLuvhWBtLTr/qnU9AvnGbCE=;
+ b=xBu1bvtfDZ9503xniraz9muXI2Eg0qhYCYcOf6RobuyNUO3o1Po7XLCiySpH1j3NqLzx
+ 2jgXXHktcetcwXVddyuNr8Y2tEFe3S1Fic84p/c7b/8cWZhzNvssHJn72rt+zNyDQI3g
+ W6nGbDQrnBPjzFv3JHhmeBC2Lng7TyLH4twd3n8hvyY34Y8B6srBiufkC1dha4TbTt8U
+ iYM7VJ+79F4uaHjvVJydS3mD7NcVtBky/+GEZFGwxEWNcRrsg0F0s6PbT0Xh+BU3JioS
+ 8YO2a/M76MlnuYxeGIlhqTuBmwNwX5juOavRg+aCtHeGvwObjWNA43YKkCVKSbI3nWmM bw== 
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
+ by aserp2120.oracle.com with ESMTP id 33c2mkxvtd-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Wed, 09 Sep 2020 02:11:40 +0000
+Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
+ by aserp3020.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 089252Ah095301;
+ Wed, 9 Sep 2020 02:09:40 GMT
+Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
+ by aserp3020.oracle.com with ESMTP id 33cmk53euj-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 09 Sep 2020 02:09:40 +0000
+Received: from abhmp0016.oracle.com (abhmp0016.oracle.com [141.146.116.22])
+ by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 08929Zlw022818;
+ Wed, 9 Sep 2020 02:09:35 GMT
+Received: from ca-mkp.ca.oracle.com (/10.156.108.201)
+ by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Tue, 08 Sep 2020 19:09:35 -0700
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+To: linuxppc-dev@lists.ozlabs.org, linux-ide@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-hwmon@vger.kernel.org,
+ Joe Perches <joe@perches.com>, oprofile-list@lists.sf.net,
+ linux-fsdevel@vger.kernel.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, drbd-dev@tron.linbit.com,
+ intel-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-input@vger.kernel.org, linux-nfs@vger.kernel.org,
+ netdev@vger.kernel.org, reiserfs-devel@vger.kernel.org,
+ linux-bcache@vger.kernel.org, Jiri Kosina <trivial@kernel.org>
+Subject: Re: [PATCH 00/29] treewide: Convert comma separated statements
+Date: Tue,  8 Sep 2020 22:09:14 -0400
+Message-Id: <159961731707.5787.13988542229153933257.b4-ty@oracle.com>
+X-Mailer: git-send-email 2.28.0
+In-Reply-To: <cover.1598331148.git.joe@perches.com>
+References: <cover.1598331148.git.joe@perches.com>
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9738
+ signatures=668679
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
+ malwarescore=0 phishscore=0
+ mlxlogscore=999 bulkscore=0 adultscore=0 mlxscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2006250000
+ definitions=main-2009090018
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9738
+ signatures=668679
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0
+ priorityscore=1501
+ phishscore=0 adultscore=0 bulkscore=0 clxscore=1011 mlxlogscore=999
+ malwarescore=0 suspectscore=0 lowpriorityscore=0 spamscore=0
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2006250000 definitions=main-2009090018
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (bircoph[at]gmail.com)
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.208.195 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ [141.146.126.78 listed in wl.mailspike.net]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.208.195 listed in list.dnswl.org]
-X-Headers-End: 1kEWZp-00DDzc-BT
+ 0.0 UNPARSEABLE_RELAY Informational: message has unparseable relay lines
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+X-Headers-End: 1kFqeH-0001Y4-D7
+X-Mailman-Approved-At: Wed, 09 Sep 2020 13:49:07 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,108 +127,96 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1667191393239906407=="
+Cc: devel@driverdev.osuosl.org, linux-s390@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-scsi@vger.kernel.org, "Martin K . Petersen" <martin.petersen@oracle.com>,
+ linux-doc@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-block@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-kselftest@vger.kernel.org,
+ linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
---===============1667191393239906407==
-Content-Type: multipart/signed; protocol="application/pgp-signature";
- micalg="PGP-SHA512";
- boundary="Signature=_Sat__5_Sep_2020_14_41_30_+0300_B.qpPPwu83bbA.32"
+On Mon, 24 Aug 2020 21:55:57 -0700, Joe Perches wrote:
 
---Signature=_Sat__5_Sep_2020_14_41_30_+0300_B.qpPPwu83bbA.32
-Content-Type: text/plain; charset=US-ASCII
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> There are many comma separated statements in the kernel.
+> See:https://lore.kernel.org/lkml/alpine.DEB.2.22.394.2008201856110.2524@hadrien/
+> 
+> Convert the comma separated statements that are in if/do/while blocks
+> to use braces and semicolons.
+> 
+> Many comma separated statements still exist but those are changes for
+> another day.
+> 
+> [...]
 
-When musl is used instead of glibc, oprofile build fails because it
-uses glibc-specific FTW extension: FTW_ACTIONRETVAL for custom
-__delete_old_previous_sample_data return codes and FTW_STOP,
-FTW_CONTINUE for such return codes. Musl supports only POSIX ftw, so
-build fails.
+Applied to 5.10/scsi-queue, thanks!
 
-However, this extension is not really needed by oprofile, because
-FTW_SKIP_* are not used and {FTW_STOP,FTW_CONTINUE} can be handled
-by standard return codes {1,0} (more precisely standard defines
-{!0,0}, but in glibc FTW_STOP =3D 1, so I keep this value).
+[01/29] coding-style.rst: Avoid comma statements
+        (no commit info)
+[02/29] alpha: Avoid comma separated statements
+        (no commit info)
+[03/29] ia64: Avoid comma separated statements
+        (no commit info)
+[04/29] sparc: Avoid comma separated statements
+        (no commit info)
+[05/29] ata: Avoid comma separated statements
+        (no commit info)
+[06/29] drbd: Avoid comma separated statements
+        (no commit info)
+[07/29] lp: Avoid comma separated statements
+        (no commit info)
+[08/29] dma-buf: Avoid comma separated statements
+        (no commit info)
+[09/29] drm/gma500: Avoid comma separated statements
+        (no commit info)
+[10/29] drm/i915: Avoid comma separated statements
+        (no commit info)
+[11/29] hwmon: (scmi-hwmon): Avoid comma separated statements
+        (no commit info)
+[12/29] Input: MT - Avoid comma separated statements
+        (no commit info)
+[13/29] bcache: Avoid comma separated statements
+        (no commit info)
+[14/29] media: Avoid comma separated statements
+        (no commit info)
+[15/29] mtd: Avoid comma separated statements
+        (no commit info)
+[16/29] 8390: Avoid comma separated statements
+        (no commit info)
+[17/29] fs_enet: Avoid comma separated statements
+        (no commit info)
+[18/29] wan: sbni: Avoid comma separated statements
+        (no commit info)
+[19/29] s390/tty3270: Avoid comma separated statements
+        (no commit info)
+[20/29] scsi: arm: Avoid comma separated statements
+        https://git.kernel.org/mkp/scsi/c/a08a07326510
+[21/29] media: atomisp: Avoid comma separated statements
+        (no commit info)
+[22/29] video: fbdev: Avoid comma separated statements
+        (no commit info)
+[23/29] fuse: Avoid comma separated statements
+        (no commit info)
+[24/29] reiserfs: Avoid comma separated statements
+        (no commit info)
+[25/29] lib/zlib: Avoid comma separated statements
+        (no commit info)
+[26/29] lib: zstd: Avoid comma separated statements
+        (no commit info)
+[27/29] ipv6: fib6: Avoid comma separated statements
+        (no commit info)
+[28/29] sunrpc: Avoid comma separated statements
+        (no commit info)
+[29/29] tools: Avoid comma separated statements
+        (no commit info)
 
-Signed-off-by: Andrew Savchenko <bircoph@gmail.com>
----
- pe_profiling/operf.cpp | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+-- 
+Martin K. Petersen	Oracle Linux Engineering
 
-diff --git a/pe_profiling/operf.cpp b/pe_profiling/operf.cpp
-index 06a0ea3c..1b882b7c 100644
---- a/pe_profiling/operf.cpp
-+++ b/pe_profiling/operf.cpp
-@@ -860,9 +860,9 @@ static int __delete_old_previous_sample_data(const char=
- *fpath,
- {
-    if (remove(fpath)) {
-        perror("sample data removal error");
--       return FTW_STOP;
-+       return 1;
-    } else {
--       return FTW_CONTINUE;
-+       return 0;
-    }
- }
-
-@@ -897,7 +897,7 @@ static void convert_sample_data(void)
-        return;
-
-    if (!operf_options::append) {
--                int flags =3D FTW_DEPTH | FTW_ACTIONRETVAL;
-+                int flags =3D FTW_DEPTH;
-        errno =3D 0;
-        if (nftw(previous_sampledir.c_str(), __delete_old_previous_sample_d=
-ata, 32, flags) !=3D0 &&
-                errno !=3D ENOENT) {
---
-2.24.0
-
-Best regards,
-Andrew Savchenko
-
---Signature=_Sat__5_Sep_2020_14_41_30_+0300_B.qpPPwu83bbA.32
-Content-Type: application/pgp-signature
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEE63ZIHsdeM+1XgNer9lNaM7oe5I0FAl9TeWoACgkQ9lNaM7oe
-5I2fMBAAs28Rjoz0irZwZI0AaNFJlp4BsTbzy8IfTOSzBSqeLDFfRLGEXS7hBrHP
-afIFbPx/e4yEAlVzd0gvgN42H1B8EIdmDnQ/WIGtSqSY3zKuVknNiBG4spDFdrRk
-hwKZ/3saLQEJQGbtETaUP2uAy40BoHxCVmxbe+0YRlONnm50iKYsmyxT/1QSb1JZ
-O+2CZ6tJ1KXjWqdSVPQc76es/M9AZX5O+dYRAeJs5SKWUeMiEKCGhC0Pvc0uKJR0
-RdBtww5zCzJ++xwd8IqWStps0OH0k1Qj8V2vO62rZayv6IVHPV+EPccYgSHCcZDy
-GqS2R2p9fPt6ojr+2PayOj8mIGdiSCcv2/JI4YtpDyqky/kJSm1MfCX9jQP5qzEV
-fQhODF8k8/ZHQ9ZvjNrbIN38JXTy3KdNLAYJKezJ/gcyic3YrsbVV5jh8Zli6bvt
-Q5XLuELsaSwzAs2Ehu0xJRhLbIofYeJ5qOG0axOWq7lBVd3l0XqZ8lCKt2p76rjy
-SFgyys5PdEuu5eNjmgBAYJDztVmdf/e5+A65M6H2e1RR9BUCHuatitiQzEpCVfwQ
-nj1GWbBupjEsVNbZ1qQgPyudB9F9PlOCyt104cl8JO2+8447PSBYtYIGdkMnZqa4
-G3IzfTpZ3PImRzxAF4fGHhE/HHZuVt7ahBB+LNTxcfglNERlsTY=
-=83jN
------END PGP SIGNATURE-----
-
---Signature=_Sat__5_Sep_2020_14_41_30_+0300_B.qpPPwu83bbA.32--
-
-
---===============1667191393239906407==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============1667191393239906407==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 oprofile-list mailing list
 oprofile-list@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/oprofile-list
-
---===============1667191393239906407==--
-
