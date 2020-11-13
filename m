@@ -2,26 +2,26 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9EF1B2B0DB9
-	for <lists+oprofile-list@lfdr.de>; Thu, 12 Nov 2020 20:18:21 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 42C2C2B247E
+	for <lists+oprofile-list@lfdr.de>; Fri, 13 Nov 2020 20:28:14 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1kdI6r-00012s-OH; Thu, 12 Nov 2020 19:18:17 +0000
+	id 1kdejy-0000zI-EK; Fri, 13 Nov 2020 19:28:10 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <skhan@linuxfoundation.org>) id 1kcaDT-0002zW-0i
- for oprofile-list@lists.sourceforge.net; Tue, 10 Nov 2020 20:26:11 +0000
+ (envelope-from <skhan@linuxfoundation.org>) id 1kdd9v-0003YQ-Qi
+ for oprofile-list@lists.sourceforge.net; Fri, 13 Nov 2020 17:46:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=LHM+swMuuT3POe4DU8IsoYr+nsKWsmE8YLJVMKZTyNE=; b=iO8xsVjmh7/pbezNyGzE+hSy3S
- KmzgR2e3W/CGkIor393ktOkt71hERP/Ah6rNNqRLW5h3dozXu7Qeq59rTl5C3jxaPX19vtDWn4On+
- FOR2t5dChoGXq+8biF+9z7IOO5mnlqhkSsTHv4okXo541UZt9gqondvwhtj0MYn9EOKI=;
+ bh=DkXFGk6I0ftq147+tviBntyoQUaQXSxzVtForeH2b2I=; b=Cp3I6wrJwLWCktysbqixjfiltf
+ fKi6zJ0H5s+cAnNBhQ2c/UyrRJgsDlgRK2ynKvmBn0xn6ULWklOiA/UAuNgc/51S4A9RPcuPhJ1+b
+ PC30ZVWzyq09nObY1pS7zaMzGZ5fvLs/LsO+e94x5EVWdzQlr+zBknUKH6BL7+TMGdOA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,75 +29,74 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=LHM+swMuuT3POe4DU8IsoYr+nsKWsmE8YLJVMKZTyNE=; b=PpxRPpUOjq7N7K3NvtTL982qcy
- 4vcvtX5jSbNhOa4ZazY5T+a0MHvirIaQo8lfMKbxWojOIH2r/7zxqUNnf0zydrKj75cHihmrGyTG8
- BHNLOo7ZuZRX77wKxUpymvzvrmcwzqA9gJKNLqUaKCfLlirYjkq/nnYLrhkSVkTfaknA=;
+ bh=DkXFGk6I0ftq147+tviBntyoQUaQXSxzVtForeH2b2I=; b=iFHI2fqROgVqtZ/OmA3VJF49l0
+ UN6bxdNIZdgtQuqVIieqU5LudjZwYNqfe0Mcu8JU7URkd2ol8aXJsT06mhR3cQVKX8KkDvqosDrDX
+ GMiBwCLwnUkpLU4Tg4HBvw/dFs30EempP59jNHgTEJd39pM9vA05xTVv+Wl1Svk+YzHs=;
 Received: from mail-il1-f196.google.com ([209.85.166.196])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kcaDF-00FwSI-6a
- for oprofile-list@lists.sourceforge.net; Tue, 10 Nov 2020 20:26:10 +0000
-Received: by mail-il1-f196.google.com with SMTP id a20so13425742ilk.13
- for <oprofile-list@lists.sf.net>; Tue, 10 Nov 2020 12:25:57 -0800 (PST)
+ id 1kdd9s-00AgAJ-0H
+ for oprofile-list@lists.sourceforge.net; Fri, 13 Nov 2020 17:46:51 +0000
+Received: by mail-il1-f196.google.com with SMTP id q1so9197487ilt.6
+ for <oprofile-list@lists.sf.net>; Fri, 13 Nov 2020 09:46:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=linuxfoundation.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=LHM+swMuuT3POe4DU8IsoYr+nsKWsmE8YLJVMKZTyNE=;
- b=FE1t0qzdZKFZscedBvi1KP1LfJXT7HMNpb0kjnU6tG767Rt/1lCx5Y5WWkme9t55Ph
- VhpfLlsc7LVTVBix8vmVuuPIb2Tn2pBMydcYeNBW/ptl49c0pacQre0QlUf8IhRWiAY0
- YTB8WOwRNFxKZXgYszI28/CmodyLBAVBVkN4M=
+ bh=DkXFGk6I0ftq147+tviBntyoQUaQXSxzVtForeH2b2I=;
+ b=V1eb2WQHPY0ZXpfWOadopbiNfS6oEGnzwvFXzKdyqtIjkiTUCWeai90oC3/G40IqjT
+ rWt3UoZyuBXzrADF2A6e/WZ201YMzY2Cm0EdXiveJCBHn2/BJJLses8QGTNhguWGemE1
+ ZR9W3T3n2qyOWtPivW3OrhLeRZCK1e1JdDaSc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=LHM+swMuuT3POe4DU8IsoYr+nsKWsmE8YLJVMKZTyNE=;
- b=I9qyLuYdxbkVJ/7whn+m2BnRRe7FZe62EeTpYW+Sn3MyUZWc/YFbLKe+FQOaG/6opU
- YKRdgHdooIaXQSkwSVMy21/ePyHJRYsXqkX2zlUF6H20hNs3jedi+oU3gZDKjszHQGG6
- cZMKD0RrTdAmbKC3Lw8awhUkLohhnubl+5P04VqOsNLsAFiEyEq0P4zI/mVSrrzq6UNV
- vdczndPRe/CE7RhoI3MS7MN1FA4krI7aQ7LTqV17OBEGTwqQ3YT1GWPAi8jWn3isZPTM
- TjCqVgW58TxQxyNuSeeEkTvTAxFiBkEiws1kOgR0sSP5+OguiPOBkbzsia9rTfRIrsu5
- ZGww==
-X-Gm-Message-State: AOAM530VMdKPKOBPyOVlwk+XgUEngud7/bLnGtkLdSv/jnxkNQcuOpjs
- B4YeZnGnlk3gM0jt53mr1K5x8TC+FLgJEw==
-X-Google-Smtp-Source: ABdhPJz7Yy8mu6bb8BQaG7xL88wT03W6rj1/5JQdszUNDt6VAC/aGg3OTpfKeW2RByYiAeo35//8eQ==
-X-Received: by 2002:a92:c5ce:: with SMTP id s14mr15974587ilt.40.1605038084864; 
- Tue, 10 Nov 2020 11:54:44 -0800 (PST)
+ bh=DkXFGk6I0ftq147+tviBntyoQUaQXSxzVtForeH2b2I=;
+ b=GBW6YvgSbsMdyXwpJ/QmHS0PlOFiQTAaPaLt07/v5dg9WfIsF5TaQd8iwI2iwWaG9A
+ wnSyyOcss7LnyQ0zVo5x4ZfCufFDdOYARmVL1lODsiwC9msaFOgDI3qhECcex0mvMyUQ
+ x9YI5okKy1jqSsdFfL8p9vISjdbIpb0bOdJ2IEakQxfPlHe26IbCgwFUKibZVmQPIpzi
+ azwOzAsXgqFr9HI8hneYjY34/ykZomdhi0BQG8+/OhywAFrljABHW2BVhmzGuZGS5Ort
+ eNQuVFCx31h6saZAM7AztYARFc9o8TUEIlrMm++hN42kBMmGu3gI1DrEiAkl8uIvtq0N
+ S1hQ==
+X-Gm-Message-State: AOAM5336/nbNN2j9Np+cZBQUpBMdL+I50zSkpMA42GLfGUZM7VrU3Nka
+ m38ID0KVbBQhv2v3n1RincSWNDj63RxEGQ==
+X-Google-Smtp-Source: ABdhPJyvkWLA330BLwQL4aUJ5TeGKR0MUiiIa2fekfvHAE/e+cmZWZrmniX+7CK8UkVVHgTJQinoTw==
+X-Received: by 2002:a92:1f19:: with SMTP id i25mr769862ile.198.1605289602222; 
+ Fri, 13 Nov 2020 09:46:42 -0800 (PST)
 Received: from shuah-t480s.internal (c-24-9-64-241.hsd1.co.comcast.net.
  [24.9.64.241])
- by smtp.gmail.com with ESMTPSA id o14sm123971ilg.71.2020.11.10.11.54.44
+ by smtp.gmail.com with ESMTPSA id y14sm4772585ilb.66.2020.11.13.09.46.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 10 Nov 2020 11:54:44 -0800 (PST)
+ Fri, 13 Nov 2020 09:46:41 -0800 (PST)
 From: Shuah Khan <skhan@linuxfoundation.org>
 To: rric@kernel.org, gregkh@linuxfoundation.org, keescook@chromium.org,
  peterz@infradead.org
-Subject: [PATCH 08/13] drivers/oprofile: convert stats to use seqnum_ops
-Date: Tue, 10 Nov 2020 12:53:34 -0700
-Message-Id: <908cbac7285d11fd494e64b71c5e54e6b1b1c564.1605027593.git.skhan@linuxfoundation.org>
+Subject: [PATCH v2 08/13] drivers/oprofile: convert stats to use seqnum_ops
+Date: Fri, 13 Nov 2020 10:46:10 -0700
+Message-Id: <648c2fabd395ae22e29cde4b2f8a7716952d28b4.1605287778.git.skhan@linuxfoundation.org>
 X-Mailer: git-send-email 2.27.0
-In-Reply-To: <cover.1605027593.git.skhan@linuxfoundation.org>
-References: <cover.1605027593.git.skhan@linuxfoundation.org>
+In-Reply-To: <cover.1605287778.git.skhan@linuxfoundation.org>
+References: <cover.1605287778.git.skhan@linuxfoundation.org>
 MIME-Version: 1.0
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.166.196 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: linuxfoundation.org]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.166.196 listed in list.dnswl.org]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
  [209.85.166.196 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1kcaDF-00FwSI-6a
-X-Mailman-Approved-At: Thu, 12 Nov 2020 19:18:15 +0000
+X-Headers-End: 1kdd9s-00AgAJ-0H
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -116,18 +115,11 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-seqnum_ops api is introduced to be used when a variable is used as
-a sequence/stat counter and doesn't guard object lifetimes. This
-clearly differentiates atomic_t usages that guard object lifetimes.
+Sequence Number api provides interfaces for unsigned atomic up counters
+leveraging atomic_t and atomic64_t ops underneath.
 
-seqnum32 variables wrap around to INT_MIN when it overflows and
-should not be used to guard resource lifetimes, device usage and
-open counts that control state changes, and pm states.
-
-atomic_t variables used for stats are atomic counters. Overflow will
-wrap around and reset the stats and no change with the conversion.
-
-Convert them to use seqnum_ops.
+atomic_t variables used for stats are atomic counters. Convert them
+to use seqnum_ops.
 
 Signed-off-by: Shuah Khan <skhan@linuxfoundation.org>
 ---
@@ -141,7 +133,7 @@ Signed-off-by: Shuah Khan <skhan@linuxfoundation.org>
  7 files changed, 25 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/oprofile/buffer_sync.c b/drivers/oprofile/buffer_sync.c
-index cc917865f13a..0503d467429b 100644
+index cc917865f13a..5c10b7d5d076 100644
 --- a/drivers/oprofile/buffer_sync.c
 +++ b/drivers/oprofile/buffer_sync.c
 @@ -34,6 +34,7 @@
@@ -157,7 +149,7 @@ index cc917865f13a..0503d467429b 100644
  			offset = pc;
  		if (cookie == INVALID_COOKIE) {
 -			atomic_inc(&oprofile_stats.sample_lost_no_mapping);
-+			seqnum32_inc(&oprofile_stats.sample_lost_no_mapping);
++			seqnum32_inc_return(&oprofile_stats.sample_lost_no_mapping);
  			offset = pc;
  		}
  		if (cookie != last_cookie) {
@@ -166,7 +158,7 @@ index cc917865f13a..0503d467429b 100644
  
  	if (!mm) {
 -		atomic_inc(&oprofile_stats.sample_lost_no_mm);
-+		seqnum32_inc(&oprofile_stats.sample_lost_no_mm);
++		seqnum32_inc_return(&oprofile_stats.sample_lost_no_mm);
  		return 0;
  	}
  
@@ -174,7 +166,7 @@ index cc917865f13a..0503d467429b 100644
  
  	if (cookie == INVALID_COOKIE) {
 -		atomic_inc(&oprofile_stats.sample_lost_no_mapping);
-+		seqnum32_inc(&oprofile_stats.sample_lost_no_mapping);
++		seqnum32_inc_return(&oprofile_stats.sample_lost_no_mapping);
  		return 0;
  	}
  
@@ -183,12 +175,12 @@ index cc917865f13a..0503d467429b 100644
  		if (state == sb_bt_start) {
  			state = sb_bt_ignore;
 -			atomic_inc(&oprofile_stats.bt_lost_no_mapping);
-+			seqnum32_inc(&oprofile_stats.bt_lost_no_mapping);
++			seqnum32_inc_return(&oprofile_stats.bt_lost_no_mapping);
  		}
  	}
  	release_mm(mm);
 diff --git a/drivers/oprofile/event_buffer.c b/drivers/oprofile/event_buffer.c
-index 6c9edc8bbc95..6ec2f1ed8d94 100644
+index 6c9edc8bbc95..2e2ff87b2a5d 100644
 --- a/drivers/oprofile/event_buffer.c
 +++ b/drivers/oprofile/event_buffer.c
 @@ -19,6 +19,7 @@
@@ -204,12 +196,12 @@ index 6c9edc8bbc95..6ec2f1ed8d94 100644
  
  	if (buffer_pos == buffer_size) {
 -		atomic_inc(&oprofile_stats.event_lost_overflow);
-+		seqnum32_inc(&oprofile_stats.event_lost_overflow);
++		seqnum32_inc_return(&oprofile_stats.event_lost_overflow);
  		return;
  	}
  
 diff --git a/drivers/oprofile/oprof.c b/drivers/oprofile/oprof.c
-index ed2c3ec07024..f3183ef0f607 100644
+index ed2c3ec07024..0f65235fb760 100644
 --- a/drivers/oprofile/oprof.c
 +++ b/drivers/oprofile/oprof.c
 @@ -15,6 +15,7 @@
@@ -225,12 +217,12 @@ index ed2c3ec07024..f3183ef0f607 100644
  		return;
  
 -	atomic_inc(&oprofile_stats.multiplex_counter);
-+	seqnum32_inc(&oprofile_stats.multiplex_counter);
++	seqnum32_inc_return(&oprofile_stats.multiplex_counter);
  	start_switch_worker();
  }
  
 diff --git a/drivers/oprofile/oprofile_stats.c b/drivers/oprofile/oprofile_stats.c
-index 59659cea4582..04e9b2a0d35a 100644
+index 59659cea4582..5ad52a4ba5a2 100644
 --- a/drivers/oprofile/oprofile_stats.c
 +++ b/drivers/oprofile/oprofile_stats.c
 @@ -11,6 +11,7 @@
@@ -250,11 +242,11 @@ index 59659cea4582..04e9b2a0d35a 100644
 -	atomic_set(&oprofile_stats.event_lost_overflow, 0);
 -	atomic_set(&oprofile_stats.bt_lost_no_mapping, 0);
 -	atomic_set(&oprofile_stats.multiplex_counter, 0);
-+	seqnum32_set(&oprofile_stats.sample_lost_no_mm, 0);
-+	seqnum32_set(&oprofile_stats.sample_lost_no_mapping, 0);
-+	seqnum32_set(&oprofile_stats.event_lost_overflow, 0);
-+	seqnum32_set(&oprofile_stats.bt_lost_no_mapping, 0);
-+	seqnum32_set(&oprofile_stats.multiplex_counter, 0);
++	seqnum32_init(&oprofile_stats.sample_lost_no_mm);
++	seqnum32_init(&oprofile_stats.sample_lost_no_mapping);
++	seqnum32_init(&oprofile_stats.event_lost_overflow);
++	seqnum32_init(&oprofile_stats.bt_lost_no_mapping);
++	seqnum32_init(&oprofile_stats.multiplex_counter);
  }
  
  
