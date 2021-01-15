@@ -2,108 +2,78 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CAFD92F780B
+	by mail.lfdr.de (Postfix) with ESMTPS id 821E92F7809
 	for <lists+oprofile-list@lfdr.de>; Fri, 15 Jan 2021 12:54:38 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1l0NgZ-0001H3-O8; Fri, 15 Jan 2021 11:54:35 +0000
+	id 1l0NgZ-0001HE-QF; Fri, 15 Jan 2021 11:54:35 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <viresh.kumar@linaro.org>) id 1l0GUp-0005oa-Ct
- for oprofile-list@lists.sourceforge.net; Fri, 15 Jan 2021 04:13:59 +0000
+ (envelope-from <arnd@kernel.org>) id 1l0LRN-0002t4-LH
+ for oprofile-list@lists.sourceforge.net; Fri, 15 Jan 2021 09:30:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
+ In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gH2batcV0mbxPrXXyk1QXVRqwhKgMABpN1EolWS8Bvc=; b=Bfhnmn+avOQuImVTzd+wzt0qnA
- UTzG7kcRb0UucnoJ5j26U+KNFHTjKU1vWr30Pk5YzsOOQhGxYtlMePjBhgnQheWQ1+JMMEwPNXYQ2
- 8qM7pykhEa9zUgojwXp7KtIHshWdppUQCXYk6ST5OBqPVOBnwF/oEejNrCMUT2Vy1BWg=;
+ bh=DTdsEKUIKdwSSvqTlfFkuN1aVDKpP8n999safElQxi8=; b=P2UtTAx+yz7Tqo8MB2BTFbqIa5
+ Cragd7banKFGrXLcSD9ag9JZr4sitb1JCLw3WQSuxvGH/lMb991JUQITannsgJAqFql8zJ+gT6bjs
+ YfGGO5YTQQHe8nWURrbL8bjUPp1e1vFXz4P5ncD73IJGeBuyAhFh0BpQBJ5TEUFqq3HQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=gH2batcV0mbxPrXXyk1QXVRqwhKgMABpN1EolWS8Bvc=; b=Ues5cg0s63EIssIEBCfKTV5lR3
- GFcSVYpYkwZyypgiYItK/wBoEM3hT4mdFMiBIWib/mq8Ra9v2ih/3LfggiD8oIoiwwGQ4YZDfA14t
- FHl8s07PLe1H7Y1pOl3JcTJuw4Xp1omgIX9K1MjDwR5y8t2jqYds3OZFj5Jb/ZqQd8kY=;
-Received: from mail-pg1-f181.google.com ([209.85.215.181])
+ bh=DTdsEKUIKdwSSvqTlfFkuN1aVDKpP8n999safElQxi8=; b=Dhjd5DvLUB2uS4fL0xpxyLWIMN
+ 2tf7AUQSlPGHfZkQ3JNy6zQa96jYHdGSa1CMPU7LexPWnncfP4ituOUQfBMG8kUM/fvD8zud2EgMs
+ Gr5AJ4pTWmxcpYPPn6FSZ+AC7GzRHH7s0Ok+D+p/7R8S0bSk4L4YXygEUGRRzV+ZVmBc=;
+Received: from mail.kernel.org ([198.145.29.99])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1l0GUg-00DQER-TP
- for oprofile-list@lists.sourceforge.net; Fri, 15 Jan 2021 04:13:59 +0000
-Received: by mail-pg1-f181.google.com with SMTP id i5so5216199pgo.1
- for <oprofile-list@lists.sf.net>; Thu, 14 Jan 2021 20:13:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=gH2batcV0mbxPrXXyk1QXVRqwhKgMABpN1EolWS8Bvc=;
- b=Bt/YsLESU8pfLIriLUvINiSIxA3QNvd+U9KAshB6U0dfPrVvGAvL//YTnEF+Ixgpvp
- w8DRk5DW3Gkh/SUcONIZT5OHQNetp8sB3mwDav5gubUsZASegMzsqV9gMEz6iE0VyCBM
- bK9QmLRuXWg6Ftxn2kKEPNQvY/cEEHKIL8QLtLoGzgnY1WvyICKl089KnK4g+H6/GMca
- b+2F3O1Bdqs7QKHowOCVn/74iuY1Ai7O6T3/XE54mUYxWlpf4a7FW44i/Xgu5SianPaR
- Qk6blTIbE+3FiRf0ZEP4EFCgGyTGHz2UJ88HpycthfuZG9V9IYI94FRh8R/x4JVyl0t/
- Duwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=gH2batcV0mbxPrXXyk1QXVRqwhKgMABpN1EolWS8Bvc=;
- b=RLOrPWUJHdMdUZpCovLqZYGs1c5KzToCVekQAyEJkTokqLT3Kqk7SG17Cb7/WhO0kv
- jlJgnJ2mHcofadegWqx27EbjykX7HuxjXa1MMBnTj+l9VlqukviWMQ0Rm+VeVI2Fc+1D
- Pjqc8b89635BtruBF2D9vk9rpxp57SzoHNiXh86erjRmAviSGNaFhJfgS3TSjY4mGyn6
- TVTYI39GsSMT4jH4x3krr4AmcsH8BTALP6UWdXv17i1wUcLTrpO3ms9IJndWcSj2pd5V
- 68loAHs86GNdNlKt4rB5cArM8+ULZGq6m7D1+k9W0v0my3oU4YbjZuM7BiuDBD3h3pto
- 60Ww==
-X-Gm-Message-State: AOAM530er/UYNea6kQog1jesdXIepBEO7Lx4MaroZi1zMQQdSw7gg8qC
- cijq9y6WlV7hjrCx0eHZ0jvlbw==
-X-Google-Smtp-Source: ABdhPJwX0pFecGXVi1Au2YvUiw+L9apCFfI5NeA4oARA1MEI+sWpcWBR/4GceFi9XopPlCq/8ITOTA==
-X-Received: by 2002:a65:67cf:: with SMTP id b15mr10658149pgs.429.1610684025317; 
- Thu, 14 Jan 2021 20:13:45 -0800 (PST)
-Received: from localhost ([122.172.85.111])
- by smtp.gmail.com with ESMTPSA id bk18sm2943602pjb.41.2021.01.14.20.13.43
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Thu, 14 Jan 2021 20:13:44 -0800 (PST)
-Date: Fri, 15 Jan 2021 09:43:42 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>,
- Robert Richter <rric@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Arnd Bergmann <arnd@arndb.de>,
- Jeremy Kerr <jk@ozlabs.org>
-Subject: Re: [PATCH 10/18] arch: powerpc: Stop building and using oprofile
-Message-ID: <20210115041342.fqmdyply3ivygxgr@vireshk-i7>
-References: <cover.1610622251.git.viresh.kumar@linaro.org>
- <fd155a0a1e52650ddc9ec57a1d211fdc777beddb.1610622251.git.viresh.kumar@linaro.org>
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1l0LR7-00FS8b-KK
+ for oprofile-list@lists.sourceforge.net; Fri, 15 Jan 2021 09:30:45 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0A1DB235F9
+ for <oprofile-list@lists.sf.net>; Fri, 15 Jan 2021 09:30:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1610703024;
+ bh=Gv0+kce4RwtfxloG/VL7iEWHcnLJgSyUfACuyonNtiQ=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=ghH9H9T/NXEvetM29h2oYzp63ybSiVpFL9N0slPftXHuK3yb+jVClGTMLQ9JjaWKG
+ CN9IRUjj4J7fMUwbfU5vHpnxPul6APcwscg7HT83yT1AH3MNI+r99UdI1LsLaWBK4T
+ l5P5NNdd1MB2UHv9Tnba9Nqt4CavYcC2HlBhrfY+ilMbsiR8Y4AI8hpn94wNn59PHk
+ 1Oi5Hy5F5OFWQPVIuWDbyiFFANVl46VmjVDLxjlrTeN7l6RgGgHxzIq51QrAqW/dys
+ ATE6Bcw6lYDmF2WidsKqydKPZVPtHNEiWax4y8Uq4ngv/ImUXnoWuLkxGp/hVwxtNU
+ guKLfVCgYHfww==
+Received: by mail-ot1-f49.google.com with SMTP id b24so7983854otj.0
+ for <oprofile-list@lists.sf.net>; Fri, 15 Jan 2021 01:30:24 -0800 (PST)
+X-Gm-Message-State: AOAM532lyTZ1dEgfo5FdCv01oQfSfpwfITqIzjAVk/I1VsN22yR4RVnk
+ fqRT2+tNaMu0xlZEY2qYMOqVlQ3ty/9F5yarYG0=
+X-Google-Smtp-Source: ABdhPJxfftO34B0HFRxvMcM9LjxgcMf6WlA4rYrLkByIW2ER0QtSvXoiuEuU3yGfEPiyugQNS780lAhvmSdlQruCoiQ=
+X-Received: by 2002:a05:6830:2413:: with SMTP id
+ j19mr7910715ots.251.1610703023260; 
+ Fri, 15 Jan 2021 01:30:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <fd155a0a1e52650ddc9ec57a1d211fdc777beddb.1610622251.git.viresh.kumar@linaro.org>
-User-Agent: NeoMutt/20180716-391-311a52
-X-Spam-Score: -0.1 (/)
+References: <cover.1610622251.git.viresh.kumar@linaro.org>
+ <CAHk-=whaPiPCM6erqqe5Q-Ugn7u-jY6w7iA-kEBBc8aB40sBoA@mail.gmail.com>
+ <CAK8P3a35Lz6O3oBr8AO6=s1xsTtEUpvnW3pgyGaED_dX3x7nNw@mail.gmail.com>
+ <20210115034554.ksa4oxmpox2xehbt@vireshk-i7>
+In-Reply-To: <20210115034554.ksa4oxmpox2xehbt@vireshk-i7>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Fri, 15 Jan 2021 10:30:07 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a2sbC1wnS20L0DsYz6s4-bgStuG8+Z53xrqLXBwYfTdSQ@mail.gmail.com>
+Message-ID: <CAK8P3a2sbC1wnS20L0DsYz6s4-bgStuG8+Z53xrqLXBwYfTdSQ@mail.gmail.com>
+Subject: Re: [PATCH 00/18] drivers: Remove oprofile and dcookies
+To: Viresh Kumar <viresh.kumar@linaro.org>
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.215.181 listed in list.dnswl.org]
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: linux-foundation.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.215.181 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1l0GUg-00DQER-TP
+ 0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
+X-Headers-End: 1l0LR7-00FS8b-KK
 X-Mailman-Approved-At: Fri, 15 Jan 2021 11:53:41 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -117,59 +87,41 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: Arnd Bergmann <arnd@kernel.org>,
+Cc: Robert Richter <rric@kernel.org>, Anmar Oueja <anmar.oueja@linaro.org>,
+ oprofile-list@lists.sf.net, Alexander Viro <viro@zeniv.linux.org.uk>,
  Vincent Guittot <vincent.guittot@linaro.org>,
- Christoph Hellwig <hch@infradead.org>, linux-kernel@vger.kernel.org,
- anmar.oueja@linaro.org, oprofile-list@lists.sf.net,
- Alexander Viro <viro@zeniv.linux.org.uk>, William Cohen <wcohen@redhat.com>,
- linuxppc-dev@lists.ozlabs.org
+ William Cohen <wcohen@redhat.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On 14-01-21, 17:05, Viresh Kumar wrote:
-> The "oprofile" user-space tools don't use the kernel OPROFILE support
-> any more, and haven't in a long time. User-space has been converted to
-> the perf interfaces.
-> 
-> This commits stops building oprofile for powerpc and removes any
-> reference to it from directories in arch/powerpc/ apart from
-> arch/powerpc/oprofile, which will be removed in the next commit (this is
-> broken into two commits as the size of the commit became very big, ~5k
-> lines).
-> 
-> Note that the member "oprofile_cpu_type" in "struct cpu_spec" isn't
-> removed as it was also used by other parts of the code.
-> 
-> Suggested-by: Christoph Hellwig <hch@infradead.org>
-> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
-> Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+On Fri, Jan 15, 2021 at 4:45 AM Viresh Kumar <viresh.kumar@linaro.org> wrote:
+>
+> On 14-01-21, 20:18, Arnd Bergmann wrote:
+> > On Thu, Jan 14, 2021 at 6:51 PM Linus Torvalds
+> > <torvalds@linux-foundation.org> wrote:
+> > >
+> > > On Thu, Jan 14, 2021 at 3:34 AM Viresh Kumar <viresh.kumar@linaro.org> wrote:
+> > > >
+> > > > This is build/boot tested by kernel test robot (Intel) and Linaro's
+> > > > Tuxmake[2] for a lot of architectures and no failures were reported.
+> > >
+> > > Can you make sure this is in linux-next, and we'll get this in for 5.12?
+> >
+> > Hi Viresh,
+> >
+> > I can add it to the asm-generic tree for linux-next if you send me a
+> > pull request.
+>
+> I may need to update the patches a few times in the coming days and so
+> I was thinking it may be better if I ask Stephen to include a branch
+> from my tree directly instead. Will that be fine Arnd ?
 
-+ this to fix a warning:
+Yes, of course. I assume you will also send the pull request during
+the merge window in that case.
 
-diff --git a/arch/powerpc/platforms/cell/spufs/run.c b/arch/powerpc/platforms/cell/spufs/run.c
-index 466006918003..ce52b87496d2 100644
---- a/arch/powerpc/platforms/cell/spufs/run.c
-+++ b/arch/powerpc/platforms/cell/spufs/run.c
-@@ -353,7 +353,6 @@ static int spu_process_callback(struct spu_context *ctx)
- long spufs_run_spu(struct spu_context *ctx, u32 *npc, u32 *event)
- {
-        int ret;
--       struct spu *spu;
-        u32 status;
- 
-        if (mutex_lock_interruptible(&ctx->run_mutex))
-@@ -386,7 +385,6 @@ long spufs_run_spu(struct spu_context *ctx, u32 *npc, u32 *event)
-                        mutex_lock(&ctx->state_mutex);
-                        break;
-                }
--               spu = ctx->spu;
-                if (unlikely(test_and_clear_bit(SPU_SCHED_NOTIFY_ACTIVE,
-                                                &ctx->sched_flags))) {
-                        if (!(status & SPU_STATUS_STOPPED_BY_STOP))
-
--- 
-viresh
+      Arnd
 
 
 _______________________________________________
