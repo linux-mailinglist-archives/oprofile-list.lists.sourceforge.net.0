@@ -2,99 +2,112 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1A0302F802F
-	for <lists+oprofile-list@lfdr.de>; Fri, 15 Jan 2021 17:00:58 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id C89162F8881
+	for <lists+oprofile-list@lfdr.de>; Fri, 15 Jan 2021 23:36:50 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1l0RWw-00009b-Ia; Fri, 15 Jan 2021 16:00:54 +0000
+	id 1l0Xi3-0002vf-32; Fri, 15 Jan 2021 22:36:47 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <wcohen@redhat.com>) id 1l0RWp-00009C-Fy
- for oprofile-list@lists.sourceforge.net; Fri, 15 Jan 2021 16:00:47 +0000
+ (envelope-from
+ <bounce+9e4869.be9e4a-oprofile-list=lists.sf.net@mg.codeaurora.org>)
+ id 1l0RTc-0005PK-3u
+ for oprofile-list@lists.sourceforge.net; Fri, 15 Jan 2021 15:57:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Message-ID:Date:Subject:In-Reply-To:References:Cc:To:From:Reply-To:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=HUKZWLTTSl2Yn8XOp/LDxkSHznbyRPG2DpGK5co76Kk=; b=DoEukHe/Y2BqWBVPemnbczWTrA
- sR+HQbjEmWQCzd65feH5qfWfD+0jXm48Wo3qY4m9sC75R7GgbN4F+Dmi8IsHiO3hOeIB+8CiBlvDj
- vXXFjdpEfr4yd54vhJkv4d0M5WSbN+QqeCWWWoRElHIFOjqJz8bxQp4Ec9ybCpc6QCu4=;
+ bh=q0/ru+LfZr7L2kRVGdNGG4rvKSg/SVssCMScCzWIjSY=; b=Ewn6AZZ5SbZCCVc4vui4J0YrN0
+ 9CJtzwVD724QdtWMxxxveImayJo7E0IZodHhyGVQNWFEZqSyNQkqxnSgLet4+a4fCaYr9QJbHUGDa
+ jXRamWpK8OT/ZgeKQ5jnUWubJ87Q1JYLQVibZ47GSzBoFRLgHKrnZpfE87vPAahynAN0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
+ Subject:In-Reply-To:References:Cc:To:From:Reply-To:Sender:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=HUKZWLTTSl2Yn8XOp/LDxkSHznbyRPG2DpGK5co76Kk=; b=ZP+eLWvglczRRNcTLUA40nnN30
- zNXD6sidwMeWOmkeGsWj6+439Id6Kxn5QTwlyHjLU1Rjn4MgSsIeD5PNQ5H9I5MqdnuP0LKWgVSqg
- GQ9irMaSpI05XL8dkLXKnUW3Ls0pSUa8zKIdKUOLA+ClTKFKt4lEwZ9PuSqW3Hu4wV2I=;
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-SHA384:256) (Exim 4.92.2)
- id 1l0RWj-00G8GD-Ig
- for oprofile-list@lists.sourceforge.net; Fri, 15 Jan 2021 16:00:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1610726428;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=HUKZWLTTSl2Yn8XOp/LDxkSHznbyRPG2DpGK5co76Kk=;
- b=Q9H6GD1VmfKN3bgYJd/EY9tN6Zcbh+xpWdW/QE5yz1a2i3TREOtVMr52tQI9DcLkzTIyB+
- ltRPW7wh9q3SLR7VS9Zem+WJsesRfjR9R8R4nCie2VKhG4KEDPBhFeFTMapw7/7bwF3bWm
- XowQHHh11BONZHMD9FujN/7B8YwhUbQ=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-217-ImxyA3izMi6-MMh599JmYA-1; Fri, 15 Jan 2021 10:44:31 -0500
-X-MC-Unique: ImxyA3izMi6-MMh599JmYA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D06498144E1;
- Fri, 15 Jan 2021 15:44:29 +0000 (UTC)
-Received: from [10.10.114.127] (ovpn-114-127.rdu2.redhat.com [10.10.114.127])
- by smtp.corp.redhat.com (Postfix) with ESMTP id B3CA65D756;
- Fri, 15 Jan 2021 15:44:28 +0000 (UTC)
-Subject: Re: [PATCH 00/18] drivers: Remove oprofile and dcookies
-To: Robert Richter <rric@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Viresh Kumar <viresh.kumar@linaro.org>
+ bh=q0/ru+LfZr7L2kRVGdNGG4rvKSg/SVssCMScCzWIjSY=; b=SHKhmLz3JGlbA36OObYIJmi7Ha
+ vjo/V4dYa/vaLD2iprV3yl+YnWm6IEVOjKY29WiR22L2QqcGlZVvGC2xEyIgBRzRXzSCl3oxxj3+5
+ QfjZ8AbzSOahX66hPUXHxnQBB/4bCHM9ceKdJjvuU1jdsBYvKU8wfv1SQW5jyZFWZGHc=;
+Received: from m43-15.mailgun.net ([69.72.43.15])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1l0RTO-0055Wr-7K
+ for oprofile-list@lists.sourceforge.net; Fri, 15 Jan 2021 15:57:28 +0000
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mg.codeaurora.org;
+ q=dns/txt; 
+ s=smtp; t=1610726235; h=Content-Transfer-Encoding: Content-Type:
+ MIME-Version: Message-ID: Date: Subject: In-Reply-To: References: Cc:
+ To: From: Reply-To: Sender;
+ bh=q0/ru+LfZr7L2kRVGdNGG4rvKSg/SVssCMScCzWIjSY=;
+ b=xkUFt8+iAtKgjD5A+I7goDKczqBghuLPIjgwzbOPgEVDJSxoulZble4aa6LOT5tjIbT3AT2a
+ NWbNbdJoubq0b17sRrKWoX6vUWjaQTNH0BOocIhX3u860HuHFLySuujvpW+NXRmmqkgyP3vm
+ PPcKfiqUewRdjKllVyxrnnGAwaY=
+X-Mailgun-Sending-Ip: 69.72.43.15
+X-Mailgun-Sid: WyI4MTQ5ZCIsICJvcHJvZmlsZS1saXN0QGxpc3RzLnNmLm5ldCIsICJiZTllNGEiXQ==
+Received: from smtp.codeaurora.org
+ (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
+ smtp-out-n05.prod.us-east-1.postgun.com with SMTP id
+ 6001b52402b2f1cb1a5dc977 (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Fri, 15 Jan 2021 15:30:44
+ GMT
+Received: by smtp.codeaurora.org (Postfix, from userid 1001)
+ id 24958C433ED; Fri, 15 Jan 2021 15:30:44 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+ aws-us-west-2-caf-mail-1.web.codeaurora.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.9 required=2.0 tests=ALL_TRUSTED, BAYES_00,
+ SPF_FAIL, 
+ URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+Received: from BCAIN (104-54-226-75.lightspeed.austtx.sbcglobal.net
+ [104.54.226.75])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested) (Authenticated sender: bcain)
+ by smtp.codeaurora.org (Postfix) with ESMTPSA id 5B562C433C6;
+ Fri, 15 Jan 2021 15:30:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 5B562C433C6
+Authentication-Results: aws-us-west-2-caf-mail-1.web.codeaurora.org;
+ dmarc=none (p=none dis=none) header.from=codeaurora.org
+Authentication-Results: aws-us-west-2-caf-mail-1.web.codeaurora.org;
+ spf=fail smtp.mailfrom=bcain@codeaurora.org
+From: "Brian Cain" <bcain@codeaurora.org>
+To: "'Viresh Kumar'" <viresh.kumar@linaro.org>,
+ "'Linus Torvalds'" <torvalds@linux-foundation.org>,
+ "'Robert Richter'" <rric@kernel.org>
 References: <cover.1610622251.git.viresh.kumar@linaro.org>
- <YAC8sf6v8+QAXHD3@rric.localdomain>
-From: William Cohen <wcohen@redhat.com>
-Message-ID: <927ed742-914c-bbc2-d397-dabaaa6643e7@redhat.com>
-Date: Fri, 15 Jan 2021 10:44:28 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.6.0
+ <041ab89e12a71c1bf40d08926c3914c68af1504c.1610622251.git.viresh.kumar@linaro.org>
+In-Reply-To: <041ab89e12a71c1bf40d08926c3914c68af1504c.1610622251.git.viresh.kumar@linaro.org>
+Subject: RE: [PATCH 04/18] arch: hexagon: Don't select HAVE_OPROFILE
+Date: Fri, 15 Jan 2021 09:30:41 -0600
+Message-ID: <003a01d6eb53$63313330$29939990$@codeaurora.org>
 MIME-Version: 1.0
-In-Reply-To: <YAC8sf6v8+QAXHD3@rric.localdomain>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Spam-Score: -0.3 (/)
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQED93X9Awx87JGfByaHSF5A6x5muQJxd0TPq7sr7rA=
+Content-Language: en-us
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: lwn.net]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [216.205.24.124 listed in wl.mailspike.net]
+ for more information. [URIs: linaro.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [69.72.43.15 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
+ [69.72.43.15 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 NICE_REPLY_A           Looks like a legit reply (A)
- -0.2 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1l0RWj-00G8GD-Ig
+X-Headers-End: 1l0RTO-0055Wr-7K
+X-Mailman-Approved-At: Fri, 15 Jan 2021 22:36:45 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,88 +120,52 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: Arnd Bergmann <arnd@kernel.org>,
- Vincent Guittot <vincent.guittot@linaro.org>, linux-kernel@vger.kernel.org,
- anmar.oueja@linaro.org, oprofile-list@lists.sf.net,
- Alexander Viro <viro@zeniv.linux.org.uk>
+Reply-To: bcain@codeaurora.org
+Cc: 'Arnd Bergmann' <arnd@kernel.org>,
+ 'Vincent Guittot' <vincent.guittot@linaro.org>,
+ 'Christoph Hellwig' <hch@infradead.org>, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, anmar.oueja@linaro.org,
+ oprofile-list@lists.sf.net, 'Alexander Viro' <viro@zeniv.linux.org.uk>,
+ 'William Cohen' <wcohen@redhat.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On 1/14/21 4:50 PM, Robert Richter wrote:
-> On 14.01.21 17:04:24, Viresh Kumar wrote:
->> Hello,
->>
->> The "oprofile" user-space tools don't use the kernel OPROFILE support
->> any more, and haven't in a long time. User-space has been converted to
->> the perf interfaces.
->>
->> Remove oprofile and dcookies (whose only user is oprofile) support from
->> the kernel.
->>
->> This was suggested here [1] earlier.
->>
->> This is build/boot tested by kernel test robot (Intel) and Linaro's
->> Tuxmake[2] for a lot of architectures and no failures were reported.
->>
->> --
->> Viresh
->>
->> [1] https://lore.kernel.org/lkml/CAHk-=whw9t3ZtV8iA2SJWYQS1VOJuS14P_qhj3v5-9PCBmGQww@mail.gmail.com/
->> [2] https://lwn.net/Articles/841624/
->>
->> Viresh Kumar (18):
->>   arch: alpha: Remove CONFIG_OPROFILE support
->>   arch: arm: Remove CONFIG_OPROFILE support
->>   arch: arc: Remove CONFIG_OPROFILE support
->>   arch: hexagon: Don't select HAVE_OPROFILE
->>   arch: ia64: Remove CONFIG_OPROFILE support
->>   arch: ia64: Remove rest of perfmon support
->>   arch: microblaze: Remove CONFIG_OPROFILE support
->>   arch: mips: Remove CONFIG_OPROFILE support
->>   arch: parisc: Remove CONFIG_OPROFILE support
->>   arch: powerpc: Stop building and using oprofile
->>   arch: powerpc: Remove oprofile
->>   arch: s390: Remove CONFIG_OPROFILE support
->>   arch: sh: Remove CONFIG_OPROFILE support
->>   arch: sparc: Remove CONFIG_OPROFILE support
->>   arch: x86: Remove CONFIG_OPROFILE support
->>   arch: xtensa: Remove CONFIG_OPROFILE support
->>   drivers: Remove CONFIG_OPROFILE support
->>   fs: Remove dcookies support
+> -----Original Message-----
+> From: Viresh Kumar <viresh.kumar@linaro.org>
+> Sent: Thursday, January 14, 2021 5:35 AM
+...
+> The "oprofile" user-space tools don't use the kernel OPROFILE support any
+> more, and haven't in a long time. User-space has been converted to the
+perf
+> interfaces.
 > 
-> After oprofile userland moved to version 1.x, the kernel support for
-> it isn't needed anymore. The switch was back in 2014 when oprofile
-> started using the perf syscall:
-> 
->  https://sourceforge.net/p/oprofile/oprofile/ci/ba9edea2bdfe2c9475749fc83105632bd916b96c
-> 
-> Since then I haven't received any significant patches to implement new
-> features or add support for newer platforms in the kernel. There
-> haven't been bug reports sent or questions asked on the mailing list
-> for quite a while, which indicates there are no or less users. Users
-> (if any) should switch to oprofile 1.x or the perf tool. No need to
-> carry kernel support any longer with us.
-> 
-> So time to get rid of it. For the whole series:
-> 
-> Acked-by: Robert Richter <rric@kernel.org>
+> Don't select HAVE_OPROFILE for hexagon anymore.
 
-The oprofile daemon that used the older oprofile kernel support was removed before OProfile 1.0 release by the following commit in August 2014:
+Acked-by: Brian Cain <bcain@codeaurora.org>
 
-https://sourceforge.net/p/oprofile/oprofile/ci/0c142c3a096d3e9ec42cc9b0ddad994fea60d135
-
-At this point it makes sense to clean up the kernel and remove this unused code.
-
-Acked-by: William Cohen <wcohen@redhat.com>
-
+> Suggested-by: Christoph Hellwig <hch@infradead.org>
+> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+> Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+> ---
+>  arch/hexagon/Kconfig | 1 -
+>  1 file changed, 1 deletion(-)
 > 
-> 
-> _______________________________________________
-> oprofile-list mailing list
-> oprofile-list@lists.sourceforge.net
-> https://lists.sourceforge.net/lists/listinfo/oprofile-list
-> 
+> diff --git a/arch/hexagon/Kconfig b/arch/hexagon/Kconfig index
+> 6e00c16a36b5..44a409967af1 100644
+> --- a/arch/hexagon/Kconfig
+> +++ b/arch/hexagon/Kconfig
+> @@ -7,7 +7,6 @@ config HEXAGON
+>  	select ARCH_32BIT_OFF_T
+>  	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+>  	select ARCH_NO_PREEMPT
+> -	select HAVE_OPROFILE
+>  	# Other pending projects/to-do items.
+>  	# select HAVE_REGS_AND_STACK_ACCESS_API
+>  	# select HAVE_HW_BREAKPOINT if PERF_EVENTS
+> --
+> 2.25.0.rc1.19.g042ed3e048af
+
 
 
 
