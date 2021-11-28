@@ -2,81 +2,115 @@ Return-Path: <oprofile-list-bounces@lists.sourceforge.net>
 X-Original-To: lists+oprofile-list@lfdr.de
 Delivered-To: lists+oprofile-list@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1A74231CCA9
-	for <lists+oprofile-list@lfdr.de>; Tue, 16 Feb 2021 16:10:39 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id D3205461C94
+	for <lists+oprofile-list@lfdr.de>; Mon, 29 Nov 2021 18:18:23 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <oprofile-list-bounces@lists.sourceforge.net>)
-	id 1lC1zp-0001PC-Ld; Tue, 16 Feb 2021 15:10:37 +0000
+	id 1mrkIE-00027r-V8; Mon, 29 Nov 2021 17:18:18 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <joe@perches.com>) id 1lC1zn-0001Op-Pn
- for oprofile-list@lists.sourceforge.net; Tue, 16 Feb 2021 15:10:35 +0000
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <slyich@gmail.com>) id 1mrFna-0003T4-Gp
+ for oprofile-list@lists.sourceforge.net; Sun, 28 Nov 2021 08:44:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Content-Type
- :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=UKA6Or7YS7Uljvog60XrITJifIC/hfcPN4xXobdj3c4=; b=Jlxb09r56WeLY5ouj53dAbpU0l
- GxvSt7RNPF/ztxsMzL7w1gw8KpqqE2H67zOSd3yEp8ksrFFkT5z1ZO/Gk3lJxD0tDFfPYWMHAyCXf
- vPABJqJrK0tDsfo6UbdtT8G+PMyE9zSNu+EDILr6cJD8CDC9Qh4x6s4RjtL6utXaS73w=;
+ bh=IqAfMKiH0B7DQuNtLfaPmdM5eeFrfJBM+abCuLIu9Ec=; b=j0y+gaF0JS3pKoHAXJAFaYQ8/5
+ yK44WcGbKgmhxMCclSQ0aZKaT/9BUQSdKn/qKusXJiOvNoVBirtCI3St1ZwNBmMoO3MTAi4yavffF
+ nGRtLJhslCwnom7CtCN8pQ7VDH835l4QIN3+zWd6Z+CfhOuTh8Xf04SrOBaKVelZr7CA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Content-Type:References:
- In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=UKA6Or7YS7Uljvog60XrITJifIC/hfcPN4xXobdj3c4=; b=ixEwkVlFfnWsAPUYa4NanqQTee
- XezE65VIH0wj4o7rR4FZ1qQcWBCY6ngV7OPQH/Ei5rTGB3muxUP42EIFk7A29oe5k7wSGoMeXnVgc
- hRU72CqBcVNNL/jtmYUpVX92TOXKZXQWAhBQRNnpf92mDX83nZ7UgwVYH1Z39MlQzhdE=;
-Received: from smtprelay0088.hostedemail.com ([216.40.44.88]
- helo=smtprelay.hostedemail.com)
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=IqAfMKiH0B7DQuNtLfaPmdM5eeFrfJBM+abCuLIu9Ec=; b=N
+ R98+fpbqSit5JFhgXi2X5N0/tj+MAfyLX4xqD1lhFEVl9/YqnrOjEnwpGguNU1G8UQ51sdyRmsUPf
+ Qe3aqJEfdNRfwhw7LP+Z7HQEUCWWZHnN+p/+daTvXe/37PMtrMTIg71qG4Nf5G7ck9IJtILKHx6X8
+ LMaOpP8rkfQz4/qE=;
+Received: from mail-wm1-f52.google.com ([209.85.128.52])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1lC1zj-00AzWo-56
- for oprofile-list@lists.sourceforge.net; Tue, 16 Feb 2021 15:10:35 +0000
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
- [216.40.38.60])
- by smtprelay07.hostedemail.com (Postfix) with ESMTP id 2F45D18025887;
- Tue, 16 Feb 2021 15:10:25 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
- RULES_HIT:41:355:379:599:800:960:968:973:988:989:1260:1261:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1539:1593:1594:1711:1714:1730:1747:1777:1792:2393:2559:2562:2828:3138:3139:3140:3141:3142:3351:3622:3867:3868:3870:3871:4321:4605:5007:7652:8604:9393:10004:10400:10848:11026:11232:11473:11658:11914:12043:12297:12740:12895:13069:13311:13357:13439:13894:14181:14659:14721:21080:21611:21627:30054:30091,
- 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
- DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
- LFtime:1, LUA_SUMMARY:none
-X-HE-Tag: music54_260346527644
-X-Filterd-Recvd-Size: 1747
-Received: from [192.168.1.159] (unknown [47.151.137.21])
- (Authenticated sender: joe@perches.com)
- by omf18.hostedemail.com (Postfix) with ESMTPA;
- Tue, 16 Feb 2021 15:10:23 +0000 (UTC)
-Message-ID: <bff39ad847650483ba2a14ccc1c0d8032bdfa3df.camel@perches.com>
-Subject: Re: [PATCH 02/29] alpha: Avoid comma separated statements
-From: Joe Perches <joe@perches.com>
-To: Robert Richter <rric@kernel.org>
-Date: Tue, 16 Feb 2021 07:10:22 -0800
-In-Reply-To: <YCvZGuKvtPi6ktNV@rric.localdomain>
-References: <cover.1598331148.git.joe@perches.com>
- <4facd57f80c70437f085ba3a1bcf13ae0b63c3bc.1598331148.git.joe@perches.com>
- <52f038d9ff547deee4e5b5628507e61ec8d056b7.camel@perches.com>
- <YCvZGuKvtPi6ktNV@rric.localdomain>
-User-Agent: Evolution 3.38.1-1 
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
+ id 1mrFnZ-00COGA-Te
+ for oprofile-list@lists.sourceforge.net; Sun, 28 Nov 2021 08:44:38 +0000
+Received: by mail-wm1-f52.google.com with SMTP id
+ c6-20020a05600c0ac600b0033c3aedd30aso10017964wmr.5
+ for <oprofile-list@lists.sf.net>; Sun, 28 Nov 2021 00:44:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=IqAfMKiH0B7DQuNtLfaPmdM5eeFrfJBM+abCuLIu9Ec=;
+ b=mIIhLxsGS3ruegbiCadectq4FvJl1NIBmpqu2qw8zSio6E5li1NNzco9OAsfpllKJ3
+ 1A6Yhn4q4A7qyBbigBESYKifROBs25DNhLemabEU2Bs8rPwZBCGqzi6E5w7FegcqtCsP
+ xfRUZwTy7EHlhwRdzfu6t+kY/y9i/2XyDy5dJKxmZuoUl6Xr5HSYzaIaEziOitAdjARD
+ 7BSJnrBQvORmaHvIIU3/tP4l7WxdMPWvNk+SjUV92moQecpGzc+/CADJSkE3F0UC2dqG
+ b/0tEVfuo1pARBEut66Ekl5eFlVphgBL2Oo9fw78bZryE/MjBtMegwl4Uh9y4RA+nnno
+ TGZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=IqAfMKiH0B7DQuNtLfaPmdM5eeFrfJBM+abCuLIu9Ec=;
+ b=Cq2JTtu6ZuTaw9/4aZtC3FPebc3NmMcUC5BRwx499ao5ZClNrFo9z7DaQAzUahLvTG
+ zcwmLTmUcLOdg69VP6Vqr2ouGu3mJODkfjeaUbZIjtCEbzNKL70TGCxNWFDtO3D7+dQH
+ NblxEBmj5dVeAJleQnh6wN3UkVhDUzLNF68+BFgbwpG1RdIcbjSTovg8l7sLrJpQPcaB
+ imUZGGPJOmd9q0yE3DEvQziZ8nCA55jpqNo0Erl1GEVkU4Bp2p2bKolH9Ry2dawpDORX
+ kuWvY4Up0HWhXLB4RdRRJ5Tjc7gar9ykwDxgrCyrHdjLsIQKHQlHEVNWufano2TnuzU9
+ FjPA==
+X-Gm-Message-State: AOAM530n5k9upYtfmjehnsBotshbEzo9JkaQhMuBKjeD/l9DFO3pnyi2
+ N5QDC0F16hNaezPEWVwJcvx0biZoeGw=
+X-Google-Smtp-Source: ABdhPJy6qE/utjHn+jWNF0EC9BL/WV3+Elcux02IxODcxkIW6/I7v2eEa2HAORtIKKlfWrkYlmj3Sg==
+X-Received: by 2002:a1c:9a16:: with SMTP id c22mr27964160wme.160.1638089071356; 
+ Sun, 28 Nov 2021 00:44:31 -0800 (PST)
+Received: from nz.home (host81-147-8-123.range81-147.btcentralplus.com.
+ [81.147.8.123])
+ by smtp.gmail.com with ESMTPSA id p8sm10576470wrx.25.2021.11.28.00.44.30
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 28 Nov 2021 00:44:30 -0800 (PST)
+Received: by nz.home (Postfix, from userid 1000)
+ id 01F3E118BA751; Sun, 28 Nov 2021 08:44:29 +0000 (GMT)
+From: Sergei Trofimovich <slyich@gmail.com>
+To: oprofile-list@lists.sf.net
+Subject: [PATCH] oprofile: fix build on gcc-12
+Date: Sun, 28 Nov 2021 08:44:28 +0000
+Message-Id: <20211128084428.1676181-1-slyich@gmail.com>
+X-Mailer: git-send-email 2.33.1
 MIME-Version: 1.0
-X-Spam-Score: 0.0 (/)
-X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
- See http://spamassassin.org/tag/ for more details.
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [216.40.44.88 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [216.40.44.88 listed in wl.mailspike.net]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+X-Spam-Score: -0.2 (/)
+X-Spam-Report: Spam detection software,
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ Content preview: `gcc-12` will forbid std::string(nullptr_t) constructors (as
+ they never had a defined behaviour): operf_stats.cpp:182:24: error: use of
+ deleted function 'std::__cxx11::basic_string...;
+ std::nullptr_t = std::nullptr_t]' 182 | return NULL; | ^~~~ 
+ Content analysis details:   (-0.2 points, 6.0 required)
+ pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.128.52 listed in list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [slyich[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1lC1zj-00AzWo-56
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.128.52 listed in wl.mailspike.net]
+X-Headers-End: 1mrFnZ-00COGA-Te
+X-Mailman-Approved-At: Mon, 29 Nov 2021 17:18:17 +0000
 X-BeenThere: oprofile-list@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -89,36 +123,38 @@ List-Post: <mailto:oprofile-list@lists.sourceforge.net>
 List-Help: <mailto:oprofile-list-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/oprofile-list>, 
  <mailto:oprofile-list-request@lists.sourceforge.net?subject=subscribe>
-Cc: Jiri Kosina <trivial@kernel.org>, linux-kernel@vger.kernel.org,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, linux-alpha@vger.kernel.org,
- oprofile-list@lists.sf.net, Matt Turner <mattst88@gmail.com>,
- Richard Henderson <rth@twiddle.net>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: Sergei Trofimovich <slyich@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: oprofile-list-bounces@lists.sourceforge.net
 
-On Tue, 2021-02-16 at 15:39 +0100, Robert Richter wrote:
-> On 30.01.21 10:54:42, Joe Perches wrote:
-> > On Mon, 2020-08-24 at 21:55 -0700, Joe Perches wrote:
-> > > Use semicolons and braces.
-> > =
+`gcc-12` will forbid std::string(nullptr_t) constructors
+(as they never had a defined behaviour):
 
-> > ping?
-> > =
+    operf_stats.cpp:182:24: error: use of deleted function 'std::__cxx11::basic_string...; std::nullptr_t = std::nullptr_t]'
+      182 |                 return NULL;
+          |                        ^~~~
 
-> > > =
+Signed-off-by: Sergei Trofimovich <slyich@gmail.com>
+---
+ libperf_events/operf_stats.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> > > Signed-off-by: Joe Perches <joe@perches.com>
-> > > ---
-> > > =A0arch/alpha/kernel/pci_iommu.c      |  8 +++++---
-> > > =A0arch/alpha/oprofile/op_model_ev4.c | 22 ++++++++++++++--------
-> > > =A0arch/alpha/oprofile/op_model_ev5.c |  8 +++++---
-> =
-
-> This patch should be rebased as oprofile is going to be removed in
-> 5.12. A branch is in linux-next.
-
-git am --include=3Darch/alpha/kernel/pci_iommu.c
+diff --git a/libperf_events/operf_stats.cpp b/libperf_events/operf_stats.cpp
+index 3cc28a75..a7bd0aec 100644
+--- a/libperf_events/operf_stats.cpp
++++ b/libperf_events/operf_stats.cpp
+@@ -179,7 +179,7 @@ static string create_stats_dir(string const & cur_sampledir)
+ 	if (rc && (errno != EEXIST)) {
+ 		cerr << "Error trying to create stats dir. " << endl;
+ 		perror("mkdir failed with");
+-		return NULL;
++		return "";
+ 	}
+ 	return stats_dir;
+ }
+-- 
+2.33.1
 
 
 
